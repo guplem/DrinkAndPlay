@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using UnityEditor;
 using UnityEngine;
@@ -50,7 +51,7 @@ class downloadCSV
         }
     }
 
-    [MenuItem("Drink and Play/DownloadCSV")]
+    [MenuItem("Drink and Play/Download localization file")]
     public static void DownloadCSV()
     {
         /*
@@ -76,12 +77,13 @@ class downloadCSV
         wc.Headers.Add("Accept-Encoding", "deflate");
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
-        //var outputCSVdata = wc.DownloadString(url);
-
         byte[] dt = wc.DownloadData(url);
-        var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
+        File.WriteAllBytes("Assets/Resources/LocalizationFile.txt", dt);
 
+        //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
+        //Debug.Log("CSV Output: " + outputCSVdata);
         //Console.Write(outputCSVdata);
-        Debug.Log("CSV Output: " + outputCSVdata);
+
+        Debug.Log("File downloaded");
     }
 }

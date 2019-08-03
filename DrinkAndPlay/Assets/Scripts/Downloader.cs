@@ -51,16 +51,21 @@ class Downloader
         }
     }
 
-    [MenuItem("Drink and Play/Download localization file")]
-    public static void DownloadLocalizationFileAsCSV()
+    public static void DownloadLocalizationFileAsCSV(string url, string name)
     {
+        if (string.IsNullOrEmpty(name))
+        {
+            Debug.LogError("The desired fileName is null or empty. Error downloading localization file (" + url + ")");
+            return;
+        }
+
         /*
             INSTRUCTIONS:
             In your Google Spread, go to: File > Publish to the Web > Link > CSV
             You'll be given a link. Put that link into a WWW request and the text you get back will be your data in CSV form.
         */
 
-        string url = @"https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?output=csv"; //Published to the web
+        //string url = @"https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?output=csv"; //Published to the web
 
         WebClientEx wc = new WebClientEx(new CookieContainer());
         wc.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0");
@@ -70,11 +75,34 @@ class Downloader
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
         byte[] dt = wc.DownloadData(url);
-        File.WriteAllBytes("Assets/Resources/LocalizationFile.csv", dt);
+        File.WriteAllBytes("Assets/Resources/LocalizationFile_" + name + ".csv", dt);
 
         //to convert it to string
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-        Debug.Log("Localization file downloaded.");
+        Debug.Log(name + " localization file has been downloaded.");
     }
+
+    [MenuItem("Drink and Play/Download all localization files")]
+    public static void DownloadAllLocalizationFileAsCSV()
+    {
+        //Search all sections
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
+        Section[] sections = new Section[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            sections[i] = AssetDatabase.LoadAssetAtPath<Section>(path);
+        }
+
+        //Download every section
+        foreach (Section section in sections)
+            DownloadLocalizationFileAsCSV(section.localizationURL, section.sectionName);
+
+        //Download general
+        DownloadLocalizationFileAsCSV(Section.uiLocalizationURL, "UI");
+
+        Debug.Log("All Localization files have been downloaded.");
+    }
+
 }

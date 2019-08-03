@@ -10,10 +10,88 @@ public class CSVReader
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
     static char[] TRIM_CHARS = { '\"' };
 
-    public static List<Dictionary<string, object>> Read(string file)
+    public static List<Dictionary<string, string>> ReadWithHeaders(string fileName)
+    {
+        var table = new List<Dictionary<string, string>>();
+        TextAsset csvFile = Resources.Load(fileName) as TextAsset;
+
+        var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
+
+        if (lines.Length <= 1) return table;
+
+        var headers = Regex.Split(lines[0], SPLIT_RE);
+
+        for (var i = 1; i < lines.Length; i++)
+        {
+            var values = Regex.Split(lines[i], SPLIT_RE);
+            if (values.Length == 0 || values[0] == "") continue;
+
+            var rowInTable = new Dictionary<string, string>();
+            for (var j = 0; j < headers.Length && j < values.Length; j++)
+            {
+                //Clean value
+                string value = values[j].Replace("\"\"", "\"");
+                value = UnquoteString(value);
+                value = value.Replace("\\", "");
+                string finalvalue = value;
+
+                rowInTable[headers[j]] = finalvalue;
+            }
+            table.Add(rowInTable);
+        }
+        return table;
+    }
+
+    public static List<string[]> Read(string fileName)
+    {
+        var table = new List<string[]>();
+        TextAsset csvFile = Resources.Load(fileName) as TextAsset;
+
+        var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
+
+        if (lines.Length <= 1) return null;
+
+        var headers = Regex.Split(lines[0], SPLIT_RE);
+
+        for (var i = 1; i < lines.Length; i++)
+        {
+            var values = Regex.Split(lines[i], SPLIT_RE);
+            if (values.Length == 0 || values[0] == "") continue;
+
+            var rowInTable = new string[headers.Length];
+            for (var j = 0; j < headers.Length && j < values.Length; j++)
+            {
+                //Clean value
+                string value = values[j].Replace("\"\"", "\"");
+                value = UnquoteString(value);
+                value = value.Replace("\\", "");
+                string finalvalue = value;
+
+                rowInTable[j] = finalvalue;
+            }
+            table.Add(rowInTable);
+        }
+        return table;
+    }
+
+    public static string UnquoteString(string str)
+    {
+        if (String.IsNullOrEmpty(str))
+            return str;
+
+        int length = str.Length;
+        if (length > 1 && str[0] == '\"' && str[length - 1] == '\"')
+            str = str.Substring(1, length - 2);
+
+        return str;
+    }
+
+
+    /*   // ORIGINAL METHOD //
+    public static List<Dictionary<string, object>> Read(string fileName) 
     {
         var list = new List<Dictionary<string, object>>();
-        TextAsset data = Resources.Load(file) as TextAsset;
+        TextAsset data = Resources.Load(fileName) as TextAsset;
 
         var lines = Regex.Split(data.text, LINE_SPLIT_RE);
 
@@ -49,16 +127,5 @@ public class CSVReader
         }
         return list;
     }
-
-    public static string UnquoteString(string str)
-    {
-        if (String.IsNullOrEmpty(str))
-            return str;
-
-        int length = str.Length;
-        if (length > 1 && str[0] == '\"' && str[length - 1] == '\"')
-            str = str.Substring(1, length - 2);
-
-        return str;
-    }
+    */
 }

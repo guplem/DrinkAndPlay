@@ -6,10 +6,12 @@ using UnityEngine;
 public class LocalizationManager
 {
     private ConfigurationManager configurationManager;
+    Dictionary<string, List<LocalizedText>> localizedGroups;
 
     public LocalizationManager(ConfigurationManager configurationManager)
     {
         this.configurationManager = configurationManager;
+        localizedGroups = new Dictionary<string, List<LocalizedText>>();
     }
 
     public bool LoadCurrentLanguage(string textsType)
@@ -36,24 +38,7 @@ public class LocalizationManager
         }
         */
 
-        //Open file
-        //Foreach line
-        //Save the line as localizated text map
-
-
-        List<Dictionary<string, object>> data = CSVReader.Read("LocalizationFile");
-
-        for (var i = 0; i < data.Count; i++)
-        {
-            Debug.Log("Type '" + data[i]["Type"] + "'");
-            Debug.Log("Id '" + data[i]["Id"] + "'");
-            Debug.Log("NaughtyLevel '" + data[i]["NaughtyLevel"] + "'");
-            Debug.Log("es-es '" + data[i]["es-es"] + "'");
-            Debug.Log("en-us '" + data[i]["en-us"] + "'");
-            Debug.Log("================================");
-        }
-
-
+        var dataReaded = CSVReader.Read(textsType);
 
 
         return true;

@@ -38,7 +38,9 @@ public class LocalizationManager
         }
 
         string[][] dataReaded = CSVReader.Read(section).ToArray();
-        int languageColumn = -1;
+        int idCol = -1;
+        int naughtyCol = -1;
+        int langCol = -1;
 
         for (int row = 0; row < dataReaded.Length; row++)
         {
@@ -49,20 +51,21 @@ public class LocalizationManager
                 for (int col = 0; col < dataReaded[row].Length; col++)
                 {
 
-                    // Check that the format is correct
-                    if (col == 0 && dataReaded[row][col].ToUpper().CompareTo("ID") != 0)
-                        Debug.LogError("The localizatioin file for " + section + " does not have the 1st colum setted as 'ID'.");
-                    if (col == 1 && dataReaded[row][col].ToUpper().CompareTo("NAUGHTINESS") != 0)
-                        Debug.LogError("The localizatioin file for " + section + " does not have the 2nd colum setted as 'NAUGHTINESS'.");
+                    if (dataReaded[row][col].ToUpper().CompareTo("ID") != 0)
+                        idCol = col;
+                    if (dataReaded[row][col].ToUpper().CompareTo("NAUGHTINESS") != 0)
+                        naughtyCol = col;
+                    if (dataReaded[row][col].ToUpper().CompareTo(lang.ToUpper()) == 0)
+                        langCol = col;
 
-                    //Check if the column is the language
-                    if (col > 1)
-                        if (dataReaded[row][col].ToUpper().CompareTo(lang.ToUpper()) == 0)
-                        {
-                            languageColumn = col;
-                            break;
-                        }
+                    if (idCol > -1 && naughtyCol > -1 && langCol > -1)
+                        break;
                 }
+
+                if (idCol < 0)
+                    Debug.LogError("The section '" + section + "' is missing the 'ID' column in its localization file");
+                else if (langCol < 0)
+                    Debug.LogError("The section '" + section + "' is missing the column '" + lang + "' in its localization file.     ('"  + lang + "' is the current language.)");
             }
 
 
@@ -70,7 +73,7 @@ public class LocalizationManager
             else
             {
                 int.TryParse(dataReaded[row][1], out int naughtiness);
-                LocalizedText localizedText = new LocalizedText(dataReaded[row][0], naughtiness, dataReaded[row][languageColumn]);
+                LocalizedText localizedText = new LocalizedText(dataReaded[row][0], naughtiness, dataReaded[row][langCol]);
                 SaveLocalizedText(section, localizedText);
             }
 

@@ -52,7 +52,7 @@ public class CSVReader
 
         var table = new List<string[]>();
 
-        TextAsset csvFile = Resources.Load(section.name) as TextAsset;
+        TextAsset csvFile = Resources.Load(section.ToString()) as TextAsset;
 
         var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
 

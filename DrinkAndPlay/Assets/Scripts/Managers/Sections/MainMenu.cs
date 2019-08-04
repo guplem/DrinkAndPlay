@@ -6,7 +6,7 @@ public class MainMenu : SectionManager
 {
     void Start()
     {
-        Debug.Log("Started main menu");
+        Debug.Log("Started MainMenu' SectionManager.");
     }
 
 }

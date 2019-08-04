@@ -8,17 +8,27 @@ public abstract class SectionManager : MonoBehaviour
 {
     public GameManager gm { get; private set; }
     [SerializeField] private GameObject GameManagerPrefab;
-    public static SectionManager Current { get; private set; }
+    public static SectionManager Instance { get; private set; }
+    [SerializeField] public Section section;
 
     private void Awake()
     {
-        if (GameManagerPrefab == null)
-            Debug.LogError("'GameManagerPrefab is null in the object' " + name, gameObject);
+        GameManagerManagement();
 
+        Instance = this;
+
+        if (section == null)
+            Debug.LogError("The 'section' is null in the object' " + name, gameObject);
+
+        gm.localizationManager.LoadCurrentLanguage(section);
+    }
+
+    private void GameManagerManagement()
+    {
+        if (GameManagerPrefab == null)
+            Debug.LogError("'GameManagerPrefab' is null in the object " + name, gameObject);
         Instantiate(GameManagerPrefab).GetComponent<GameManager>().Initialize();
         gm = GameManager.Instance;
-        Current = this;
-        Debug.Log("Awaked section manager");
     }
 
 

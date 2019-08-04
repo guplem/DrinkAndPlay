@@ -76,18 +76,18 @@ class Downloader
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
         byte[] dt = wc.DownloadData(section.localizationURL);
-        File.WriteAllBytes("Assets/Resources/" + section.name + ".csv", dt);
+        File.WriteAllBytes("Assets/Resources/" + section + ".csv", dt);
 
         //to convert it to string
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-        Debug.Log(section.name + " localization file has been downloaded.");
+        Debug.Log(section + " localization file has been downloaded.");
     }
 
     [MenuItem("Drink and Play/Download all localization files")]
     public static void DownloadAllLocalizationFileAsCSV()
     {
-        //Search all sections
+        //Search all sections (including UI)
         string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
         Section[] sections = new Section[guids.Length];
         for (int i = 0; i < guids.Length; i++)
@@ -96,12 +96,9 @@ class Downloader
             sections[i] = AssetDatabase.LoadAssetAtPath<Section>(path);
         }
 
-        //Download every section
+        //Download every section (including UI)
         foreach (Section section in sections)
             DownloadLocalizationFileAsCSV(section);
-
-        //Download general
-        DownloadLocalizationFileAsCSV(null); //null == "UI"
 
         Debug.Log("All Localization files have been downloaded.");
     }

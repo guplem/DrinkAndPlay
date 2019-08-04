@@ -5,10 +5,10 @@ using UnityEngine;
 public class LocalizedText
 {
     public string id { get; private set; }
-    public string naughtiness { get; private set; }
+    public int naughtiness { get; private set; }
     public string text { get; private set; }
 
-    public LocalizedText(string id, string naughtiness, string text)
+    public LocalizedText(string id, int naughtiness, string text)
     {
         this.id = id;
         this.naughtiness = naughtiness;

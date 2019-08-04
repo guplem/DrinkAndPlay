@@ -51,13 +51,13 @@ public class LocalizationManager
 
                     // Check that the format is correct
                     if (col == 0 && dataReaded[row][col].ToUpper().CompareTo("ID") != 0)
-                        Debug.LogError("The localizatioin file for " + section.name + " does not have the 1st colum setted as 'ID'.");
+                        Debug.LogError("The localizatioin file for " + section + " does not have the 1st colum setted as 'ID'.");
                     if (col == 1 && dataReaded[row][col].ToUpper().CompareTo("NAUGHTINESS") != 0)
-                        Debug.LogError("The localizatioin file for " + section.name + " does not have the 2nd colum setted as 'NAUGHTINESS'.");
+                        Debug.LogError("The localizatioin file for " + section + " does not have the 2nd colum setted as 'NAUGHTINESS'.");
 
                     //Check if the column is the language
                     if (col > 1)
-                        if (dataReaded[row][col].ToUpper().CompareTo(lang.ToUpper()) != 0)
+                        if (dataReaded[row][col].ToUpper().CompareTo(lang.ToUpper()) == 0)
                         {
                             languageColumn = col;
                             break;
@@ -69,12 +69,14 @@ public class LocalizationManager
             //Save the localized text with the proper language
             else
             {
-                LocalizedText localizedText = new LocalizedText(dataReaded[row][0], dataReaded[row][1], dataReaded[row][languageColumn]);
+                int.TryParse(dataReaded[row][1], out int naughtiness);
+                LocalizedText localizedText = new LocalizedText(dataReaded[row][0], naughtiness, dataReaded[row][languageColumn]);
                 SaveLocalizedText(section, localizedText);
             }
 
         }
 
+        Debug.Log("Success loading the localized texts for the section '" + section + "'.");
         return true;
     }
 
@@ -82,13 +84,13 @@ public class LocalizationManager
     {
         if (section == null)
         {
-            Debug.LogError("Trying to save a localized text of a 'null' section");
+            Debug.LogError("Trying to save a localized text of a 'null' section.");
             return;
         }
 
         if (section == null)
         {
-            Debug.LogError("Trying to save 'null' localizedText");
+            Debug.LogError("Trying to save 'null' localizedText.");
             return;
         }
 
@@ -98,5 +100,28 @@ public class LocalizationManager
             localizedTexts.Add(section, new List<LocalizedText>());
 
         localizedTexts[section].Add(localizedText);
+    }
+
+    public LocalizedText GetLocalizedText(Section section, string id, bool register)
+    {
+        //TODO: Registration of the querry to get the text if "register == true"
+
+        foreach (LocalizedText localizedText in localizedTexts[section])
+        {
+            if (localizedText.id == id)
+                return localizedText;
+        }
+        return new LocalizedText(id, -1, "The text with id " + id + " could not be found in the section " + section);
+    }
+
+    public delegate void LocalizeAllAction();
+    public static event LocalizeAllAction OnLocalizeAllAction;
+    public void LocalizeAllLocalizableObjects()
+    {
+        if (OnLocalizeAllAction != null)
+        {
+            Debug.Log("   > " + "Localizing all objects");
+            OnLocalizeAllAction();
+        }
     }
 }

@@ -9,10 +9,11 @@ public class GameManager : MonoBehaviour
     public LocalizationManager localizationManager { get; private set; }
     public SavesManager savesManager { get; private set; }
     public ConfigurationManager configurationManager { get; private set; }
+    public Section uiSection;
 
 
     public static GameManager Instance { get; private set; }
-    private void Awake()
+    public void Initialize()
     {
         if (Instance != null)
         {
@@ -24,15 +25,20 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        Setup();
     }
 
 
-    void Start()
+    private void Setup()
     {
         savesManager = new SavesManager();
         configurationManager = new ConfigurationManager(savesManager);
         localizationManager = new LocalizationManager(configurationManager);
 
-        localizationManager.LoadCurrentLanguage("UI");
+        if (uiSection == null)
+            Debug.LogError("UI Section not set up in the GameManager");
+        localizationManager.LoadCurrentLanguage(uiSection);
+
+        Debug.Log("Game Manager setup completed");
     }
 }

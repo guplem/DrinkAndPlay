@@ -51,11 +51,12 @@ class Downloader
         }
     }
 
-    public static void DownloadLocalizationFileAsCSV(string url, string name)
+    public static void DownloadLocalizationFileAsCSV(Section section)
     {
-        if (string.IsNullOrEmpty(name))
+
+        if (section == null)
         {
-            Debug.LogError("The desired fileName is null or empty. Error downloading localization file (" + url + ")");
+            Debug.LogError("Trying to download the localization file of a 'null' section");
             return;
         }
 
@@ -63,9 +64,9 @@ class Downloader
             INSTRUCTIONS:
             In your Google Spread, go to: File > Publish to the Web > Link > CSV
             You'll be given a link. Put that link into a WWW request and the text you get back will be your data in CSV form.
+            // Example URL
+            //string url = @"https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?output=csv"; //Published to the web
         */
-
-        //string url = @"https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?output=csv"; //Published to the web
 
         WebClientEx wc = new WebClientEx(new CookieContainer());
         wc.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0");
@@ -74,13 +75,13 @@ class Downloader
         wc.Headers.Add("Accept-Encoding", "deflate");
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
-        byte[] dt = wc.DownloadData(url);
-        File.WriteAllBytes("Assets/Resources/LocalizationFile_" + name + ".csv", dt);
+        byte[] dt = wc.DownloadData(section.localizationURL);
+        File.WriteAllBytes("Assets/Resources/" + section.name + ".csv", dt);
 
         //to convert it to string
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-        Debug.Log(name + " localization file has been downloaded.");
+        Debug.Log(section.name + " localization file has been downloaded.");
     }
 
     [MenuItem("Drink and Play/Download all localization files")]
@@ -97,10 +98,10 @@ class Downloader
 
         //Download every section
         foreach (Section section in sections)
-            DownloadLocalizationFileAsCSV(section.localizationURL, section.sectionName);
+            DownloadLocalizationFileAsCSV(section);
 
         //Download general
-        DownloadLocalizationFileAsCSV(Section.uiLocalizationURL, "UI");
+        DownloadLocalizationFileAsCSV(null); //null == "UI"
 
         Debug.Log("All Localization files have been downloaded.");
     }

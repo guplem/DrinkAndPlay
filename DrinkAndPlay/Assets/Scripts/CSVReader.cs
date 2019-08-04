@@ -42,10 +42,17 @@ public class CSVReader
         return table;
     }
 
-    public static List<string[]> Read(string fileName)
+    public static List<string[]> Read(Section section)
     {
+        if (section == null)
+        {
+            Debug.LogError("Trying to read the localization file of a 'null' section");
+            return null;
+        }
+
         var table = new List<string[]>();
-        TextAsset csvFile = Resources.Load(fileName) as TextAsset;
+
+        TextAsset csvFile = Resources.Load(section.name) as TextAsset;
 
         var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
 
@@ -53,7 +60,7 @@ public class CSVReader
 
         var headers = Regex.Split(lines[0], SPLIT_RE);
 
-        for (var i = 1; i < lines.Length; i++)
+        for (var i = 0; i < lines.Length; i++)
         {
             var values = Regex.Split(lines[i], SPLIT_RE);
             if (values.Length == 0 || values[0] == "") continue;

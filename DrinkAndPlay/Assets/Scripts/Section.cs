@@ -6,8 +6,8 @@ using UnityEngine;
 public class Section : ScriptableObject
 {
     [Header("Section information")]
-    public string sectionName;
-    public string description;
+    public string nameId;
+    public string descriptionId;
     public Sprite image;
     public bool newness;
     public bool comingSoon;
@@ -22,11 +22,23 @@ public class Section : ScriptableObject
     public bool showPlayers;
     public bool showLanguage;
 
-    public static string uiLocalizationURL { get { return "https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=0&single=true&output=csv"; } private set { ; } }
-
     public Section()
     {
         minNumberOfPlayers = -1;
     }
 
+    public override int GetHashCode()
+    {
+        return name.GetHashCode();
+    }
+
+    public override bool Equals(object other)
+    {
+        return GetHashCode() == ((Section)other).GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return name;
+    }
 }

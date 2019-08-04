@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: 
   descriptionId: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 2ee10f27803e36d40b75d27c6b145c48, type: 3}
   newness: 0
   comingSoon: 0
   premium: 0
   localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=0&single=true&output=csv
   minNumberOfPlayers: -1
-  showNaughyLevel: 0
-  showPlayers: 0
-  showLanguage: 0
+  sceneName: 
+  showNaughyLevelConfigurator: 0
+  showPlayersConfigurator: 0
+  showLanguageConfigurator: 0

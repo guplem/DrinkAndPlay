@@ -11,6 +11,7 @@ public abstract class SectionManager : MonoBehaviour
     public static SectionManager Instance { get; private set; }
     [SerializeField] public Section section;
 
+
     private void Awake()
     {
         GameManagerManagement();
@@ -20,7 +21,7 @@ public abstract class SectionManager : MonoBehaviour
         if (section == null)
             Debug.LogError("The 'section' is null in the object' " + name, gameObject);
 
-        gm.localizationManager.LoadCurrentLanguage(section);
+        gm.localizationManager.LoadCurrentLanguageFor(section);
     }
 
     private void GameManagerManagement()

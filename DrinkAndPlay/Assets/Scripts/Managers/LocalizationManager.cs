@@ -21,7 +21,7 @@ public class LocalizationManager
         return false;
     }
 
-    public bool LoadCurrentLanguage(Section section)
+    public bool LoadCurrentLanguageFor(Section section)
     {
         if (section == null)
         {

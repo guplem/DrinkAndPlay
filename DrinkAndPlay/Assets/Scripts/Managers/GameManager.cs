@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
         if (uiSection == null)
             Debug.LogError("UI Section not set up in the GameManager.");
-        localizationManager.LoadCurrentLanguage(uiSection);
+        localizationManager.LoadCurrentLanguageFor(uiSection);
 
         Debug.Log("Game Manager setup completed.");
     }

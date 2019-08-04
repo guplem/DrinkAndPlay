@@ -14,13 +14,15 @@ public class Section : ScriptableObject
     public bool premium;
 
     [Header("Section configuration")]
+    [TextArea]
     public string localizationURL;
     public int minNumberOfPlayers;
+    public string sceneName;
 
     [Header("Start configuration")]
-    public bool showNaughyLevel;
-    public bool showPlayers;
-    public bool showLanguage;
+    public bool showNaughyLevelConfigurator;
+    public bool showPlayersConfigurator;
+    public bool showLanguageConfigurator;
 
     public Section()
     {

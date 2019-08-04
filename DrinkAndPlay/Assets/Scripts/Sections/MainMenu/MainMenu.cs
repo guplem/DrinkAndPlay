@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainMenu : SectionManager
 {
+
+    [SerializeField] private Section[] sectionsToDisplay;
+
     void Start()
     {
         Debug.Log("Started MainMenu' SectionManager.");

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c33cc80490e1241bc72d07bf92bb48, type: 3}
   m_Name: NeverHaveIEver
   m_EditorClassIdentifier: 
-  sectionName: NeverHaveIEver
-  description: 
-  image: {fileID: 0}
+  nameId: 
+  descriptionId: 
+  image: {fileID: 21300000, guid: 17cefa3c15ef6934fac3d69cd3f27bb8, type: 3}
   newness: 0
   comingSoon: 0
   premium: 0
   localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=1014940719&single=true&output=csv
   minNumberOfPlayers: -1
-  showNaughyLevel: 0
-  showPlayers: 0
-  showLanguage: 0
+  sceneName: 
+  showNaughyLevelConfigurator: 0
+  showPlayersConfigurator: 0
+  showLanguageConfigurator: 0

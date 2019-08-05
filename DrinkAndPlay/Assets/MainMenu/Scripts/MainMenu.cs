@@ -7,31 +7,22 @@ using UnityEngine;
 public class MainMenu : SectionManager
 {
     [Header("Sections - Games")]
-    [SerializeField] private Section[] sectionsToDisplay;
     [SerializeField] private GameObject verticalScrollContentHolder;
     [SerializeField] private GameObject mainMenuGamePrefab;
+    [SerializeField] private Section[] sectionsToDisplay;
+
     [Header("Coctels - Recipes")]
-    [SerializeField] private Coctel[] coctelsToDisplay;
     [SerializeField] private GameObject HorizontalMenu;
     [SerializeField] private GameObject horizontalScrollContentHolder;
     [SerializeField] private GameObject mainMenuCoctelPrefab;
+    [SerializeField] private Coctel[] coctelsToDisplay;
 
 
     void Start()
     {
+        GenerateMenu();
+
         Debug.Log("Started MainMenu' SectionManager.");
-
-        List<Transform> exceptions = new List<Transform>();
-        exceptions.Add(HorizontalMenu.transform);
-        DestroyContentsOf(verticalScrollContentHolder.transform, exceptions);
-
-        for (int s = 0; s < sectionsToDisplay.Length; s++)
-        {
-            GameObject game = Instantiate(mainMenuGamePrefab, verticalScrollContentHolder.transform);
-            game.transform.SetSiblingIndex(s);
-            game.GetComponent<MainMenuGame>().Setup(sectionsToDisplay[s]);
-        }
-
     }
 
     private void DestroyContentsOf(Transform ParentToClean, List<Transform> exceptions)
@@ -49,5 +40,32 @@ public class MainMenu : SectionManager
                 foreach (Transform exception in exceptions)
                     Debug.LogError("  --> " + exception.name);
             }
+    }
+
+    public void GenerateMenu()
+    {
+        List<Transform> exceptions = new List<Transform>();
+
+        //Games
+        exceptions.Add(HorizontalMenu.transform);
+        DestroyContentsOf(verticalScrollContentHolder.transform, exceptions);
+
+        for (int s = 0; s < sectionsToDisplay.Length; s++)
+        {
+            GameObject game = Instantiate(mainMenuGamePrefab, verticalScrollContentHolder.transform);
+            game.transform.SetSiblingIndex(s);
+            game.GetComponent<MainMenuGame>().Setup(sectionsToDisplay[s]);
+        }
+
+        //Coctels
+        exceptions.Clear();
+        DestroyContentsOf(horizontalScrollContentHolder.transform, exceptions);
+
+        for (int c = 0; c < coctelsToDisplay.Length; c++)
+        {
+            GameObject coctel = Instantiate(mainMenuCoctelPrefab, horizontalScrollContentHolder.transform);
+            coctel.transform.SetSiblingIndex(c);
+            coctel.GetComponent<MainMenuCoctel>().Setup(coctelsToDisplay[c]);
+        }
     }
 }

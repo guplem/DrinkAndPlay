@@ -17,6 +17,9 @@ public class MainMenuGame : MonoBehaviour
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
         ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
         ar.aspectRatio = section.image.rect.width / section.image.rect.height;
+
+        image.sprite = section.image;
+        titleText.id = section.nameId;
     }
 
     public void SelectGame()

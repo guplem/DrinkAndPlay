@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c33cc80490e1241bc72d07bf92bb48, type: 3}
   m_Name: UI
   m_EditorClassIdentifier: 
-  nameId: 
-  descriptionId: 
+  nameId: UIN
+  descriptionId: UID
   image: {fileID: 21300000, guid: 2ee10f27803e36d40b75d27c6b145c48, type: 3}
   newness: 0
   comingSoon: 0

@@ -9,6 +9,7 @@ public class Localizer : MonoBehaviour
 {
 
     [SerializeField] public string id;
+    [SerializeField] public bool warnIfNullId = true;
     [SerializeField] public bool automaticallyLocalizeOnEnable = true;
     [SerializeField] public bool registerTimestampAtLocalize;
     [SerializeField] public bool isUI;
@@ -44,10 +45,21 @@ public class Localizer : MonoBehaviour
             LocalizationManager.OnLocalizeAllAction -= Localize;
     }
 
+    public void ForceLocalize(string id)
+    {
+        this.id = id;
+        Localize();
+    }
+
+
     public void Localize()
     {
-        if (string.IsNullOrEmpty(id))
+
+        if ((string.IsNullOrEmpty(id)) && (warnIfNullId))
+        {
             Debug.LogWarning("Trying to localize the object '" + gameObject.name + "' but the 'id' in the 'Localizer' component is null or empty (may be intended)");
+            return;
+        }
 
         Section section = isUI ? GameManager.Instance.uiSection : SectionManager.Instance.section;
 

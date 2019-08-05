@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+#pragma warning disable 0649
 public class MainMenuCoctel : MonoBehaviour
 {
     private Coctel coctel;
@@ -14,7 +15,7 @@ public class MainMenuCoctel : MonoBehaviour
         this.coctel = coctel;
 
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
-        ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+        //ar.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
         ar.aspectRatio = coctel.image.rect.width / coctel.image.rect.height;
 
         image.sprite = coctel.image;

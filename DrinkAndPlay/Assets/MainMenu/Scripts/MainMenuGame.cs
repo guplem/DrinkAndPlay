@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+#pragma warning disable 0649
 public class MainMenuGame : MonoBehaviour
 {
     private Section section;
@@ -15,7 +16,7 @@ public class MainMenuGame : MonoBehaviour
         this.section = section;
 
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
-        ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
+        //ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
         ar.aspectRatio = section.image.rect.width / section.image.rect.height;
 
         image.sprite = section.image;

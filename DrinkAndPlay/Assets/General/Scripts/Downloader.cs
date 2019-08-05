@@ -76,7 +76,7 @@ class Downloader
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
         byte[] dt = wc.DownloadData(section.localizationURL);
-        File.WriteAllBytes("Assets/Resources/" + section + ".csv", dt);
+        File.WriteAllBytes("Assets/General/Resources/" + section + ".csv", dt);
 
         //to convert it to string
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });

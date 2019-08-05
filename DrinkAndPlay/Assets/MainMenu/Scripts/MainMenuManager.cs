@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable 0649
-public class MainMenu : SectionManager
+public class MainMenuManager : SectionManager
 {
     [Header("Sections - Games")]
     [SerializeField] private GameObject verticalScrollContentHolder;
@@ -20,6 +20,7 @@ public class MainMenu : SectionManager
 
     void Start()
     {
+        //TODO: Is it necessary to do it at start? The build could be done with the proper menu already using the custom inspector (MainMenuEditor)
         GenerateMenu();
 
         Debug.Log("Started MainMenu' SectionManager.");

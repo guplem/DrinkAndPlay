@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MainMenu))]
+[CustomEditor(typeof(MainMenuManager))]
 public class MainMenuEditor : Editor
 {
 
@@ -11,7 +11,7 @@ public class MainMenuEditor : Editor
     {
         base.OnInspectorGUI();
 
-        MainMenu mainMenuManager = (MainMenu)target;
+        MainMenuManager mainMenuManager = (MainMenuManager)target;
 
         GUILayout.Space(25);
         if (GUILayout.Button("Generate menu"))

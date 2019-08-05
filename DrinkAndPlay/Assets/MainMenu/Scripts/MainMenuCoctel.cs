@@ -7,7 +7,6 @@ public class MainMenuCoctel : MonoBehaviour
 {
     private Coctel coctel;
     [SerializeField] private Image image;
-    [SerializeField] private Localizer titleText;
 
 
     public void Setup(Coctel coctel)
@@ -17,6 +16,8 @@ public class MainMenuCoctel : MonoBehaviour
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
         ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
         ar.aspectRatio = coctel.image.rect.width / coctel.image.rect.height;
+
+        image.sprite = coctel.image;
     }
 
     public void SelectCoctel()

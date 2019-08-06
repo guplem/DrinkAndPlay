@@ -32,5 +32,4 @@ public abstract class SectionManager : MonoBehaviour
         gm = GameManager.Instance;
     }
 
-
 }

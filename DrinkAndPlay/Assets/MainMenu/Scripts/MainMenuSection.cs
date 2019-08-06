@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 #pragma warning disable 0649
-public class MainMenuGame : MonoBehaviour
+public class MainMenuSection : MonoBehaviour
 {
     private Section section;
     [SerializeField] private Image image;
@@ -26,5 +26,10 @@ public class MainMenuGame : MonoBehaviour
     public void SelectGame()
     {
         Debug.Log(" Section " + section + " selected.");
+    }
+
+    public void OpenSectionDescription()
+    {
+        ((MainMenuManager)SectionManager.Instance).OpenSectionDescription(section);
     }
 }

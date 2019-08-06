@@ -21,8 +21,9 @@ public class MainMenuCoctel : MonoBehaviour
         image.sprite = coctel.image;
     }
 
-    public void SelectCoctel()
+    public void OpenCoctel()
     {
         Debug.Log(" Coctel " + coctel + " selected.");
     }
+    
 }

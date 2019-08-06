@@ -20,9 +20,7 @@ public class MainMenuManager : SectionManager
 
     void Start()
     {
-        //TODO: Is it necessary to do it at start? The build could be done with the proper menu already using the custom inspector (MainMenuEditor)
         GenerateMenu();
-
         Debug.Log("Started MainMenu' SectionManager.");
     }
 
@@ -55,7 +53,7 @@ public class MainMenuManager : SectionManager
         {
             GameObject game = Instantiate(mainMenuGamePrefab, verticalScrollContentHolder.transform);
             game.transform.SetSiblingIndex(s);
-            game.GetComponent<MainMenuGame>().Setup(sectionsToDisplay[s]);
+            game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }
 
         //Coctels
@@ -69,4 +67,12 @@ public class MainMenuManager : SectionManager
             coctel.GetComponent<MainMenuCoctel>().Setup(coctelsToDisplay[c]);
         }
     }
+
+    public void OpenSectionDescription(Section section)
+    {
+        Debug.Log("Opening description of " + section);
+    }
+
+    //Run before build
+
 }

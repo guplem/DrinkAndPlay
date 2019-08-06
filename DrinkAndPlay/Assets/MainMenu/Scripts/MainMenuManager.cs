@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 #pragma warning disable 0649
@@ -51,7 +52,15 @@ public class MainMenuManager : SectionManager
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
+            // Keeping the prefab connection
+            /*
+            GameObject game = PrefabUtility.InstantiatePrefab(mainMenuGamePrefab) as GameObject;
+            game.transform.SetParent(verticalScrollContentHolder.transform);
+            */
+
+            // Destroying the prefab connection
             GameObject game = Instantiate(mainMenuGamePrefab, verticalScrollContentHolder.transform);
+
             game.transform.SetSiblingIndex(s);
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }

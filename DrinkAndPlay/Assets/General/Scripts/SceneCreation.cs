@@ -11,6 +11,13 @@ public class SceneCreation : MonoBehaviour
     [MenuItem("Drink and Play/New customized scene")]
     public static void CreateScene()
     {
+        //Avoid discarting changes without intention
+        if (SceneManager.GetActiveScene().isDirty)
+        {
+            Debug.LogWarning("The current scene is not saved. Save or discard the changes before creating a new one");
+            return;
+        }
+
         //Create the scene
         Scene newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 

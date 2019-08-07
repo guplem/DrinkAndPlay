@@ -22,14 +22,14 @@ public class SceneCreation : MonoBehaviour
         Scene newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
         //Instantiate the Camera prefab in the scene
-        string[] guids2 = AssetDatabase.FindAssets("Camera", new[] { "Assets/General/Prefabs" });
+        string[] guids2 = AssetDatabase.FindAssets("Camera", new[] { "Assets/_General/Prefabs" });
         if (guids2.Length > 1)
-            Debug.LogError("There are more than one cameras found inside the path Assets/General/Prefabs");
+            Debug.LogError("There are more than one 'Camera' found inside the path 'Assets/General/Prefabs'");
         string path = AssetDatabase.GUIDToAssetPath(guids2[0]);
-        GameObject camPrefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)) as GameObject;
-        PrefabUtility.InstantiatePrefab(camPrefab, newScene);
+        GameObject prefabLoaded = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)) as GameObject;
+        PrefabUtility.InstantiatePrefab(prefabLoaded, newScene);
 
-
+        /*
         //Create the SectionManager object
         GameObject sectionManager = new GameObject("SectionManager");
 
@@ -39,6 +39,16 @@ public class SceneCreation : MonoBehaviour
         canvasGo.AddComponent<Canvas>();
         canvasGo.AddComponent<CanvasScaler>();
         canvasGo.AddComponent<GraphicRaycaster>();
+        */
+
+        
+
+        guids2 = AssetDatabase.FindAssets("SectionManager - Base", new[] { "Assets/_General/Prefabs" });
+        if (guids2.Length > 1)
+            Debug.LogError("There are more than one 'SectionManager - Base' found inside the path 'Assets/General/Prefabs'");
+        path = AssetDatabase.GUIDToAssetPath(guids2[0]);
+        prefabLoaded = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)) as GameObject;
+        Instantiate(prefabLoaded);
 
         Debug.Log("Scene created");
 

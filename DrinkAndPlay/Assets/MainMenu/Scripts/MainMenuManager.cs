@@ -80,6 +80,7 @@ public class MainMenuManager : SectionManager
     public void OpenSectionDescription(Section section)
     {
         Debug.Log("Opening description of " + section);
+        GameManager.Instance.LoadScene(section.sceneName);
     }
 
     //Run before build

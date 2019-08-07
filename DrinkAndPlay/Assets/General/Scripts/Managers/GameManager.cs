@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,5 +41,11 @@ public class GameManager : MonoBehaviour
         localizationManager.LoadCurrentLanguageFor(uiSection);
 
         Debug.Log("Game Manager setup completed.");
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        Debug.Log("Loading scene '" + sceneName + "'");
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   premium: 0
   localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=1014940719&single=true&output=csv
   minNumberOfPlayers: -1
-  sceneName: 
+  sceneName: NeverHaveIEver
   showNaughyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

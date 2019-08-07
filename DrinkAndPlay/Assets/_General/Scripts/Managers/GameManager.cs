@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public LocalizationManager localizationManager { get; private set; }
     public SavesManager savesManager { get; private set; }
     public ConfigurationManager configurationManager { get; private set; }
-    public Section uiSection;
 
+    [SerializeField] public Section uiSection;
+    [SerializeField] private GeneralUI generalUI;
 
     public static GameManager Instance { get; private set; }
     public void Initialize()

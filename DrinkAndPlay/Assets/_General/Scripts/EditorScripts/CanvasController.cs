@@ -16,16 +16,16 @@ public class CanvasController
             AdjustCanvasComponent(canvas);
         if (canvasCol.Length <= 0)
             Debug.LogError("The 'Canvas' component was not found in the scene.");
-        if (canvasCol.Length > 1)
-            Debug.LogWarning("More than one 'Canvas' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
+        //if (canvasCol.Length > 1)
+        //    Debug.LogWarning("More than one 'Canvas' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
 
         var canvasScalerCol = Object.FindObjectsOfType<CanvasScaler>();
         foreach (CanvasScaler canvasScaler in canvasScalerCol)
             AdjustCanvasScaler(canvasScaler);
         if (canvasScalerCol.Length <= 0)
             Debug.LogError("The 'CanvasScaler' component was not found in the scene.");
-        if (canvasScalerCol.Length > 1)
-            Debug.LogWarning("More than one 'CanvasScaler' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
+        //if (canvasScalerCol.Length > 1)
+        //    Debug.LogWarning("More than one 'CanvasScaler' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
 
 
         var graphicRaycasterCol = Object.FindObjectsOfType<GraphicRaycaster>();
@@ -33,8 +33,8 @@ public class CanvasController
             AdjustGraphicRaycaster(graphicRaycaster);
         if (graphicRaycasterCol.Length <= 0)
             Debug.LogError("The 'GraphicRaycaster' component was not found in the scene.");
-        if (graphicRaycasterCol.Length > 1)
-            Debug.LogWarning("More than one 'GraphicRaycaster' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
+        //if (graphicRaycasterCol.Length > 1)
+        //    Debug.LogWarning("More than one 'GraphicRaycaster' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
 
 
         Debug.Log("Canvas configuration applied to the found canvas components.");

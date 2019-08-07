@@ -43,12 +43,12 @@ public class SceneCreation : MonoBehaviour
 
         
 
-        guids2 = AssetDatabase.FindAssets("SectionManager - Base", new[] { "Assets/_General/Prefabs" });
+        guids2 = AssetDatabase.FindAssets("Canvas - For Section", new[] { "Assets/_General/Prefabs" });
         if (guids2.Length > 1)
-            Debug.LogError("There are more than one 'SectionManager - Base' found inside the path 'Assets/General/Prefabs'");
+            Debug.LogError("There are more than one 'Canvas - For Section' found inside the path 'Assets/General/Prefabs'");
         path = AssetDatabase.GUIDToAssetPath(guids2[0]);
         prefabLoaded = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)) as GameObject;
-        Instantiate(prefabLoaded);
+        Instantiate(prefabLoaded).name = prefabLoaded.name;
 
         Debug.Log("Scene created");
 

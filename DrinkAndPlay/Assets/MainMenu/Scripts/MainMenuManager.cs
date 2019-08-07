@@ -9,7 +9,7 @@ public class MainMenuManager : SectionManager
 {
     [Header("Sections - Games")]
     [SerializeField] private GameObject verticalScrollContentHolder;
-    [SerializeField] private GameObject mainMenuGamePrefab;
+    [SerializeField] private GameObject mainMenuSectionPrefab;
     [SerializeField] private Section[] sectionsToDisplay;
 
     [Header("Coctels - Recipes")]
@@ -59,7 +59,7 @@ public class MainMenuManager : SectionManager
             */
 
             // Destroying the prefab connection
-            GameObject game = Instantiate(mainMenuGamePrefab, verticalScrollContentHolder.transform);
+            GameObject game = Instantiate(mainMenuSectionPrefab, verticalScrollContentHolder.transform);
 
             game.transform.SetSiblingIndex(s);
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);

@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 1453840583745256524}
   - component: {fileID: 8592946119630466179}
   - component: {fileID: 1645743496185628855}
+  - component: {fileID: 2868498159483687755}
   m_Layer: 5
   m_Name: GameManager - General UI Canvas
   m_TagString: Untagged
@@ -366,7 +367,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -443,6 +444,19 @@ MonoBehaviour:
   likeButton: {fileID: 8803844732174389719}
   addButton: {fileID: 8907024552323682363}
   shareButton: {fileID: 7509458296937629988}
+--- !u!114 &2868498159483687755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904223532832502549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c1486b6b783b0498f9d4c89b09ce18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeArea: {fileID: 5817154026308139368}
 --- !u!1 &7757666347306839892
 GameObject:
   m_ObjectHideFlags: 0

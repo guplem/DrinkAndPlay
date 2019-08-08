@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-#pragma warning disable 0649
 public class MainMenuManager : SectionManager
 {
     [Header("Sections - Games")]

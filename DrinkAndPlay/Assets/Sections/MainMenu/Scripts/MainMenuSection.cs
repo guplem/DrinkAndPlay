@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-#pragma warning disable 0649
 public class MainMenuSection : MonoBehaviour
 {
     private Section section;

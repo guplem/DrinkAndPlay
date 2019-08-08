@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(ScrollRect))]
-#pragma warning disable 0649
 public class EnableScrollRectAtPlay : MonoBehaviour
 {
     [SerializeField] private bool horizontalScroll;

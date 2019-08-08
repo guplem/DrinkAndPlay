@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 //https://forum.unity.com/threads/canvashelper-resizes-a-recttransform-to-iphone-xs-safe-area.521107/
-#pragma warning disable 0649
 [RequireComponent(typeof(Canvas))]
 public class CanvasHelper : MonoBehaviour
 {

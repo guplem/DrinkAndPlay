@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 6020138362123627933}
   - component: {fileID: 1933347694750009900}
   - component: {fileID: 2448902778762590717}
+  - component: {fileID: 752519875271333934}
   m_Layer: 5
   m_Name: SectionTitle  - TopBar
   m_TagString: Untagged
@@ -261,6 +262,23 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &752519875271333934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017779037064566581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  warnIfNullId: 1
+  automaticallyLocalizeOnEnable: 0
+  registerTimestampAtLocalize: 0
+  isUI: 1
 --- !u!1 &4062386721743516890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,15 +1302,15 @@ PrefabInstance:
       objectReference: {fileID: 1645743496185628855}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c99c4853dbd167f45a3f6e83a1ead44c, type: 3}
---- !u!224 &7035583711146014697 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2303382240323259952, guid: c99c4853dbd167f45a3f6e83a1ead44c,
-    type: 3}
-  m_PrefabInstance: {fileID: 9102949032623913433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169006252528488042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8938595917759477683, guid: c99c4853dbd167f45a3f6e83a1ead44c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9102949032623913433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7035583711146014697 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2303382240323259952, guid: c99c4853dbd167f45a3f6e83a1ead44c,
     type: 3}
   m_PrefabInstance: {fileID: 9102949032623913433}
   m_PrefabAsset: {fileID: 0}

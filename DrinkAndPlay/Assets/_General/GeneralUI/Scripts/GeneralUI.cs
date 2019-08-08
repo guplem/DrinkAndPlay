@@ -16,6 +16,22 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] public GameObject addButton;
     [SerializeField] public GameObject shareButton;
 
+    public void SetupFor(Section section)
+    {
+        topBar.SetActive(section.topBar);
+        backButton.SetActive(section.backButton);
+        sectionTitle.SetActive(section.sectionTitle);
+        configButton.SetActive(section.configButton);
+
+        bottomBar.SetActive(section.bottomBar);
+        likeButton.SetActive(section.likeButton);
+        addButton.SetActive(section.addButton);
+        shareButton.SetActive(section.shareButton);
+
+        if (section.sectionTitle)
+            sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
+
+    }
 
     public void ClickBackButton()
     {

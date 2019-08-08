@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviour
     public ConfigurationManager configurationManager { get; private set; }
 
     [SerializeField] public Section uiSection;
-    [SerializeField] private GeneralUI generalUI;
+    [SerializeField] public GeneralUI generalUI;
 
     public static GameManager Instance { get; private set; }
     public void Initialize()
     {
         if (Instance != null)
         {
-            Debug.LogWarning("Two game managers have been created. Destroying the game object with the newest 'GameManager' before initialization");
+            Debug.Log("Two game managers have been created (expected if comming from other section). Destroying the game object with the newest 'GameManager' before initialization");
             Destroy(gameObject);
         }
         else
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
         Setup();
     }
 

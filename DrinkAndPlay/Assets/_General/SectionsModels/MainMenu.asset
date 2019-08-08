@@ -21,6 +21,13 @@ MonoBehaviour:
   localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=987858067&single=true&output=csv
   minNumberOfPlayers: -1
   sceneName: MainMenu
+  topBar: 1
+  backButton: 0
+  configButton: 1
+  bottomBar: 0
+  likeButton: 0
+  addButton: 0
+  shareButton: 0
   showNaughyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

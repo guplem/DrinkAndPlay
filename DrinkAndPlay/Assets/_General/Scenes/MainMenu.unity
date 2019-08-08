@@ -382,10 +382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: UIN
-  warnIfNullId: 1
-  automaticallyLocalizeOnEnable: 1
-  registerTimestampAtLocalize: 0
   isUI: 1
+  automaticallyLocalize: 0
+  registerTimestampAtLocalize: 0
 --- !u!114 &387530361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,7 +935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635230921
@@ -1630,10 +1629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: YNN
-  warnIfNullId: 1
-  automaticallyLocalizeOnEnable: 1
-  registerTimestampAtLocalize: 0
   isUI: 1
+  automaticallyLocalize: 0
+  registerTimestampAtLocalize: 0
 --- !u!114 &1008948853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2398,10 +2396,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: MMN
-  warnIfNullId: 1
-  automaticallyLocalizeOnEnable: 1
-  registerTimestampAtLocalize: 0
   isUI: 1
+  automaticallyLocalize: 0
+  registerTimestampAtLocalize: 0
 --- !u!114 &1521188605
 MonoBehaviour:
   m_ObjectHideFlags: 0

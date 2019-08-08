@@ -21,6 +21,8 @@ public class MainMenuManager : SectionManager
 
     void Start()
     {
+        //All localization (UI and MainMenu) already loaded
+
         GenerateMenu();
         Debug.Log("Started MainMenu' SectionManager.");
     }
@@ -44,11 +46,11 @@ public class MainMenuManager : SectionManager
 
     public void GenerateMenu()
     {
-        List<Transform> exceptions = new List<Transform>();
+        List<Transform> destroyExceptions = new List<Transform>();
 
         //Games
-        exceptions.Add(HorizontalMenu.transform);
-        DestroyContentsOf(verticalScrollContentHolder.transform, exceptions);
+        destroyExceptions.Add(HorizontalMenu.transform);
+        DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
@@ -66,8 +68,8 @@ public class MainMenuManager : SectionManager
         }
 
         //Coctels
-        exceptions.Clear();
-        DestroyContentsOf(horizontalScrollContentHolder.transform, exceptions);
+        destroyExceptions.Clear();
+        DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
 
         for (int c = 0; c < coctelsToDisplay.Length; c++)
         {

@@ -14,6 +14,8 @@ public abstract class SectionManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Starting preparation process");
+
         GameManagerManagement();
 
         Instance = this;
@@ -22,13 +24,17 @@ public abstract class SectionManager : MonoBehaviour
             Debug.LogError("The 'section' is null in the object' " + name, gameObject);
 
         gm.localizationManager.LoadCurrentLanguageFor(section);
+
+        gm.generalUI.SetupFor(section);
     }
 
     private void GameManagerManagement()
     {
         if (GameManagerPrefab == null)
             Debug.LogError("'GameManagerPrefab' is null in the object " + name, gameObject);
+
         Instantiate(GameManagerPrefab).GetComponent<GameManager>().Initialize();
+
         gm = GameManager.Instance;
     }
 

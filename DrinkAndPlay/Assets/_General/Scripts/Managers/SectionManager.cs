@@ -26,7 +26,10 @@ public abstract class SectionManager : MonoBehaviour
         gm.localizationManager.LoadCurrentLanguageFor(section);
 
         gm.generalUI.SetupFor(section);
+
+        SetupSectionUI();
     }
+
 
     private void GameManagerManagement()
     {
@@ -36,6 +39,16 @@ public abstract class SectionManager : MonoBehaviour
         Instantiate(GameManagerPrefab).GetComponent<GameManager>().Initialize();
 
         gm = GameManager.Instance;
+    }
+    private void SetupSectionUI()
+    {
+        RectTransform rt = GetComponent<RectTransform>();
+
+        if (section.topBar)
+            rt.anchorMax = new Vector2(1, gm.generalUI.topBar.GetComponent<RectTransform>().anchorMin.y);
+
+        if (section.bottomBar)
+            rt.anchorMin = new Vector2(0, gm.generalUI.bottomBar.GetComponent<RectTransform>().anchorMax.y);
     }
 
 }

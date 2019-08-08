@@ -23,6 +23,7 @@ MonoBehaviour:
   sceneName: MainMenu
   topBar: 1
   backButton: 0
+  sectionTitle: 1
   configButton: 1
   bottomBar: 0
   likeButton: 0

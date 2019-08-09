@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7830334298732300276, guid: 9e176e4337b224e4f8a830d33e2cf76e,
         type: 3}
       propertyPath: m_Name
-      value: BackButton - TopBar
+      value: BackButton - TopBar Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1103922729659743863, guid: 9e176e4337b224e4f8a830d33e2cf76e,
         type: 3}
@@ -119,28 +119,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9031977297923134656, guid: 9e176e4337b224e4f8a830d33e2cf76e,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9031977297923134656, guid: 9e176e4337b224e4f8a830d33e2cf76e,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClickBackButton
       objectReference: {fileID: 0}
     - target: {fileID: 9031977297923134656, guid: 9e176e4337b224e4f8a830d33e2cf76e,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9031977297923134656, guid: 9e176e4337b224e4f8a830d33e2cf76e,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9031977297923134656, guid: 9e176e4337b224e4f8a830d33e2cf76e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7259395505537429278, guid: 9e176e4337b224e4f8a830d33e2cf76e,
         type: 3}

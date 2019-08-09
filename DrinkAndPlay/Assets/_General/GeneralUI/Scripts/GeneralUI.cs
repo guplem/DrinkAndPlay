@@ -6,15 +6,22 @@ public class GeneralUI : MonoBehaviour
 {
     [Header("Top Bar")]
     [SerializeField] public GameObject topBar;
-    [SerializeField] public GameObject backButton;
-    [SerializeField] public GameObject sectionTitle;
-    [SerializeField] public GameObject configButton;
+    [SerializeField] private GameObject backButton;
+    [SerializeField] private GameObject sectionTitle;
+    [SerializeField] private GameObject configButton;
 
     [Header("Bottom Bar")]
     [SerializeField] public GameObject bottomBar;
-    [SerializeField] public GameObject likeButton;
-    [SerializeField] public GameObject addButton;
-    [SerializeField] public GameObject shareButton;
+    [SerializeField] private GameObject likeButton;
+    [SerializeField] private GameObject addButton;
+    [SerializeField] private GameObject shareButton;
+
+    [Header("Menus")]
+    [SerializeField] private AnimationUI configMenu;
+    [SerializeField] private AnimationUI randomSentencesMenu;
+    [SerializeField] private AnimationUI languageMenu;
+    [SerializeField] private AnimationUI playersMenu;
+    [SerializeField] private AnimationUI naughtyLevelMenu;
 
     public void SetupFor(Section section)
     {
@@ -33,31 +40,33 @@ public class GeneralUI : MonoBehaviour
 
     }
 
-    public void ClickBackButton()
+
+    public void OpenConfigMenu()
     {
-        Debug.Log("Clicked 'Back' button.");
+        Debug.Log("Opening ConfigMenu");
+        configMenu.Show();
+    }
+    public void OpenRandomSentencesMenu()
+    {
+        Debug.Log("Opening RandomSentencesMenu");
+        randomSentencesMenu.Show();
+    }
+    public void OpenLanguageMenu()
+    {
+        Debug.Log("Opening LanguageMenu");
+        languageMenu.Show();
+    }
+    public void OpenPlayersMenu()
+    {
+        Debug.Log("Opening PlayersMenu");
+        playersMenu.Show();
+    }
+    public void OpenNaughtyLevelMenu()
+    {
+        Debug.Log("Opening NaughtyLevelMenu");
+        naughtyLevelMenu.Show();
     }
 
-    public void ClickConfigurationButton()
-    {
-        Debug.Log("Clicked 'Configuration' button.");
-    }
 
-    public void ClickLikeButton()
-    {
-        Debug.Log("Clicked 'Like' button.");
-    }
-
-    public void ClickAddButton()
-    {
-        Debug.Log("Clicked 'Add' button.");
-    }
-
-    public void ClickShareButton()
-    {
-        Debug.Log("Clicked 'Share' button.");
-    }
-
-    
 
 }

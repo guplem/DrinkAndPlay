@@ -39,4 +39,8 @@ public abstract class AnimationUI : MonoBehaviour
         return animationCurve.Evaluate(currentAnimTime / animationDuration);
     }
 
+    public override string ToString()
+    {
+        return name;
+    }
 }

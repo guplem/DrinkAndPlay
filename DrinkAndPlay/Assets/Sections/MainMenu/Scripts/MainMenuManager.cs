@@ -81,9 +81,7 @@ public class MainMenuManager : SectionManager
     public void OpenSectionDescription(Section section)
     {
         Debug.Log("Opening description of " + section);
-        GameManager.Instance.LoadScene(section.sceneName);
+        GameManager.Instance.LoadSection(section); //TODO: remove
     }
-
-    //Run before build
 
 }

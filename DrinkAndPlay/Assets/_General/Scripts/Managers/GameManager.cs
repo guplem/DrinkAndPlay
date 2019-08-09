@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public Section uiSection;
     [SerializeField] public GeneralUI generalUI;
+    [SerializeField] public Section landingSection;
 
     public static GameManager Instance { get; private set; }
     public void Initialize()
@@ -45,9 +46,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Manager setup completed.");
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadSection(Section section)
     {
-        Debug.Log("Loading scene '" + sceneName + "'");
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        Debug.Log("Loading scene '" + section.sceneName + "' from section " + section);
+        SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
 }

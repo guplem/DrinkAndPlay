@@ -7,6 +7,7 @@ public class GeneralUiButtons : MonoBehaviour
     public void ClickBackButton()
     {
         Debug.Log("Clicked 'Back' button.");
+        GameManager.Instance.generalUI.CloseLastOpenUiElement();
     }
 
     public void ClickConfigurationButton()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI FeedbackMenu;
     [SerializeField] private AnimationUI AddSentenceMenu;
 
+    private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
+
     public void SetupFor(Section section)
     {
         topBar.SetActive(section.topBar);
@@ -42,31 +45,63 @@ public class GeneralUI : MonoBehaviour
 
     }
 
+    public void CloseLastOpenUiElement()
+    {
+        if (openUI.Count > 0)
+            Hide(openUI.Pop());
+        else
+            GameManager.Instance.LoadSection(GameManager.Instance.landingSection);
+    }
+
+    public bool Show(AnimationUI UiElement)
+    {
+        if (openUI.Contains(UiElement))
+        {
+            Debug.LogError("Trying to open an UI element (" + UiElement + ") that already is opened. This can not happen");
+            return false;
+        }
+
+        UiElement.Show();
+        openUI.Push(UiElement);
+        return true;
+    }
+
+    public bool Hide(AnimationUI UiElement)
+    {
+        if (openUI.Contains(UiElement))
+        {
+            Debug.LogError("Trying to close an UI Element (" + UiElement + ") was not the las opened. This can not happen.");
+            return false;
+        }
+
+        UiElement.Hide();
+        return true;
+    }
 
     public void OpenConfigMenu()
     {
         Debug.Log("Opening ConfigMenu");
-        configMenu.Show();
+        Show(configMenu);
     }
     public void OpenRandomSentencesMenu()
     {
         Debug.Log("Opening RandomSentencesMenu");
-        randomSentencesMenu.Show();
+        Show(randomSentencesMenu);
     }
     public void OpenLanguageMenu()
     {
         Debug.Log("Opening LanguageMenu");
-        languageMenu.Show();
+        Show(languageMenu);
     }
     public void OpenPlayersMenu()
     {
         Debug.Log("Opening PlayersMenu");
-        playersMenu.Show();
+        Show(playersMenu);
     }
     public void OpenNaughtyLevelMenu()
     {
         Debug.Log("Opening NaughtyLevelMenu");
-        naughtyLevelMenu.Show();
+        Show(naughtyLevelMenu);
     }
     public void OpenDonations()
     {
@@ -76,13 +111,15 @@ public class GeneralUI : MonoBehaviour
     public void OpenFeedbackMenu()
     {
         Debug.Log("Opening FeedbackMenu");
-        FeedbackMenu.Show();
+        Show(FeedbackMenu);
     }
     public void OpenAddSentenceMenu()
     {
         Debug.Log("Opening AddSentenceMenu");
-        AddSentenceMenu.Show();
+        Show(AddSentenceMenu);
     }
+
+
 
 
 

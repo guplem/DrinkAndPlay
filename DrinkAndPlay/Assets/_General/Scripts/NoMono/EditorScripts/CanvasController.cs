@@ -50,7 +50,7 @@ public class CanvasController
 
         canvasComponent.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasComponent.pixelPerfect = false;
-        canvasComponent.sortingOrder = 0;
+        canvasComponent.sortingOrder = (canvasComponent.GetComponent<GameManager>() != null)? 50 : 0;
         canvasComponent.targetDisplay = 0;
         canvasComponent.additionalShaderChannels = AdditionalCanvasShaderChannels.TexCoord1;
 

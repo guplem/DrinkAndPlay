@@ -22,6 +22,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI languageMenu;
     [SerializeField] private AnimationUI playersMenu;
     [SerializeField] private AnimationUI naughtyLevelMenu;
+    [SerializeField] private AnimationUI FeedbackMenu;
+    [SerializeField] private AnimationUI AddSentenceMenu;
 
     public void SetupFor(Section section)
     {
@@ -65,6 +67,21 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening NaughtyLevelMenu");
         naughtyLevelMenu.Show();
+    }
+    public void OpenDonations()
+    {
+        Debug.Log("Opening Donations");
+        //TODO: Open link
+    }
+    public void OpenFeedbackMenu()
+    {
+        Debug.Log("Opening FeedbackMenu");
+        FeedbackMenu.Show();
+    }
+    public void OpenAddSentenceMenu()
+    {
+        Debug.Log("Opening AddSentenceMenu");
+        AddSentenceMenu.Show();
     }
 
 

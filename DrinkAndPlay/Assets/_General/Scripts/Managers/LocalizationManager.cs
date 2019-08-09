@@ -114,7 +114,7 @@ public class LocalizationManager
             if (localizedText.id == id)
                 return localizedText;
         }
-        return new LocalizedText(id, -1, "The text with id " + id + " could not be found in the section " + section);
+        return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
     }
 
     public delegate void LocalizeAllAction();

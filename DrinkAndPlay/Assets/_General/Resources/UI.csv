@@ -1,9 +1,12 @@
 Id,es-es,en-us
-1,pene,dick
-2,"""beber"" es guay",drink
-3,puede ser,maybe
-4,"abeh,""",Lemi see
-5,ESPAÑA,USA
+Configuration,Configuración,Config
+Credits,Este juego ha sido creado por Laura Estudillo y Guillem Poy,TIts
+Languages,Idioma,drink
+NaughtyLevel,Nivel de Picante,maybe
+Donations,Donaciones,Lemi see
+Feedback,Feedback,USA
+RandomSentences,Pruebas Aleatorias,badabu
+Players,Jugadores,I'ts in da game
 MMN,Menu Principal,Main Menu
 MMD,Descripción del menú principal,Main menu description
 UIN,Interfaz,Iterface

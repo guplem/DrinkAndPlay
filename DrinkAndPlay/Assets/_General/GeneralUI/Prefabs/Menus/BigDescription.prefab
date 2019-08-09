@@ -262,6 +262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  isUI: 0
+  isUI: 1
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0

@@ -1477,7 +1477,6 @@ GameObject:
   - component: {fileID: 873836506}
   - component: {fileID: 873836505}
   - component: {fileID: 873836504}
-  - component: {fileID: 873836503}
   m_Layer: 5
   m_Name: Canvas - For Section
   m_TagString: Untagged
@@ -1485,19 +1484,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &873836503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873836502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c1486b6b783b0498f9d4c89b09ce18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeArea: {fileID: 1570241840}
 --- !u!114 &873836504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,6 +2805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1570241840}
   - component: {fileID: 1570241841}
+  - component: {fileID: 1570241842}
   m_Layer: 5
   m_Name: SafeArea
   m_TagString: Untagged
@@ -2854,6 +2841,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570241839}
   m_CullTransparentMesh: 0
+--- !u!114 &1570241842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570241839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConformX: 1
+  ConformY: 1
 --- !u!1001 &1589696196
 PrefabInstance:
   m_ObjectHideFlags: 0

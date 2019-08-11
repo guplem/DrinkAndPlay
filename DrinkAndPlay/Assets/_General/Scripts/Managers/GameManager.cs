@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public LocalizationManager localizationManager { get; private set; }
-    public SavesManager savesManager { get; private set; }
-    public ConfigurationManager configurationManager { get; private set; }
+    public DataManager dataManager { get; private set; }
 
     [SerializeField] public Section uiSection;
     [SerializeField] public GeneralUI generalUI;
@@ -35,9 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
-        savesManager = new SavesManager();
-        configurationManager = new ConfigurationManager(savesManager);
-        localizationManager = new LocalizationManager(configurationManager);
+        dataManager = new DataManager();
+        localizationManager = new LocalizationManager(dataManager);
 
         if (uiSection == null)
             Debug.LogError("UI Section not set up in the GameManager.");

@@ -53,7 +53,7 @@ public class Localizer : MonoBehaviour
         previouslyStarted = true;
 
         if (automaticallyLocalize)
-            if (currentLanguage != GameManager.Instance.configurationManager.language)
+            if (currentLanguage != GameManager.Instance.dataManager.language)
                 Localize();
     }
 
@@ -90,7 +90,7 @@ public class Localizer : MonoBehaviour
             */
         }
 
-        currentLanguage = GameManager.Instance.configurationManager.language;
+        currentLanguage = GameManager.Instance.dataManager.language;
 
         TMProGUI.text = GameManager.Instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
     }

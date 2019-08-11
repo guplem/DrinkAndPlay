@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class LocalizationManager
 {
-    private ConfigurationManager configurationManager;
+    private DataManager configurationManager;
     Dictionary<Section, List<LocalizedText>> localizedTexts;
 
-    public LocalizationManager(ConfigurationManager configurationManager)
+    public LocalizationManager(DataManager configurationManager)
     {
         this.configurationManager = configurationManager;
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();

@@ -1,19 +1,39 @@
-﻿using System.Collections;
+﻿using BayatGames.SaveGameFree;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DataManager
 {
+
+    public DataManager(bool encode)
+    {
+        Debug.Log("Creating DataManager");
+        SaveGame.Encode = encode;
+    }
+
     public string language
     {
         get
         {
-            return "es-es";
+            if (_language == null)
+            {
+                _language = SaveGame.Load(languageSavename, "en-us");
+            }
+
+            return _language;
         }
         set
         {
-            Debug.LogWarning("Set language not implemented yet");
+            if (_language.CompareTo(value) != 0)
+            {
+                _language = value;
+                SaveGame.Save(languageSavename, value);
+            }
         }
     }
+    private string _language;
+    private string languageSavename = "language";
+
 
 }

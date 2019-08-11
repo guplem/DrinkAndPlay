@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Two game managers have been created (expected if comming from other section). Destroying the game object with the newest 'GameManager' before initialization");
             Destroy(gameObject);
+            return; // If the return is not not here, the method is fully-run and after that, the object is destroyed. This is not the desired behaviour.
         }
         else
         {
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
-        dataManager = new DataManager();
+        dataManager = new DataManager(false);
         localizationManager = new LocalizationManager(dataManager);
 
         if (uiSection == null)
@@ -49,4 +50,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Loading scene '" + section.sceneName + "' from section " + section);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
+
 }

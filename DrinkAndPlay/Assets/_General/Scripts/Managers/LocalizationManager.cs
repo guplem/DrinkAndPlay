@@ -8,9 +8,9 @@ public class LocalizationManager
     private DataManager configurationManager;
     Dictionary<Section, List<LocalizedText>> localizedTexts;
 
-    public LocalizationManager(DataManager configurationManager)
+    public LocalizationManager(DataManager dataManager)
     {
-        this.configurationManager = configurationManager;
+        this.configurationManager = dataManager;
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();
     }
 
@@ -28,6 +28,8 @@ public class LocalizationManager
             Debug.LogError("Trying to load a 'null' section's localized texts");
             return false;
         }
+
+        Debug.Log("Loading language for " + section);
 
         string lang = configurationManager.language;
 

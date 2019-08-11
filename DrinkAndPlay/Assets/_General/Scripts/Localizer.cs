@@ -53,8 +53,10 @@ public class Localizer : MonoBehaviour
         previouslyStarted = true;
 
         if (automaticallyLocalize)
+        {
             if (currentLanguage != GameManager.Instance.dataManager.language)
                 Localize();
+        }
     }
 
 

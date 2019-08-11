@@ -12,6 +12,7 @@ public class DataManager
         SaveGame.Encode = encode;
     }
 
+    #region Language
     public string language
     {
         get
@@ -34,6 +35,7 @@ public class DataManager
     }
     private string _language;
     private string languageSavename = "language";
+    #endregion
 
 
 }

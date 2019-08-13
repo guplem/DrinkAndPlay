@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         localizationManager.LoadCurrentLanguageFor(uiSection);
 
         Debug.Log("Game Manager setup completed.");
+
     }
 
     public void LoadSection(Section section)

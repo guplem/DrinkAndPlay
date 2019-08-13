@@ -17,6 +17,13 @@ public class DataManager
     {
         return new List<T>(originalList);
     }
+    private Dictionary<Section, List<string>> GetCloneOfDictionary(Dictionary<Section, List<string>> originalDictionary)
+    {
+        Dictionary<Section, List<string>> clonedDictionary = new Dictionary<Section, List<string>>();
+        foreach (Section section in originalDictionary.Keys)
+            clonedDictionary.Add(section, GetCloneOfList(originalDictionary[section]));
+        return clonedDictionary;
+    }
 
     #region language
     public string language
@@ -157,84 +164,91 @@ public class DataManager
     }
     private Dictionary<Section, List<string>> _customSentences;
     private string customSentencesSavename = "customSentences";
-    private Dictionary<Section, List<string>> GetCloneOfCustomSentences()
-    {
-        Dictionary<Section, List<string>> clonedDictionary = new Dictionary<Section, List<string>>();
-        foreach (Section section in customSentences.Keys)
-            clonedDictionary.Add(section, GetCloneOfList(customSentences[section]) );
-        return clonedDictionary;
-    }
     private void AddCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
         clonedCS[section].Add(sentence);
         customSentences = clonedCS;
     }
     private void RemoveCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
         clonedCS[section].Remove(sentence);
         customSentences = clonedCS;
     }
     private void RemoveCustomSentence(Section section, int sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
         clonedCS[section].RemoveAt(sentence);
         customSentences = clonedCS;
     }
     #endregion
 
 
+
+    #region textsRegistered
+    private Dictionary<Section, List<string>> textsRegistered
+    {
+        get
+        {
+            if (_textsRegistered == null)
+            {
+                _textsRegistered = SaveGame.Load(textsRegisteredSavename, new Dictionary<Section, List<string>>());
+            }
+
+            return _textsRegistered;
+        }
+        set
+        {
+            if (!_textsRegistered.SequenceEqual(value))
+            {
+                _textsRegistered = value;
+                SaveGame.Save(textsRegisteredSavename, value);
+            }
+        }
+    }
+    private Dictionary<Section, List<string>> _textsRegistered;
+    private string textsRegisteredSavename = "textsRegistered";
+    private void AddTextRegistered(Section section, string textId)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
+        clonedCS[section].Add(textId);
+        textsRegistered = clonedCS;
+    }
+    private void RemoveTextRegistered(Section section, string textId)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
+        clonedCS[section].Remove(textId);
+        textsRegistered = clonedCS;
+    }
+    #endregion
+
+
     /*
-        #region textsRegistered
-        public string textsRegistered
+    #region Premium
+    public bool Premium
+    {
+        get
         {
-            get
+            if (_Premium == false)
             {
-                if (_textsRegistered == null)
-                {
-                    _textsRegistered = SaveGame.Load(textsRegisteredSavename, "en-us");
-                }
-
-                return _textsRegistered;
+                _Premium = SaveGame.Load(PremiumSavename, false);
             }
-            set
+
+            return _Premium;
+        }
+        set
+        {
+            if (_Premium != value)
             {
-                if (_textsRegistered.CompareTo(value) != 0)
-                {
-                    _textsRegistered = value;
-                    SaveGame.Save(textsRegisteredSavename, value);
-                }
+                _Premium = value;
+                SaveGame.Save(PremiumSavename, value);
             }
         }
-        private string _textsRegistered;
-        private string textsRegisteredSavename = "textsRegistered";
-        #endregion
-
-        #region Premium
-        public string Premium
-        {
-            get
-            {
-                if (_Premium == null)
-                {
-                    _Premium = SaveGame.Load(PremiumSavename, "en-us");
-                }
-
-                return _Premium;
-            }
-            set
-            {
-                if (_Premium.CompareTo(value) != 0)
-                {
-                    _Premium = value;
-                    SaveGame.Save(PremiumSavename, value);
-                }
-            }
-        }
-        private string _Premium;
-        private string PremiumSavename = "Premium";
-        #endregion
+    }
+    private bool _Premium = false;
+    private string PremiumSavename = "Premium";
+    #endregion
     */
 
 }

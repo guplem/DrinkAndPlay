@@ -1,4 +1,5 @@
 ﻿using BayatGames.SaveGameFree;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ public class DataManager
         SaveGame.Encode = encode;
     }
 
-    public List<T> GetCloneList<T>(List<T> originalList)
+    public List<T> GetCloneOfList<T>(List<T> originalList)
     {
         return new List<T>(originalList);
     }
@@ -42,6 +43,7 @@ public class DataManager
     private string languageSavename = "language";
     #endregion
 
+
     #region players
     private List<string> players
     {
@@ -67,9 +69,6 @@ public class DataManager
     }
     private List<string> _players;
     private string playersSavename = "players";
-
-    /// Player's methods
-
     public string GetPlayer(int playerNumber)
     {
         return players[playerNumber];
@@ -84,30 +83,28 @@ public class DataManager
 
         return players.IndexOf(player);
     }
-    public int GetPlayersNumber()
+    public int GetPlayersQuantity()
     {
         return players.Count;
     }
     public void AddPlayer(string player)
     {
-        List<string> clonePlayers = GetCloneList(players);
+        List<string> clonePlayers = GetCloneOfList(players);
         clonePlayers.Add(player);
         players = clonePlayers;
     }
     public void RemovePlayer(int playerIndex)
     {
-        List<string> clonePlayers = GetCloneList(players);
+        List<string> clonePlayers = GetCloneOfList(players);
         clonePlayers.RemoveAt(playerIndex);
         players = clonePlayers;
     }
     public void RemovePlayer(string player)
     {
-        List<string> clonePlayers = GetCloneList(players);
+        List<string> clonePlayers = GetCloneOfList(players);
         clonePlayers.Remove(player);
         players = clonePlayers;
     }
-
-
     #endregion
 
 
@@ -136,32 +133,59 @@ public class DataManager
     private string naughtyLevelSavename = "naughtyLevel";
     #endregion
 
-    /*
-        #region customSentences
-        public string customSentences
-        {
-            get
-            {
-                if (_customSentences == null)
-                {
-                    _customSentences = SaveGame.Load(customSentencesSavename, "en-us");
-                }
 
-                return _customSentences;
-            }
-            set
+    #region customSentences
+    private Dictionary<Section, List<string>> customSentences
+    {
+        get
+        {
+            if (_customSentences == null)
             {
-                if (_customSentences.CompareTo(value) != 0)
-                {
-                    _customSentences = value;
-                    SaveGame.Save(customSentencesSavename, value);
-                }
+                _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<Section, List<string>>());
+            }
+
+            return _customSentences;
+        }
+        set
+        {
+            if (!_customSentences.SequenceEqual(value))
+            {
+                _customSentences = value;
+                SaveGame.Save(customSentencesSavename, value);
             }
         }
-        private string _customSentences;
-        private string customSentencesSavename = "customSentences";
-        #endregion
+    }
+    private Dictionary<Section, List<string>> _customSentences;
+    private string customSentencesSavename = "customSentences";
+    private Dictionary<Section, List<string>> GetCloneOfCustomSentences()
+    {
+        Dictionary<Section, List<string>> clonedDictionary = new Dictionary<Section, List<string>>();
+        foreach (Section section in customSentences.Keys)
+            clonedDictionary.Add(section, GetCloneOfList(customSentences[section]) );
+        return clonedDictionary;
+    }
+    private void AddCustomSentence(Section section, string sentence)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        clonedCS[section].Add(sentence);
+        customSentences = clonedCS;
+    }
+    private void RemoveCustomSentence(Section section, string sentence)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        clonedCS[section].Remove(sentence);
+        customSentences = clonedCS;
+    }
+    private void RemoveCustomSentence(Section section, int sentence)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfCustomSentences();
+        clonedCS[section].RemoveAt(sentence);
+        customSentences = clonedCS;
+    }
+    #endregion
 
+
+    /*
         #region textsRegistered
         public string textsRegistered
         {

@@ -50,7 +50,7 @@ public class DataManager
             Debug.Log("Players get");
             if (_players == null)
             {
-                _players = SaveGame.Load<List<string>>(playersSavename, new List<string>() );
+                _players = SaveGame.Load<List<string>>(playersSavename, new List<string>());
             }
 
             return _players;
@@ -110,32 +110,33 @@ public class DataManager
 
     #endregion
 
-    /*
-        #region naughtyLevel
-        public string naughtyLevel
-        {
-            get
-            {
-                if (_naughtyLevel == null)
-                {
-                    _naughtyLevel = SaveGame.Load(naughtyLevelSavename, "en-us");
-                }
 
-                return _naughtyLevel;
-            }
-            set
+    #region naughtyLevel
+    public Vector2Int naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
+    {
+        get
+        {
+            if (_naughtyLevel == null)
             {
-                if (_naughtyLevel.CompareTo(value) != 0)
-                {
-                    _naughtyLevel = value;
-                    SaveGame.Save(naughtyLevelSavename, value);
-                }
+                _naughtyLevel = SaveGame.Load(naughtyLevelSavename, new Vector2Int(1, 10));
+            }
+
+            return _naughtyLevel;
+        }
+        set
+        {
+            if (_naughtyLevel != value)
+            {
+                _naughtyLevel = value;
+                SaveGame.Save(naughtyLevelSavename, value);
             }
         }
-        private string _naughtyLevel;
-        private string naughtyLevelSavename = "naughtyLevel";
-        #endregion
+    }
+    private Vector2Int _naughtyLevel;
+    private string naughtyLevelSavename = "naughtyLevel";
+    #endregion
 
+    /*
         #region customSentences
         public string customSentences
         {

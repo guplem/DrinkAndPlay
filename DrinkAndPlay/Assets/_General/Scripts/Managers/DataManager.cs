@@ -25,6 +25,7 @@ public class DataManager
         return clonedDictionary;
     }
 
+
     #region language
     public string language
     {
@@ -185,7 +186,6 @@ public class DataManager
     #endregion
 
 
-
     #region textsRegistered
     private Dictionary<Section, List<string>> textsRegistered
     {
@@ -215,40 +215,31 @@ public class DataManager
         clonedCS[section].Add(textId);
         textsRegistered = clonedCS;
     }
-    private void RemoveTextRegistered(Section section, string textId)
+    public void RemoveTextRegistered(Section section, string textId)
     {
         Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
         clonedCS[section].Remove(textId);
         textsRegistered = clonedCS;
     }
-    #endregion
-
-
-    /*
-    #region Premium
-    public bool Premium
+    public bool IsTextRegistered(Section section, string textId)
     {
-        get
-        {
-            if (_Premium == false)
-            {
-                _Premium = SaveGame.Load(PremiumSavename, false);
-            }
-
-            return _Premium;
-        }
-        set
-        {
-            if (_Premium != value)
-            {
-                _Premium = value;
-                SaveGame.Save(PremiumSavename, value);
-            }
-        }
+        return textsRegistered[section].Contains(textId);
     }
-    private bool _Premium = false;
-    private string PremiumSavename = "Premium";
+    public int GetTextRegisteredQuantity(Section section)
+    {
+        return textsRegistered[section].Count;
+    }
+    public void RemoveOldestTextRegistered(Section section)
+    {
+        RemoveNOldestTextRegistered(section, 1);
+    }
+    public void RemoveNOldestTextRegistered(Section section, int quantity)
+    {
+        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
+        clonedCS[section].RemoveRange(0, quantity);
+        textsRegistered = clonedCS;
+    }
     #endregion
-    */
+
 
 }

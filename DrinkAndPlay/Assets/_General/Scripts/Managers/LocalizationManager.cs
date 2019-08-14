@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class LocalizationManager
 {
-    private ConfigurationManager configurationManager;
+    private DataManager configurationManager;
     Dictionary<Section, List<LocalizedText>> localizedTexts;
 
-    public LocalizationManager(ConfigurationManager configurationManager)
+    public LocalizationManager(DataManager dataManager)
     {
-        this.configurationManager = configurationManager;
+        this.configurationManager = dataManager;
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();
     }
 
@@ -28,6 +28,8 @@ public class LocalizationManager
             Debug.LogError("Trying to load a 'null' section's localized texts");
             return false;
         }
+
+        Debug.Log("Loading language for " + section);
 
         string lang = configurationManager.language;
 

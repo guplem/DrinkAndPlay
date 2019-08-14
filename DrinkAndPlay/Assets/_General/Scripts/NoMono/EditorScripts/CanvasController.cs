@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CanvasController
 {
 
-    [MenuItem("Drink and Play/Adjust canvas")]
+    [MenuItem("Drink and Play/Adjust in-scene canvases")]
     public static void AdjustCanvas()
     {
 

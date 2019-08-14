@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public LocalizationManager localizationManager { get; private set; }
-    public SavesManager savesManager { get; private set; }
-    public ConfigurationManager configurationManager { get; private set; }
+    public DataManager dataManager { get; private set; }
 
     [SerializeField] public Section uiSection;
     [SerializeField] public GeneralUI generalUI;
@@ -22,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Two game managers have been created (expected if comming from other section). Destroying the game object with the newest 'GameManager' before initialization");
             Destroy(gameObject);
+            return; // If the return is not not here, the method is fully-run and after that, the object is destroyed. This is not the desired behaviour.
         }
         else
         {
@@ -35,15 +35,15 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
-        savesManager = new SavesManager();
-        configurationManager = new ConfigurationManager(savesManager);
-        localizationManager = new LocalizationManager(configurationManager);
+        dataManager = new DataManager(false);
+        localizationManager = new LocalizationManager(dataManager);
 
         if (uiSection == null)
             Debug.LogError("UI Section not set up in the GameManager.");
         localizationManager.LoadCurrentLanguageFor(uiSection);
 
         Debug.Log("Game Manager setup completed.");
+
     }
 
     public void LoadSection(Section section)
@@ -51,4 +51,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Loading scene '" + section.sceneName + "' from section " + section);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
+
 }

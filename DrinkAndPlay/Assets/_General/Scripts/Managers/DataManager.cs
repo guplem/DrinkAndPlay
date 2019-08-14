@@ -33,7 +33,7 @@ public class DataManager
         {
             if (_language == null)
             {
-                _language = SaveGame.Load(languageSavename, "en-us");
+                _language = SaveGame.Load(languageSavename, "es-es");
             }
 
             return _language;
@@ -117,28 +117,77 @@ public class DataManager
 
 
     #region naughtyLevel
-    public Vector2Int naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
+    public class NaughtyLevel
+    {
+        public int min;
+        public int max;
+
+        public NaughtyLevel(int min, int max)
+        {
+            this.min = min;
+            this.max = max;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is NaughtyLevel level &&
+                   min == level.min &&
+                   max == level.max;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -897720056;
+            hashCode = hashCode * -1521134295 + min.GetHashCode();
+            hashCode = hashCode * -1521134295 + max.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return "(" + min + "," + max + ")";
+        }
+    }
+    private NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
     {
         get
         {
             if (_naughtyLevel == null)
             {
-                _naughtyLevel = SaveGame.Load(naughtyLevelSavename, new Vector2Int(1, 10));
+                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, new NaughtyLevel(1, 10));
             }
 
             return _naughtyLevel;
         }
         set
         {
-            if (_naughtyLevel != value)
+            if (!_naughtyLevel.Equals(value))
             {
                 _naughtyLevel = value;
-                SaveGame.Save(naughtyLevelSavename, value);
+                SaveGame.Save<NaughtyLevel>(naughtyLevelSavename, value);
             }
         }
     }
-    private Vector2Int _naughtyLevel;
+    private NaughtyLevel _naughtyLevel;
+    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { } }
+    private NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
     private string naughtyLevelSavename = "naughtyLevel";
+    public void SetNaughtyLevelMin(int value)
+    {
+        naughtyLevel = new NaughtyLevel(value, naughtyLevel.max);
+    }
+    public void SetNaughtyLevelMax(int value)
+    {
+        naughtyLevel = new NaughtyLevel(naughtyLevel.min, value);
+    }
+    public int GetNaughtyLevelMin()
+    {
+        return naughtyLevel.min;
+    }
+    public int GetNaughtyLevelMax()
+    {
+        return naughtyLevel.max;
+    }
     #endregion
 
 

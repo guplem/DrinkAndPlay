@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  automaticallyLocalizeOnEnable: 0
+  isUi: 1
+  automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
-  isUI: 1
 --- !u!1 &2411471579514701039
 GameObject:
   m_ObjectHideFlags: 0

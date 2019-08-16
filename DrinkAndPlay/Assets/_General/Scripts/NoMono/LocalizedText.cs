@@ -21,7 +21,7 @@ public class LocalizedText
 
     public override bool Equals(object other)
     {
-        return GetHashCode() == ((LocalizedText)other).GetHashCode();
+        return other != null && GetHashCode() == ((LocalizedText) other).GetHashCode();
     }
 
     public override string ToString()

@@ -9,22 +9,22 @@ public class Localizer : MonoBehaviour
 {
 
     [SerializeField] public string id;
-    [SerializeField] public bool isUI;
+    [SerializeField] public bool isUi;
     [SerializeField] public bool automaticallyLocalize = false;
     [SerializeField] public bool registerTimestampAtLocalize;
 
     private string currentLanguage = "";
     private bool previouslyStarted;
     private bool subscribed = false;
-    private TextMeshProUGUI TMProGUI;
+    private TextMeshProUGUI tmProGui;
 
     private void OnEnable()
     {
-        if (TMProGUI == null)
+        if (tmProGui == null)
         {
-            TMProGUI = GetComponent<TextMeshProUGUI>();
+            tmProGui = GetComponent<TextMeshProUGUI>();
 
-            if (TMProGUI == null)
+            if (tmProGui == null)
                 Debug.LogError("The 'TextMeshProUGUI' component could not be found in the object " + name, gameObject);
         }
 
@@ -54,31 +54,38 @@ public class Localizer : MonoBehaviour
 
         if (automaticallyLocalize)
         {
-            if (currentLanguage != GameManager.Instance.dataManager.language)
+            if (currentLanguage != GameManager.instance.dataManager.language)
                 Localize();
         }
     }
 
-
-    public void Localize(string id)
+    public void SetId(string id)
     {
         this.id = id;
+    }
+    
+    public void Localize(string id)
+    {
+        SetId(id);
         Localize();
     }
 
 
     public void Localize()
     {
+        if (!Application.isPlaying)
+            return;
 
         if (string.IsNullOrEmpty(id))
         {
-            Debug.LogWarning("Trying to localize the object '" + gameObject.name + "' but the 'id' in the 'Localizer' component is null or empty", gameObject);
+            GameObject go = gameObject;
+            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty", go);
             return;
         }
 
-        Section section = isUI ? GameManager.Instance.uiSection : SectionManager.Instance.section;
+        Section section = isUi ? GameManager.instance.uiSection : SectionManager.instance.section;
 
-        if (TMProGUI == null)
+        if (tmProGui == null)
         {
             Debug.LogWarning("TMProGUI is null in " + name, gameObject);
 
@@ -92,9 +99,10 @@ public class Localizer : MonoBehaviour
             */
         }
 
-        currentLanguage = GameManager.Instance.dataManager.language;
+        currentLanguage = GameManager.instance.dataManager.language;
 
-        TMProGUI.text = GameManager.Instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
+        tmProGui.text = GameManager.instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
     }
+
 
 }

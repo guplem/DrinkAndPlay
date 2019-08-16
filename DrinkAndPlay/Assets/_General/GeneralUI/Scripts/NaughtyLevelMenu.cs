@@ -18,8 +18,8 @@ public class NaughtyLevelMenu : MonoBehaviour
 
     private void Start()
     {
-        SetupSlider(minSlider, minSliderValueIndicator, GameManager.Instance.dataManager.naughtyLevelExtremes.min, GameManager.Instance.dataManager.naughtyLevelExtremes.max, GameManager.Instance.dataManager.GetNaughtyLevelMin());
-        SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.Instance.dataManager.naughtyLevelExtremes.min, GameManager.Instance.dataManager.naughtyLevelExtremes.max, GameManager.Instance.dataManager.GetNaughtyLevelMax());
+        SetupSlider(minSlider, minSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMin());
+        SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMax());
     }
 
     private void SetupSlider(Slider slider, TextMeshProUGUI textIndicator, int minValue, int maxValue, float currentValue)
@@ -44,27 +44,27 @@ public class NaughtyLevelMenu : MonoBehaviour
 
     public void NewMinValue(float newVal)
     {
-        if (newVal > GameManager.Instance.dataManager.GetNaughtyLevelMax())
+        if (newVal > GameManager.instance.dataManager.GetNaughtyLevelMax())
         {
-            SetValueSlider(minSlider, minSliderValueIndicator, GameManager.Instance.dataManager.GetNaughtyLevelMax());
+            SetValueSlider(minSlider, minSliderValueIndicator, GameManager.instance.dataManager.GetNaughtyLevelMax());
         }
         else
         {
             SetTextIndicator(minSliderValueIndicator, newVal);
-            GameManager.Instance.dataManager.SetNaughtyLevelMin(Mathf.RoundToInt(newVal));
+            GameManager.instance.dataManager.SetNaughtyLevelMin(Mathf.RoundToInt(newVal));
         }
     }
 
     public void NewMaxValue(float newVal)
     {
-        if (newVal < GameManager.Instance.dataManager.GetNaughtyLevelMin())
+        if (newVal < GameManager.instance.dataManager.GetNaughtyLevelMin())
         {
-            SetValueSlider(maxSlider, maxSliderValueIndicator, GameManager.Instance.dataManager.GetNaughtyLevelMin());
+            SetValueSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.GetNaughtyLevelMin());
         }
         else
         {
             SetTextIndicator(maxSliderValueIndicator, newVal);
-            GameManager.Instance.dataManager.SetNaughtyLevelMax(Mathf.RoundToInt(newVal));
+            GameManager.instance.dataManager.SetNaughtyLevelMax(Mathf.RoundToInt(newVal));
         }
     }
 }

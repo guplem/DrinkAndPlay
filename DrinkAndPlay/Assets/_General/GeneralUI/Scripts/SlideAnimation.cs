@@ -32,16 +32,18 @@ public class SlideAnimation : AnimationUI
 
     private void Update()
     {
-        if (!reachedPos)
-            if ((isShown && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen)) ||
-               (!isShown && (rt.anchorMax != maxClose || rt.anchorMin != minClose)))
-            {
-                Transition(Time.deltaTime);
-            }
-            else
-            {
-                reachedPos = true;
-            }
+        if (reachedPos) 
+            return;
+        
+        if ((isShown && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen)) ||
+            (!isShown && (rt.anchorMax != maxClose || rt.anchorMin != minClose)))
+        {
+            Transition(Time.deltaTime);
+        }
+        else
+        {
+            reachedPos = true;
+        }
     }
 
     protected override void Transition(float deltaTime)

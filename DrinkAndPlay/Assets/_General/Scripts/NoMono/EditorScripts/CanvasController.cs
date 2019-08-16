@@ -11,37 +11,29 @@ public class CanvasController
     public static void AdjustCanvas()
     {
 
-        var canvasCol = Object.FindObjectsOfType<Canvas>();
+        Canvas[] canvasCol = Object.FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvasCol)
             AdjustCanvasComponent(canvas);
         if (canvasCol.Length <= 0)
             Debug.LogError("The 'Canvas' component was not found in the scene.");
-        //if (canvasCol.Length > 1)
-        //    Debug.LogWarning("More than one 'Canvas' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
 
-        var canvasScalerCol = Object.FindObjectsOfType<CanvasScaler>();
+        CanvasScaler[] canvasScalerCol = Object.FindObjectsOfType<CanvasScaler>();
         foreach (CanvasScaler canvasScaler in canvasScalerCol)
             AdjustCanvasScaler(canvasScaler);
         if (canvasScalerCol.Length <= 0)
             Debug.LogError("The 'CanvasScaler' component was not found in the scene.");
-        //if (canvasScalerCol.Length > 1)
-        //    Debug.LogWarning("More than one 'CanvasScaler' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
-
 
         var graphicRaycasterCol = Object.FindObjectsOfType<GraphicRaycaster>();
         foreach (GraphicRaycaster graphicRaycaster in graphicRaycasterCol)
             AdjustGraphicRaycaster(graphicRaycaster);
         if (graphicRaycasterCol.Length <= 0)
             Debug.LogError("The 'GraphicRaycaster' component was not found in the scene.");
-        //if (graphicRaycasterCol.Length > 1)
-        //    Debug.LogWarning("More than one 'GraphicRaycaster' component was found in the scene. There are multiple 'Canvas' objects in the scene? Shouln't be.");
-
 
         Debug.Log("Canvas configuration applied to the found canvas components.");
     }
 
 
-    public static void AdjustCanvasComponent(Canvas canvasComponent) {
+    private static void AdjustCanvasComponent(Canvas canvasComponent) {
         if (canvasComponent == null)
         {
             Debug.LogError("The component 'Canvas' inside the 'Canvas' GameObject was not found.");
@@ -53,11 +45,9 @@ public class CanvasController
         canvasComponent.sortingOrder = (canvasComponent.GetComponent<GameManager>() != null)? 50 : 0;
         canvasComponent.targetDisplay = 0;
         canvasComponent.additionalShaderChannels = AdditionalCanvasShaderChannels.TexCoord1;
-
-
     }
 
-    public static void AdjustCanvasScaler(CanvasScaler canvasScaler)
+    private static void AdjustCanvasScaler(CanvasScaler canvasScaler)
     {
         if (canvasScaler == null)
         {
@@ -73,7 +63,7 @@ public class CanvasController
 
     }
 
-    public static void AdjustGraphicRaycaster(GraphicRaycaster graphicRaycaster)
+    private static void AdjustGraphicRaycaster(GraphicRaycaster graphicRaycaster)
     {
         if (graphicRaycaster == null)
         {
@@ -84,9 +74,6 @@ public class CanvasController
         graphicRaycaster.ignoreReversedGraphics = true;
         graphicRaycaster.blockingObjects = GraphicRaycaster.BlockingObjects.None;
         //graphicRaycaster.blockingMask = GraphicRaycaster.BlockingMask.All; // Not accessible via script
-
     }
 
-
-        
 }

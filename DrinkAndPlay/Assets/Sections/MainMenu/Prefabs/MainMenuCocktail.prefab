@@ -120,7 +120,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8805026883035796611}
-        m_MethodName: OpenCoctel
+        m_MethodName: OpenCocktail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

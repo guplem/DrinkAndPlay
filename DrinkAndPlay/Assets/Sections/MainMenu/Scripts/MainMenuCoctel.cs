@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class MainMenuCoctel : MonoBehaviour
 {
-    private Coctel coctel;
+    private Cocktail cocktail;
     [SerializeField] private Image image;
 
 
-    public void Setup(Coctel coctel)
+    public void Setup(Cocktail cocktail)
     {
-        this.coctel = coctel;
+        this.cocktail = cocktail;
 
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
         //ar.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
-        ar.aspectRatio = coctel.image.rect.width / coctel.image.rect.height;
+        ar.aspectRatio = cocktail.image.rect.width / cocktail.image.rect.height;
 
-        image.sprite = coctel.image;
+        image.sprite = cocktail.image;
     }
 
-    public void OpenCoctel()
+    public void OpenCocktail()
     {
-        Debug.Log(" Coctel " + coctel + " selected.");
+        Debug.Log("Cocktail " + cocktail + " selected.");
     }
     
 }

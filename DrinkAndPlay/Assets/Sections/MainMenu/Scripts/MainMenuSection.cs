@@ -21,7 +21,7 @@ public class MainMenuSection : MonoBehaviour
         
         image.sprite = section.image;
 
-        titleText.Localize(section.nameId);
+        titleText.SetId(section.nameId);
     }
 
     public void SelectGame()
@@ -31,6 +31,6 @@ public class MainMenuSection : MonoBehaviour
 
     public void OpenSectionDescription()
     {
-        ((MainMenuManager)SectionManager.Instance).OpenSectionDescription(section);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section);
     }
 }

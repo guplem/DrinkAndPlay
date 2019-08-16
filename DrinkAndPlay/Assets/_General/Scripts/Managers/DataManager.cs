@@ -13,7 +13,7 @@ public class DataManager
         SaveGame.Encode = encode;
     }
 
-    private List<T> GetCloneOfList<T>(List<T> originalList)
+    private static List<T> GetCloneOfList<T>(List<T> originalList)
     {
         return new List<T>(originalList);
     }
@@ -32,25 +32,24 @@ public class DataManager
         get
         {
             if (_language == null)
-            {
                 _language = SaveGame.Load(languageSavename, "es-es");
-            }
 
             return _language;
         }
         set
         {
-            if (_language.CompareTo(value) != 0)
-            {
-                Debug.Log("New language: " + value);
-                _language = value;
-                GameManager.Instance.localizationManager.ReloadCurrentLanguage();
-                SaveGame.Save(languageSavename, value);
-            }
+            if (string.Compare(_language, value, StringComparison.Ordinal) == 0) 
+                return;
+            
+            Debug.Log("New language: " + value);
+            _language = value;
+            GameManager.instance.localizationManager.ReloadCurrentLanguage();
+            SaveGame.Save(languageSavename, value);
         }
     }
     private string _language;
-    private string languageSavename = "language";
+    private const string languageSavename = "language";
+
     #endregion
 
 
@@ -61,37 +60,35 @@ public class DataManager
         {
             Debug.Log("Players get");
             if (_players == null)
-            {
                 _players = SaveGame.Load<List<string>>(playersSavename, new List<string>());
-            }
 
             return _players;
         }
         set
         {
-            if (!_players.SequenceEqual(value))
-            {
-                Debug.Log("Players set");
-                _players = value;
-                SaveGame.Save(playersSavename, value);
-            }
+            if (_players.SequenceEqual(value)) 
+                return;
+            
+            Debug.Log("Players set");
+            _players = value;
+            SaveGame.Save(playersSavename, value);
         }
     }
     private List<string> _players;
-    private readonly string playersSavename = "players";
+    private const string playersSavename = "players";
+
     public string GetPlayer(int playerNumber)
     {
         return players[playerNumber];
     }
     public int GetPlayerNumber(string player)
     {
-        if (string.IsNullOrEmpty(player))
-        {
-            Debug.LogWarning("Searching the index of a null player");
-            return -1;
-        }
+        if (!string.IsNullOrEmpty(player)) 
+            return players.IndexOf(player);
+        
+        Debug.LogWarning("Searching the index of a null player");
+        return -1;
 
-        return players.IndexOf(player);
     }
     public int GetPlayersQuantity()
     {
@@ -139,7 +136,7 @@ public class DataManager
 
         public override int GetHashCode()
         {
-            var hashCode = -897720056;
+            int hashCode = -897720056;
             hashCode = hashCode * -1521134295 + min.GetHashCode();
             hashCode = hashCode * -1521134295 + max.GetHashCode();
             return hashCode;
@@ -171,7 +168,7 @@ public class DataManager
         }
     }
     private NaughtyLevel _naughtyLevel;
-    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { } }
+    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
     private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
     private const string naughtyLevelSavename = "naughtyLevel";
 
@@ -200,19 +197,17 @@ public class DataManager
         get
         {
             if (_customSentences == null)
-            {
                 _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<Section, List<string>>());
-            }
 
             return _customSentences;
         }
         set
         {
-            if (!_customSentences.SequenceEqual(value))
-            {
-                _customSentences = value;
-                SaveGame.Save(customSentencesSavename, value);
-            }
+            if (_customSentences.SequenceEqual(value)) 
+                return;
+            
+            _customSentences = value;
+            SaveGame.Save(customSentencesSavename, value);
         }
     }
     private Dictionary<Section, List<string>> _customSentences;
@@ -245,19 +240,17 @@ public class DataManager
         get
         {
             if (_textsRegistered == null)
-            {
                 _textsRegistered = SaveGame.Load(textsRegisteredSavename, new Dictionary<Section, List<string>>());
-            }
 
             return _textsRegistered;
         }
         set
         {
-            if (!_textsRegistered.SequenceEqual(value))
-            {
-                _textsRegistered = value;
-                SaveGame.Save(textsRegisteredSavename, value);
-            }
+            if (_textsRegistered.SequenceEqual(value)) 
+                return;
+            
+            _textsRegistered = value;
+            SaveGame.Save(textsRegisteredSavename, value);
         }
     }
     private Dictionary<Section, List<string>> _textsRegistered;
@@ -290,11 +283,10 @@ public class DataManager
 
     private void RemoveNOldestTextRegistered(Section section, int quantity)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].RemoveRange(0, quantity);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].RemoveRange(0, quantity);
+        textsRegistered = clonedCs;
     }
     #endregion
-
 
 }

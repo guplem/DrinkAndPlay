@@ -119,10 +119,9 @@ public class LocalizationManager
         //TODO: Registration of the quarry to get the text if "register == true"
 
         foreach (LocalizedText localizedText in localizedTexts[section])
-        {
             if (localizedText.id == id)
                 return localizedText;
-        }
+        
         return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
     }
 

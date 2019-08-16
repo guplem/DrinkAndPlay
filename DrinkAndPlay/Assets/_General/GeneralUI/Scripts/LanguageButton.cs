@@ -16,6 +16,6 @@ public class LanguageButton : MonoBehaviour
 
     public void SelectLanguage()
     {
-        GameManager.Instance.dataManager.language = language.languageId;
+        GameManager.instance.dataManager.language = language.languageId;
     }
 }

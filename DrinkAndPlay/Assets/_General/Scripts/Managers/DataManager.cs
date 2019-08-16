@@ -13,7 +13,7 @@ public class DataManager
         SaveGame.Encode = encode;
     }
 
-    public List<T> GetCloneOfList<T>(List<T> originalList)
+    private List<T> GetCloneOfList<T>(List<T> originalList)
     {
         return new List<T>(originalList);
     }
@@ -42,7 +42,9 @@ public class DataManager
         {
             if (_language.CompareTo(value) != 0)
             {
+                Debug.Log("New language: " + value);
                 _language = value;
+                GameManager.Instance.localizationManager.ReloadCurrentLanguage();
                 SaveGame.Save(languageSavename, value);
             }
         }
@@ -76,7 +78,7 @@ public class DataManager
         }
     }
     private List<string> _players;
-    private string playersSavename = "players";
+    private readonly string playersSavename = "players";
     public string GetPlayer(int playerNumber)
     {
         return players[playerNumber];
@@ -119,8 +121,8 @@ public class DataManager
     #region naughtyLevel
     public class NaughtyLevel
     {
-        public int min;
-        public int max;
+        public readonly int min;
+        public readonly int max;
 
         public NaughtyLevel(int min, int max)
         {
@@ -170,8 +172,9 @@ public class DataManager
     }
     private NaughtyLevel _naughtyLevel;
     public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { } }
-    private NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
-    private string naughtyLevelSavename = "naughtyLevel";
+    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
+    private const string naughtyLevelSavename = "naughtyLevel";
+
     public void SetNaughtyLevelMin(int value)
     {
         naughtyLevel = new NaughtyLevel(value, naughtyLevel.max);
@@ -213,24 +216,25 @@ public class DataManager
         }
     }
     private Dictionary<Section, List<string>> _customSentences;
-    private string customSentencesSavename = "customSentences";
+    private const string customSentencesSavename = "customSentences";
+
     private void AddCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].Add(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].Add(sentence);
+        customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].Remove(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].Remove(sentence);
+        customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, int sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].RemoveAt(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].RemoveAt(sentence);
+        customSentences = clonedCs;
     }
     #endregion
 
@@ -257,18 +261,19 @@ public class DataManager
         }
     }
     private Dictionary<Section, List<string>> _textsRegistered;
-    private string textsRegisteredSavename = "textsRegistered";
+    private const string textsRegisteredSavename = "textsRegistered";
+
     private void AddTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].Add(textId);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].Add(textId);
+        textsRegistered = clonedCs;
     }
     public void RemoveTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].Remove(textId);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].Remove(textId);
+        textsRegistered = clonedCs;
     }
     public bool IsTextRegistered(Section section, string textId)
     {
@@ -282,7 +287,8 @@ public class DataManager
     {
         RemoveNOldestTextRegistered(section, 1);
     }
-    public void RemoveNOldestTextRegistered(Section section, int quantity)
+
+    private void RemoveNOldestTextRegistered(Section section, int quantity)
     {
         Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
         clonedCS[section].RemoveRange(0, quantity);

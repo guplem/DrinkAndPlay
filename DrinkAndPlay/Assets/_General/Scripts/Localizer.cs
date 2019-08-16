@@ -72,7 +72,7 @@ public class Localizer : MonoBehaviour
 
         if (string.IsNullOrEmpty(id))
         {
-            Debug.LogWarning("Trying to localize the object '" + gameObject.name + "' but the 'id' in the 'Localizer' component is null or empty");
+            Debug.LogWarning("Trying to localize the object '" + gameObject.name + "' but the 'id' in the 'Localizer' component is null or empty", gameObject);
             return;
         }
 

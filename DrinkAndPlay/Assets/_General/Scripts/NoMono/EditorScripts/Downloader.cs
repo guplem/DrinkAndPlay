@@ -76,6 +76,9 @@ class Downloader
         wc.Headers.Add("Accept-Encoding", "deflate");
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
+        if(string.IsNullOrEmpty(section.localizationUrl))
+            Debug.LogError("The localization file for the section " + section  + " can not be downloaded because the 'LocalizationURL' is not valid.");
+        
         byte[] dt = wc.DownloadData(section.localizationUrl);
         File.WriteAllBytes("Assets/_General/Resources/" + section + ".csv", dt);
 

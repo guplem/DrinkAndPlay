@@ -18,9 +18,17 @@ MonoBehaviour:
   newness: 0
   comingSoon: 0
   premium: 0
-  localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=0&single=true&output=csv
+  localizationUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=0&single=true&output=csv
   minNumberOfPlayers: -1
   sceneName: 
-  showNaughyLevelConfigurator: 0
+  topBar: 1
+  backButton: 1
+  sectionTitle: 1
+  configButton: 1
+  bottomBar: 1
+  likeButton: 1
+  addButton: 1
+  shareButton: 1
+  showNaughtyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

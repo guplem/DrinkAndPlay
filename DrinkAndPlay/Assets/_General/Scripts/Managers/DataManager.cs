@@ -58,7 +58,6 @@ public class DataManager
     {
         get
         {
-            Debug.Log("Players get");
             if (_players == null)
                 _players = SaveGame.Load<List<string>>(playersSavename, new List<string>());
 
@@ -68,8 +67,7 @@ public class DataManager
         {
             if (_players.SequenceEqual(value)) 
                 return;
-            
-            Debug.Log("Players set");
+             
             _players = value;
             SaveGame.Save(playersSavename, value);
         }
@@ -80,6 +78,10 @@ public class DataManager
     public string GetPlayer(int playerNumber)
     {
         return players[playerNumber];
+    }    
+    public List<string> GetPlayers()
+    {
+        return GetCloneOfList(players);
     }
     public int GetPlayerNumber(string player)
     {
@@ -93,6 +95,10 @@ public class DataManager
     public int GetPlayersQuantity()
     {
         return players.Count;
+    }
+    public bool CanAddPlayer(string player)
+    {
+        return !(players.Contains(player) || string.IsNullOrEmpty(player) || string.IsNullOrWhiteSpace(player));
     }
     public void AddPlayer(string player)
     {

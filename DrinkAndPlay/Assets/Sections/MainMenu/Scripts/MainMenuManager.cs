@@ -26,22 +26,7 @@ public class MainMenuManager : SectionManager
         Debug.Log("Started MainMenu' SectionManager.");
     }
 
-    private static void DestroyContentsOf(Transform parentToClean, List<Transform> exceptions)
-    {
-        while (parentToClean.childCount > exceptions.Count)
-            foreach (Transform child in parentToClean)
-                if (!exceptions.Contains(child))
-                    DestroyImmediate(child.gameObject);
 
-        //Check that the elimination is ok
-        foreach (Transform child in parentToClean)
-            if (!exceptions.Contains(child))
-            {
-                Debug.LogError("Error destroying the contents of " + parentToClean.name + ". Maybe some of the exceptions is no inside the parentGameObject. The exceptions were the following ones:");
-                foreach (Transform exception in exceptions)
-                    Debug.LogError("  --> " + exception.name);
-            }
-    }
 
     public void GenerateMenu()
     {
@@ -49,7 +34,7 @@ public class MainMenuManager : SectionManager
 
         //Games
         destroyExceptions.Add(horizontalMenu.transform);
-        DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
+        UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
@@ -68,7 +53,7 @@ public class MainMenuManager : SectionManager
 
         //Coctels
         destroyExceptions.Clear();
-        DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
+        UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
 
         for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {

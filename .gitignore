@@ -13,6 +13,9 @@ sysinfo.txt
 # Unity3D generated meta files
 *.pidb.meta
 
+# Exclude rider idea data
+.idea
+
 ###
 # VS/MD solution and project files
 ###

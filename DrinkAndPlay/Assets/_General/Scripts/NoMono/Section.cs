@@ -15,7 +15,7 @@ public class Section : ScriptableObject
 
     [Header("Section configuration")]
     [TextArea]
-    public string localizationURL;
+    public string localizationUrl;
     public int minNumberOfPlayers;
     public string sceneName;
 
@@ -33,7 +33,7 @@ public class Section : ScriptableObject
     public bool shareButton = true;
 
     [Header("Start configuration")]
-    public bool showNaughyLevelConfigurator;
+    public bool showNaughtyLevelConfigurator;
     public bool showPlayersConfigurator;
     public bool showLanguageConfigurator;
 
@@ -49,7 +49,7 @@ public class Section : ScriptableObject
 
     public override bool Equals(object other)
     {
-        return GetHashCode() == ((Section)other).GetHashCode();
+        return other != null && GetHashCode() == ((Section)other).GetHashCode();
     }
 
     public override string ToString()

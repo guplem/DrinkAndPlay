@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SlideAnimation : AnimationUI
 {
-    private Vector2 minOpen = new Vector2(0, 0);
-    private Vector2 maxOpen = new Vector2(1, 1);
-    private Vector2 minClose = new Vector2(1, 0);
-    private Vector2 maxClose = new Vector2(2, 1);
+    private readonly Vector2 minOpen = new Vector2(0, 0);
+    private readonly Vector2 maxOpen = new Vector2(1, 1);
+    private readonly Vector2 minClose = new Vector2(1, 0);
+    private readonly Vector2 maxClose = new Vector2(2, 1);
     private bool reachedPos;
 
     private void Start()
@@ -32,16 +32,18 @@ public class SlideAnimation : AnimationUI
 
     private void Update()
     {
-        if (!reachedPos)
-            if ((isShown && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen)) ||
-               (!isShown && (rt.anchorMax != maxClose || rt.anchorMin != minClose)))
-            {
-                Transition(Time.deltaTime);
-            }
-            else
-            {
-                reachedPos = true;
-            }
+        if (reachedPos) 
+            return;
+        
+        if ((isShown && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen)) ||
+            (!isShown && (rt.anchorMax != maxClose || rt.anchorMin != minClose)))
+        {
+            Transition(Time.deltaTime);
+        }
+        else
+        {
+            reachedPos = true;
+        }
     }
 
     protected override void Transition(float deltaTime)

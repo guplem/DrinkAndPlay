@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class LocalizationManager
 {
-    private DataManager configurationManager;
-    Dictionary<Section, List<LocalizedText>> localizedTexts;
+    private readonly DataManager configurationManager;
+    private Dictionary<Section, List<LocalizedText>> localizedTexts;
 
     public LocalizationManager(DataManager dataManager)
     {
@@ -14,11 +14,18 @@ public class LocalizationManager
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();
     }
 
-    public bool SetLanguage(string newLang)
+    public bool ReloadCurrentLanguage()
     {
-        configurationManager.language = newLang;
-        Debug.LogWarning("LoadLanguage() not implemented yet"); //TODO: Foreach loaded section, load the language
-        return false;
+        List<Section> localizedSections = new List<Section>(localizedTexts.Keys);
+        foreach (Section localizedSection in localizedSections)
+        {
+            localizedTexts[localizedSection] = new List<LocalizedText>();
+            LoadCurrentLanguageFor(localizedSection);
+        }
+
+        LocalizeAllLocalizableObjects();
+        
+        return true;
     }
 
     public bool LoadCurrentLanguageFor(Section section)
@@ -39,25 +46,25 @@ public class LocalizationManager
             return false;
         }
 
-        string[][] dataReaded = CSVReader.Read(section).ToArray();
+        string[][] dataRead = CSVReader.Read(section).ToArray();
         int idCol = -1;
         int naughtyCol = -1;
         int langCol = -1;
 
-        for (int row = 0; row < dataReaded.Length; row++)
+        for (int row = 0; row < dataRead.Length; row++)
         {
 
             //Check where is everything in the file
             if (row == 0)
             {
-                for (int col = 0; col < dataReaded[row].Length; col++)
+                for (int col = 0; col < dataRead[row].Length; col++)
                 {
 
-                    if (dataReaded[row][col].ToUpper().CompareTo("ID") != 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), "ID", StringComparison.Ordinal) != 0)
                         idCol = col;
-                    if (dataReaded[row][col].ToUpper().CompareTo("NAUGHTINESS") != 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) != 0)
                         naughtyCol = col;
-                    if (dataReaded[row][col].ToUpper().CompareTo(lang.ToUpper()) == 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), lang.ToUpper(), StringComparison.Ordinal) == 0)
                         langCol = col;
 
                     if (idCol > -1 && naughtyCol > -1 && langCol > -1)
@@ -74,8 +81,8 @@ public class LocalizationManager
             //Save the localized text with the proper language
             else
             {
-                int.TryParse(dataReaded[row][1], out int naughtiness);
-                LocalizedText localizedText = new LocalizedText(dataReaded[row][0], naughtiness, dataReaded[row][langCol]);
+                int.TryParse(dataRead[row][1], out int naughtiness);
+                LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
                 SaveLocalizedText(section, localizedText);
             }
 
@@ -109,24 +116,23 @@ public class LocalizationManager
 
     public LocalizedText GetLocalizedText(Section section, string id, bool register)
     {
-        //TODO: Registration of the querry to get the text if "register == true"
+        //TODO: Registration of the quarry to get the text if "register == true"
 
         foreach (LocalizedText localizedText in localizedTexts[section])
-        {
             if (localizedText.id == id)
                 return localizedText;
-        }
+        
         return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
     }
 
     public delegate void LocalizeAllAction();
     public static event LocalizeAllAction OnLocalizeAllAction;
-    public void LocalizeAllLocalizableObjects()
+
+    private void LocalizeAllLocalizableObjects()
     {
-        if (OnLocalizeAllAction != null)
-        {
-            Debug.Log("   > " + "Localizing all objects");
-            OnLocalizeAllAction();
-        }
+        if (OnLocalizeAllAction == null) return;
+        
+        Debug.Log("   > " + "Localizing all objects");
+        OnLocalizeAllAction();
     }
 }

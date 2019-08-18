@@ -23,13 +23,15 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI languageMenu;
     [SerializeField] private AnimationUI playersMenu;
     [SerializeField] private AnimationUI naughtyLevelMenu;
-    [SerializeField] private AnimationUI FeedbackMenu;
-    [SerializeField] private AnimationUI AddSentenceMenu;
+    [SerializeField] private AnimationUI feedbackMenu;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
     public void SetupFor(Section section)
     {
+        if (section == null)
+            Debug.LogError("The General UI can not be set up for a null section.", gameObject);
+        
         topBar.SetActive(section.topBar);
         backButton.SetActive(section.backButton);
         sectionTitle.SetActive(section.sectionTitle);
@@ -50,31 +52,31 @@ public class GeneralUI : MonoBehaviour
         if (openUI.Count > 0)
             Hide(openUI.Pop());
         else
-            GameManager.Instance.LoadSection(GameManager.Instance.landingSection);
+            GameManager.LoadSection(GameManager.instance.landingSection);
     }
 
-    public bool Show(AnimationUI UiElement)
+    public bool Show(AnimationUI uiElement)
     {
-        if (openUI.Contains(UiElement))
+        if (openUI.Contains(uiElement))
         {
-            Debug.LogError("Trying to open an UI element (" + UiElement + ") that already is opened. This can not happen");
+            Debug.LogError("Trying to open an UI element (" + uiElement + ") that already is opened. This can not happen");
             return false;
         }
 
-        UiElement.Show();
-        openUI.Push(UiElement);
+        uiElement.Show();
+        openUI.Push(uiElement);
         return true;
     }
 
-    public bool Hide(AnimationUI UiElement)
+    public bool Hide(AnimationUI uiElement)
     {
-        if (openUI.Contains(UiElement))
+        if (openUI.Contains(uiElement))
         {
-            Debug.LogError("Trying to close an UI Element (" + UiElement + ") was not the las opened. This can not happen.");
+            Debug.LogError("Trying to close an UI Element (" + uiElement + ") was not the las opened. This can not happen.");
             return false;
         }
 
-        UiElement.Hide();
+        uiElement.Hide();
         return true;
     }
 
@@ -111,16 +113,7 @@ public class GeneralUI : MonoBehaviour
     public void OpenFeedbackMenu()
     {
         Debug.Log("Opening FeedbackMenu");
-        Show(FeedbackMenu);
+        Show(feedbackMenu);
     }
-    public void OpenAddSentenceMenu()
-    {
-        Debug.Log("Opening AddSentenceMenu");
-        Show(AddSentenceMenu);
-    }
-
-
-
-
 
 }

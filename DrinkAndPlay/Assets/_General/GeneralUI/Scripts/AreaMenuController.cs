@@ -6,7 +6,7 @@ public class AreaMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject topBar;
 
-    void Start()
+    private void Start()
     {
         GetComponent<RectTransform>().anchorMax = new Vector2(1, topBar.GetComponent<RectTransform>().anchorMin.y);
     }

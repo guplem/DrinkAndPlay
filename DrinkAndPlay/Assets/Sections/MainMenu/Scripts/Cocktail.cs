@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Coctel", menuName = "Coctel - Recipe")]
-public class Coctel : ScriptableObject
+[CreateAssetMenu(fileName = "New Cocktail", menuName = "Cocktail - Recipe")]
+public class Cocktail : ScriptableObject
 {
-    [Header("Coctel information")]
+    [Header("Cocktail information")]
     public string nameId;
     public string descriptionId;
     public Sprite image;
@@ -19,7 +19,7 @@ public class Coctel : ScriptableObject
 
     public override bool Equals(object other)
     {
-        return GetHashCode() == ((Coctel)other).GetHashCode();
+        return other != null && GetHashCode() == ((Cocktail)other).GetHashCode();
     }
 
     public override string ToString()

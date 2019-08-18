@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour
     public DataManager dataManager { get; private set; }
 
     [SerializeField] public Section uiSection;
-    [SerializeField] public GeneralUI generalUI;
+    [SerializeField] public GeneralUI generalUi;
     [SerializeField] public Section landingSection;
 
-    public static GameManager Instance { get; private set; }
+    public static GameManager instance { get; private set; }
     public void Initialize()
     {
-        if (Instance != null)
+        if (instance != null)
         {
             Debug.Log("Two game managers have been created (expected if comming from other section). Destroying the game object with the newest 'GameManager' before initialization");
             Destroy(gameObject);
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void LoadSection(Section section)
+    public static void LoadSection(Section section)
     {
         Debug.Log("Loading scene '" + section.sceneName + "' from section " + section);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);

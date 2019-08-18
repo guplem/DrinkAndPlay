@@ -5,36 +5,36 @@ namespace Crystal
 {
     public class SafeAreaDemo : MonoBehaviour
     {
-        [SerializeField] KeyCode KeySafeArea = KeyCode.A;
-        SafeArea.SimDevice[] Sims;
-        int SimIdx;
+        [SerializeField] private KeyCode keySafeArea = KeyCode.A;
+        private SafeArea.SimDevice[] sims;
+        private int simIdx;
 
-        void Awake ()
+        private void Awake ()
         {
             if (!Application.isEditor)
                 Destroy (gameObject);
 
-            Sims = (SafeArea.SimDevice[])Enum.GetValues (typeof (SafeArea.SimDevice));
+            sims = (SafeArea.SimDevice[])Enum.GetValues (typeof (SafeArea.SimDevice));
         }
 
-        void Update ()
+        private void Update ()
         {
-            if (Input.GetKeyDown (KeySafeArea))
+            if (Input.GetKeyDown (keySafeArea))
                 ToggleSafeArea ();
         }
 
         /// <summary>
         /// Toggle the safe area simulation device.
         /// </summary>
-        void ToggleSafeArea ()
+        private void ToggleSafeArea ()
         {
-            SimIdx++;
+            simIdx++;
 
-            if (SimIdx >= Sims.Length)
-                SimIdx = 0;
+            if (simIdx >= sims.Length)
+                simIdx = 0;
 
-            SafeArea.Sim = Sims[SimIdx];
-            Debug.LogFormat ("Switched to sim device {0} with debug key '{1}'", Sims[SimIdx], KeySafeArea);
+            SafeArea.Sim = sims[simIdx];
+            Debug.LogFormat ("Switched to sim device {0} with debug key '{1}'", sims[simIdx], keySafeArea);
         }
     }
 }

@@ -6,39 +6,42 @@ using System.Text.RegularExpressions;
 
 public class CSVReader
 {
-    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
-    static char[] TRIM_CHARS = { '\"' };
+    private const string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
+    private const string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
+    //private static char[] TRIM_CHARS = { '\"' };
 
     public static List<Dictionary<string, string>> ReadWithHeaders(string fileName)
     {
-        var table = new List<Dictionary<string, string>>();
+        List<Dictionary<string, string>> table = new List<Dictionary<string, string>>();
         TextAsset csvFile = Resources.Load(fileName) as TextAsset;
 
-        var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
+        if (csvFile == null) return table;
+        
+        string[] lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
 
         if (lines.Length <= 1) return table;
 
-        var headers = Regex.Split(lines[0], SPLIT_RE);
+        string[] headers = Regex.Split(lines[0], SPLIT_RE);
 
-        for (var i = 1; i < lines.Length; i++)
+        for (int i = 1; i < lines.Length; i++)
         {
-            var values = Regex.Split(lines[i], SPLIT_RE);
+            string[] values = Regex.Split(lines[i], SPLIT_RE);
             if (values.Length == 0 || values[0] == "") continue;
 
-            var rowInTable = new Dictionary<string, string>();
-            for (var j = 0; j < headers.Length && j < values.Length; j++)
+            Dictionary<string, string> rowInTable = new Dictionary<string, string>();
+            for (int j = 0; j < headers.Length && j < values.Length; j++)
             {
                 //Clean value
                 string value = values[j].Replace("\"\"", "\"");
                 value = UnquoteString(value);
                 value = value.Replace("\\", "");
-                string finalvalue = value;
+                string finalValue = value;
 
-                rowInTable[headers[j]] = finalvalue;
+                rowInTable[headers[j]] = finalValue;
             }
             table.Add(rowInTable);
         }
+
         return table;
     }
 
@@ -50,40 +53,43 @@ public class CSVReader
             return null;
         }
 
-        var table = new List<string[]>();
+        List<string[]> table = new List<string[]>();
 
         TextAsset csvFile = Resources.Load(section.ToString()) as TextAsset;
 
-        var lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
+        if (csvFile == null) return table;
+        
+        string[] lines = Regex.Split(csvFile.text, LINE_SPLIT_RE);
 
         if (lines.Length <= 1) return null;
 
-        var headers = Regex.Split(lines[0], SPLIT_RE);
+        string[] headers = Regex.Split(lines[0], SPLIT_RE);
 
-        for (var i = 0; i < lines.Length; i++)
+        foreach (string t in lines)
         {
-            var values = Regex.Split(lines[i], SPLIT_RE);
+            string[] values = Regex.Split(t, SPLIT_RE);
             if (values.Length == 0 || values[0] == "") continue;
 
-            var rowInTable = new string[headers.Length];
+            string[] rowInTable = new string[headers.Length];
             for (var j = 0; j < headers.Length && j < values.Length; j++)
             {
                 //Clean value
                 string value = values[j].Replace("\"\"", "\"");
                 value = UnquoteString(value);
                 value = value.Replace("\\", "");
-                string finalvalue = value;
+                string finalValue = value;
 
-                rowInTable[j] = finalvalue;
+                rowInTable[j] = finalValue;
             }
             table.Add(rowInTable);
         }
+
         return table;
     }
 
-    public static string UnquoteString(string str)
+    private static string UnquoteString(string str)
     {
-        if (String.IsNullOrEmpty(str))
+        if (string.IsNullOrEmpty(str))
             return str;
 
         int length = str.Length;

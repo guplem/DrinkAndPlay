@@ -8,9 +8,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Canvas))]
 public class CanvasHelper : MonoBehaviour
 {
-    public static UnityEvent onOrientationChange = new UnityEvent();
-    public static UnityEvent onResolutionChange = new UnityEvent();
-    public static bool isLandscape { get; private set; }
+    private static UnityEvent onOrientationChange = new UnityEvent();
+    private static UnityEvent onResolutionChange = new UnityEvent();
+    private static bool isLandscape { get; set; }
 
     private static List<CanvasHelper> helpers = new List<CanvasHelper>();
 
@@ -24,7 +24,7 @@ public class CanvasHelper : MonoBehaviour
 
     [SerializeField] private RectTransform safeArea;
 
-    void Awake()
+    private void Awake()
     {
         if (!helpers.Contains(this))
             helpers.Add(this);
@@ -51,12 +51,12 @@ public class CanvasHelper : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         ApplySafeArea();
     }
 
-    void Update()
+    private void Update()
     {
         if (helpers[0] != this)
             return;
@@ -78,19 +78,20 @@ public class CanvasHelper : MonoBehaviour
         }
     }
 
-    void ApplySafeArea()
+    private void ApplySafeArea()
     {
         if (this.safeArea == null)
             return;
 
-        var safeArea = Screen.safeArea;
+        Rect safeArea = Screen.safeArea;
 
-        var anchorMin = safeArea.position;
-        var anchorMax = safeArea.position + safeArea.size;
-        anchorMin.x /= canvas.pixelRect.width;
-        anchorMin.y /= canvas.pixelRect.height;
-        anchorMax.x /= canvas.pixelRect.width;
-        anchorMax.y /= canvas.pixelRect.height;
+        Vector2 anchorMin = safeArea.position;
+        Vector2 anchorMax = safeArea.position + safeArea.size;
+        Rect pixelRect = canvas.pixelRect;
+        anchorMin.x /= pixelRect.width;
+        anchorMin.y /= pixelRect.height;
+        anchorMax.x /= pixelRect.width;
+        anchorMax.y /= pixelRect.height;
 
         this.safeArea.anchorMin = anchorMin;
         this.safeArea.anchorMax = anchorMax;
@@ -109,7 +110,7 @@ public class CanvasHelper : MonoBehaviour
         // "\n anchorMax: " + anchorMax.ToString());
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         if (helpers != null && helpers.Contains(this))
             helpers.Remove(this);
@@ -157,7 +158,7 @@ public class CanvasHelper : MonoBehaviour
         }
     }
 
-    public static Vector2 GetCanvasSize()
+    private static Vector2 GetCanvasSize()
     {
         return helpers[0].rectTransform.sizeDelta;
     }

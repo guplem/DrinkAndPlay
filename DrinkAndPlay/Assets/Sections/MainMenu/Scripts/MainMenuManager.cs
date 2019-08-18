@@ -12,10 +12,10 @@ public class MainMenuManager : SectionManager
     [SerializeField] private Section[] sectionsToDisplay;
 
     [Header("Coctels - Recipes")]
-    [SerializeField] private GameObject HorizontalMenu;
+    [SerializeField] private GameObject horizontalMenu;
     [SerializeField] private GameObject horizontalScrollContentHolder;
-    [SerializeField] private GameObject mainMenuCoctelPrefab;
-    [SerializeField] private Coctel[] coctelsToDisplay;
+    [SerializeField] private GameObject mainMenuCocktailPrefab;
+    [SerializeField] private Cocktail[] cocktailsToDisplay;
 
 
     void Start()
@@ -26,30 +26,15 @@ public class MainMenuManager : SectionManager
         Debug.Log("Started MainMenu' SectionManager.");
     }
 
-    private void DestroyContentsOf(Transform ParentToClean, List<Transform> exceptions)
-    {
-        while (ParentToClean.childCount > exceptions.Count)
-            foreach (Transform child in ParentToClean)
-                if (!exceptions.Contains(child))
-                    DestroyImmediate(child.gameObject);
 
-        //Check that the elimination is ok
-        foreach (Transform child in ParentToClean)
-            if (!exceptions.Contains(child))
-            {
-                Debug.LogError("Error destroying the contents of " + ParentToClean.name + ". Maybe some of the exceptions is no inside the parentGameObject. The exceptions were the following ones:");
-                foreach (Transform exception in exceptions)
-                    Debug.LogError("  --> " + exception.name);
-            }
-    }
 
     public void GenerateMenu()
     {
         List<Transform> destroyExceptions = new List<Transform>();
 
         //Games
-        destroyExceptions.Add(HorizontalMenu.transform);
-        DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
+        destroyExceptions.Add(horizontalMenu.transform);
+        UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
@@ -68,20 +53,20 @@ public class MainMenuManager : SectionManager
 
         //Coctels
         destroyExceptions.Clear();
-        DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
+        UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
 
-        for (int c = 0; c < coctelsToDisplay.Length; c++)
+        for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {
-            GameObject coctel = Instantiate(mainMenuCoctelPrefab, horizontalScrollContentHolder.transform);
+            GameObject coctel = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
             coctel.transform.SetSiblingIndex(c);
-            coctel.GetComponent<MainMenuCoctel>().Setup(coctelsToDisplay[c]);
+            coctel.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
         }
     }
 
     public void OpenSectionDescription(Section section)
     {
         Debug.Log("Opening description of " + section);
-        GameManager.Instance.LoadSection(section); //TODO: remove
+        GameManager.LoadSection(section); //TODO: remove
     }
 
 }

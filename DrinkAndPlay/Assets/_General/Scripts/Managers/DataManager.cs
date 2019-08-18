@@ -13,7 +13,7 @@ public class DataManager
         SaveGame.Encode = encode;
     }
 
-    public List<T> GetCloneOfList<T>(List<T> originalList)
+    private static List<T> GetCloneOfList<T>(List<T> originalList)
     {
         return new List<T>(originalList);
     }
@@ -32,23 +32,24 @@ public class DataManager
         get
         {
             if (_language == null)
-            {
-                _language = SaveGame.Load(languageSavename, "en-us");
-            }
+                _language = SaveGame.Load(languageSavename, "es-es");
 
             return _language;
         }
         set
         {
-            if (_language.CompareTo(value) != 0)
-            {
-                _language = value;
-                SaveGame.Save(languageSavename, value);
-            }
+            if (string.Compare(_language, value, StringComparison.Ordinal) == 0) 
+                return;
+            
+            Debug.Log("New language: " + value);
+            _language = value;
+            GameManager.instance.localizationManager.ReloadCurrentLanguage();
+            SaveGame.Save(languageSavename, value);
         }
     }
     private string _language;
-    private string languageSavename = "language";
+    private const string languageSavename = "language";
+
     #endregion
 
 
@@ -57,43 +58,47 @@ public class DataManager
     {
         get
         {
-            Debug.Log("Players get");
             if (_players == null)
-            {
                 _players = SaveGame.Load<List<string>>(playersSavename, new List<string>());
-            }
 
             return _players;
         }
         set
         {
-            if (!_players.SequenceEqual(value))
-            {
-                Debug.Log("Players set");
-                _players = value;
-                SaveGame.Save(playersSavename, value);
-            }
+            if (_players.SequenceEqual(value)) 
+                return;
+             
+            _players = value;
+            SaveGame.Save(playersSavename, value);
         }
     }
     private List<string> _players;
-    private string playersSavename = "players";
+    private const string playersSavename = "players";
+
     public string GetPlayer(int playerNumber)
     {
         return players[playerNumber];
+    }    
+    public List<string> GetPlayers()
+    {
+        return GetCloneOfList(players);
     }
     public int GetPlayerNumber(string player)
     {
-        if (string.IsNullOrEmpty(player))
-        {
-            Debug.LogWarning("Searching the index of a null player");
-            return -1;
-        }
+        if (!string.IsNullOrEmpty(player)) 
+            return players.IndexOf(player);
+        
+        Debug.LogWarning("Searching the index of a null player");
+        return -1;
 
-        return players.IndexOf(player);
     }
     public int GetPlayersQuantity()
     {
         return players.Count;
+    }
+    public bool CanAddPlayer(string player)
+    {
+        return !(players.Contains(player) || string.IsNullOrEmpty(player) || string.IsNullOrWhiteSpace(player));
     }
     public void AddPlayer(string player)
     {
@@ -117,28 +122,78 @@ public class DataManager
 
 
     #region naughtyLevel
-    public Vector2Int naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
+    public class NaughtyLevel
+    {
+        public readonly int min;
+        public readonly int max;
+
+        public NaughtyLevel(int min, int max)
+        {
+            this.min = min;
+            this.max = max;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is NaughtyLevel level &&
+                   min == level.min &&
+                   max == level.max;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -897720056;
+            hashCode = hashCode * -1521134295 + min.GetHashCode();
+            hashCode = hashCode * -1521134295 + max.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return "(" + min + "," + max + ")";
+        }
+    }
+    private NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
     {
         get
         {
             if (_naughtyLevel == null)
             {
-                _naughtyLevel = SaveGame.Load(naughtyLevelSavename, new Vector2Int(1, 10));
+                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, new NaughtyLevel(1, 10));
             }
 
             return _naughtyLevel;
         }
         set
         {
-            if (_naughtyLevel != value)
+            if (!_naughtyLevel.Equals(value))
             {
                 _naughtyLevel = value;
-                SaveGame.Save(naughtyLevelSavename, value);
+                SaveGame.Save<NaughtyLevel>(naughtyLevelSavename, value);
             }
         }
     }
-    private Vector2Int _naughtyLevel;
-    private string naughtyLevelSavename = "naughtyLevel";
+    private NaughtyLevel _naughtyLevel;
+    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
+    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
+    private const string naughtyLevelSavename = "naughtyLevel";
+
+    public void SetNaughtyLevelMin(int value)
+    {
+        naughtyLevel = new NaughtyLevel(value, naughtyLevel.max);
+    }
+    public void SetNaughtyLevelMax(int value)
+    {
+        naughtyLevel = new NaughtyLevel(naughtyLevel.min, value);
+    }
+    public int GetNaughtyLevelMin()
+    {
+        return naughtyLevel.min;
+    }
+    public int GetNaughtyLevelMax()
+    {
+        return naughtyLevel.max;
+    }
     #endregion
 
 
@@ -148,40 +203,39 @@ public class DataManager
         get
         {
             if (_customSentences == null)
-            {
                 _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<Section, List<string>>());
-            }
 
             return _customSentences;
         }
         set
         {
-            if (!_customSentences.SequenceEqual(value))
-            {
-                _customSentences = value;
-                SaveGame.Save(customSentencesSavename, value);
-            }
+            if (_customSentences.SequenceEqual(value)) 
+                return;
+            
+            _customSentences = value;
+            SaveGame.Save(customSentencesSavename, value);
         }
     }
     private Dictionary<Section, List<string>> _customSentences;
-    private string customSentencesSavename = "customSentences";
+    private const string customSentencesSavename = "customSentences";
+
     private void AddCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].Add(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].Add(sentence);
+        customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].Remove(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].Remove(sentence);
+        customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, int sentence)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(customSentences);
-        clonedCS[section].RemoveAt(sentence);
-        customSentences = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section].RemoveAt(sentence);
+        customSentences = clonedCs;
     }
     #endregion
 
@@ -192,34 +246,33 @@ public class DataManager
         get
         {
             if (_textsRegistered == null)
-            {
                 _textsRegistered = SaveGame.Load(textsRegisteredSavename, new Dictionary<Section, List<string>>());
-            }
 
             return _textsRegistered;
         }
         set
         {
-            if (!_textsRegistered.SequenceEqual(value))
-            {
-                _textsRegistered = value;
-                SaveGame.Save(textsRegisteredSavename, value);
-            }
+            if (_textsRegistered.SequenceEqual(value)) 
+                return;
+            
+            _textsRegistered = value;
+            SaveGame.Save(textsRegisteredSavename, value);
         }
     }
     private Dictionary<Section, List<string>> _textsRegistered;
-    private string textsRegisteredSavename = "textsRegistered";
+    private const string textsRegisteredSavename = "textsRegistered";
+
     private void AddTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].Add(textId);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].Add(textId);
+        textsRegistered = clonedCs;
     }
     public void RemoveTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].Remove(textId);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].Remove(textId);
+        textsRegistered = clonedCs;
     }
     public bool IsTextRegistered(Section section, string textId)
     {
@@ -233,13 +286,13 @@ public class DataManager
     {
         RemoveNOldestTextRegistered(section, 1);
     }
-    public void RemoveNOldestTextRegistered(Section section, int quantity)
+
+    private void RemoveNOldestTextRegistered(Section section, int quantity)
     {
-        Dictionary<Section, List<string>> clonedCS = GetCloneOfDictionary(textsRegistered);
-        clonedCS[section].RemoveRange(0, quantity);
-        textsRegistered = clonedCS;
+        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section].RemoveRange(0, quantity);
+        textsRegistered = clonedCs;
     }
     #endregion
-
 
 }

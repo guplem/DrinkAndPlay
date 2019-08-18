@@ -18,7 +18,7 @@ MonoBehaviour:
   newness: 0
   comingSoon: 0
   premium: 0
-  localizationURL: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=987858067&single=true&output=csv
+  localizationUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=987858067&single=true&output=csv
   minNumberOfPlayers: -1
   sceneName: MainMenu
   topBar: 1
@@ -29,6 +29,6 @@ MonoBehaviour:
   likeButton: 0
   addButton: 0
   shareButton: 0
-  showNaughyLevelConfigurator: 0
+  showNaughtyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

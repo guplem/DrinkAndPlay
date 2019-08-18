@@ -6,7 +6,7 @@ using UnityEngine;
 
 class Downloader
 {
-    public class WebClientEx : WebClient
+    private class WebClientEx : WebClient
     {
         public WebClientEx(CookieContainer container)
         {
@@ -18,7 +18,7 @@ class Downloader
         protected override WebRequest GetWebRequest(Uri address)
         {
             WebRequest r = base.GetWebRequest(address);
-            var request = r as HttpWebRequest;
+            HttpWebRequest request = r as HttpWebRequest;
             if (request != null)
             {
                 request.CookieContainer = container;
@@ -42,16 +42,17 @@ class Downloader
 
         private void ReadCookies(WebResponse r)
         {
-            var response = r as HttpWebResponse;
-            if (response != null)
-            {
-                CookieCollection cookies = response.Cookies;
-                container.Add(cookies);
-            }
+            HttpWebResponse response = r as HttpWebResponse;
+            
+            if (response == null) 
+                return;
+            
+            CookieCollection cookies = response.Cookies;
+            container.Add(cookies);
         }
     }
 
-    public static void DownloadLocalizationFileAsCSV(Section section)
+    private static void DownloadLocalizationFileAsCsv(Section section)
     {
 
         if (section == null)
@@ -75,7 +76,10 @@ class Downloader
         wc.Headers.Add("Accept-Encoding", "deflate");
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
 
-        byte[] dt = wc.DownloadData(section.localizationURL);
+        if(string.IsNullOrEmpty(section.localizationUrl))
+            Debug.LogError("The localization file for the section " + section  + " can not be downloaded because the 'LocalizationURL' is not valid.");
+        
+        byte[] dt = wc.DownloadData(section.localizationUrl);
         File.WriteAllBytes("Assets/_General/Resources/" + section + ".csv", dt);
 
         //to convert it to string
@@ -85,7 +89,7 @@ class Downloader
     }
 
     [MenuItem("Drink and Play/Download all localization files")]
-    public static void DownloadAllLocalizationFileAsCSV()
+    public static void DownloadAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
         string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
@@ -98,7 +102,7 @@ class Downloader
 
         //Download every section (including UI)
         foreach (Section section in sections)
-            DownloadLocalizationFileAsCSV(section);
+            DownloadLocalizationFileAsCsv(section);
 
         Debug.Log("All Localization files have been downloaded.");
     }

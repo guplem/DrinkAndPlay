@@ -5,10 +5,10 @@ using UnityEngine;
 
 public abstract class AnimationUI : MonoBehaviour
 {
-    public bool isShown { get; protected set; }
-    protected AnimationCurve animationCurve { get; private set; }
+    protected bool isShown { get; set; }
+    protected AnimationCurve animationCurve { private get; set; }
     protected RectTransform rt { get; private set; }
-    protected float animationDuration { get; private set; }
+    protected float animationDuration { private get; set; }
 
     protected float currentAnimTime = 0;
 

@@ -24,7 +24,6 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI playersMenu;
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
-    [SerializeField] private AnimationUI addSentenceMenu;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -115,11 +114,6 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening FeedbackMenu");
         Show(feedbackMenu);
-    }
-    public void OpenAddSentenceMenu()
-    {
-        Debug.Log("Opening AddSentenceMenu");
-        Show(addSentenceMenu);
     }
 
 }

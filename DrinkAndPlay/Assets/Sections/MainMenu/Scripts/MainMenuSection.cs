@@ -24,13 +24,17 @@ public class MainMenuSection : MonoBehaviour
         titleText.SetId(section.nameId);
     }
 
-    public void SelectGame()
+    /*public void SelectGame()
     {
         Debug.Log(" Section " + section + " selected.");
-    }
+    }*/
 
     public void OpenSectionDescription()
     {
-        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section);
+        RectTransform rt = GetComponent<RectTransform>();
+        Vector3 localScale = rt.localScale;
+        Vector2 sizeDelta = rt.sizeDelta;
+        Vector2 imageSize = new Vector2(sizeDelta.x * localScale.x,sizeDelta.y * localScale.y);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject, imageSize);
     }
 }

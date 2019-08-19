@@ -31,10 +31,6 @@ public class MainMenuSection : MonoBehaviour
 
     public void OpenSectionDescription()
     {
-        RectTransform rt = GetComponent<RectTransform>();
-        Vector3 localScale = rt.localScale;
-        Vector2 sizeDelta = rt.sizeDelta;
-        Vector2 imageSize = new Vector2(sizeDelta.x * localScale.x,sizeDelta.y * localScale.y);
-        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject, imageSize);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject);
     }
 }

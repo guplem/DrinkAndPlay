@@ -12,19 +12,18 @@ public class Description : MonoBehaviour
 
     public void PlayOpenAnimation(Section section, GameObject originalImage)
     {
-        SetStartOpenAnnimationState(originalImage);
+        SetOpenAnimStart(originalImage);
         SetDescriptionContents(section);
         
     }
 
-    private void SetStartOpenAnnimationState(GameObject originalImage)
+    private void SetOpenAnimStart(GameObject originalImage)
     {
+        //Get original image size
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
-        Vector3 localScale = originalImageRect.localScale;
-        Vector2 sizeDelta = originalImageRect.sizeDelta;
-        Vector2 imageSize = new Vector2(sizeDelta.x * localScale.x,sizeDelta.y * localScale.y);
+        Vector2 imageSize = new Vector2(originalImageRect.rect.width,originalImageRect.rect.height);
         
-        
+        //Set description image position and size
         RectTransform imageRect = image.GetComponent<RectTransform>();
         imageRect.position = originalImage.GetComponent<RectTransform>().position;
         imageRect.anchorMin = new Vector2(0f, 0f);

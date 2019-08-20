@@ -67,7 +67,7 @@ public class MainMenuManager : SectionManager
 
     public void OpenSectionDescription(Section section, GameObject originalImage)
     {
-        sectionDescription.PlayOpenAnimation(section, originalImage);
+        sectionDescription.PlayOpenAnimationOf(section, originalImage);
     }
 
 }

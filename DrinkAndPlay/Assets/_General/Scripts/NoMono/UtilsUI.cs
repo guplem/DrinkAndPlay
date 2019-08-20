@@ -20,4 +20,27 @@ public class UtilsUI : MonoBehaviour
                     Debug.LogError("  --> " + exception.name);
             }
     }
+
+    public static void SetAnchors(RectTransform rt, Vector2 min, Vector2 max, bool keepSize)
+    {
+        Vector2 size = Vector2.zero;
+        if (keepSize)
+        {
+            Rect rect = rt.rect;
+            size = new Vector2(rect.width,rect.height);
+        }
+
+        rt.anchorMin = min;
+        rt.anchorMax = max;
+
+        if (keepSize)
+            SetSize(rt, size);
+        
+    }
+
+    public static void SetSize(RectTransform rt, Vector2 size)
+    {
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size.x);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size.y);
+    }
 }

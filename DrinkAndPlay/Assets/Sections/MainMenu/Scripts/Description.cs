@@ -123,7 +123,6 @@ public class Description : AnimationUI
     protected override void Transition(float deltaTime)
     {
         float animPos = GetAnimPosByCurve(deltaTime);
-
         animPos = isShowing ? animPos : 1 - animPos;
         
         background.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin, animPos);

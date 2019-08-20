@@ -44,8 +44,13 @@ public class SlideAnimation : AnimationUI
     protected override void Transition(float deltaTime)
     {
         float animPos = GetAnimPosByCurve(deltaTime);
-        rt.anchorMin = isShowing ? Vector2.Lerp(minClose, minOpen, animPos) : Vector2.Lerp(minOpen, minClose, animPos);
-        rt.anchorMax = isShowing ? Vector2.Lerp(maxClose, maxOpen, animPos) : Vector2.Lerp(maxOpen, maxClose, animPos);
+        animPos = isShowing ? animPos : 1 - animPos;
+
+        rt.anchorMin = Vector2.Lerp(minClose, minOpen, animPos);
+        rt.anchorMax = Vector2.Lerp(maxClose, maxOpen, animPos);
+
+        //rt.anchorMin = isShowing ? Vector2.Lerp(minClose, minOpen, animPos) : Vector2.Lerp(minOpen, minClose, animPos);
+        //rt.anchorMax = isShowing ? Vector2.Lerp(maxClose, maxOpen, animPos) : Vector2.Lerp(maxOpen, maxClose, animPos);
     }
     
 }

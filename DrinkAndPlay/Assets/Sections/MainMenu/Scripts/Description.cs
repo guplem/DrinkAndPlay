@@ -11,12 +11,13 @@ public class Description : AnimationUI
     [SerializeField] private GameObject contents;
     
     #region Open caracteristics
-    Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
-    Vector2 backgroundOpenAnchorMax = new Vector2(1f, 1f);
-    Vector2 imageOpenAnchorMin = new Vector2(0f, 0.75f);
-    Vector2 imageOpenAnchorMax = new Vector2(1f, 1f);
-    Vector2 contentsOpenAnchorMin = new Vector2(0f, 0f);
-    Vector2 contentsOpenAnchorMax = new Vector2(1f, 0.75f);
+
+    private readonly Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
+    private readonly Vector2 backgroundOpenAnchorMax = new Vector2(1f, 1f);
+    private readonly Vector2 imageOpenAnchorMin = new Vector2(0f, 0.75f);
+    private readonly Vector2 imageOpenAnchorMax = new Vector2(1f, 0.95f);
+    private readonly Vector2 contentsOpenAnchorMin = new Vector2(0f, 0f);
+    private readonly Vector2 contentsOpenAnchorMax = new Vector2(1f, 0.75f);
     #endregion
     
     #region Close caracteristics
@@ -28,10 +29,19 @@ public class Description : AnimationUI
     private Vector2 contentsCloseAnchorMax;
     #endregion
 
+    private RectTransform backgroundRect;
+    private RectTransform imageRect;
+    private RectTransform contentsRect;
 
     //Default characteristics at start
     private void Start()
     {
+        backgroundRect = background.GetComponent<RectTransform>();
+        imageRect = image.GetComponent<RectTransform>();
+        contentsRect = contents.GetComponent<RectTransform>();
+
+        //TODO: image for opacity
+        
         //TODO: closed state
     }
 
@@ -54,14 +64,14 @@ public class Description : AnimationUI
 
     private void SaveActualPositionsAsCloseState()
     {
-        backgroundCloseAnchorMin = background.GetComponent<RectTransform>().anchorMin;
-        backgroundCloseAnchorMax  = background.GetComponent<RectTransform>().anchorMax;
+        backgroundCloseAnchorMin = backgroundRect.anchorMin;
+        backgroundCloseAnchorMax  = backgroundRect.anchorMax;
         
-        imageCloseAnchorMin = image.GetComponent<RectTransform>().anchorMin;
-        imageCloseAnchorMax = image.GetComponent<RectTransform>().anchorMax;
+        imageCloseAnchorMin = imageRect.anchorMin;
+        imageCloseAnchorMax = imageRect.anchorMax;
 
-        contentsCloseAnchorMin = contents.GetComponent<RectTransform>().anchorMin;
-        contentsCloseAnchorMax = contents.GetComponent<RectTransform>().anchorMax;
+        contentsCloseAnchorMin = contentsRect.anchorMin;
+        contentsCloseAnchorMax = contentsRect.anchorMax;
     }
 
     public override void Show()
@@ -83,15 +93,17 @@ public class Description : AnimationUI
         background.SetActive(true);
         contents.SetActive(true);
         
-        //Get original image size
+        
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
+        //Get original image size
         Rect rect = originalImageRect.rect;
         Vector2 imageSize = new Vector2(rect.width,rect.height);
         
         //Set all elements at start position and size
-        SetElementAndPosAndSize(image.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
-        SetElementAndPosAndSize(background.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
-        SetElementAndPosAndSize(contents.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
+        Vector3 position = originalImageRect.position;
+        SetElementAndPosAndSize(imageRect, position, imageSize);
+        SetElementAndPosAndSize(backgroundRect, position, imageSize);
+        SetElementAndPosAndSize(contentsRect, position, imageSize);
         
         //Set the start anchors' position
         SetAnchorsAroundObject(image);
@@ -125,14 +137,14 @@ public class Description : AnimationUI
         float animPos = GetAnimPosByCurve(deltaTime);
         animPos = isShowing ? animPos : 1 - animPos;
         
-        background.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin, animPos);
-        background.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(backgroundCloseAnchorMax, backgroundOpenAnchorMax, animPos);
+        backgroundRect.anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin, animPos);
+        backgroundRect.anchorMax = Vector2.Lerp(backgroundCloseAnchorMax, backgroundOpenAnchorMax, animPos);
         
-        image.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, animPos);
-        image.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, animPos);
+        imageRect.anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, animPos);
+        imageRect.anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, animPos);
         
-        contents.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, animPos);
-        contents.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, animPos);
+        contentsRect.anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, animPos);
+        contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, animPos);
         
 
     }

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UtilsUI : MonoBehaviour
 {
@@ -80,6 +82,30 @@ public class UtilsUI : MonoBehaviour
         r.offsetMin = new Vector2(0f, 0f);
         r.offsetMax = new Vector2(0f, 0f);
         r.pivot = new Vector2(0.5f, 0.5f);
+    }
+    
+    public static void SetOpacityTo(GameObject gObject, float opacity)
+    {
+        Image img = gObject.GetComponent<Image>();
+        TextMeshProUGUI text = gObject.GetComponent<TextMeshProUGUI>();
+        Debug.Log("TXT ing " + gObject.name + ":" + text);
+
+        if (img != null)
+        {
+            Color newColor = img.color;
+            newColor.a = opacity;
+            img.color = newColor;
+        }
+        else if (text != null)
+        {
+            Debug.Log("TEXT COLOR");
+            Color newColor = text.color;
+            newColor.a = opacity;
+            text.color = newColor;
+        }
+
+        foreach (Transform child in gObject.transform)
+            SetOpacityTo(child.gameObject, opacity);
     }
     
 }

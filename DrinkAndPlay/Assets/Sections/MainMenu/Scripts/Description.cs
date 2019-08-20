@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UtilsUI;
 
 public class Description : AnimationUI
@@ -11,7 +12,6 @@ public class Description : AnimationUI
     [SerializeField] private GameObject contents;
     
     #region Open caracteristics
-
     private readonly Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
     private readonly Vector2 backgroundOpenAnchorMax = new Vector2(1f, 1f);
     private readonly Vector2 imageOpenAnchorMin = new Vector2(0f, 0.75f);
@@ -145,7 +145,11 @@ public class Description : AnimationUI
         
         contentsRect.anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, animPos);
         contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, animPos);
-        
+
+        //SetOpacityTo(background, Mathf.Lerp(0f, 1f, animPos) );
+        //SetOpacityTo(image, Mathf.Lerp(0f, 1f, animPos) );
+        SetOpacityTo(contents, Mathf.Lerp(0f, 1f, animPos) );
+
 
     }
 

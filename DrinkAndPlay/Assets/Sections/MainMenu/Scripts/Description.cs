@@ -8,8 +8,11 @@ using static UtilsUI;
 public class Description : AnimationUI
 {
     [SerializeField] private GameObject image;
+    [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject background;
+    [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject contents;
+    [SerializeField] private AnimationCurve contentsAnimation;
     
     #region Open caracteristics
     private readonly Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
@@ -76,15 +79,10 @@ public class Description : AnimationUI
 
     public override void Show()
     {
-        isShowing = true;
-        StartAnim();
+        StartAnim(true);
     }
     
-    protected override bool IsShowFinished()
-    {
-        //TODO: check if the open/show anim is finished
-        return false;
-    }
+    public override void EndAnimShowing() { }
     
     private void SetOpenAnimStart(GameObject originalImage)
     {
@@ -113,44 +111,40 @@ public class Description : AnimationUI
     
     private void SetDescriptionContents(Section section)
     {
-        
+        //TODO
     }
     
 
     //Hide animation control
     public override void Hide()
     {
-        isShowing = false;
-        StartAnim();
+        StartAnim(false);
+    }
+    
+    public override void EndAnimHiding()
+    {
+        image.SetActive(false);
+        background.SetActive(false);
+        contents.SetActive(false);
     }
 
-    protected override bool IsHideFinished()
-    {
-        //TODO: check if the close/hide anim is finished
-        return false;
-    }
-    
-    
+
     //Animation itself
-    protected override void Transition(float deltaTime)
+    protected override void Transition()
     {
-        float animPos = GetAnimPosByCurve(deltaTime);
-        animPos = isShowing ? animPos : 1 - animPos;
+        backgroundRect.anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin,  GetAnimationPosByCurve(backgroundAnimation) );
+        backgroundRect.anchorMax = Vector2.Lerp(backgroundCloseAnchorMax, backgroundOpenAnchorMax, GetAnimationPosByCurve(backgroundAnimation) );
         
-        backgroundRect.anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin, animPos);
-        backgroundRect.anchorMax = Vector2.Lerp(backgroundCloseAnchorMax, backgroundOpenAnchorMax, animPos);
+        imageRect.anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, GetAnimationPosByCurve(imageAnimation));
+        imageRect.anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, GetAnimationPosByCurve(imageAnimation));
         
-        imageRect.anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, animPos);
-        imageRect.anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, animPos);
-        
-        contentsRect.anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, animPos);
-        contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, animPos);
+        contentsRect.anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, GetAnimationPosByCurve(backgroundAnimation));
+        contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, GetAnimationPosByCurve(backgroundAnimation));
 
-        //SetOpacityTo(background, Mathf.Lerp(0f, 1f, animPos) );
-        //SetOpacityTo(image, Mathf.Lerp(0f, 1f, animPos) );
-        SetOpacityTo(contents, Mathf.Lerp(0f, 1f, animPos) );
-
-
+        SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), true);
+        SetOpacityTo(image, Mathf.Lerp(0f, 1f, 1), true);
+        SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
+        SetOpacityTo(gameObject, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve()), false);
     }
 
     private new void Update()

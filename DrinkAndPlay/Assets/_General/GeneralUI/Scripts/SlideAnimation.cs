@@ -19,32 +19,23 @@ public class SlideAnimation : AnimationUI
     //Hide animation control
     public override void Hide()
     {
-        StartAnim();
-        isShowing = false;
+        StartAnim(false);
     }
-    
-    protected override bool IsHideFinished()
-    {
-        return !isShowing && (rt.anchorMax == maxClose && rt.anchorMin == minClose);
-    }
+
+    public override void EndAnimShowing() { }
+
+    public override void EndAnimHiding()  { }
 
     //Show animation control
     public override void Show()
-    {
-        isShowing = true;
-        StartAnim();
-    }
-    
-    protected override bool IsShowFinished()
-    {
-        return isShowing && (rt.anchorMax == maxOpen || rt.anchorMin == minOpen);
+    {  
+        StartAnim(true);
     }
 
     //Animation itself
-    protected override void Transition(float deltaTime)
+    protected override void Transition()
     {
-        float animPos = GetAnimPosByCurve(deltaTime);
-        animPos = isShowing ? animPos : 1 - animPos;
+        float animPos = GetAnimationPosByCurve();
 
         rt.anchorMin = Vector2.Lerp(minClose, minOpen, animPos);
         rt.anchorMax = Vector2.Lerp(maxClose, maxOpen, animPos);

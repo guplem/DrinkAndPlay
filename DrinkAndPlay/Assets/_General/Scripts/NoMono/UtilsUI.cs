@@ -84,11 +84,10 @@ public class UtilsUI : MonoBehaviour
         r.pivot = new Vector2(0.5f, 0.5f);
     }
     
-    public static void SetOpacityTo(GameObject gObject, float opacity)
+    public static void SetOpacityTo(GameObject gObject, float opacity, bool affectChilds)
     {
         Image img = gObject.GetComponent<Image>();
         TextMeshProUGUI text = gObject.GetComponent<TextMeshProUGUI>();
-        Debug.Log("TXT ing " + gObject.name + ":" + text);
 
         if (img != null)
         {
@@ -98,14 +97,14 @@ public class UtilsUI : MonoBehaviour
         }
         else if (text != null)
         {
-            Debug.Log("TEXT COLOR");
             Color newColor = text.color;
             newColor.a = opacity;
             text.color = newColor;
         }
 
-        foreach (Transform child in gObject.transform)
-            SetOpacityTo(child.gameObject, opacity);
+        if (affectChilds)
+            foreach (Transform child in gObject.transform)
+                SetOpacityTo(child.gameObject, opacity, true);
     }
     
 }

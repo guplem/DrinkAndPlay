@@ -9,13 +9,14 @@ public class Description : MonoBehaviour
     [SerializeField] private GameObject image;
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject contents;
-    
+    private bool isOpeningAnim = false;
+
 
     public void PlayOpenAnimation(Section section, GameObject originalImage)
     {
         SetOpenAnimStart(originalImage);
         SetDescriptionContents(section);
-        
+        isOpeningAnim = true;
     }
 
     private void SetOpenAnimStart(GameObject originalImage)
@@ -33,6 +34,11 @@ public class Description : MonoBehaviour
         SetElementAndPosAndSize(image.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
         SetElementAndPosAndSize(background.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
         SetElementAndPosAndSize(contents.GetComponent<RectTransform>(), originalImage.GetComponent<RectTransform>().position, imageSize);
+        
+        //Set the start anchors' position
+        SetAnchorsAroundObject(image);
+        SetAnchorsAroundObject(background);
+        SetAnchorsAroundObject(contents);
     }
 
     private void SetElementAndPosAndSize(RectTransform rt, Vector2 position, Vector2 size)

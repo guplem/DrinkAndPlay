@@ -25,7 +25,7 @@ public class SlideAnimation : AnimationUI
     
     protected override bool IsHideFinished()
     {
-        return !isShowing && (rt.anchorMax != maxClose || rt.anchorMin != minClose);
+        return !isShowing && (rt.anchorMax == maxClose && rt.anchorMin == minClose);
     }
 
     //Show animation control
@@ -37,7 +37,7 @@ public class SlideAnimation : AnimationUI
     
     protected override bool IsShowFinished()
     {
-        return isShowing && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen);
+        return isShowing && (rt.anchorMax == maxOpen || rt.anchorMin == minOpen);
     }
 
     //Animation itself

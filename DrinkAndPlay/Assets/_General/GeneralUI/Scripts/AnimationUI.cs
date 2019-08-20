@@ -25,6 +25,8 @@ public abstract class AnimationUI : MonoBehaviour
         rt = GetComponent<RectTransform>();
 
         animationDuration = 0.25f;
+
+        isShowing = false;
     }
     
     protected void StartAnim()
@@ -38,7 +40,7 @@ public abstract class AnimationUI : MonoBehaviour
         if (reachedPos) 
             return;
         
-        if (IsAnimInEnded())
+        if (!IsAnimInEnded())
         {
             Transition(Time.deltaTime);
         }

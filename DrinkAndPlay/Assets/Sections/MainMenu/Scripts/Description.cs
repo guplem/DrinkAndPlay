@@ -7,12 +7,17 @@ using static UtilsUI;
 
 public class Description : AnimationUI
 {
-    [SerializeField] private GameObject image;
-    [SerializeField] private AnimationCurve imageAnimation;
+
     [SerializeField] private GameObject background;
     [SerializeField] private AnimationCurve backgroundAnimation;
+    [SerializeField] private GameObject closeButton;
+    [SerializeField] private GameObject image;
+    [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
     [SerializeField] private AnimationCurve contentsAnimation;
+    
+    [SerializeField] private Localizer title;
+    [SerializeField] private Localizer description;
     
     #region Open caracteristics
     private readonly Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
@@ -42,10 +47,6 @@ public class Description : AnimationUI
         backgroundRect = background.GetComponent<RectTransform>();
         imageRect = image.GetComponent<RectTransform>();
         contentsRect = contents.GetComponent<RectTransform>();
-
-        //TODO: image for opacity
-        
-        //TODO: closed state
     }
 
     private void SetElementAndPosAndSize(RectTransform rt, Vector2 position, Vector2 size)
@@ -90,7 +91,8 @@ public class Description : AnimationUI
         image.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
-        
+
+        image.GetComponent<Image>().sprite = originalImage.GetComponent<Image>().sprite;
         
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
         //Get original image size
@@ -111,7 +113,8 @@ public class Description : AnimationUI
     
     private void SetDescriptionContents(Section section)
     {
-        //TODO
+        title.Localize(section.nameId);
+        description.Localize(section.descriptionId);
     }
     
 
@@ -142,16 +145,10 @@ public class Description : AnimationUI
         contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, GetAnimationPosByCurve(backgroundAnimation));
 
         SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), true);
+        SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
         SetOpacityTo(image, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
         SetOpacityTo(gameObject, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve()), false);
     }
 
-    private new void Update()
-    {
-        base.Update();
-     
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Hide();
-    }
 }

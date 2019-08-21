@@ -6,9 +6,10 @@ using UnityEngine;
 public abstract class AnimationUI : MonoBehaviour
 {
     protected bool isShowing { get; set; }
-    protected AnimationCurve animationCurve { private get; set; }
+    [SerializeField] protected AnimationCurve mainAnimationCurve;
     protected RectTransform rt { get; private set; }
-    protected float animationDuration { private get; set; }
+    protected float animationDurationOpen { get; set; }
+    protected float animationDurationClose { get; set; }
 
     protected float currentAnimTime = 0;
     private bool reachedPos;
@@ -18,14 +19,19 @@ public abstract class AnimationUI : MonoBehaviour
     {
         isShowing = false;
         reachedPos = true;
-
-        animationCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
-        animationCurve.preWrapMode = WrapMode.Clamp;
-        animationCurve.postWrapMode = WrapMode.Clamp;
-
+        
         rt = GetComponent<RectTransform>();
 
-        animationDuration = 0.25f;
+        animationDurationOpen = 0.20f;
+        animationDurationClose = 0.15f;
+    }
+    
+    public static AnimationCurve CreateLinearCurve()
+    {
+        AnimationCurve curve = new AnimationCurve();
+        curve.AddKey(new Keyframe(0, 1));
+        curve.AddKey(new Keyframe(1, 1));
+        return curve;
     }
     
     protected void StartAnim(bool isShowing)
@@ -73,23 +79,23 @@ public abstract class AnimationUI : MonoBehaviour
     
     protected float GetAnimationPosByCurve()
     {
-        return GetAnimationPosByCurve(animationCurve);
+        return GetAnimationPosByCurve(mainAnimationCurve);
     }
 
     protected float GetAnimationPosByCurve(AnimationCurve animCurve)
     {
-        float percentageAnim = isShowing ? currentAnimTime / animationDuration : 1 - currentAnimTime / animationDuration;
+        float percentageAnim = isShowing ? currentAnimTime / animationDurationOpen : 1 - currentAnimTime / animationDurationClose;
         return animCurve.Evaluate(percentageAnim);
     }
 
     public override string ToString()
     {
         return name;
-    } 
+    }
 
-    protected bool IsAnimInEnded()
+    private bool IsAnimInEnded()
     {
-        return currentAnimTime > animationDuration;
+        return isShowing ? currentAnimTime > animationDurationOpen : currentAnimTime > animationDurationClose;
     }
     
 }

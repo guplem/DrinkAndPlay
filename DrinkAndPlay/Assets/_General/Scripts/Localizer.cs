@@ -115,19 +115,26 @@ public class Localizer : MonoBehaviour
         {
             if (txt.tmProGui == null)
                 Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
-            
+
+            if (string.IsNullOrEmpty(txt.stringTag))
+            {
+                txt.tmProGui.text = localizedText;
+                return;
+            }
 
             int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
             int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
-
-            try
+            
+            if (pFrom >= pTo || pFrom < 0 || pTo < 0)
+            {
+                GameObject o = gameObject;
+                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from section " + (isUi ? GameManager.instance.uiSection : SectionManager.instance.section) , o);
+            }
+            else
             {
                 txt.tmProGui.text = localizedText.Substring(pFrom, pTo - pFrom);
             }
-            catch (ArgumentOutOfRangeException)
-            {
-                txt.tmProGui.text = localizedText;
-            }
+            
         }
 
     }

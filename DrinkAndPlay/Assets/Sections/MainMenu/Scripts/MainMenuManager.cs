@@ -18,6 +18,7 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject horizontalScrollContentHolder;
     [SerializeField] private GameObject mainMenuCocktailPrefab;
     [SerializeField] private Cocktail[] cocktailsToDisplay;
+    [SerializeField] private Description cocktailDescription;
     private Section currentSelectedSection;
 
 
@@ -66,10 +67,15 @@ public class MainMenuManager : SectionManager
         }
     }
 
-    public void OpenSectionDescription(Section section, GameObject originalImage)
+    public void OpenSectionDescription(string nameId, string descriptionId, GameObject originalImage)
     {
-        sectionDescription.PlayOpenAnimationOf(section, originalImage);
+        sectionDescription.PlayOpenAnimationOf(nameId, descriptionId, originalImage);
         currentSelectedSection = section;
+    }
+    
+    public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage)
+    {
+        cocktailDescription.PlayOpenAnimationOf(nameId, descriptionId, originalImage);
     }
 
     public void LoadSelectedSection()

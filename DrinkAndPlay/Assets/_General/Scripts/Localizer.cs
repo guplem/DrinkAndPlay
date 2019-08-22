@@ -115,8 +115,19 @@ public class Localizer : MonoBehaviour
         {
             if (txt.tmProGui == null)
                 Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
+            
 
-            txt.tmProGui.text = localizedText;
+            int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+            int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
+
+            try
+            {
+                txt.tmProGui.text = localizedText.Substring(pFrom, pTo - pFrom);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                txt.tmProGui.text = localizedText;
+            }
         }
 
     }

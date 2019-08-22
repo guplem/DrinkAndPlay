@@ -22,7 +22,7 @@ public class MainMenuCoctel : MonoBehaviour
 
     public void OpenCocktail()
     {
-        Debug.Log("Cocktail " + cocktail + " selected.");
+        ((MainMenuManager)SectionManager.instance).OpenCocktailDescription(cocktail.nameId, cocktail.descriptionId, image.gameObject);
     }
     
 }

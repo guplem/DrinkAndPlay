@@ -31,6 +31,6 @@ public class MainMenuSection : MonoBehaviour
 
     public void OpenSectionDescription()
     {
-        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section.nameId, section.descriptionId, image.gameObject);
     }
 }

@@ -47,6 +47,10 @@ public class Description : AnimationUI
         backgroundRect = background.GetComponent<RectTransform>();
         imageRect = image.GetComponent<RectTransform>();
         contentsRect = contents.GetComponent<RectTransform>();
+        
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        EndAnimHiding();
     }
 
     private void SetElementAndPosAndSize(RectTransform rt, Vector2 position, Vector2 size)
@@ -58,11 +62,11 @@ public class Description : AnimationUI
     }
 
     //Show animation control
-    public void PlayOpenAnimationOf(Section section, GameObject originalImage)
+    public void PlayOpenAnimationOf(string titleId, string descriptionId, GameObject originalImage)
     {
         SetOpenAnimStart(originalImage);
+        SetDescriptionContents(titleId, descriptionId);
         SaveActualPositionsAsCloseState();
-        SetDescriptionContents(section);
         Show();
     }
 
@@ -111,10 +115,10 @@ public class Description : AnimationUI
         SetAnchorsAroundObject(contents);
     }
     
-    private void SetDescriptionContents(Section section)
+    private void SetDescriptionContents(string titleId, string descriptionId)
     {
-        title.Localize(section.nameId);
-        description.Localize(section.descriptionId);
+        title.Localize(titleId);
+        description.Localize(descriptionId);
     }
     
 

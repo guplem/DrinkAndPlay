@@ -1,7 +1,11 @@
-Id,Naughtiness,es-es,en-us
-MM1,,ES1,EN1
-MM2,,ES2,EN2
-MM3,,ES3,EN3
-MM4,,ES4,EN4
-MM5,,ES5,EN5
-MM6,,ES6,EN6
+Id,es-es,en-us
+MM1,ES1,EN1
+MM2,ES2,EN2
+MM3,ES3,EN3
+MM4,ES4,EN4
+MM5,ES5,EN5
+MM6,ES6,EN6
+CN1,Ron Cocacola,Ron Coke
+CD1,">d>DESC1ES ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR1ES vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<",">d>DESC1EN ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR1EN vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW1EN lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"
+CN2,Ginebra Tonica,DinTonic
+CD2,">d>DESC2ES ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR2ES vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW2ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<",">d>DESC2EN ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR2EN vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW2EN lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"

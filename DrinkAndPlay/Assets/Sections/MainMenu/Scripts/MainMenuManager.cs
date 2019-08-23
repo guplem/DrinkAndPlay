@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MainMenuManager : SectionManager
 {
@@ -10,15 +11,18 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject verticalScrollContentHolder;
     [SerializeField] private GameObject mainMenuSectionPrefab;
     [SerializeField] private Section[] sectionsToDisplay;
+    [SerializeField] private Description sectionDescription;
 
     [Header("Coctels - Recipes")]
     [SerializeField] private GameObject horizontalMenu;
     [SerializeField] private GameObject horizontalScrollContentHolder;
     [SerializeField] private GameObject mainMenuCocktailPrefab;
     [SerializeField] private Cocktail[] cocktailsToDisplay;
+    [SerializeField] private Description cocktailDescription;
+    private Section currentSelectedSection;
 
 
-    void Start()
+    private void Start()
     {
         //All localization (UI and MainMenu) already loaded
 
@@ -63,10 +67,20 @@ public class MainMenuManager : SectionManager
         }
     }
 
-    public void OpenSectionDescription(Section section)
+    public void OpenSectionDescription(string nameId, string descriptionId, GameObject originalImage)
     {
-        Debug.Log("Opening description of " + section);
-        GameManager.LoadSection(section); //TODO: remove
+        sectionDescription.PlayOpenAnimationOf(nameId, descriptionId, originalImage);
+        currentSelectedSection = section;
+    }
+    
+    public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage)
+    {
+        cocktailDescription.PlayOpenAnimationOf(nameId, descriptionId, originalImage);
+    }
+
+    public void LoadSelectedSection()
+    {
+        GameManager.LoadSection(currentSelectedSection);
     }
 
 }

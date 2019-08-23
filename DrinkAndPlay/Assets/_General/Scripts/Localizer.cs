@@ -1,10 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
+[Serializable]
+public struct TextsToLocalize {
+    public string stringTag;
+    public TextMeshProUGUI tmProGui;
+
+    public TextsToLocalize(string stringTag, TextMeshProUGUI tmProGui)
+    {
+        this.stringTag = stringTag;
+        this.tmProGui = tmProGui;
+    }
+
+    public TextsToLocalize(TextMeshProUGUI tmProGui) : this()
+    {
+        this.tmProGui = tmProGui;
+    }
+
+    public bool IsReady()
+    {
+        return tmProGui != null;
+    }
+}
+
 public class Localizer : MonoBehaviour
 {
 
@@ -16,16 +38,20 @@ public class Localizer : MonoBehaviour
     private string currentLanguage = "";
     private bool previouslyStarted;
     private bool subscribed = false;
-    private TextMeshProUGUI tmProGui;
+
+    public TextsToLocalize[] textsToLocalize;
+
+
 
     private void OnEnable()
     {
-        if (tmProGui == null)
+        if (textsToLocalize.Length == 0 || textsToLocalize == null)
         {
-            tmProGui = GetComponent<TextMeshProUGUI>();
+            textsToLocalize = new TextsToLocalize[1];
+            textsToLocalize[0] = new TextsToLocalize(GetComponent<TextMeshProUGUI>() );
 
-            if (tmProGui == null)
-                Debug.LogError("The 'TextMeshProUGUI' component could not be found in the object " + name, gameObject);
+            if (!textsToLocalize[0].IsReady())
+                Debug.LogError("Aby 'TextMeshProUGUI' component could be found in the object " + name, gameObject);
         }
 
         if (!subscribed)
@@ -53,10 +79,8 @@ public class Localizer : MonoBehaviour
         previouslyStarted = true;
 
         if (automaticallyLocalize)
-        {
             if (currentLanguage != GameManager.instance.dataManager.language)
                 Localize();
-        }
     }
 
     public void SetId(string id)
@@ -84,25 +108,35 @@ public class Localizer : MonoBehaviour
         }
 
         Section section = isUi ? GameManager.instance.uiSection : SectionManager.instance.section;
-
-        if (tmProGui == null)
+        currentLanguage = GameManager.instance.dataManager.language;
+        string localizedText = GameManager.instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
+        
+        foreach (TextsToLocalize txt in textsToLocalize)
         {
-            Debug.LogWarning("TMProGUI is null in " + name, gameObject);
+            if (txt.tmProGui == null)
+                Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
 
-            /*
-            TMProGUI = GetComponent<TextMeshProUGUI>();
+            if (string.IsNullOrEmpty(txt.stringTag))
+            {
+                txt.tmProGui.text = localizedText;
+                return;
+            }
 
-            if (TMProGUI == null)
-                Debug.LogWarning("2nd FAIL in " + name, gameObject);
+            int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+            int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
+            
+            if (pFrom >= pTo || pFrom < 0 || pTo < 0)
+            {
+                GameObject o = gameObject;
+                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from section " + (isUi ? GameManager.instance.uiSection : SectionManager.instance.section) , o);
+            }
             else
-                Debug.Log("Hot fix in " + name, gameObject);
-            */
+            {
+                txt.tmProGui.text = localizedText.Substring(pFrom, pTo - pFrom);
+            }
+            
         }
 
-        currentLanguage = GameManager.instance.dataManager.language;
-
-        tmProGui.text = GameManager.instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
     }
-
 
 }

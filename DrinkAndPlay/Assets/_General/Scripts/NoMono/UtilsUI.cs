@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UtilsUI : MonoBehaviour
 {
@@ -20,4 +23,88 @@ public class UtilsUI : MonoBehaviour
                     Debug.LogError("  --> " + exception.name);
             }
     }
+
+    public static void SetAnchors(RectTransform rt, Vector2 min, Vector2 max, bool keepSize)
+    {
+        Vector2 size = Vector2.zero;
+        if (keepSize)
+        {
+            Rect rect = rt.rect;
+            size = new Vector2(rect.width,rect.height);
+        }
+
+        rt.anchorMin = min;
+        rt.anchorMax = max;
+
+        if (keepSize)
+            SetSize(rt, size);
+        
+    }
+
+    public static void SetSize(RectTransform rt, Vector2 size)
+    {
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size.x);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size.y);
+    }
+    
+    public static void SetAnchorsAroundObject(GameObject objToModify)
+    {
+        GameObject o = objToModify;
+        
+        if (o == null || o.GetComponent<RectTransform>() == null) 
+            return;
+        
+        RectTransform r = o.GetComponent<RectTransform>();
+        RectTransform p = o.transform.parent.GetComponent<RectTransform>();
+
+        if (o.GetComponent<Canvas>() != null)
+        {
+            Debug.LogError("The object to work with should not be the canvas.");
+            return;
+        }
+           
+        Vector2 offsetMin = r.offsetMin;
+        Vector2 offsetMax = r.offsetMax;
+        Vector2 _anchorMin = r.anchorMin;
+        Vector2 _anchorMax = r.anchorMax;
+           
+        float parent_width = p.rect.width;      
+        float parent_height = p.rect.height;  
+           
+        Vector2 anchorMin = new Vector2(_anchorMin.x + (offsetMin.x / parent_width),
+            _anchorMin.y + (offsetMin.y / parent_height));
+        Vector2 anchorMax = new Vector2(_anchorMax.x + (offsetMax.x / parent_width),
+            _anchorMax.y + (offsetMax.y / parent_height));
+           
+        r.anchorMin = anchorMin;
+        r.anchorMax = anchorMax;
+           
+        r.offsetMin = new Vector2(0f, 0f);
+        r.offsetMax = new Vector2(0f, 0f);
+        r.pivot = new Vector2(0.5f, 0.5f);
+    }
+    
+    public static void SetOpacityTo(GameObject gObject, float opacity, bool affectChilds)
+    {
+        Image img = gObject.GetComponent<Image>();
+        TextMeshProUGUI text = gObject.GetComponent<TextMeshProUGUI>();
+
+        if (img != null)
+        {
+            Color newColor = img.color;
+            newColor.a = opacity;
+            img.color = newColor;
+        }
+        else if (text != null)
+        {
+            Color newColor = text.color;
+            newColor.a = opacity;
+            text.color = newColor;
+        }
+
+        if (affectChilds)
+            foreach (Transform child in gObject.transform)
+                SetOpacityTo(child.gameObject, opacity, true);
+    }
+    
 }

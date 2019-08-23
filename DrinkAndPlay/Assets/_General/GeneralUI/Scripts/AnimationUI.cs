@@ -5,42 +5,97 @@ using UnityEngine;
 
 public abstract class AnimationUI : MonoBehaviour
 {
-    protected bool isShown { get; set; }
-    protected AnimationCurve animationCurve { private get; set; }
+    protected bool isShowing { get; set; }
+    [SerializeField] protected AnimationCurve mainAnimationCurve;
     protected RectTransform rt { get; private set; }
-    protected float animationDuration { private get; set; }
+    protected float animationDurationOpen { get; set; }
+    protected float animationDurationClose { get; set; }
 
     protected float currentAnimTime = 0;
+    private bool reachedPos;
 
 
     private void Awake()
     {
-        isShown = false;
-
-        animationCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
-        animationCurve.preWrapMode = WrapMode.Clamp;
-        animationCurve.postWrapMode = WrapMode.Clamp;
-
+        isShowing = false;
+        reachedPos = true;
+        
         rt = GetComponent<RectTransform>();
 
-        animationDuration = 0.25f;
+        animationDurationOpen = 0.20f;
+        animationDurationClose = 0.15f;
+    }
+    
+    public static AnimationCurve CreateLinearCurve()
+    {
+        AnimationCurve curve = new AnimationCurve();
+        curve.AddKey(new Keyframe(0, 1));
+        curve.AddKey(new Keyframe(1, 1));
+        return curve;
+    }
+    
+    protected void StartAnim(bool isShowing)
+    {
+        currentAnimTime = 0f;
+        reachedPos = false;
+        this.isShowing = isShowing;
     }
 
-
+    protected void Update()
+    {
+        if (reachedPos) 
+            return;
+        
+        if (!IsAnimInEnded())
+        {
+            ChangeCurrentAnimTime(Time.deltaTime);
+            Transition();
+        }
+        else
+        {
+            reachedPos = true;
+            
+            if (isShowing)
+                EndAnimShowing();
+            else
+                EndAnimHiding();
+        }
+    }
+    
     public abstract void Show();
 
     public abstract void Hide();
+    
+    public abstract void EndAnimShowing();
 
-    protected abstract void Transition(float deltaTime);
+    public abstract void EndAnimHiding();
 
-    protected float GetAnimPosByCurve(float deltaTime)
+    protected abstract void Transition();
+
+    protected float ChangeCurrentAnimTime(float deltaTime)
     {
-        currentAnimTime += deltaTime;
-        return animationCurve.Evaluate(currentAnimTime / animationDuration);
+        return currentAnimTime += deltaTime;;
+    }
+    
+    protected float GetAnimationPosByCurve()
+    {
+        return GetAnimationPosByCurve(mainAnimationCurve);
+    }
+
+    protected float GetAnimationPosByCurve(AnimationCurve animCurve)
+    {
+        float percentageAnim = isShowing ? currentAnimTime / animationDurationOpen : 1 - currentAnimTime / animationDurationClose;
+        return animCurve.Evaluate(percentageAnim);
     }
 
     public override string ToString()
     {
         return name;
     }
+
+    private bool IsAnimInEnded()
+    {
+        return isShowing ? currentAnimTime > animationDurationOpen : currentAnimTime > animationDurationClose;
+    }
+    
 }

@@ -24,13 +24,13 @@ public class MainMenuSection : MonoBehaviour
         titleText.SetId(section.nameId);
     }
 
-    public void SelectGame()
+    /*public void SelectGame()
     {
         Debug.Log(" Section " + section + " selected.");
-    }
+    }*/
 
     public void OpenSectionDescription()
     {
-        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section.nameId, section.descriptionId, image.gameObject);
     }
 }

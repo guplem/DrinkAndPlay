@@ -8,48 +8,40 @@ public class SlideAnimation : AnimationUI
     private readonly Vector2 maxOpen = new Vector2(1, 1);
     private readonly Vector2 minClose = new Vector2(1, 0);
     private readonly Vector2 maxClose = new Vector2(2, 1);
-    private bool reachedPos;
 
+    //Default characteristics at start
     private void Start()
     {
         rt.anchorMin = minClose;
         rt.anchorMax = maxClose;
     }
 
+    //Hide animation control
     public override void Hide()
     {
-        currentAnimTime = 0f;
-        isShown = false;
-        reachedPos = false;
+        StartAnim(false);
     }
 
+    public override void EndAnimShowing() { }
+
+    public override void EndAnimHiding()  { }
+
+    //Show animation control
     public override void Show()
-    {
-        currentAnimTime = 0f;
-        isShown = true;
-        reachedPos = false;
+    {  
+        StartAnim(true);
     }
 
-    private void Update()
+    //Animation itself
+    protected override void Transition()
     {
-        if (reachedPos) 
-            return;
-        
-        if ((isShown && (rt.anchorMax != maxOpen || rt.anchorMin != minOpen)) ||
-            (!isShown && (rt.anchorMax != maxClose || rt.anchorMin != minClose)))
-        {
-            Transition(Time.deltaTime);
-        }
-        else
-        {
-            reachedPos = true;
-        }
-    }
+        float animPos = GetAnimationPosByCurve();
 
-    protected override void Transition(float deltaTime)
-    {
-        float animPos = GetAnimPosByCurve(deltaTime);
-        rt.anchorMin = isShown ? Vector2.Lerp(minClose, minOpen, animPos) : Vector2.Lerp(minOpen, minClose, animPos);
-        rt.anchorMax = isShown ? Vector2.Lerp(maxClose, maxOpen, animPos) : Vector2.Lerp(maxOpen, maxClose, animPos);
+        rt.anchorMin = Vector2.Lerp(minClose, minOpen, animPos);
+        rt.anchorMax = Vector2.Lerp(maxClose, maxOpen, animPos);
+
+        //rt.anchorMin = isShowing ? Vector2.Lerp(minClose, minOpen, animPos) : Vector2.Lerp(minOpen, minClose, animPos);
+        //rt.anchorMax = isShowing ? Vector2.Lerp(maxClose, maxOpen, animPos) : Vector2.Lerp(maxOpen, maxClose, animPos);
     }
+    
 }

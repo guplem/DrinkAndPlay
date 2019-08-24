@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: MMN
   descriptionId: MMD
-  image: {fileID: 21300000, guid: 2dbdf6db68e922a47adc6ffb6ed32879, type: 3}
+  image: {fileID: 21300000, guid: b382f2f1ddbdd9a409b7d11af3de0755, type: 3}
   newness: 0
   comingSoon: 0
   premium: 0

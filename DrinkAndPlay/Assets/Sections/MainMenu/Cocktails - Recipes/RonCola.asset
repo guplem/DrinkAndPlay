@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: CN2
   descriptionId: CD2
-  image: {fileID: 21300000, guid: 2ee10f27803e36d40b75d27c6b145c48, type: 3}
+  image: {fileID: 21300000, guid: 54ac5b8b836150f47bb3c9369a4ac1d3, type: 3}
   newness: 0
   top: 0

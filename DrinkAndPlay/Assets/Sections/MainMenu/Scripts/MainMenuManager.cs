@@ -55,15 +55,20 @@ public class MainMenuManager : SectionManager
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }
 
-        //Coctels
+        //Cocktails
+        Debug.Log("Cocktail");
         destroyExceptions.Clear();
+        Debug.Log("Cleared");
         UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
+        Debug.Log("Destroyed");
 
         for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {
-            GameObject coctel = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
-            coctel.transform.SetSiblingIndex(c);
-            coctel.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
+            Debug.Log("Creation " + c);
+            GameObject cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
+            cocktail.transform.SetSiblingIndex(c);
+            cocktail.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
+            Debug.Log("END Creation " + c);
         }
     }
 

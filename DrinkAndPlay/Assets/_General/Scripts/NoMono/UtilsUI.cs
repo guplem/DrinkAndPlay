@@ -9,6 +9,12 @@ public class UtilsUI : MonoBehaviour
 {
     public static void DestroyContentsOf(Transform parentToClean, List<Transform> exceptions)
     {
+        if (parentToClean == null)
+        {
+            Debug.Log("NULL DESTRUCTION");
+            return;
+        }
+        
         while (parentToClean.childCount > exceptions.Count)
             foreach (Transform child in parentToClean)
                 if (!exceptions.Contains(child))

@@ -13,8 +13,7 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject mainMenuSectionPrefab;
     [SerializeField] private Section[] sectionsToDisplay;
     [SerializeField] private Description sectionDescription;
-    [SerializeField] private Transform[] titlesInVerticalMenu; 
-    [SerializeField] private Transform[] buttonsInVerticalMenu; 
+    [SerializeField] private Transform[] exceptionsInVerticalMenu; 
 
     [Header("Coctels - Recipes")]
     [SerializeField] private GameObject horizontalMenu;
@@ -23,6 +22,7 @@ public class MainMenuManager : SectionManager
     [SerializeField] private Cocktail[] cocktailsToDisplay;
     [SerializeField] private Description cocktailDescription;
     private Section currentSelectedSection;
+    [SerializeField] private Transform[] exceptionsInHorizontalMenu; 
 
 
     private void Start()
@@ -41,8 +41,7 @@ public class MainMenuManager : SectionManager
 
         //Games
         destroyExceptions.Add(horizontalMenu.transform);
-        destroyExceptions.AddRange(titlesInVerticalMenu.ToList());
-        destroyExceptions.AddRange(buttonsInVerticalMenu.ToList());
+        destroyExceptions.AddRange(exceptionsInVerticalMenu.ToList());
         UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
@@ -62,12 +61,13 @@ public class MainMenuManager : SectionManager
 
         //Cocktails
         destroyExceptions.Clear();
+        destroyExceptions.AddRange(exceptionsInHorizontalMenu.ToList());
         UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
 
         for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {
             GameObject cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
-            cocktail.transform.SetSiblingIndex(c);
+            cocktail.transform.SetSiblingIndex(c+1);
             cocktail.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
         }
     }

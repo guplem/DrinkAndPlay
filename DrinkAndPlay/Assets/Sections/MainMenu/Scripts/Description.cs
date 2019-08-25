@@ -20,12 +20,12 @@ public class Description : AnimationUI
     [SerializeField] private Localizer description;
     
     #region Open caracteristics
-    private readonly Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
-    private readonly Vector2 backgroundOpenAnchorMax = new Vector2(1f, 1f);
-    private readonly Vector2 imageOpenAnchorMin = new Vector2(0f, 0.75f);
-    private readonly Vector2 imageOpenAnchorMax = new Vector2(1f, 0.95f);
-    private readonly Vector2 contentsOpenAnchorMin = new Vector2(0f, 0f);
-    private readonly Vector2 contentsOpenAnchorMax = new Vector2(1f, 0.75f);
+    private Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
+    private Vector2 backgroundOpenAnchorMax = new Vector2(1f, 1f);
+    private Vector2 imageOpenAnchorMin = new Vector2(0f, 0.75f);
+    private Vector2 imageOpenAnchorMax = new Vector2(1f, 0.95f);
+    private Vector2 contentsOpenAnchorMin = new Vector2(0f, 0f);
+    private Vector2 contentsOpenAnchorMax = new Vector2(1f, 0.75f);
     #endregion
     
     #region Close caracteristics
@@ -50,6 +50,14 @@ public class Description : AnimationUI
         
         rt.anchorMin = Vector2.zero;
         rt.anchorMax = Vector2.one;
+
+        backgroundOpenAnchorMin = backgroundRect.anchorMin;
+        backgroundOpenAnchorMax = backgroundRect.anchorMax;
+        imageOpenAnchorMin = imageRect.anchorMin;
+        imageOpenAnchorMax = imageRect.anchorMax;
+        contentsOpenAnchorMin = contentsRect.anchorMin;
+        contentsOpenAnchorMax = contentsRect.anchorMax;
+        
         EndAnimHiding();
     }
 
@@ -152,7 +160,7 @@ public class Description : AnimationUI
         SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
         SetOpacityTo(image, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
-        SetOpacityTo(gameObject, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve()), false);
+        SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
     }
 
 }

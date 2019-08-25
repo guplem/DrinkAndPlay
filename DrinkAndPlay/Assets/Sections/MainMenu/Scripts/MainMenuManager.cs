@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,6 +13,8 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject mainMenuSectionPrefab;
     [SerializeField] private Section[] sectionsToDisplay;
     [SerializeField] private Description sectionDescription;
+    [SerializeField] private Transform[] titlesInVerticalMenu; 
+    [SerializeField] private Transform[] buttonsInVerticalMenu; 
 
     [Header("Coctels - Recipes")]
     [SerializeField] private GameObject horizontalMenu;
@@ -38,6 +41,8 @@ public class MainMenuManager : SectionManager
 
         //Games
         destroyExceptions.Add(horizontalMenu.transform);
+        destroyExceptions.AddRange(titlesInVerticalMenu.ToList());
+        destroyExceptions.AddRange(buttonsInVerticalMenu.ToList());
         UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
@@ -51,31 +56,26 @@ public class MainMenuManager : SectionManager
             // Destroying the prefab connection
             GameObject game = Instantiate(mainMenuSectionPrefab, verticalScrollContentHolder.transform);
 
-            game.transform.SetSiblingIndex(s);
+            game.transform.SetSiblingIndex(s+1);
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }
 
         //Cocktails
-        Debug.Log("Cocktail");
         destroyExceptions.Clear();
-        Debug.Log("Cleared");
         UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
-        Debug.Log("Destroyed");
 
         for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {
-            Debug.Log("Creation " + c);
             GameObject cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
             cocktail.transform.SetSiblingIndex(c);
             cocktail.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
-            Debug.Log("END Creation " + c);
         }
     }
 
-    public void OpenSectionDescription(string nameId, string descriptionId, GameObject originalImage)
+    public void OpenSectionDescription(Section selectedSection, GameObject originalImage)
     {
-        sectionDescription.PlayOpenAnimationOf(nameId, descriptionId, originalImage);
-        currentSelectedSection = section;
+        sectionDescription.PlayOpenAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage);
+        currentSelectedSection = selectedSection;
     }
     
     public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage)
@@ -86,6 +86,16 @@ public class MainMenuManager : SectionManager
     public void LoadSelectedSection()
     {
         GameManager.LoadSection(currentSelectedSection);
+    }
+
+    public void OpenConfigMenu()
+    {
+        GameManager.instance.generalUi.OpenConfigMenu();
+    }
+
+    public void OpenFeedbackMenu()
+    {
+        GameManager.instance.generalUi.OpenFeedbackMenu();
     }
 
 }

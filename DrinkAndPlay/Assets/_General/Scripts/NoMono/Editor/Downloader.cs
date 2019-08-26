@@ -1,7 +1,8 @@
 ﻿ using System;
 using System.IO;
 using System.Net;
-using UnityEditor;
+ using System.Net.Cache;
+ using UnityEditor;
 using UnityEngine;
 
 class Downloader
@@ -75,6 +76,8 @@ class Downloader
         wc.Headers.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
         wc.Headers.Add("Accept-Encoding", "deflate");
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
+        wc.Headers.Add("Cache-Control", "no-cache");
+        wc.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
 
         if(string.IsNullOrEmpty(section.localizationUrl))
             Debug.LogError("The localization file for the section " + section  + " can not be downloaded because the 'LocalizationURL' is not valid.");
@@ -88,7 +91,7 @@ class Downloader
         Debug.Log(section + " localization file has been downloaded.");
     }
 
-    [MenuItem("Drink and Play/Download all localization files")]
+    [MenuItem("Drink and Play/Localization files/Download all")]
     public static void DownloadAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
@@ -103,8 +106,30 @@ class Downloader
         //Download every section (including UI)
         foreach (Section section in sections)
             DownloadLocalizationFileAsCsv(section);
+        
+        AssetDatabase.Refresh();
 
         Debug.Log("All Localization files have been downloaded.");
     }
+    
+    [MenuItem("Drink and Play/Localization files/Delete all")]
+    public static void DeleteAllLocalizationFileAsCsv()
+    {
+        //Search all sections (including UI)
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
+        Section[] sections = new Section[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            sections[i] = AssetDatabase.LoadAssetAtPath<Section>(path);
+        }
 
+        //Download every section (including UI)
+        foreach (Section section in sections)
+            File.Delete("Assets/_General/Resources/" + section + ".csv");
+
+        AssetDatabase.Refresh();
+
+        Debug.Log("All Localization files have been deleted.");
+    }
 }

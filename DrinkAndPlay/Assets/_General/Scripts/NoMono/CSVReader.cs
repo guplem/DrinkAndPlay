@@ -71,7 +71,7 @@ public class CSVReader
             if (values.Length == 0 || values[0] == "") continue;
 
             string[] rowInTable = new string[headers.Length];
-            for (var j = 0; j < headers.Length && j < values.Length; j++)
+            for (int j = 0; j < headers.Length && j < values.Length; j++)
             {
                 //Clean value
                 string value = values[j].Replace("\"\"", "\"");

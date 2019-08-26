@@ -10,7 +10,22 @@ PrefabInstance:
     - target: {fileID: 7922619708990474304, guid: 8577a7f5cbd3d9b40860a40219097193,
         type: 3}
       propertyPath: m_Name
-      value: LanguageButton
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173120462772299562, guid: 8577a7f5cbd3d9b40860a40219097193,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173120462772299562, guid: 8577a7f5cbd3d9b40860a40219097193,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173120462772299562, guid: 8577a7f5cbd3d9b40860a40219097193,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8896477750403744504, guid: 8577a7f5cbd3d9b40860a40219097193,
         type: 3}

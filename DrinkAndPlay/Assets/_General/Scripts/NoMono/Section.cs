@@ -24,6 +24,7 @@ public class Section : ScriptableObject
     public bool topBar = true;
     public bool backButton = true;
     public bool sectionTitle = true;
+    public bool gameTitle = false;
     public bool configButton = true;
     [Space(5)]
     [Tooltip("If the value es false, the 'Back Button' and 'Configuration Button' will have false values too")]

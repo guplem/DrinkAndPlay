@@ -24,7 +24,8 @@ MonoBehaviour:
   topBar: 1
   backButton: 1
   sectionTitle: 1
-  configButton: 0
+  gameTitle: 0
+  configButton: 1
   bottomBar: 1
   likeButton: 1
   addButton: 1

@@ -68,8 +68,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Subtitle text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c607f39461045044bb2b9f83ec88728, type: 2}
+  m_sharedMaterial: {fileID: 8202699299908205068, guid: 7c607f39461045044bb2b9f83ec88728,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -94,8 +95,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -171,9 +172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  isUI: 1
+  isUi: 0
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
+  textsToLocalize: []
 --- !u!1001 &1223735688877894165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Subtitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679151252950607905, guid: 668685f219b899445bc3df2b1cb6eafe,
+        type: 3}
+      propertyPath: m_AspectRatio
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3677334340726056480, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}
@@ -290,11 +297,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679151252950607905, guid: 668685f219b899445bc3df2b1cb6eafe,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}

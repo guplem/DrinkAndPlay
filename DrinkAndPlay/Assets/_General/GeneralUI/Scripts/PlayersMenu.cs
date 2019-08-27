@@ -44,10 +44,14 @@ public class PlayersMenu : MonoBehaviour
     public void BuildPlayerList()
     {
         UtilsUI.DestroyContentsOf(contentsObject, elementsNotInPlayerList.ToList());
-        
-        foreach (string player in GameManager.instance.dataManager.GetPlayers())
+
+        for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)
         {
-            Instantiate(playerPrefab, contentsObject).GetComponent<Player>().Setup(player, this);
+            string player = GameManager.instance.dataManager.GetPlayer(p);
+            GameObject playerGo = Instantiate(playerPrefab, contentsObject);
+            playerGo.transform.SetSiblingIndex(p+3);
+            playerGo.GetComponent<Player>().Setup(player, this);
         }
+        
     }
 }

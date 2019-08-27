@@ -76,8 +76,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4282006074
+  m_fontColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}
@@ -311,11 +311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AspectRatio
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3677334340726056480, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}
@@ -421,6 +416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}

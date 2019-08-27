@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Subtitle text
+  m_text: Subtitle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c607f39461045044bb2b9f83ec88728, type: 2}
   m_sharedMaterial: {fileID: 8202699299908205068, guid: 7c607f39461045044bb2b9f83ec88728,
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  isUi: 0
+  isUi: 1
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
   textsToLocalize: []
@@ -192,11 +192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AspectRatio
       value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3677334340726056480, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}
@@ -303,6 +298,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}
@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}

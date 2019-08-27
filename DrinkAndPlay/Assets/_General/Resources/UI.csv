@@ -5,14 +5,16 @@ Language,Idioma,Language
 NaughtyLevel,Nivel de Picante,Naughty Level
 Donations,Donaciones,Donations
 Feedback,Feedback,Feedback
-RandomSentences,Pruebas Aleatorias,badabu
+SendGameContent,Enviar Frase,Send Sentence
+SendCocktail,Enviar Cóctel,Send Cocktail
+RandomSentences,Pruebas Aleatorias,Random Activities
+Text,Texto,Text
+WriteHere,Escribe aquí...,Write here...
+Author,Autor,Author
+Name,Nomrbe,Name
+Send,Enviar,Send
+FeedbackExplanation,Tras enviar el formulario vamos a revisarlo y consideraremos tu aportación para mejorar la aplicación.,After submitting the form we will review it and consider your contribution to improve the application.
 Players,Jugadores,Players
-MMN,Menu Principal,Main Menu
-MMD,Descripción del menú principal,Main menu description
-UIN,Interfaz,Iterface
-UID,Descripción interfaz,Iterface description
-YNN,Yo Nunca,Never Have I Ever
-YND,Descripción Yo Nunca,Never Have I Ever Description
 Play,Jugar,Play
 PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
@@ -21,3 +23,9 @@ General,General,General
 Games,Juegos,Games
 Us,Nosotros,Us
 PlayerName,Nombre de jugador,Player name
+MMN,Menu Principal,Main Menu
+MMD,Descripción del menú principal,Main menu description
+UIN,UIN-ES,UIN-EN
+UID,UID-ES,UID-EN
+YNN,Yo Nunca,Never Have I Ever
+YND,Descripción Yo Nunca,Never Have I Ever Description

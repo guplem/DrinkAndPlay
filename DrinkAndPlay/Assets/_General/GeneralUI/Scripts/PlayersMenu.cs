@@ -28,11 +28,9 @@ public class PlayersMenu : MonoBehaviour
 
         GameManager.instance.dataManager.AddPlayer(newPlayer);
         BuildPlayerList();
-        addPlayerInputField.text = "";
         
-        EventSystem eventSystem = EventSystem.current;
-        if (!eventSystem.alreadySelecting) 
-            eventSystem.SetSelectedGameObject (null);
+        addPlayerInputField.text = "";
+        UtilsUI.ClearSelectedElement();
     }
 
     private string currentPlayerWriting = "";

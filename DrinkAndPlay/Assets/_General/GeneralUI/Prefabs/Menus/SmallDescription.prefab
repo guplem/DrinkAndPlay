@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  isUi: 0
+  isUi: 1
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
   textsToLocalize: []

@@ -34,7 +34,7 @@ namespace Crystal
                 simIdx = 0;
 
             SafeArea.Sim = sims[simIdx];
-            Debug.LogFormat ("Switched to sim device {0} with debug key '{1}'", sims[simIdx], keySafeArea);
+            Debug.LogFormat ("Switched to sim device '{0}'\n with debug key '{1}'", sims[simIdx], keySafeArea);
         }
     }
 }

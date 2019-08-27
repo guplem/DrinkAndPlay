@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayersMenu : MonoBehaviour
@@ -17,6 +18,7 @@ public class PlayersMenu : MonoBehaviour
     private void Start()
     {
         BuildPlayerList();
+        SetDoneButtonAvailability();
     }
 
     public void AddPlayer(string newPlayer)
@@ -27,6 +29,10 @@ public class PlayersMenu : MonoBehaviour
         GameManager.instance.dataManager.AddPlayer(newPlayer);
         BuildPlayerList();
         addPlayerInputField.text = "";
+        
+        EventSystem eventSystem = EventSystem.current;
+        if (!eventSystem.alreadySelecting) 
+            eventSystem.SetSelectedGameObject (null);
     }
 
     private string currentPlayerWriting = "";

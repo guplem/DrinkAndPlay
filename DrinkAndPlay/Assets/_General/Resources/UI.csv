@@ -1,12 +1,12 @@
 Id,es-es,en-us
-Configuration,Configuración,Config
-Credits,Este juego ha sido creado por Laura Estudillo y Guillem Poy,TIts
-Language,Idioma,drink
-NaughtyLevel,Nivel de Picante,maybe
-Donations,Donaciones,Lemi see
-Feedback,Feedback,USA
+Configuration,Ajustes,Settings
+Credits,Este juego ha sido creado por Laura Estudillo y Guillem Poy,This game has been created by Laura Estudillo and Guillem Poy
+Language,Idioma,Language
+NaughtyLevel,Nivel de Picante,Naughty Level
+Donations,Donaciones,Donations
+Feedback,Feedback,Feedback
 RandomSentences,Pruebas Aleatorias,badabu
-Players,Jugadores,I'ts in da game
+Players,Jugadores,Players
 MMN,Menu Principal,Main Menu
 MMD,Descripción del menú principal,Main menu description
 UIN,Interfaz,Iterface
@@ -20,3 +20,4 @@ Max,Máximo,Maximum
 General,General,General
 Games,Juegos,Games
 Us,Nosotros,Us
+PlayerName,Nombre de jugador,Player name

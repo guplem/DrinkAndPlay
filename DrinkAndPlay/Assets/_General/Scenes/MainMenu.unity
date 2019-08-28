@@ -649,7 +649,17 @@ PrefabInstance:
     - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
         type: 3}
@@ -3610,6 +3620,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Other
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
         type: 3}

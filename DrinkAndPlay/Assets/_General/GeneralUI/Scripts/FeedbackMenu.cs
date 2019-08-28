@@ -44,7 +44,6 @@ public class FeedbackMenu : MonoBehaviour
     public void UpdateMessage(string newMessage)
     {
         this.message = newMessage;
-        Debug.Log("Message updated to : '" + message+"'");
     }
     
     public void UpdateAuthor(string newAuthor)
@@ -54,22 +53,33 @@ public class FeedbackMenu : MonoBehaviour
 
     public void SendForm()
     {
-        Debug.Log("THEME: " + theme);
-        Debug.Log("MESSAGE: " + message);
-        Debug.Log("AUTHOR: " + author);
-
         if (string.IsNullOrEmpty(theme) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(author))
         {
-            Debug.Log("Feedback sending aborted.");
+            Debug.LogWarning("Feedback sending aborted. A field is not correct.");
             return;
         }
 
+        StartCoroutine(Post(theme, message, author));
+        Debug.Log("Feedback sent");
         
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
         //UtilsUI.ClearSelectedElement();
+    }
+    
+    IEnumerator Post(string theme, string message, string author) {
         
-        // TODO: Send it
+        string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdRWP5QAVV6W0bYQtkpAh0co7cK5PA0RzgKBirNidNHfHfiOw/formResponse";
+        
+        WWWForm form = new WWWForm();
+        form.AddField("entry.945393892", theme);
+        form.AddField("entry.2037568777", message);
+        form.AddField("entry.1144089731", author);
+        byte[] rawData = form.data;
+        
+        WWW www = new WWW(BASE_URL, rawData);
+        
+        yield return www;
     }
 
 }

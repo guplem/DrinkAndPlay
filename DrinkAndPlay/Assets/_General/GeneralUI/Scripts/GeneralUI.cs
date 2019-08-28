@@ -48,7 +48,6 @@ public class GeneralUI : MonoBehaviour
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
-
     }
 
     public void CloseLastOpenUiElement()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LocalizationManager
 {
@@ -15,7 +16,7 @@ public class LocalizationManager
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();
     }
 
-    public bool ReloadCurrentLanguage()
+    public bool ReloadForCurrentLanguage()
     {
         List<Section> localizedSections = new List<Section>(localizedTexts.Keys);
         foreach (Section localizedSection in localizedSections)
@@ -84,7 +85,7 @@ public class LocalizationManager
             {
                 int.TryParse(dataRead[row][1], out int naughtiness);
                 LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
-                SaveLocalizedText(section, localizedText);
+                AddLocalizedTextToTextsList(section, localizedText);
             }
 
         }
@@ -92,7 +93,7 @@ public class LocalizationManager
         return true;
     }
 
-    private void SaveLocalizedText(Section section, LocalizedText localizedText)
+    private void AddLocalizedTextToTextsList(Section section, LocalizedText localizedText)
     {
         if (section == null)
         {
@@ -114,17 +115,6 @@ public class LocalizationManager
         localizedTexts[section].Add(localizedText);
     }
 
-    public LocalizedText GetLocalizedText(Section section, string id, bool register)
-    {
-        //TODO: Registration of the quarry to get the text if "register == true"
-
-        foreach (LocalizedText localizedText in localizedTexts[section])
-            if (localizedText.id == id)
-                return localizedText;
-        
-        return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
-    }
-
     public delegate void LocalizeAllAction();
     public static event LocalizeAllAction OnLocalizeAllAction;
 
@@ -135,4 +125,63 @@ public class LocalizationManager
         Debug.Log("   > " + "Localizing all objects");
         OnLocalizeAllAction();
     }
+    
+   
+    public LocalizedText GetLocalizedText(Section section, string id, bool register)
+    {
+        
+        foreach (LocalizedText localizedText in localizedTexts[section])
+        {
+            if (localizedText.id == id)
+            {
+                if (register)
+                    GameManager.instance.dataManager.AddTextRegistered(section, id);
+
+                return localizedText;
+            }
+        }
+
+        return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
+    }
+
+    public LocalizedText GetLocalizedText(Section section, int naughtyLevel, bool register, bool checkNotRegistered)
+    {
+        // Randomize the list
+        /*List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
+        List<LocalizedText> randomList = new List<LocalizedText>();
+        System.Random r = new System.Random();
+        while (duplicatedLocalizedTexts.Count > 0)
+        {
+            int randomIndex = r.Next(0, duplicatedLocalizedTexts.Count);
+            randomList.Add(duplicatedLocalizedTexts[randomIndex]); //add it to the new, random list
+            duplicatedLocalizedTexts.RemoveAt(randomIndex); //remove to avoid duplicates
+        }*/
+
+        // Search for it
+        foreach (var localizedText in localizedTexts[section])
+        {
+            if (localizedText.naughtiness == naughtyLevel )
+            {
+                if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(section, localizedText.id) || !checkNotRegistered)
+                {
+                    if (register)
+                            GameManager.instance.dataManager.AddTextRegistered(section, localizedText.id);
+
+                    return localizedText;
+                }
+            }
+        }
+        
+        /*
+        string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789";
+        string randomID = "";
+        int charAmount = Random.Range(5, 15);
+        for(int i=0; i<charAmount; i++) randomID += glyphs[Random.Range(0, glyphs.Length)];
+        return new LocalizedText(randomID, -1, "Any text with naughty level '" + naughtyLevel + "' could not be found in the section '" + section + "'");
+        */
+
+        return null;
+    }
+
+
 }

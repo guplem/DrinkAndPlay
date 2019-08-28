@@ -147,7 +147,7 @@ public class LocalizationManager
     public LocalizedText GetLocalizedText(Section section, int naughtyLevel, bool register, bool checkNotRegistered)
     {
         // Randomize the list
-        /*List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
+        List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
         List<LocalizedText> randomList = new List<LocalizedText>();
         System.Random r = new System.Random();
         while (duplicatedLocalizedTexts.Count > 0)
@@ -155,10 +155,10 @@ public class LocalizationManager
             int randomIndex = r.Next(0, duplicatedLocalizedTexts.Count);
             randomList.Add(duplicatedLocalizedTexts[randomIndex]); //add it to the new, random list
             duplicatedLocalizedTexts.RemoveAt(randomIndex); //remove to avoid duplicates
-        }*/
+        }
 
         // Search for it
-        foreach (var localizedText in localizedTexts[section])
+        foreach (var localizedText in randomList)
         {
             if (localizedText.naughtiness == naughtyLevel )
             {

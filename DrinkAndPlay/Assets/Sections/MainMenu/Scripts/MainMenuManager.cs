@@ -98,4 +98,9 @@ public class MainMenuManager : SectionManager
         GameManager.instance.generalUi.OpenFeedbackMenu();
     }
 
+    public void OpenSendNewCocktailFeedbakc()
+    {
+        GameManager.instance.generalUi.OpenFeedbackMenuCocktails();
+    }
+
 }

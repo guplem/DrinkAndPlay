@@ -9,6 +9,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] public GameObject topBar;
     [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject sectionTitle;
+    [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
 
     [Header("Bottom Bar")]
@@ -29,12 +30,15 @@ public class GeneralUI : MonoBehaviour
 
     public void SetupFor(Section section)
     {
+        Debug.Log("Setting up General UI for the section '" + section + "'");
+        
         if (section == null)
             Debug.LogError("The General UI can not be set up for a null section.", gameObject);
         
         topBar.SetActive(section.topBar);
         backButton.SetActive(section.backButton);
         sectionTitle.SetActive(section.sectionTitle);
+        gameTitle.SetActive(section.gameTitle);
         configButton.SetActive(section.configButton);
 
         bottomBar.SetActive(section.bottomBar);
@@ -112,8 +116,23 @@ public class GeneralUI : MonoBehaviour
     }
     public void OpenFeedbackMenu()
     {
-        Debug.Log("Opening FeedbackMenu");
+        Debug.Log("Opening FeedbackMenu - General");
         Show(feedbackMenu);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.General);
+    }
+    
+    public void OpenFeedbackMenuCocktails()
+    {
+        Debug.Log("Opening FeedbackMenu - Cocktails");
+        Show(feedbackMenu);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.Cocktail);
+    }
+    
+    public void OpenFeedbackMenuCurrentSection()
+    {
+        Debug.Log("Opening FeedbackMenu - Current Section");
+        Show(feedbackMenu);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.Section);
     }
 
 }

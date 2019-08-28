@@ -13,6 +13,7 @@ public class GeneralUiButtons : MonoBehaviour
     public void ClickConfigurationButton()
     {
         Debug.Log("Clicked 'Configuration' button.");
+        
         GameManager.instance.generalUi.OpenConfigMenu();
     }
 
@@ -24,6 +25,8 @@ public class GeneralUiButtons : MonoBehaviour
     public void ClickAddButton()
     {
         Debug.Log("Clicked 'Add' button.");
+        
+        GameManager.instance.generalUi.OpenFeedbackMenuCurrentSection();
     }
 
     public void ClickShareButton()

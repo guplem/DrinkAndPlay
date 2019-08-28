@@ -10,6 +10,7 @@ public class LocalizationManager
 
     public LocalizationManager(DataManager dataManager)
     {
+        Debug.Log("Creating localization Manager");
         this.configurationManager = dataManager;
         localizedTexts = new Dictionary<Section, List<LocalizedText>>();
     }
@@ -30,13 +31,13 @@ public class LocalizationManager
 
     public bool LoadCurrentLanguageFor(Section section)
     {
+        Debug.Log("Loading language for '" + section + "'");
+        
         if (section == null)
         {
             Debug.LogError("Trying to load a 'null' section's localized texts");
             return false;
         }
-
-        Debug.Log("Loading language for " + section);
 
         string lang = configurationManager.language;
 
@@ -87,8 +88,7 @@ public class LocalizationManager
             }
 
         }
-
-        Debug.Log("Success loading the localized texts for the section '" + section + "'.");
+        
         return true;
     }
 

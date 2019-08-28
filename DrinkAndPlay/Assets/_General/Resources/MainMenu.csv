@@ -6,6 +6,11 @@ MM4,ES4,EN4
 MM5,ES5,EN5
 MM6,ES6,EN6
 CN1,Ron Cocacola,Ron Coke
-CD1,">d>DESC1ES ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR1ES vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<",">d>DESC1EN ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR1EN vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW1EN lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"
+CD1,">i><b>Ingredientes</b><br> - Ron<br> - Coca Cola<i<>h><b>¿Cómo prepararlo?</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in euismod diam. Cras ut erat turpis. Etiam feugiat lacinia mauris nonk.<h<",">i><b>INGR1EN</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<i<>h>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"
 CN2,Ginebra Tonica,DinTonic
-CD2,">d>DESC2ES ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR2ES vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW2ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<",">d>DESC2EN ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor tincidunt ipsum, quis fringilla DESC<d<>i>INGR2EN vitae. Nullam gravida, est eu viverra consectetur, risus massa porttitor risus, eu INGR<i<>h>HOW2EN lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"
+CD2,">i><b>INGR2ES</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<i<>h>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<",">i><b>INGR2EN</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<i<>h>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW<h<"
+Games,Juegos,Games
+Other,Otro,Other
+Settings,Ajustes,Settings
+Cocktails,Cócteles,Cocktails
+Feedback,Feedback,Feedback

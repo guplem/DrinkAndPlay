@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayersMenu : MonoBehaviour
@@ -17,6 +18,7 @@ public class PlayersMenu : MonoBehaviour
     private void Start()
     {
         BuildPlayerList();
+        SetDoneButtonAvailability();
     }
 
     public void AddPlayer(string newPlayer)
@@ -26,7 +28,9 @@ public class PlayersMenu : MonoBehaviour
 
         GameManager.instance.dataManager.AddPlayer(newPlayer);
         BuildPlayerList();
+        
         addPlayerInputField.text = "";
+        UtilsUI.ClearSelectedElement();
     }
 
     private string currentPlayerWriting = "";
@@ -44,10 +48,14 @@ public class PlayersMenu : MonoBehaviour
     public void BuildPlayerList()
     {
         UtilsUI.DestroyContentsOf(contentsObject, elementsNotInPlayerList.ToList());
-        
-        foreach (string player in GameManager.instance.dataManager.GetPlayers())
+
+        for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)
         {
-            Instantiate(playerPrefab, contentsObject).GetComponent<Player>().Setup(player, this);
+            string player = GameManager.instance.dataManager.GetPlayer(p);
+            GameObject playerGo = Instantiate(playerPrefab, contentsObject);
+            playerGo.transform.SetSiblingIndex(p+3);
+            playerGo.GetComponent<Player>().Setup(player, this);
         }
+        
     }
 }

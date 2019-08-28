@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AspectRatioFitter))]
 public class MainMenuSection : MonoBehaviour
 {
     private Section section;
@@ -31,6 +32,6 @@ public class MainMenuSection : MonoBehaviour
 
     public void OpenSectionDescription()
     {
-        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section.nameId, section.descriptionId, image.gameObject);
+        ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject);
     }
 }

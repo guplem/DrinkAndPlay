@@ -51,7 +51,7 @@ public class Localizer : MonoBehaviour
             textsToLocalize[0] = new TextsToLocalize(GetComponent<TextMeshProUGUI>() );
 
             if (!textsToLocalize[0].IsReady())
-                Debug.LogError("Aby 'TextMeshProUGUI' component could be found in the object " + name, gameObject);
+                Debug.LogError("Any 'TextMeshProUGUI' component could be found in the object " + name, gameObject);
         }
 
         if (!subscribed)
@@ -115,13 +115,13 @@ public class Localizer : MonoBehaviour
         {
             if (txt.tmProGui == null)
                 Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
-
+            
             if (string.IsNullOrEmpty(txt.stringTag))
             {
-                txt.tmProGui.text = localizedText;
+                ApplyText(txt.tmProGui, localizedText);
                 return;
             }
-
+            
             int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
             int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
@@ -132,11 +132,17 @@ public class Localizer : MonoBehaviour
             }
             else
             {
-                txt.tmProGui.text = localizedText.Substring(pFrom, pTo - pFrom);
+                ApplyText(txt.tmProGui, localizedText.Substring(pFrom, pTo - pFrom));
             }
             
         }
 
+    }
+
+    public void ApplyText(TextMeshProUGUI tmProGui, string text)
+    {
+        tmProGui.richText = true;
+        tmProGui.text = text;
     }
 
 }

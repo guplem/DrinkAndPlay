@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c29a55ee27eb14c87ced8aeacd29e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManagerPrefab: {fileID: 6904223532832502549, guid: 64fa286c71ae77f4a9b1b1b25b4abac5,
+  gameManagerPrefab: {fileID: 6904223532832502549, guid: 64fa286c71ae77f4a9b1b1b25b4abac5,
     type: 3}
   section: {fileID: 11400000, guid: 74014c587dc6def45a1d79c9ddfe685d, type: 2}
 --- !u!1001 &820362900
@@ -398,8 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConformX: 1
-  ConformY: 1
+  conformX: 1
+  conformY: 1
 --- !u!222 &2124420167
 CanvasRenderer:
   m_ObjectHideFlags: 0

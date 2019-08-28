@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     public void Initialize()
     {
+        Debug.Log("Initializing GameManager");
+        
         if (instance != null)
         {
             Debug.Log("Two game managers have been created (expected if comming from other section). Destroying the game object with the newest 'GameManager' before initialization");
@@ -29,26 +31,20 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        Setup();
-    }
-
-
-    private void Setup()
-    {
+        // SETUP
+        
         dataManager = new DataManager(false);
         localizationManager = new LocalizationManager(dataManager);
 
         if (uiSection == null)
             Debug.LogError("UI Section not set up in the GameManager.");
         localizationManager.LoadCurrentLanguageFor(uiSection);
-
-        Debug.Log("Game Manager setup completed.");
-
     }
+    
 
     public static void LoadSection(Section section)
     {
-        Debug.Log("Loading scene '" + section.sceneName + "' from section " + section);
+        Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
 

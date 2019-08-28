@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UtilsUI : MonoBehaviour
 {
     public static void DestroyContentsOf(Transform parentToClean, List<Transform> exceptions)
     {
+        if (parentToClean == null)
+        {
+            Debug.Log("NULL DESTRUCTION");
+            return;
+        }
+        
         while (parentToClean.childCount > exceptions.Count)
             foreach (Transform child in parentToClean)
                 if (!exceptions.Contains(child))
@@ -106,5 +113,11 @@ public class UtilsUI : MonoBehaviour
             foreach (Transform child in gObject.transform)
                 SetOpacityTo(child.gameObject, opacity, true);
     }
-    
+
+    public static void ClearSelectedElement()
+    {
+        EventSystem eventSystem = EventSystem.current;
+        if (!eventSystem.alreadySelecting) 
+            eventSystem.SetSelectedGameObject (null);
+    }
 }

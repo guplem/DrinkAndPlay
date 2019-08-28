@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlankSpace
       objectReference: {fileID: 0}
+    - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3677334340726056480, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,5 +122,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 668685f219b899445bc3df2b1cb6eafe, type: 3}

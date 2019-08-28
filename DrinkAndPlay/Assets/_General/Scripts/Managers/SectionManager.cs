@@ -13,9 +13,9 @@ public abstract class SectionManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Starting preparation process");
+        Debug.Log(" ========= Starting section setup - SectionManager (Awake) ========= ");
 
-        GameManagerManagement();
+        SetupGameManager();
 
         instance = this;
 
@@ -27,10 +27,12 @@ public abstract class SectionManager : MonoBehaviour
         gm.generalUi.SetupFor(section);
 
         SetupSectionUi();
+        
+        Debug.Log(" ========= Finished section setup - SectionManager (Awake) ========= ");
     }
 
 
-    private void GameManagerManagement()
+    private void SetupGameManager()
     {
         if (gameManagerPrefab == null)
             Debug.LogError("'GameManagerPrefab' is null in the object " + name, gameObject);
@@ -41,6 +43,7 @@ public abstract class SectionManager : MonoBehaviour
     }
     private void SetupSectionUi()
     {
+        Debug.Log("Setting up section UI");
         RectTransform rt = GetComponent<RectTransform>();
 
         if (section.topBar)

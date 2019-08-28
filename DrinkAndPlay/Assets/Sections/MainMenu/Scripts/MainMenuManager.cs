@@ -30,7 +30,8 @@ public class MainMenuManager : SectionManager
         //All localization (UI and MainMenu) already loaded
 
         GenerateMenu();
-        Debug.Log("Started MainMenu' SectionManager.");
+        
+        //Debug.Log("Started MainMenu' SectionManager.");
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class FeedbackMenu : MonoBehaviour
 {
@@ -60,8 +61,7 @@ public class FeedbackMenu : MonoBehaviour
         }
 
         StartCoroutine(Post(theme, message, author));
-        Debug.Log("Feedback sent");
-        
+
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
         //UtilsUI.ClearSelectedElement();
@@ -75,11 +75,22 @@ public class FeedbackMenu : MonoBehaviour
         form.AddField("entry.945393892", theme);
         form.AddField("entry.2037568777", message);
         form.AddField("entry.1144089731", author);
-        byte[] rawData = form.data;
         
-        WWW www = new WWW(BASE_URL, rawData);
+        //byte[] rawData = form.data;
+        //WWW www = new WWW(BASE_URL, rawData);
+        //yield return www;
         
-        yield return www;
+        UnityWebRequest www = UnityWebRequest.Post(BASE_URL, form);
+        yield return www.SendWebRequest();
+        
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.LogWarning(www.error);
+        }
+        else
+        {
+            Debug.Log("Form upload complete.");
+        }
     }
 
 }

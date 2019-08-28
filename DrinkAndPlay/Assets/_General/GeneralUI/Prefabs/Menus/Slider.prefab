@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 3979756905816821905}
   - component: {fileID: 5884308460551718453}
   - component: {fileID: 4725975027126525453}
-  - component: {fileID: 1956451729396905421}
   m_Layer: 5
   m_Name: Slider Value Indicator
   m_TagString: Untagged
@@ -281,23 +280,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1956451729396905421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418099626001666605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  isUi: 0
-  automaticallyLocalize: 1
-  registerTimestampAtLocalize: 0
-  textsToLocalize: []
 --- !u!1 &4458111331215430927
 GameObject:
   m_ObjectHideFlags: 0

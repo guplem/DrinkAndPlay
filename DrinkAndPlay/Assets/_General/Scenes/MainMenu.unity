@@ -497,6 +497,11 @@ PrefabInstance:
       propertyPath: m_textInfo.spaceCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1219247267591590164, guid: d855c1c6381377a4abfb531002ffbb0f,
+        type: 3}
+      propertyPath: id
+      value: Feedback
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d855c1c6381377a4abfb531002ffbb0f, type: 3}
 --- !u!1001 &226135828
@@ -645,6 +650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: id
+      value: Cocktails
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f571a6d8246bdee4b9966d30746f8192, type: 3}
@@ -948,6 +958,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219247267591590164, guid: d855c1c6381377a4abfb531002ffbb0f,
+        type: 3}
+      propertyPath: id
+      value: Settings
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d855c1c6381377a4abfb531002ffbb0f, type: 3}
@@ -3596,6 +3611,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Other
       objectReference: {fileID: 0}
+    - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: id
+      value: Other
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f571a6d8246bdee4b9966d30746f8192, type: 3}
 --- !u!1001 &410878006052135348
@@ -3943,6 +3963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: id
+      value: Games
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f571a6d8246bdee4b9966d30746f8192, type: 3}

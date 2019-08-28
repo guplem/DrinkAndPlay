@@ -30,6 +30,8 @@ public class GeneralUI : MonoBehaviour
 
     public void SetupFor(Section section)
     {
+        Debug.Log("Setting up General UI for the section '" + section + "'");
+        
         if (section == null)
             Debug.LogError("The General UI can not be set up for a null section.", gameObject);
         

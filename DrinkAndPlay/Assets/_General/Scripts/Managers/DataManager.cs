@@ -308,6 +308,11 @@ public class DataManager
             return 0;
         }
     }
+    public int GetTextRegisteredQuantity(Section section, int naughtyLevel)
+    {
+        return GetRegisteredTextsWIth(section, naughtyLevel).Count;
+    }
+    
     public void RemoveOldestTextRegistered(Section section)
     {
         RemoveNOldestTextRegistered(section, 1);
@@ -319,6 +324,37 @@ public class DataManager
         clonedCs[section.ToString()].RemoveRange(0, quantity);
         textsRegistered = clonedCs;
     }
+
+    public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage, int naughtyLevel)
+    {
+        // List all the registered texts in the section with the selected Naughty Level
+        List<string> regTextsWithProperNl = GetRegisteredTextsWIth(section, naughtyLevel);
+
+        // Remove the desired quantity of the registered texts
+        int quantityToRemove = (int) (percentage * regTextsWithProperNl.Count / 100);
+        regTextsWithProperNl.RemoveRange(0, quantityToRemove);
+
+        // Apply the changes to a clone
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section.ToString()] = regTextsWithProperNl;
+        
+        textsRegistered = clonedCs;
+    }
+
+    private List<string> GetRegisteredTextsWIth(Section section, int naughtyLevel)
+    {
+        List<string> regTextsWithProperNl = new List<string>();
+        foreach (string textId in textsRegistered[section.ToString()])
+        {
+            LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(section, textId, false);
+            if (curr.naughtiness == naughtyLevel)
+                regTextsWithProperNl.Add(textId);
+        }
+
+        return regTextsWithProperNl;
+    }
+        
     #endregion
+
 
 }

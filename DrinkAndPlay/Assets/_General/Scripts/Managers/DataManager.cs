@@ -357,4 +357,30 @@ public class DataManager
     #endregion
 
 
+    #region RandomChallenges
+
+    public bool randomChallenges
+    {
+        get
+        {
+            //if (_randomChallenges == true)
+                _randomChallenges = SaveGame.Load(randomChallengesSavename, true);
+
+            return _randomChallenges;
+        }
+        set
+        {
+            if (_randomChallenges == value) 
+                return;
+            
+            Debug.Log("New random challenges state: " + value);
+            _randomChallenges = value;
+            GameManager.instance.localizationManager.ReloadForCurrentLanguage();
+            SaveGame.Save(randomChallengesSavename, value);
+        }
+    }
+    private bool _randomChallenges;
+    private const string randomChallengesSavename = "randomChallenges";
+
+    #endregion
 }

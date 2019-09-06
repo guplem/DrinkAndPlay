@@ -19,10 +19,14 @@ Play,Jugar,Play
 PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
 Max,Máximo,Maximum
+NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughty level you want the games to have.
+NaughtyLevelWarning,"<color=""red"">Atención:</color> Como menor sea el rango de picante de los juegos, más repetitivos serán estos.","<color=""red"">Attention: </color>The lower the spicy range of the games, the more repetitive they will be."
 General,General,General
 Games,Juegos,Games
 Us,Nosotros,Us
 PlayerName,Nombre de jugador,Player name
+RandomChallenges,Retos aleatorios,Random challenges
+RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.
 MMN,Menu Principal,Main Menu
 MMD,Descripción del menú principal,Main menu description
 UIN,UIN-ES,UIN-EN

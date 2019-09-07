@@ -8,6 +8,8 @@ using static UtilsUI;
 public class Description : AnimationUI
 {
 
+    [SerializeField] private RectTransform scrollContentsContainer;
+    [SerializeField] private GameObject shadow;
     [SerializeField] private GameObject background;
     [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject closeButton;
@@ -135,6 +137,33 @@ public class Description : AnimationUI
     {
         StartAnim(false);
     }
+
+    public void CheckIfShouldHide(Vector2 position)
+    {
+        if (!isShowing)
+            return;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("Mouse up");
+            CheckScrollPosToHide();
+        }
+        
+        if (Input.touchCount <= 0) return;
+        Touch touch = Input.GetTouch(0);
+        switch (touch.phase)
+        {
+            case TouchPhase.Ended:
+                CheckScrollPosToHide();
+                return;
+        }
+    }
+
+    private void CheckScrollPosToHide()
+    {
+        if (scrollContentsContainer.rect.height/4 < -1*scrollContentsContainer.offsetMin.y)
+            Hide();
+    }
     
     public override void EndAnimHiding()
     {
@@ -160,7 +189,8 @@ public class Description : AnimationUI
         SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
         SetOpacityTo(image, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
-        SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
+        //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
+        SetOpacityTo(shadow, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
     }
 
 }

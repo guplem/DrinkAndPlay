@@ -11,13 +11,15 @@ public class NeverHaveIEverManager : TurnsGame
     public override void NextButton()
     {
         LocalizedText lt = GetNextText();
-        sentenceText.text = lt.text;
+        if (lt != null)
+            sentenceText.text = lt.text;
     }
 
     public override void PreviousButton()
     {
         LocalizedText lt = GetPreviousText();
-        sentenceText.text = lt.text;
+        if (lt != null)
+            sentenceText.text = lt.text;
     }
     
 }

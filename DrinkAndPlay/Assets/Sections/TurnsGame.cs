@@ -29,7 +29,7 @@ public abstract class TurnsGame : SectionManager
         }
         else
         {
-            lt = history[historyIndex];
+            lt = GetCurrentText();
         }
         
         return lt;
@@ -83,16 +83,22 @@ public abstract class TurnsGame : SectionManager
     
     protected LocalizedText GetPreviousText()
     {
+        if (history.Count <= 0)
+            return null;
+        
         historyIndex--;
         
         if (historyIndex < 0)
             historyIndex = 0;
-        
-        return history[historyIndex];
+
+        return GetCurrentText();
     }
 
     protected LocalizedText GetCurrentText()
     {
+        if (historyIndex < 0)
+            return null;
+        
         return history[historyIndex];
     }
     
@@ -104,7 +110,7 @@ public abstract class TurnsGame : SectionManager
     public void Like()
     {
         //TODO: like functions
-        Debug.Log("Liked text " + GetCurrentText().id);
+        Debug.Log("Liked text.");
     }
 
     public void AddSentence()
@@ -115,7 +121,7 @@ public abstract class TurnsGame : SectionManager
     public void Share()
     {
         //TODO: share functions
-        Debug.Log("Sharing text " + GetCurrentText().id);
+        Debug.Log("Sharing text.");
         
     }
 

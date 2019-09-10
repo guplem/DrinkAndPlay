@@ -4115,6 +4115,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6170003424596104996, guid: 1e1ba320151aba048bf2d10e756623ff,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 8439130203924893098, guid: 1e1ba320151aba048bf2d10e756623ff,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -4143,7 +4148,7 @@ PrefabInstance:
     - target: {fileID: 8439130203924893098, guid: 1e1ba320151aba048bf2d10e756623ff,
         type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 776676257061985372, guid: 1e1ba320151aba048bf2d10e756623ff,
         type: 3}
@@ -4314,6 +4319,11 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2953922323540676333, guid: f571a6d8246bdee4b9966d30746f8192,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 104
+      objectReference: {fileID: 0}
     - target: {fileID: 611447804670678386, guid: f571a6d8246bdee4b9966d30746f8192,
         type: 3}
       propertyPath: id
@@ -4466,7 +4476,7 @@ PrefabInstance:
     - target: {fileID: 2032926910134185147, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 2032926910134185147, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -4477,6 +4487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe50530d30b884b9eed03659738a38, type: 3}

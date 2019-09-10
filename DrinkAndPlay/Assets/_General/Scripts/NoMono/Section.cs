@@ -26,12 +26,12 @@ public class Section : ScriptableObject
     public bool sectionTitle = true;
     public bool gameTitle = false;
     public bool configButton = true;
-    [Space(5)]
+    /*[Space(5)]
     [Tooltip("If the value es false, the 'Back Button' and 'Configuration Button' will have false values too")]
     public bool bottomBar = true;
     public bool likeButton = true;
     public bool addButton = true;
-    public bool shareButton = true;
+    public bool shareButton = true;*/
 
     [Header("Start configuration")]
     public bool showNaughtyLevelConfigurator;

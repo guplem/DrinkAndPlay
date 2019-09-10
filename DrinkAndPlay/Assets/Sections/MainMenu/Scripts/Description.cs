@@ -145,7 +145,6 @@ public class Description : AnimationUI
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Mouse up");
             CheckScrollPosToHide();
         }
         

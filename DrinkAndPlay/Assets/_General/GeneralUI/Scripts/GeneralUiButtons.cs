@@ -17,7 +17,7 @@ public class GeneralUiButtons : MonoBehaviour
         GameManager.instance.generalUi.OpenConfigMenu();
     }
 
-    public void ClickLikeButton()
+    /*public void ClickLikeButton()
     {
         Debug.Log("Clicked 'Like' button.");
     }
@@ -32,6 +32,6 @@ public class GeneralUiButtons : MonoBehaviour
     public void ClickShareButton()
     {
         Debug.Log("Clicked 'Share' button.");
-    }
+    }*/
 
 }

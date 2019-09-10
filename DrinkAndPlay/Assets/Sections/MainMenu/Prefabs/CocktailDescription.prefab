@@ -98,7 +98,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 75
+  m_fontSizeMax: 55
   m_fontStyle: 0
   m_textAlignment: 257
   m_characterSpacing: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 75
+  m_fontSizeMax: 55
   m_fontStyle: 0
   m_textAlignment: 257
   m_characterSpacing: 0
@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2032926909467525289, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -512,11 +517,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38, type: 3}

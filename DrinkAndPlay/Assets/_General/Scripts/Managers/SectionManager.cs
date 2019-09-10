@@ -48,9 +48,18 @@ public abstract class SectionManager : MonoBehaviour
 
         if (section.topBar)
             rt.anchorMax = new Vector2(1, gm.generalUi.topBar.GetComponent<RectTransform>().anchorMin.y);
+        
+        if (section.showNaughtyLevelConfigurator)
+            gm.generalUi.OpenNaughtyLevelMenu();
+    
+        if (section.showPlayersConfigurator)
+            gm.generalUi.OpenPlayersMenu();
+    
+        if (section.showLanguageConfigurator)
+            gm.generalUi.OpenLanguageMenu();
 
-        if (section.bottomBar)
-            rt.anchorMin = new Vector2(0, gm.generalUi.bottomBar.GetComponent<RectTransform>().anchorMax.y);
+        //if (section.bottomBar)
+        //    rt.anchorMin = new Vector2(0, gm.generalUi.bottomBar.GetComponent<RectTransform>().anchorMax.y);
     }
 
 }

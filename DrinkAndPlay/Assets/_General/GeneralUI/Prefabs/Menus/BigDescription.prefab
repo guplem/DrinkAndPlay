@@ -95,12 +95,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 48
+  m_fontSize: 42
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 48
+  m_fontSizeMax: 42
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -307,11 +307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigDescription
       objectReference: {fileID: 0}
-    - target: {fileID: 4679151252950607905, guid: 668685f219b899445bc3df2b1cb6eafe,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3677334340726056480, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -416,6 +411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679151252950607905, guid: 668685f219b899445bc3df2b1cb6eafe,
+        type: 3}
+      propertyPath: m_AspectRatio
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6095205481048420877, guid: 668685f219b899445bc3df2b1cb6eafe,
         type: 3}

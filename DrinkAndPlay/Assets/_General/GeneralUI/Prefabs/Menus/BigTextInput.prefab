@@ -157,6 +157,11 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4457021325563188138, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 385119080569742294, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -182,6 +187,11 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 257
       objectReference: {fileID: 0}
+    - target: {fileID: 385119080569742294, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 6348952648402173211, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -206,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338689546463299213, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 923253937149874426, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
         type: 3}

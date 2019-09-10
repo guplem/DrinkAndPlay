@@ -12,11 +12,11 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
 
-    [Header("Bottom Bar")]
+    /*[Header("Bottom Bar")]
     [SerializeField] public GameObject bottomBar;
     [SerializeField] private GameObject likeButton;
     [SerializeField] private GameObject addButton;
-    [SerializeField] private GameObject shareButton;
+    [SerializeField] private GameObject shareButton;*/
 
     [Header("Menus")]
     [SerializeField] private AnimationUI configMenu;
@@ -41,10 +41,10 @@ public class GeneralUI : MonoBehaviour
         gameTitle.SetActive(section.gameTitle);
         configButton.SetActive(section.configButton);
 
-        bottomBar.SetActive(section.bottomBar);
+        /*bottomBar.SetActive(section.bottomBar);
         likeButton.SetActive(section.likeButton);
         addButton.SetActive(section.addButton);
-        shareButton.SetActive(section.shareButton);
+        shareButton.SetActive(section.shareButton);*/
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
@@ -133,6 +133,12 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening RandomChallengesMenu");
         Show(randomChallengesMenu);
+    }
+
+    public void ShowRandomChallenge()
+    {
+        Debug.Log("Displaying random challenge");
+        //TODO: Display a random challenge
     }
 
 }

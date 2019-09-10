@@ -184,9 +184,6 @@ MonoBehaviour:
     type: 3}
   section: {fileID: 11400000, guid: 74014c587dc6def45a1d79c9ddfe685d, type: 2}
   sentenceText: {fileID: 1952397113}
-  naughtyLevel: 1
-  register: 1
-  checkNotRegistered: 1
 --- !u!1 &368122288
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +267,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276943058}
-        m_MethodName: PreviousSentence
+        m_MethodName: PreviousButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -887,7 +884,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 276943058}
-        m_MethodName: NextSentence
+        m_MethodName: NextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

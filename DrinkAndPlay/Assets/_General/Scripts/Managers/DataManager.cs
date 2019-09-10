@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DataManager
 {
@@ -193,54 +194,13 @@ public class DataManager
     {
         return naughtyLevel.max;
     }
-    #endregion
-
-/*
-    #region customSentences
-    private Dictionary<string, List<string>> customSentences
+    public int GetRandomNaughtyLevel()
     {
-        get
-        {
-            if (_customSentences == null)
-                _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<string, List<string>>());
-
-            return _customSentences;
-        }
-        set
-        {
-            if (_customSentences.SequenceEqual(value)) 
-                return;
-            
-            _customSentences = value;
-            SaveGame.Save(customSentencesSavename, value);
-        }
-    }
-    private Dictionary<string, List<string>> _customSentences;
-    private const string customSentencesSavename = "customSentences";
-
-    private void AddCustomSentence(Section section, string sentence)
-    {
-        if (customSentences[section.ToString()].Contains(sentence))
-            return;
-        
-        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section.ToString()].Add(sentence);
-        customSentences = clonedCs;
-    }
-    private void RemoveCustomSentence(Section section, string sentence)
-    {
-        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section.ToString()].Remove(sentence);
-        customSentences = clonedCs;
-    }
-    private void RemoveCustomSentence(Section section, int sentence)
-    {
-        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section.ToString()].RemoveAt(sentence);
-        customSentences = clonedCs;
+        return Random.Range(GetNaughtyLevelMin(), GetNaughtyLevelMax() + 1);
     }
     #endregion
-*/
+
+
 
     #region textsRegistered
     private Dictionary<string, List<string>> textsRegistered

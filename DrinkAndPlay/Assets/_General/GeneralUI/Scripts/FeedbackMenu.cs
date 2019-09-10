@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class FeedbackMenu : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class FeedbackMenu : MonoBehaviour
 
     [SerializeField] private Localizer topBarText;
     [SerializeField] private TMP_InputField messageInputField;
+    
+    
+    [SerializeField] private TextMeshProUGUI sendTextButton;
+    [SerializeField] private Image sendIconButton;
+    [SerializeField] private Button sendButton;
 
     public enum FeedbackTime
     {
@@ -39,22 +45,48 @@ public class FeedbackMenu : MonoBehaviour
                 this.theme = "Cocktail";
                 break;
         }
-        
+
+        UpdateVisuals();
     }
 
     public void UpdateMessage(string newMessage)
     {
         this.message = newMessage;
+        UpdateVisuals();
     }
     
     public void UpdateAuthor(string newAuthor)
     {
         this.author = newAuthor;
+        UpdateVisuals();
+    }
+
+    private void UpdateVisuals()
+    {
+        //TODO: Show warning if there is no internet connection
+        
+        if (AreContentsCorrect())
+        {
+            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, 1f);
+            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, 1f);
+            sendButton.interactable = true;
+        }
+        else
+        {
+            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, 0.5f);
+            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, 0.5f);
+            sendButton.interactable = false;
+        }
+    }
+    
+    private bool AreContentsCorrect()
+    {
+        return !(   string.IsNullOrEmpty(theme) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(author)   /*TODO: Or there is no internet connection*/    );
     }
 
     public void SendForm()
     {
-        if (string.IsNullOrEmpty(theme) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(author))
+        if (!AreContentsCorrect())
         {
             Debug.LogWarning("Feedback sending aborted. A field is not correct.");
             return;
@@ -65,6 +97,8 @@ public class FeedbackMenu : MonoBehaviour
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
         //UtilsUI.ClearSelectedElement();
+
+        UpdateVisuals();
     }
     
     IEnumerator Post(string theme, string message, string author) {

@@ -17,11 +17,11 @@ public class DataManager
     {
         return new List<T>(originalList);
     }
-    private Dictionary<Section, List<string>> GetCloneOfDictionary(Dictionary<Section, List<string>> originalDictionary)
+    private Dictionary<string, List<string>> GetCloneOfDictionary(Dictionary<string, List<string>> originalDictionary)
     {
-        Dictionary<Section, List<string>> clonedDictionary = new Dictionary<Section, List<string>>();
-        foreach (Section section in originalDictionary.Keys)
-            clonedDictionary.Add(section, GetCloneOfList(originalDictionary[section]));
+        Dictionary<string, List<string>> clonedDictionary = new Dictionary<string, List<string>>();
+        foreach (string key in originalDictionary.Keys)
+            clonedDictionary.Add(key, GetCloneOfList(originalDictionary[key]));
         return clonedDictionary;
     }
 
@@ -43,7 +43,7 @@ public class DataManager
             
             Debug.Log("New language: " + value);
             _language = value;
-            GameManager.instance.localizationManager.ReloadCurrentLanguage();
+            GameManager.instance.localizationManager.ReloadForCurrentLanguage();
             SaveGame.Save(languageSavename, value);
         }
     }
@@ -90,7 +90,6 @@ public class DataManager
         
         Debug.LogWarning("Searching the index of a null player");
         return -1;
-
     }
     public int GetPlayersQuantity()
     {
@@ -196,14 +195,14 @@ public class DataManager
     }
     #endregion
 
-
+/*
     #region customSentences
-    private Dictionary<Section, List<string>> customSentences
+    private Dictionary<string, List<string>> customSentences
     {
         get
         {
             if (_customSentences == null)
-                _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<Section, List<string>>());
+                _customSentences = SaveGame.Load(customSentencesSavename, new Dictionary<string, List<string>>());
 
             return _customSentences;
         }
@@ -216,37 +215,40 @@ public class DataManager
             SaveGame.Save(customSentencesSavename, value);
         }
     }
-    private Dictionary<Section, List<string>> _customSentences;
+    private Dictionary<string, List<string>> _customSentences;
     private const string customSentencesSavename = "customSentences";
 
     private void AddCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section].Add(sentence);
+        if (customSentences[section.ToString()].Contains(sentence))
+            return;
+        
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section.ToString()].Add(sentence);
         customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, string sentence)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section].Remove(sentence);
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section.ToString()].Remove(sentence);
         customSentences = clonedCs;
     }
     private void RemoveCustomSentence(Section section, int sentence)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
-        clonedCs[section].RemoveAt(sentence);
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(customSentences);
+        clonedCs[section.ToString()].RemoveAt(sentence);
         customSentences = clonedCs;
     }
     #endregion
-
+*/
 
     #region textsRegistered
-    private Dictionary<Section, List<string>> textsRegistered
+    private Dictionary<string, List<string>> textsRegistered
     {
         get
         {
             if (_textsRegistered == null)
-                _textsRegistered = SaveGame.Load(textsRegisteredSavename, new Dictionary<Section, List<string>>());
+                _textsRegistered = SaveGame.Load(textsRegisteredSavename, new Dictionary<string, List<string>>());
 
             return _textsRegistered;
         }
@@ -259,29 +261,58 @@ public class DataManager
             SaveGame.Save(textsRegisteredSavename, value);
         }
     }
-    private Dictionary<Section, List<string>> _textsRegistered;
+    private Dictionary<string, List<string>> _textsRegistered;
     private const string textsRegisteredSavename = "textsRegistered";
 
-    private void AddTextRegistered(Section section, string textId)
+    public void AddTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        clonedCs[section].Add(textId);
+        try { if (textsRegistered[section.ToString()].Contains(textId)) return; } catch (KeyNotFoundException) { }
+        
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        try
+        {
+            clonedCs[section.ToString()].Add(textId);
+        }
+        catch (KeyNotFoundException)
+        {
+            clonedCs.Add(section.ToString(), new List<string>());
+        }
+
         textsRegistered = clonedCs;
     }
     public void RemoveTextRegistered(Section section, string textId)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        clonedCs[section].Remove(textId);
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section.ToString()].Remove(textId);
         textsRegistered = clonedCs;
     }
     public bool IsTextRegistered(Section section, string textId)
     {
-        return textsRegistered[section].Contains(textId);
+        try
+        {
+            return textsRegistered[section.ToString()].Contains(textId);
+        }
+        catch (KeyNotFoundException)
+        {
+            return false;
+        }
     }
     public int GetTextRegisteredQuantity(Section section)
     {
-        return textsRegistered[section].Count;
+        try
+        {
+            return textsRegistered[section.ToString()].Count;
+        }
+        catch (KeyNotFoundException)
+        {
+            return 0;
+        }
     }
+    public int GetTextRegisteredQuantity(Section section, int naughtyLevel)
+    {
+        return GetRegisteredTextsWIth(section, naughtyLevel).Count;
+    }
+    
     public void RemoveOldestTextRegistered(Section section)
     {
         RemoveNOldestTextRegistered(section, 1);
@@ -289,10 +320,67 @@ public class DataManager
 
     private void RemoveNOldestTextRegistered(Section section, int quantity)
     {
-        Dictionary<Section, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        clonedCs[section].RemoveRange(0, quantity);
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section.ToString()].RemoveRange(0, quantity);
         textsRegistered = clonedCs;
     }
+
+    public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage, int naughtyLevel)
+    {
+        // List all the registered texts in the section with the selected Naughty Level
+        List<string> regTextsWithProperNl = GetRegisteredTextsWIth(section, naughtyLevel);
+
+        // Remove the desired quantity of the registered texts
+        int quantityToRemove = (int) (percentage * regTextsWithProperNl.Count / 100);
+        regTextsWithProperNl.RemoveRange(0, quantityToRemove);
+
+        // Apply the changes to a clone
+        Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
+        clonedCs[section.ToString()] = regTextsWithProperNl;
+        
+        textsRegistered = clonedCs;
+    }
+
+    private List<string> GetRegisteredTextsWIth(Section section, int naughtyLevel)
+    {
+        List<string> regTextsWithProperNl = new List<string>();
+        foreach (string textId in textsRegistered[section.ToString()])
+        {
+            LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(section, textId, false);
+            if (curr.naughtiness == naughtyLevel)
+                regTextsWithProperNl.Add(textId);
+        }
+
+        return regTextsWithProperNl;
+    }
+        
     #endregion
 
+
+    #region RandomChallenges
+
+    public bool randomChallenges
+    {
+        get
+        {
+            //if (_randomChallenges == true)
+                _randomChallenges = SaveGame.Load(randomChallengesSavename, true);
+
+            return _randomChallenges;
+        }
+        set
+        {
+            if (_randomChallenges == value) 
+                return;
+            
+            Debug.Log("New random challenges state: " + value);
+            _randomChallenges = value;
+            GameManager.instance.localizationManager.ReloadForCurrentLanguage();
+            SaveGame.Save(randomChallengesSavename, value);
+        }
+    }
+    private bool _randomChallenges;
+    private const string randomChallengesSavename = "randomChallenges";
+
+    #endregion
 }

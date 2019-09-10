@@ -20,11 +20,11 @@ public class GeneralUI : MonoBehaviour
 
     [Header("Menus")]
     [SerializeField] private AnimationUI configMenu;
-    [SerializeField] private AnimationUI randomSentencesMenu;
     [SerializeField] private AnimationUI languageMenu;
     [SerializeField] private AnimationUI playersMenu;
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
+    [SerializeField] private AnimationUI randomChallengesMenu;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -48,7 +48,6 @@ public class GeneralUI : MonoBehaviour
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
-
     }
 
     public void CloseLastOpenUiElement()
@@ -89,11 +88,6 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Opening ConfigMenu");
         Show(configMenu);
     }
-    public void OpenRandomSentencesMenu()
-    {
-        Debug.Log("Opening RandomSentencesMenu");
-        Show(randomSentencesMenu);
-    }
     public void OpenLanguageMenu()
     {
         Debug.Log("Opening LanguageMenu");
@@ -133,6 +127,12 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Opening FeedbackMenu - Current Section");
         Show(feedbackMenu);
         feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.Section);
+    }
+    
+    public void OpenRandomChallengesMenu()
+    {
+        Debug.Log("Opening RandomChallengesMenu");
+        Show(randomChallengesMenu);
     }
 
 }

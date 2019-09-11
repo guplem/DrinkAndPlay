@@ -95,7 +95,7 @@ public class LocalizationManager
         return true;
     }
 
-    private void RandomizeLocalizedTexts(Section section)
+    public void RandomizeLocalizedTexts(Section section)
     {
         List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
         List<LocalizedText> randomList = new List<LocalizedText>();

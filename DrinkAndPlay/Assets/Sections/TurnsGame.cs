@@ -23,7 +23,7 @@ public abstract class TurnsGame : SectionManager
         historyIndex++;
         if (historyIndex == history.Count)
         {
-            lt = GetRandomTextOfNaughtyLevel(GameManager.instance.dataManager.GetRandomNaughtyLevel(), true, true);
+            lt = GetRandomText(true, true);
             RegisterNewTextInHistory(lt);
             ProcessRandomChallenge();
         }
@@ -36,23 +36,24 @@ public abstract class TurnsGame : SectionManager
     }
     
     
-    private LocalizedText GetRandomTextOfNaughtyLevel(int naughtyLevel, bool register, bool checkNotRegistered)
+    private LocalizedText GetRandomText(bool register, bool checkNotRegistered)
     {
         while (true)
         {
-            LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(section, naughtyLevel, register, checkNotRegistered);
+            LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(section, register, checkNotRegistered);
             if (lt == null)
             {
                 Debug.Log("Localized text not found");
 
-                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(section, naughtyLevel) > 2) // To know if there are enough to remove the register of the 50%
+                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(section) > 2) // To know if there are enough to remove the register of the 50%
                 {
-                    GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(section, 25f, naughtyLevel);
+                    GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(section, 25f);
                     Debug.Log("REMOVED 25%");
+                    GameManager.instance.localizationManager.RandomizeLocalizedTexts(section); // To change the order of the new avaliable texts
                 }
                 else
                 {
-                    Debug.LogWarning("There are not enough texts of level " + naughtyLevel + " for the section " + section);
+                    Debug.LogWarning("There are not enough texts for the section " + section);
                     return null;
                 }
             }

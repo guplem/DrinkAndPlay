@@ -270,8 +270,9 @@ public class DataManager
     }
     public int GetTextRegisteredQuantity(Section section, int naughtyLevel)
     {
-        return GetRegisteredTextsWIth(section, naughtyLevel).Count;
+        return GetRegisteredTexts(section, naughtyLevel).Count;
     }
+    
     
     public void RemoveOldestTextRegistered(Section section)
     {
@@ -287,31 +288,43 @@ public class DataManager
 
     public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage, int naughtyLevel)
     {
+        List<string> regTexts = new List<string>();
+        
         // List all the registered texts in the section with the selected Naughty Level
-        List<string> regTextsWithProperNl = GetRegisteredTextsWIth(section, naughtyLevel);
+        regTexts = naughtyLevel == -1 ? GetRegisteredTexts(section) : GetRegisteredTexts(section, naughtyLevel);
 
         // Remove the desired quantity of the registered texts
-        int quantityToRemove = (int) (percentage * regTextsWithProperNl.Count / 100);
-        regTextsWithProperNl.RemoveRange(0, quantityToRemove);
+        int quantityToRemove = (int) (percentage * regTexts.Count / 100);
+        regTexts.RemoveRange(0, quantityToRemove);
 
         // Apply the changes to a clone
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        clonedCs[section.ToString()] = regTextsWithProperNl;
+        clonedCs[section.ToString()] = regTexts;
         
         textsRegistered = clonedCs;
     }
+    
+    public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage)
+    {
+        RemoveOldestPercentageOfTextsRegistered(section, percentage, -1);
+    }
 
-    private List<string> GetRegisteredTextsWIth(Section section, int naughtyLevel)
+    private List<string> GetRegisteredTexts(Section section, int naughtyLevel)
     {
         List<string> regTextsWithProperNl = new List<string>();
         foreach (string textId in textsRegistered[section.ToString()])
         {
             LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(section, textId, false);
-            if (curr.naughtiness == naughtyLevel)
+            if (curr.naughtiness == naughtyLevel || naughtyLevel == -1)
                 regTextsWithProperNl.Add(textId);
         }
 
         return regTextsWithProperNl;
+    }
+    
+    private List<string> GetRegisteredTexts(Section section)
+    {
+        return textsRegistered[section.ToString()];
     }
         
     #endregion

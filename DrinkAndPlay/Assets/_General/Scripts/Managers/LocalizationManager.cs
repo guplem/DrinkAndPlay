@@ -89,8 +89,25 @@ public class LocalizationManager
             }
 
         }
+
+        RandomizeLocalizedTexts(section);
         
         return true;
+    }
+
+    public void RandomizeLocalizedTexts(Section section)
+    {
+        List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
+        List<LocalizedText> randomList = new List<LocalizedText>();
+        System.Random r = new System.Random();
+        while (duplicatedLocalizedTexts.Count > 0)
+        {
+            int randomIndex = r.Next(0, duplicatedLocalizedTexts.Count);
+            randomList.Add(duplicatedLocalizedTexts[randomIndex]); //add it to the new, random list
+            duplicatedLocalizedTexts.RemoveAt(randomIndex); //remove to avoid duplicates
+        }
+
+        localizedTexts[section] = randomList;
     }
 
     private void AddLocalizedTextToTextsList(Section section, LocalizedText localizedText)
@@ -126,10 +143,9 @@ public class LocalizationManager
         OnLocalizeAllAction();
     }
     
-   
+    
     public LocalizedText GetLocalizedText(Section section, string id, bool register)
     {
-        
         foreach (LocalizedText localizedText in localizedTexts[section])
         {
             if (localizedText.id == id)
@@ -144,21 +160,11 @@ public class LocalizationManager
         return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
     }
 
+    
     public LocalizedText GetLocalizedText(Section section, int naughtyLevel, bool register, bool checkNotRegistered)
     {
-        // Randomize the list
-        List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
-        List<LocalizedText> randomList = new List<LocalizedText>();
-        System.Random r = new System.Random();
-        while (duplicatedLocalizedTexts.Count > 0)
-        {
-            int randomIndex = r.Next(0, duplicatedLocalizedTexts.Count);
-            randomList.Add(duplicatedLocalizedTexts[randomIndex]); //add it to the new, random list
-            duplicatedLocalizedTexts.RemoveAt(randomIndex); //remove to avoid duplicates
-        }
-
         // Search for it
-        foreach (var localizedText in randomList)
+        foreach (LocalizedText localizedText in localizedTexts[section])
         {
             if (localizedText.naughtiness == naughtyLevel )
             {
@@ -171,14 +177,24 @@ public class LocalizationManager
                 }
             }
         }
-        
-        /*
-        string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789";
-        string randomID = "";
-        int charAmount = Random.Range(5, 15);
-        for(int i=0; i<charAmount; i++) randomID += glyphs[Random.Range(0, glyphs.Length)];
-        return new LocalizedText(randomID, -1, "Any text with naughty level '" + naughtyLevel + "' could not be found in the section '" + section + "'");
-        */
+
+        return null;
+    }
+    
+    
+    public LocalizedText GetLocalizedText(Section section, bool register, bool checkNotRegistered)
+    {
+        // Search for it
+        foreach (LocalizedText localizedText in localizedTexts[section])
+        {
+            if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(section, localizedText.id) || !checkNotRegistered)
+            {
+                if (register)
+                    GameManager.instance.dataManager.AddTextRegistered(section, localizedText.id);
+
+                return localizedText;
+            }
+        }
 
         return null;
     }

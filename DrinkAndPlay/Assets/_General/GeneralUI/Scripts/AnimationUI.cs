@@ -41,6 +41,22 @@ public abstract class AnimationUI : MonoBehaviour
         this.isShowing = isShowing;
     }
 
+    protected void InstantHide()
+    {
+        currentAnimTime = animationDurationClose;
+        reachedPos = false;
+        this.isShowing = false;
+        Update();
+    }
+
+    protected void InstantShow()
+    {
+        currentAnimTime = animationDurationOpen;
+        reachedPos = false;
+        this.isShowing = true;
+        Update();
+    }
+
     protected void Update()
     {
         if (reachedPos) 

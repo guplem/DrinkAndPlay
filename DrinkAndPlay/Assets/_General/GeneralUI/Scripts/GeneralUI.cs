@@ -25,6 +25,10 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
+    
+    [Header("Popups")]
+    [SerializeField] private AnimationUI ratePopup;
+    [SerializeField] private AnimationUI randomChallengePopup;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -141,4 +145,9 @@ public class GeneralUI : MonoBehaviour
         //TODO: Display a random challenge
     }
 
+    public void ShowRatePopup()
+    {
+        Debug.Log("Displaying rate popup");
+        ratePopup.Show();
+    }
 }

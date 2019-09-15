@@ -34,6 +34,10 @@ public abstract class TurnsGame : SectionManager
     private int minDelayForRandomChallenge = 10;
     private int maxDelayForRandomChallenge = 25;
     private int currentDelayForRandomChallenge = 0;
+    
+    
+    private int minLikesToRatePopup = 5;
+    private float minPercentageToRatePopup = 30f;
 
     public abstract void NextButton();
     public abstract void PreviousButton();
@@ -134,6 +138,28 @@ public abstract class TurnsGame : SectionManager
     {
         history[historyIndex].liked = !history[historyIndex].liked;
         likeButton.Switch();
+
+        // Check if the rate popup should be shown
+        
+        if (history.Count < minLikesToRatePopup)    
+            return;
+
+        int likeCount = 0;
+        foreach (TextInTurnsGame txt in history)
+            if (txt.liked)
+                likeCount++;
+        
+        if (likeCount < minLikesToRatePopup)
+            return;
+
+        float percentage = likeCount * 100f / history.Count;
+        if (percentage < minPercentageToRatePopup)
+            return;
+
+        if (gm.dataManager.ratePopupShown || gm.dataManager.ratedApp)
+            return;
+        
+        gm.generalUi.ShowRatePopup();
     }
 
     public bool IsCurrentTextLiked()

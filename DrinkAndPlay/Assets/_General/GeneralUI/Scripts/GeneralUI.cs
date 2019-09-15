@@ -149,5 +149,18 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Displaying rate popup");
         ratePopup.Show();
+        GameManager.instance.dataManager.ratePopupShown = true;
+    }
+
+    public void RateApp()
+    {
+        //TODO: Open rate link
+        
+        GameManager.instance.dataManager.ratedApp = true;
+    }
+    
+    public void HideRatePopup()
+    {
+        ratePopup.Hide();
     }
 }

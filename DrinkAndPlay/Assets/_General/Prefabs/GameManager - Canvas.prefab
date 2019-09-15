@@ -932,7 +932,7 @@ PrefabInstance:
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100.437965
       objectReference: {fileID: 0}
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}
@@ -2724,6 +2724,56 @@ PrefabInstance:
         type: 3}
       propertyPath: id
       value: RateText
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472480210687239683}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RateApp
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4260288906667334440}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 512705780079642020, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410378923210472048, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 472480210687239683}
+    - target: {fileID: 5410378923210472048, guid: fc478f510856cf845b3a82b906d7b2b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideRatePopup
       objectReference: {fileID: 0}
     - target: {fileID: 2176836596989616616, guid: fc478f510856cf845b3a82b906d7b2b0,
         type: 3}

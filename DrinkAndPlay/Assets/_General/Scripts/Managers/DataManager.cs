@@ -348,7 +348,6 @@ public class DataManager
             
             Debug.Log("New random challenges state: " + value);
             _randomChallenges = value;
-            GameManager.instance.localizationManager.ReloadForCurrentLanguage();
             SaveGame.Save(randomChallengesSavename, value);
         }
     }
@@ -356,4 +355,32 @@ public class DataManager
     private const string randomChallengesSavename = "randomChallenges";
 
     #endregion
+
+    
+    #region RatePopup
+    public bool ratePopupShown;
+    public bool ratedApp
+    {
+        get
+        {
+            //if (_ratedApp == true)
+            _ratedApp = SaveGame.Load(ratedAppSavename, false);
+
+            return _ratedApp;
+        }
+        set
+        {
+            if (_ratedApp == value) 
+                return;
+            
+            Debug.Log("New ratedApp state: " + value);
+            _ratedApp = value;
+            SaveGame.Save(ratedAppSavename, value);
+        }
+    }
+    private bool _ratedApp;
+    private const string ratedAppSavename = "ratedApp";
+
+    #endregion
+    
 }

@@ -20,6 +20,7 @@ public class LanguageMenu : MonoBehaviour
         {
             GameObject langButton = Instantiate(languagePrefab, contents);
             langButton.GetComponent<LanguageButton>().Setup(lang);
+            langButton.transform.SetSiblingIndex(1);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,11 @@ public class NeverHaveIEverManager : TurnsGame
 {
 
     [SerializeField] private Localizer sentenceText;
+
+    private void Start()
+    {
+        NextButton();
+    }
 
     public override void NextButton()
     {

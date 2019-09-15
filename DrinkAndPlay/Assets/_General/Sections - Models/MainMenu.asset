@@ -18,7 +18,8 @@ MonoBehaviour:
   newness: 0
   comingSoon: 0
   premium: 0
-  localizationUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=987858067&single=true&output=csv
+  localizationFiles:
+  - {fileID: 11400000, guid: 70b68ff4bcea20c4d8ae5b31283aae58, type: 2}
   minNumberOfPlayers: -1
   sceneName: MainMenu
   topBar: 1
@@ -26,10 +27,6 @@ MonoBehaviour:
   sectionTitle: 0
   gameTitle: 1
   configButton: 0
-  bottomBar: 0
-  likeButton: 0
-  addButton: 0
-  shareButton: 0
   showNaughtyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

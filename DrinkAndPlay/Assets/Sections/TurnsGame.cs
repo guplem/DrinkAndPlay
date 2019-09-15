@@ -104,7 +104,10 @@ public abstract class TurnsGame : SectionManager
         if (currentDelayForRandomChallenge < minDelayForRandomChallenge) return;
         float probability = (currentDelayForRandomChallenge - minDelayForRandomChallenge) / (maxDelayForRandomChallenge - minDelayForRandomChallenge) * 100;
         if (probability >= Random.Range(0.0f, 100.0f))
+        {
             GameManager.instance.generalUi.ShowRandomChallenge();
+            currentDelayForRandomChallenge = 0;
+        }
     }
 
     

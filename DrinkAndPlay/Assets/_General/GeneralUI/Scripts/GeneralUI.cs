@@ -34,6 +34,8 @@ public class GeneralUI : MonoBehaviour
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
+    
+    
     public void SetupFor(Section section)
     {
         Debug.Log("Setting up General UI for the section '" + section + "'");

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -49,4 +50,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            instance.generalUi.CloseLastOpenUiElement();
+        }
+    }
 }

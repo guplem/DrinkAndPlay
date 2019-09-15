@@ -183,7 +183,7 @@ MonoBehaviour:
     type: 3}
   section: {fileID: 11400000, guid: 74014c587dc6def45a1d79c9ddfe685d, type: 2}
   likeButton: {fileID: 583164971}
-  sentenceText: {fileID: 1952397113}
+  sentenceText: {fileID: 1925789976}
 --- !u!1 &575422537
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,16 +422,16 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7404835499692319012}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1952397113 stripped
+--- !u!114 &1925789976 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
+  m_CorrespondingSourceObject: {fileID: 4967981588915645114, guid: fd97e7df3df4de542a3933b9457abeb4,
     type: 3}
   m_PrefabInstance: {fileID: 9009350254323680156}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1977676942 stripped
@@ -865,11 +865,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 55
       objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textAlignment
-      value: 514
-      objectReference: {fileID: 0}
     - target: {fileID: 9009350255499999866, guid: fd97e7df3df4de542a3933b9457abeb4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1016,5 +1011,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 276943058}
+    - target: {fileID: 4967981588915645114, guid: fd97e7df3df4de542a3933b9457abeb4,
+        type: 3}
+      propertyPath: localizationFile
+      value: 
+      objectReference: {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd97e7df3df4de542a3933b9457abeb4, type: 3}

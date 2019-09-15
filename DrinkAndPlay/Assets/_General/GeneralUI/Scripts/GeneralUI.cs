@@ -142,7 +142,8 @@ public class GeneralUI : MonoBehaviour
     public void ShowRandomChallenge()
     {
         Debug.Log("Displaying random challenge");
-        //TODO: Display a random challenge
+        randomChallengePopup.Show();
+        //TODO: Display the proper text
     }
 
     public void ShowRatePopup()

@@ -7,22 +7,22 @@ using Random = UnityEngine.Random;
 public class LocalizationManager
 {
     private readonly DataManager configurationManager;
-    private Dictionary<Section, List<LocalizedText>> localizedTexts;
+    private Dictionary<LocalizationFile, List<LocalizedText>> localizedTexts;
 
     public LocalizationManager(DataManager dataManager)
     {
         Debug.Log("Creating localization Manager");
         this.configurationManager = dataManager;
-        localizedTexts = new Dictionary<Section, List<LocalizedText>>();
+        localizedTexts = new Dictionary<LocalizationFile, List<LocalizedText>>();
     }
 
     public bool ReloadForCurrentLanguage()
     {
-        List<Section> localizedSections = new List<Section>(localizedTexts.Keys);
-        foreach (Section localizedSection in localizedSections)
+        List<LocalizationFile> localizedFiles = new List<LocalizationFile>(localizedTexts.Keys);
+        foreach (LocalizationFile localizedFile in localizedFiles)
         {
-            localizedTexts[localizedSection] = new List<LocalizedText>();
-            LoadCurrentLanguageFor(localizedSection);
+            localizedTexts[localizedFile] = new List<LocalizedText>();
+            LoadCurrentLanguageFor(localizedFile);
         }
 
         LocalizeAllLocalizableObjects();
@@ -30,13 +30,13 @@ public class LocalizationManager
         return true;
     }
 
-    public bool LoadCurrentLanguageFor(Section section)
+    public bool LoadCurrentLanguageFor(LocalizationFile localizationFile)
     {
-        Debug.Log("Loading language for '" + section + "'");
+        Debug.Log("Loading '" + localizationFile + "' localization file");
         
-        if (section == null)
+        if (localizationFile == null)
         {
-            Debug.LogError("Trying to load a 'null' section's localized texts");
+            Debug.LogError("Trying to load a 'null' localizationFile's localized texts");
             return false;
         }
 
@@ -48,14 +48,13 @@ public class LocalizationManager
             return false;
         }
 
-        string[][] dataRead = CSVReader.Read(section).ToArray();
+        string[][] dataRead = CSVReader.Read(localizationFile).ToArray();
         int idCol = -1;
         int naughtyCol = -1;
         int langCol = -1;
 
         for (int row = 0; row < dataRead.Length; row++)
         {
-
             //Check where is everything in the file
             if (row == 0)
             {
@@ -74,9 +73,9 @@ public class LocalizationManager
                 }
 
                 if (idCol < 0)
-                    Debug.LogError("The section '" + section + "' is missing the 'ID' column in its localization file");
+                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the 'ID' column in its localization file");
                 else if (langCol < 0)
-                    Debug.LogError("The section '" + section + "' is missing the column '" + lang + "' in its localization file.     ('"  + lang + "' is the current language.)");
+                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + lang + "' in its localization file.     ('"  + lang + "' is the current language.)");
             }
 
 
@@ -85,19 +84,19 @@ public class LocalizationManager
             {
                 int.TryParse(dataRead[row][1], out int naughtiness);
                 LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
-                AddLocalizedTextToTextsList(section, localizedText);
+                AddLocalizedTextToTextsList(localizationFile, localizedText);
             }
 
         }
 
-        RandomizeLocalizedTexts(section);
+        RandomizeLocalizedTexts(localizationFile);
         
         return true;
     }
 
-    public void RandomizeLocalizedTexts(Section section)
+    public void RandomizeLocalizedTexts(LocalizationFile localizationFile)
     {
-        List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[section]);
+        List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[localizationFile]);
         List<LocalizedText> randomList = new List<LocalizedText>();
         System.Random r = new System.Random();
         while (duplicatedLocalizedTexts.Count > 0)
@@ -107,29 +106,29 @@ public class LocalizationManager
             duplicatedLocalizedTexts.RemoveAt(randomIndex); //remove to avoid duplicates
         }
 
-        localizedTexts[section] = randomList;
+        localizedTexts[localizationFile] = randomList;
     }
 
-    private void AddLocalizedTextToTextsList(Section section, LocalizedText localizedText)
+    private void AddLocalizedTextToTextsList(LocalizationFile localizationFile, LocalizedText localizedText)
     {
-        if (section == null)
+        if (localizationFile == null)
         {
-            Debug.LogError("Trying to save a localized text of a 'null' section.");
+            Debug.LogError("Trying to save a localized text of a 'null' localizationFile.");
             return;
         }
 
-        if (section == null)
+        if (localizationFile == null)
         {
             Debug.LogError("Trying to save 'null' localizedText.");
             return;
         }
 
-        //Debug.Log("Saving " + localizedText + " to " + section.name);
+        //Debug.Log("Saving " + localizedText + " to " + localizationFile.name);
 
-        if (!localizedTexts.ContainsKey(section))
-            localizedTexts.Add(section, new List<LocalizedText>());
+        if (!localizedTexts.ContainsKey(localizationFile))
+            localizedTexts.Add(localizationFile, new List<LocalizedText>());
 
-        localizedTexts[section].Add(localizedText);
+        localizedTexts[localizationFile].Add(localizedText);
     }
 
     public delegate void LocalizeAllAction();
@@ -144,34 +143,40 @@ public class LocalizationManager
     }
     
     
-    public LocalizedText GetLocalizedText(Section section, string id, bool register)
+    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, string id, bool register)
     {
-        foreach (LocalizedText localizedText in localizedTexts[section])
+        if (localizationFile == null)
+        {
+            Debug.LogError("Trying to get a localized text from a null localization file.");
+            return null;
+        }
+        
+        foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
             if (localizedText.id == id)
             {
                 if (register)
-                    GameManager.instance.dataManager.AddTextRegistered(section, id);
+                    GameManager.instance.dataManager.AddTextRegistered(localizationFile, id);
 
                 return localizedText;
             }
         }
 
-        return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the section '" + section + "'");
+        return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the localizationFile '" + localizationFile + "'");
     }
 
     
-    public LocalizedText GetLocalizedText(Section section, int naughtyLevel, bool register, bool checkNotRegistered)
+    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, int naughtyLevel, bool register, bool checkNotRegistered)
     {
         // Search for it
-        foreach (LocalizedText localizedText in localizedTexts[section])
+        foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
             if (localizedText.naughtiness == naughtyLevel )
             {
-                if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(section, localizedText.id) || !checkNotRegistered)
+                if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
                 {
                     if (register)
-                            GameManager.instance.dataManager.AddTextRegistered(section, localizedText.id);
+                            GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
 
                     return localizedText;
                 }
@@ -182,15 +187,15 @@ public class LocalizationManager
     }
     
     
-    public LocalizedText GetLocalizedText(Section section, bool register, bool checkNotRegistered)
+    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, bool register, bool checkNotRegistered)
     {
         // Search for it
-        foreach (LocalizedText localizedText in localizedTexts[section])
+        foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
-            if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(section, localizedText.id) || !checkNotRegistered)
+            if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
             {
                 if (register)
-                    GameManager.instance.dataManager.AddTextRegistered(section, localizedText.id);
+                    GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
 
                 return localizedText;
             }
@@ -199,9 +204,9 @@ public class LocalizationManager
         return null;
     }
 
-    public bool IsSectionLocalized(Section section)
+    public bool IsSectionLocalized(LocalizationFile localizationFile)
     {
-        return localizedTexts.ContainsKey(section);
+        return localizedTexts.ContainsKey(localizationFile);
     }
 
 

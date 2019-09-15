@@ -31,7 +31,7 @@ public class Localizer : MonoBehaviour
 {
 
     [SerializeField] public string id;
-    [SerializeField] public bool isUi;
+    [SerializeField] public LocalizationFile localizationFile;
     [SerializeField] public bool automaticallyLocalize = false;
     [SerializeField] public bool registerTimestampAtLocalize;
 
@@ -88,9 +88,21 @@ public class Localizer : MonoBehaviour
         this.id = id;
     }
     
+    public void SetLocalizationFile(LocalizationFile localizationFile)
+    {
+        this.localizationFile = localizationFile;
+    }
+    
     public void Localize(string id)
     {
         SetId(id);
+        Localize();
+    }
+
+    public void Localize(string id, LocalizationFile localizationFile)
+    {
+        SetId(id);
+        SetLocalizationFile(localizationFile);
         Localize();
     }
 
@@ -103,13 +115,20 @@ public class Localizer : MonoBehaviour
         if (string.IsNullOrEmpty(id))
         {
             GameObject go = gameObject;
-            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty", go);
+            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty.", go);
+            return;
+        }
+        
+        if (localizationFile == null)
+        {
+            GameObject go = gameObject;
+            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'localizationFile' in the 'Localizer' component is null.", go);
             return;
         }
 
-        Section section = isUi ? GameManager.instance.uiSection : SectionManager.instance.section;
+        // = isUi ? GameManager.instance.uiLocalizationFile : SectionManager.instance.section;
         currentLanguage = GameManager.instance.dataManager.language;
-        string localizedText = GameManager.instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
+        string localizedText = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize).text;
         
         foreach (TextsToLocalize txt in textsToLocalize)
         {
@@ -128,7 +147,7 @@ public class Localizer : MonoBehaviour
             if (pFrom >= pTo || pFrom < 0 || pTo < 0)
             {
                 GameObject o = gameObject;
-                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from section " + (isUi ? GameManager.instance.uiSection : SectionManager.instance.section) , o);
+                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from localization file '" + localizationFile + "'", o);
             }
             else
             {

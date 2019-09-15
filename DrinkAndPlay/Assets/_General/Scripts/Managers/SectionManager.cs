@@ -22,7 +22,8 @@ public abstract class SectionManager : MonoBehaviour
         if (section == null)
             Debug.LogError("The 'section' is null in the object' " + name, gameObject);
 
-        gm.localizationManager.LoadCurrentLanguageFor(section);
+        foreach (LocalizationFile localizationFile in section.localizationFiles)
+            gm.localizationManager.LoadCurrentLanguageFor(localizationFile);
 
         gm.generalUi.SetupFor(section);
 

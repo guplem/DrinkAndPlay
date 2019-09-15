@@ -53,12 +53,12 @@ class Downloader
         }
     }
 
-    private static void DownloadLocalizationFileAsCsv(Section section)
+    private static void DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
     {
 
-        if (section == null)
+        if (localizationFile == null)
         {
-            Debug.LogError("Trying to download the localization file of a 'null' section");
+            Debug.LogError("Trying to download the localization file of a 'null' localizationFile");
             return;
         }
 
@@ -79,33 +79,33 @@ class Downloader
         wc.Headers.Add("Cache-Control", "no-cache");
         wc.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
 
-        if(string.IsNullOrEmpty(section.localizationUrl))
-            Debug.LogError("The localization file for the section " + section  + " can not be downloaded because the 'LocalizationURL' is not valid.");
+        if(string.IsNullOrEmpty(localizationFile.localizationUrl))
+            Debug.LogError("The localization file for the localizationFile " + localizationFile  + " can not be downloaded because the 'LocalizationURL' is not valid.");
         
-        byte[] dt = wc.DownloadData(section.localizationUrl);
-        File.WriteAllBytes("Assets/_General/Resources/" + section + ".csv", dt);
+        byte[] dt = wc.DownloadData(localizationFile.localizationUrl);
+        File.WriteAllBytes("Assets/_General/Resources/" + localizationFile + ".csv", dt);
 
         //to convert it to string
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-        Debug.Log(section + " localization file has been downloaded.");
+        Debug.Log(localizationFile + " localization file has been downloaded.");
     }
 
     [MenuItem("Drink and Play/Localization files/Download all")]
     public static void DownloadAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
-        Section[] sections = new Section[guids.Length];
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
+        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
         for (int i = 0; i < guids.Length; i++)
         {
             string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            sections[i] = AssetDatabase.LoadAssetAtPath<Section>(path);
+            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
         }
 
-        //Download every section (including UI)
-        foreach (Section section in sections)
-            DownloadLocalizationFileAsCsv(section);
+        //Download every localizationFile (including UI)
+        foreach (LocalizationFile localizationFile in localizationFiles)
+            DownloadLocalizationFileAsCsv(localizationFile);
         
         AssetDatabase.Refresh();
 
@@ -116,17 +116,17 @@ class Downloader
     public static void DeleteAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Section).Name);
-        Section[] sections = new Section[guids.Length];
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
+        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
         for (int i = 0; i < guids.Length; i++)
         {
             string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            sections[i] = AssetDatabase.LoadAssetAtPath<Section>(path);
+            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
         }
 
-        //Download every section (including UI)
-        foreach (Section section in sections)
-            File.Delete("Assets/_General/Resources/" + section + ".csv");
+        //Download every localizationFile (including UI)
+        foreach (LocalizationFile localizationFile in localizationFiles)
+            File.Delete("Assets/_General/Resources/" + localizationFile + ".csv");
 
         AssetDatabase.Refresh();
 

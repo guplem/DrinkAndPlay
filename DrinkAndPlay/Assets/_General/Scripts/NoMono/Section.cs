@@ -14,8 +14,7 @@ public class Section : ScriptableObject
     public bool premium;
 
     [Header("Section configuration")]
-    [TextArea]
-    public string localizationUrl;
+    public LocalizationFile[] localizationFiles;
     public int minNumberOfPlayers;
     public string sceneName;
 

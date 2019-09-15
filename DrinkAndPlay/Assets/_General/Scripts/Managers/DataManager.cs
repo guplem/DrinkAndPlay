@@ -224,18 +224,18 @@ public class DataManager
     private Dictionary<string, List<string>> _textsRegistered;
     private const string textsRegisteredSavename = "textsRegistered";
 
-    public void AddTextRegistered(Section section, string textId)
+    public void AddTextRegistered(LocalizationFile localizationFile, string textId)
     {
-        try { if (textsRegistered[section.ToString()].Contains(textId)) return; } catch (KeyNotFoundException) { }
+        try { if (textsRegistered[localizationFile.ToString()].Contains(textId)) return; } catch (KeyNotFoundException) { }
         
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
         try
         {
-            clonedCs[section.ToString()].Add(textId);
+            clonedCs[localizationFile.ToString()].Add(textId);
         }
         catch (KeyNotFoundException)
         {
-            clonedCs.Add(section.ToString(), new List<string>());
+            clonedCs.Add(localizationFile.ToString(), new List<string>());
         }
 
         textsRegistered = clonedCs;
@@ -246,11 +246,11 @@ public class DataManager
         clonedCs[section.ToString()].Remove(textId);
         textsRegistered = clonedCs;
     }
-    public bool IsTextRegistered(Section section, string textId)
+    public bool IsTextRegistered(LocalizationFile localizationFile, string textId)
     {
         try
         {
-            return textsRegistered[section.ToString()].Contains(textId);
+            return textsRegistered[localizationFile.ToString()].Contains(textId);
         }
         catch (KeyNotFoundException)
         {
@@ -268,9 +268,9 @@ public class DataManager
             return 0;
         }
     }
-    public int GetTextRegisteredQuantity(Section section, int naughtyLevel)
+    public int GetTextRegisteredQuantity(LocalizationFile localizationFile, int naughtyLevel)
     {
-        return GetRegisteredTexts(section, naughtyLevel).Count;
+        return GetRegisteredTexts(localizationFile, naughtyLevel).Count;
     }
     
     
@@ -286,12 +286,12 @@ public class DataManager
         textsRegistered = clonedCs;
     }
 
-    public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage, int naughtyLevel)
+    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage, int naughtyLevel)
     {
         List<string> regTexts = new List<string>();
         
-        // List all the registered texts in the section with the selected Naughty Level
-        regTexts = naughtyLevel == -1 ? GetRegisteredTexts(section) : GetRegisteredTexts(section, naughtyLevel);
+        // List all the registered texts in the localizationFile with the selected Naughty Level
+        regTexts = naughtyLevel == -1 ? GetRegisteredTexts(localizationFile) : GetRegisteredTexts(localizationFile, naughtyLevel);
 
         // Remove the desired quantity of the registered texts
         int quantityToRemove = (int) (percentage * regTexts.Count / 100);
@@ -299,22 +299,22 @@ public class DataManager
 
         // Apply the changes to a clone
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        clonedCs[section.ToString()] = regTexts;
+        clonedCs[localizationFile.ToString()] = regTexts;
         
         textsRegistered = clonedCs;
     }
     
-    public void RemoveOldestPercentageOfTextsRegistered(Section section, float percentage)
+    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage)
     {
-        RemoveOldestPercentageOfTextsRegistered(section, percentage, -1);
+        RemoveOldestPercentageOfTextsRegistered(localizationFile, percentage, -1);
     }
 
-    private List<string> GetRegisteredTexts(Section section, int naughtyLevel)
+    private List<string> GetRegisteredTexts(LocalizationFile localizationFile, int naughtyLevel)
     {
         List<string> regTextsWithProperNl = new List<string>();
-        foreach (string textId in textsRegistered[section.ToString()])
+        foreach (string textId in textsRegistered[localizationFile.ToString()])
         {
-            LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(section, textId, false);
+            LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, textId, false);
             if (curr.naughtiness == naughtyLevel || naughtyLevel == -1)
                 regTextsWithProperNl.Add(textId);
         }
@@ -322,9 +322,9 @@ public class DataManager
         return regTextsWithProperNl;
     }
     
-    private List<string> GetRegisteredTexts(Section section)
+    private List<string> GetRegisteredTexts(LocalizationFile localizationFile)
     {
-        return textsRegistered[section.ToString()];
+        return textsRegistered[localizationFile.ToString()];
     }
         
     #endregion

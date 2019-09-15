@@ -9,6 +9,7 @@ public class ImageSwitcher : MonoBehaviour
 {
     private Image imageComponent;
     [SerializeField] private Sprite switchingSprite;
+    private bool initialState = true;
     
     private void Start()
     {
@@ -20,5 +21,12 @@ public class ImageSwitcher : MonoBehaviour
         Sprite oldSprite = imageComponent.sprite;
         imageComponent.sprite = switchingSprite;
         switchingSprite = oldSprite;
+        initialState = !initialState;
+    }
+
+    public void SetToInitialState()
+    {
+        if (!initialState)
+            Switch();
     }
 }

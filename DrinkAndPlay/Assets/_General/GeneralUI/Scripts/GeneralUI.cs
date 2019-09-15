@@ -25,6 +25,12 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
+    
+    [Header("Popups")]
+    [SerializeField] private AnimationUI ratePopup;
+    [SerializeField] private AnimationUI randomChallengePopup;
+    [SerializeField] private Section randomChallengesSection;
+    [SerializeField] private Localizer randomChallengesText;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -138,7 +144,31 @@ public class GeneralUI : MonoBehaviour
     public void ShowRandomChallenge()
     {
         Debug.Log("Displaying random challenge");
-        //TODO: Display a random challenge
+        randomChallengePopup.Show();
+
+        if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesSection))
+            GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesSection);
+
+        LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(randomChallengesSection, true, true);
+        randomChallengesText.Localize(lt.id);
     }
 
+    public void ShowRatePopup()
+    {
+        Debug.Log("Displaying rate popup");
+        ratePopup.Show();
+        GameManager.instance.dataManager.ratePopupShown = true;
+    }
+
+    public void RateApp()
+    {
+        //TODO: Open rate link
+        
+        GameManager.instance.dataManager.ratedApp = true;
+    }
+    
+    public void HideRatePopup()
+    {
+        ratePopup.Hide();
+    }
 }

@@ -199,5 +199,10 @@ public class LocalizationManager
         return null;
     }
 
+    public bool IsSectionLocalized(Section section)
+    {
+        return localizedTexts.ContainsKey(section);
+    }
+
 
 }

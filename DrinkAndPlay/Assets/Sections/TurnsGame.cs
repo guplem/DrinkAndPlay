@@ -2,16 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class TextInTurnsGame
+{
+    public LocalizedText localizedText;
+    public bool liked;
+
+    public TextInTurnsGame(LocalizedText localizedText)
+    {
+        this.localizedText = localizedText;
+        this.liked = false;
+    }
+
+    public TextInTurnsGame(LocalizedText localizedText, bool liked)
+    {
+        this.localizedText = localizedText;
+        this.liked = liked;
+    }
+}
+
 public abstract class TurnsGame : SectionManager
 {
+    
+    
+    [SerializeField] protected ImageSwitcher likeButton;
+    
     #region Texts
     
-    private List<LocalizedText> history = new List<LocalizedText>();
+    private List<TextInTurnsGame> history = new List<TextInTurnsGame>();
     private int historyIndex = -1;
 
     private int minDelayForRandomChallenge = 10;
     private int maxDelayForRandomChallenge = 25;
     private int currentDelayForRandomChallenge = 0;
+    
+    
+    private int minLikesToRatePopup = 5;
+    private float minPercentageToRatePopup = 30f;
 
     public abstract void NextButton();
     public abstract void PreviousButton();
@@ -66,7 +92,7 @@ public abstract class TurnsGame : SectionManager
 
     private void RegisterNewTextInHistory(LocalizedText lt)
     {
-        history.Add(lt);
+        history.Add(new TextInTurnsGame(lt));
         
         if (historyIndex == history.Count)
             historyIndex++;
@@ -78,7 +104,10 @@ public abstract class TurnsGame : SectionManager
         if (currentDelayForRandomChallenge < minDelayForRandomChallenge) return;
         float probability = (currentDelayForRandomChallenge - minDelayForRandomChallenge) / (maxDelayForRandomChallenge - minDelayForRandomChallenge) * 100;
         if (probability >= Random.Range(0.0f, 100.0f))
+        {
             GameManager.instance.generalUi.ShowRandomChallenge();
+            currentDelayForRandomChallenge = 0;
+        }
     }
 
     
@@ -100,7 +129,7 @@ public abstract class TurnsGame : SectionManager
         if (historyIndex < 0)
             return null;
         
-        return history[historyIndex];
+        return history[historyIndex].localizedText;
     }
     
     #endregion Texts
@@ -110,8 +139,35 @@ public abstract class TurnsGame : SectionManager
 
     public void Like()
     {
-        //TODO: like functions
-        Debug.Log("Liked text.");
+        history[historyIndex].liked = !history[historyIndex].liked;
+        likeButton.Switch();
+
+        // Check if the rate popup should be shown
+        
+        if (history.Count < minLikesToRatePopup)    
+            return;
+
+        int likeCount = 0;
+        foreach (TextInTurnsGame txt in history)
+            if (txt.liked)
+                likeCount++;
+        
+        if (likeCount < minLikesToRatePopup)
+            return;
+
+        float percentage = likeCount * 100f / history.Count;
+        if (percentage < minPercentageToRatePopup)
+            return;
+
+        if (gm.dataManager.ratePopupShown || gm.dataManager.ratedApp)
+            return;
+        
+        gm.generalUi.ShowRatePopup();
+    }
+
+    public bool IsCurrentTextLiked()
+    {
+        return history[historyIndex].liked;
     }
 
     public void AddSentence()
@@ -129,6 +185,6 @@ public abstract class TurnsGame : SectionManager
     /*public abstract void LikeButton();
     public abstract void AddSentenceButton();
     public abstract void ShareButton();*/
-
+    
     #endregion
 }

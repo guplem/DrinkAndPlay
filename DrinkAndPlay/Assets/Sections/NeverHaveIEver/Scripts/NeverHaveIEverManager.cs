@@ -10,16 +10,25 @@ public class NeverHaveIEverManager : TurnsGame
 
     public override void NextButton()
     {
-        LocalizedText lt = GetNextText();
-        if (lt != null)
-            sentenceText.text = lt.text;
+        SetupText(GetNextText());
     }
+
+
 
     public override void PreviousButton()
     {
-        LocalizedText lt = GetPreviousText();
-        if (lt != null)
-            sentenceText.text = lt.text;
+        SetupText(GetPreviousText());
     }
     
+    
+    private void SetupText(LocalizedText lt)
+    {
+        if (lt != null)
+            sentenceText.text = lt.text;
+
+        likeButton.SetToInitialState();
+        
+        if (IsCurrentTextLiked())
+            likeButton.Switch();
+    }
 }

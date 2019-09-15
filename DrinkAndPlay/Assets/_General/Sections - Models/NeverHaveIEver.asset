@@ -18,7 +18,8 @@ MonoBehaviour:
   newness: 0
   comingSoon: 0
   premium: 0
-  localizationUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=1014940719&single=true&output=csv
+  localizationFiles:
+  - {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca, type: 2}
   minNumberOfPlayers: -1
   sceneName: NeverHaveIEver
   topBar: 1
@@ -26,10 +27,6 @@ MonoBehaviour:
   sectionTitle: 1
   gameTitle: 0
   configButton: 1
-  bottomBar: 1
-  likeButton: 1
-  addButton: 1
-  shareButton: 1
   showNaughtyLevelConfigurator: 0
   showPlayersConfigurator: 0
   showLanguageConfigurator: 0

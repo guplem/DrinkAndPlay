@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class TextInTurnsGame
 {
-    public LocalizedText localizedText;
+    //public LocalizedText localizedText;
+    public string localizedTextId;
     public bool liked;
 
     public TextInTurnsGame(LocalizedText localizedText)
     {
-        this.localizedText = localizedText;
+        this.localizedTextId = localizedText.id;
         this.liked = false;
     }
 
     public TextInTurnsGame(LocalizedText localizedText, bool liked)
     {
-        this.localizedText = localizedText;
+        this.localizedTextId = localizedText.id;
         this.liked = liked;
     }
 }
 
 public abstract class TurnsGame : SectionManager
 {
-    
-    
     [SerializeField] protected ImageSwitcher likeButton;
     
     #region Texts
@@ -42,40 +41,46 @@ public abstract class TurnsGame : SectionManager
     public abstract void NextButton();
     public abstract void PreviousButton();
     
-    protected LocalizedText GetNextText()
+    protected string GetNextTextId()
     {
-        LocalizedText lt = null;
+        string ltId = "";
 
         historyIndex++;
         if (historyIndex == history.Count)
         {
-            lt = GetRandomText(true, true);
+            LocalizedText lt = GetRandomText(true, true);
+            ltId = lt.id;
             RegisterNewTextInHistory(lt);
             ProcessRandomChallenge();
         }
         else
         {
-            lt = GetCurrentText();
+            ltId = GetCurrentTextId();
         }
         
-        return lt;
+        return ltId;
     }
     
     
     private LocalizedText GetRandomText(bool register, bool checkNotRegistered)
     {
+        return GetRandomText(register, checkNotRegistered, section.localizationFiles[0]);
+    }
+
+    private LocalizedText GetRandomText(bool register, bool checkNotRegistered, LocalizationFile localizationFile)
+    {
         while (true)
         {
-            LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(section, register, checkNotRegistered);
+            LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, register, checkNotRegistered);
             if (lt == null)
             {
                 Debug.Log("Localized text not found");
 
                 if (GameManager.instance.dataManager.GetTextRegisteredQuantity(section) > 2) // To know if there are enough to remove the register of the 50%
                 {
-                    GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(section, 25f);
+                    GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
                     Debug.Log("REMOVED 25%");
-                    GameManager.instance.localizationManager.RandomizeLocalizedTexts(section); // To change the order of the new avaliable texts
+                    GameManager.instance.localizationManager.RandomizeLocalizedTexts(localizationFile); // To change the order of the new avaliable texts
                 }
                 else
                 {
@@ -111,7 +116,7 @@ public abstract class TurnsGame : SectionManager
     }
 
     
-    protected LocalizedText GetPreviousText()
+    protected string GetPreviousTextId()
     {
         if (history.Count <= 0)
             return null;
@@ -121,15 +126,15 @@ public abstract class TurnsGame : SectionManager
         if (historyIndex < 0)
             historyIndex = 0;
 
-        return GetCurrentText();
+        return GetCurrentTextId();
     }
 
-    protected LocalizedText GetCurrentText()
+    protected string GetCurrentTextId()
     {
         if (historyIndex < 0)
             return null;
         
-        return history[historyIndex].localizedText;
+        return history[historyIndex].localizedTextId;
     }
     
     #endregion Texts

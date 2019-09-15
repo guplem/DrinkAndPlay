@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class GameManager : MonoBehaviour
     public LocalizationManager localizationManager { get; private set; }
     public DataManager dataManager { get; private set; }
 
-    [SerializeField] public Section uiSection;
+    [FormerlySerializedAs("uiSection")] [SerializeField] public LocalizationFile uiLocalizationFile;
     [SerializeField] public GeneralUI generalUi;
     [SerializeField] public Section landingSection;
 
@@ -36,9 +38,9 @@ public class GameManager : MonoBehaviour
         dataManager = new DataManager(false);
         localizationManager = new LocalizationManager(dataManager);
 
-        if (uiSection == null)
+        if (uiLocalizationFile == null)
             Debug.LogError("UI Section not set up in the GameManager.");
-        localizationManager.LoadCurrentLanguageFor(uiSection);
+        localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
     }
     
 
@@ -48,4 +50,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            instance.generalUi.CloseLastOpenUiElement();
+        }
+    }
 }

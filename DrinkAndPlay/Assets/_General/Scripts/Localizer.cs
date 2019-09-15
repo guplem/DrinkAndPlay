@@ -31,7 +31,7 @@ public class Localizer : MonoBehaviour
 {
 
     [SerializeField] public string id;
-    [SerializeField] public bool isUi;
+    [SerializeField] public LocalizationFile localizationFile;
     [SerializeField] public bool automaticallyLocalize = false;
     [SerializeField] public bool registerTimestampAtLocalize;
 
@@ -88,9 +88,27 @@ public class Localizer : MonoBehaviour
         this.id = id;
     }
     
+    public void SetLocalizationFile(LocalizationFile localizationFile)
+    {
+        this.localizationFile = localizationFile;
+    }
+    
     public void Localize(string id)
     {
         SetId(id);
+        Localize();
+    }
+    
+    public void Localize(LocalizedText lt)
+    {
+        SetId(lt.id);
+        Localize();
+    }
+
+    public void Localize(string id, LocalizationFile localizationFile)
+    {
+        SetId(id);
+        SetLocalizationFile(localizationFile);
         Localize();
     }
 
@@ -103,43 +121,56 @@ public class Localizer : MonoBehaviour
         if (string.IsNullOrEmpty(id))
         {
             GameObject go = gameObject;
-            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty", go);
+            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty.", go);
             return;
         }
-
-        Section section = isUi ? GameManager.instance.uiSection : SectionManager.instance.section;
+        
+        if (localizationFile == null)
+        {
+            GameObject go = gameObject;
+            Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'localizationFile' in the 'Localizer' component is null.", go);
+            return;
+        }
+        
         currentLanguage = GameManager.instance.dataManager.language;
-        string localizedText = GameManager.instance.localizationManager.GetLocalizedText(section, id, registerTimestampAtLocalize).text;
+        LocalizedText localizedText = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize);
+        SetText(localizedText);
+    }
+
+    public void SetText(LocalizedText localizedText)
+    {
+        SetId(localizedText.id);
+        
+        string text = localizedText.text;
         
         foreach (TextsToLocalize txt in textsToLocalize)
         {
             if (txt.tmProGui == null)
-                Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
+                Debug.LogWarning("A TMProGUI is null in a text to localize " + name, gameObject);
             
             if (string.IsNullOrEmpty(txt.stringTag))
             {
-                ApplyText(txt.tmProGui, localizedText);
+                ApplyText(txt.tmProGui, text);
                 return;
             }
             
-            int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
-            int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
+            int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+            int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
             if (pFrom >= pTo || pFrom < 0 || pTo < 0)
             {
                 GameObject o = gameObject;
-                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from section " + (isUi ? GameManager.instance.uiSection : SectionManager.instance.section) , o);
+                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from localization file '" + localizationFile + "'", o);
             }
             else
             {
-                ApplyText(txt.tmProGui, localizedText.Substring(pFrom, pTo - pFrom));
+                ApplyText(txt.tmProGui, text.Substring(pFrom, pTo - pFrom));
             }
             
         }
-
     }
 
-    public void ApplyText(TextMeshProUGUI tmProGui, string text)
+    private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
         tmProGui.richText = true;
         tmProGui.text = text;

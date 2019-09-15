@@ -6,25 +6,30 @@ using UnityEngine;
 public class NeverHaveIEverManager : TurnsGame
 {
 
-    [SerializeField] private TextMeshProUGUI sentenceText;
+    [SerializeField] private Localizer sentenceText;
 
     public override void NextButton()
     {
-        SetupText(GetNextText());
+        SetupText(GetNextTextId());
     }
 
 
 
     public override void PreviousButton()
     {
-        SetupText(GetPreviousText());
+        SetupText(GetPreviousTextId());
     }
     
     
-    private void SetupText(LocalizedText lt)
+    private void SetupText(string id)
     {
-        if (lt != null)
-            sentenceText.text = lt.text;
+        if (string.IsNullOrEmpty(id))
+        {
+            Debug.LogWarning("The obtained ID for the card is null or empty.", gameObject);    
+            return;
+        }
+        
+        sentenceText.Localize(id);
 
         likeButton.SetToInitialState();
         

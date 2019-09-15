@@ -45,17 +45,17 @@ public class CSVReader
         return table;
     }
 
-    public static List<string[]> Read(Section section)
+    public static List<string[]> Read(LocalizationFile localizationFile)
     {
-        if (section == null)
+        if (localizationFile == null)
         {
-            Debug.LogError("Trying to read the localization file of a 'null' section");
+            Debug.LogError("Trying to read the localization file of a 'null' localizationFile");
             return null;
         }
 
         List<string[]> table = new List<string[]>();
 
-        TextAsset csvFile = Resources.Load(section.ToString()) as TextAsset;
+        TextAsset csvFile = Resources.Load(localizationFile.ToString()) as TextAsset;
 
         if (csvFile == null) return table;
         

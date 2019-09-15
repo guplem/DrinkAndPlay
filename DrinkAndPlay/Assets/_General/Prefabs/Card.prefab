@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 9009350255603807396}
   - component: {fileID: 9009350255603807398}
   - component: {fileID: 9009350255603807397}
+  - component: {fileID: 4967981588915645114}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -648,3 +649,20 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4967981588915645114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009350255603807403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  localizationFile: {fileID: 0}
+  automaticallyLocalize: 1
+  registerTimestampAtLocalize: 0
+  textsToLocalize: []

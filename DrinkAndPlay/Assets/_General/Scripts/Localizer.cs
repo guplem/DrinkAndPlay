@@ -142,7 +142,8 @@ public class Localizer : MonoBehaviour
         SetId(localizedText.id);
         
         string text = localizedText.text;
-        
+
+        List<TextsToLocalize> savedForLater = new List<TextsToLocalize>(); 
         foreach (TextsToLocalize txt in textsToLocalize)
         {
             if (txt.tmProGui == null)
@@ -150,23 +151,30 @@ public class Localizer : MonoBehaviour
             
             if (string.IsNullOrEmpty(txt.stringTag))
             {
-                ApplyText(txt.tmProGui, text);
-                return;
-            }
-            
-            int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
-            int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
-            
-            if (pFrom >= pTo || pFrom < 0 || pTo < 0)
-            {
-                GameObject o = gameObject;
-                Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from localization file '" + localizationFile + "'", o);
+                //ApplyText(txt.tmProGui, text);
+                savedForLater.Add(txt);
             }
             else
             {
-                ApplyText(txt.tmProGui, text.Substring(pFrom, pTo - pFrom));
-            }
+                int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+                int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
+                if (pFrom >= pTo || pFrom < 0 || pTo < 0)
+                {
+                    GameObject o = gameObject;
+                    //Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from localization file '" + localizationFile + "'", o);
+                    ApplyText(txt.tmProGui, "");
+                }
+                else
+                {
+                    ApplyText(txt.tmProGui, text.Substring(pFrom, pTo - pFrom));
+                }
+            }
+        }
+
+        foreach (TextsToLocalize txt in savedForLater)
+        {
+            ApplyText(txt.tmProGui, text);
         }
     }
 

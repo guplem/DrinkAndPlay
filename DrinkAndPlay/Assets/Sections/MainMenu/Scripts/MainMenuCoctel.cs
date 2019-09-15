@@ -22,7 +22,13 @@ public class MainMenuCoctel : MonoBehaviour
 
     public void OpenCocktail()
     {
+        GetComponent<ButtonAnimation>().MidAnimEvent += OpenCocktailAtEvent;
+    }
+
+    private void OpenCocktailAtEvent()
+    {
         ((MainMenuManager)SectionManager.instance).OpenCocktailDescription(cocktail.nameId, cocktail.descriptionId, image.gameObject);
+        GetComponent<ButtonAnimation>().MidAnimEvent -= OpenCocktailAtEvent;
     }
     
 }

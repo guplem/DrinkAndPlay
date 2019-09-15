@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class ButtonAnimation : AnimationUI
     [SerializeField] private float delayInOut = 0f;
     [SerializeField] private float movement = 0.1f;
     private IEnumerator startHideHolder;
+    
+    public Action MidAnimEvent;
     
     public override void Show()
     {
@@ -20,9 +23,13 @@ public class ButtonAnimation : AnimationUI
 
     public override void EndAnimShowing()
     {
+        //Spread the word
+        if (MidAnimEvent != null)
+            MidAnimEvent();
+    
+        //Wait until retracting
         if (startHideHolder != null)
             StopCoroutine(startHideHolder);
-
         startHideHolder = StartHide();
         StartCoroutine(startHideHolder);
     }

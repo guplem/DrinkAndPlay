@@ -577,7 +577,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2032926908444704289}
-        m_MethodName: Hide
+        m_MethodName: CloseLastOpenUiElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

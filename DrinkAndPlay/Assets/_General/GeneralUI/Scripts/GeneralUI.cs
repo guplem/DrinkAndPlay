@@ -29,6 +29,8 @@ public class GeneralUI : MonoBehaviour
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
     [SerializeField] private AnimationUI randomChallengePopup;
+    [SerializeField] private Section randomChallengesSection;
+    [SerializeField] private Localizer randomChallengesText;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -143,7 +145,12 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Displaying random challenge");
         randomChallengePopup.Show();
-        //TODO: Display the proper text
+
+        if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesSection))
+            GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesSection);
+
+        LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(randomChallengesSection, true, true);
+        randomChallengesText.Localize(lt.id);
     }
 
     public void ShowRatePopup()

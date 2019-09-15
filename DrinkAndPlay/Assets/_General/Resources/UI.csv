@@ -20,13 +20,14 @@ PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
 Max,Máximo,Maximum
 NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughty level you want the games to have.
-NaughtyLevelWarning,"<color=""red"">Atención:</color> Como menor sea el rango de picante de los juegos, más repetitivos serán estos.","<color=""red"">Attention: </color>The lower the spicy range of the games, the more repetitive they will be."
+NaughtyLevelWarning,"<color=""red"">Atención:</color> Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=""red"">Attention: </color>The smaller the range, the more repetitive the games will be."
 General,General,General
 Games,Juegos,Games
 Us,Nosotros,Us
 PlayerName,Nombre de jugador,Player name
 RandomChallenges,Retos aleatorios,Random challenges
 RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.
+RC,Prueba Aleatoria,Random Challenge
 Cancel,Cancelar,Cancel
 Accept,Aceptar,Accept
 Rate,Valorar,Rate
@@ -34,10 +35,9 @@ Done,Hecho,Done
 Next,Siguiente,Next
 Yes,Sí,Yes
 No,No,No
-NoCool,Nahhh,Nohhh
+NoCool,Nahhh...,Nohhh
 YesCool,¡Sí!,Yasss
 RateText,¿Nos valoras?,Would you rate us?
-,,
 MMN,Menu Principal,Main Menu
 MMD,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget magna fermentum iaculis eu. Molestie a iaculis at erat pellentesque adipiscing commodo. Aliquet nec ullamcorper sit amet risus. Enim tortor at auctor urna. Eu ultrices vitae auctor eu augue ut lectus arcu. Cras tincidunt lobortis feugiat vivamus at. Turpis nunc eget lorem dolor sed viverra. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Curabitur gravida arcu ac tortor dignissim convallis aenean. Duis convallis convallis tellus id interdum velit laoreet. Vivamus arcu felis bibendum ut. Turpis massa sed elementum tempus egestas sed sed. Semper auctor neque vitae tempus quam pellentesque nec.",Main menu description
 UIN,UIN-ES,UIN-EN

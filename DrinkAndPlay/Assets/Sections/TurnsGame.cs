@@ -2,11 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class TextInTurnsGame
+{
+    public LocalizedText localizedText;
+    public bool liked;
+
+    public TextInTurnsGame(LocalizedText localizedText)
+    {
+        this.localizedText = localizedText;
+        this.liked = false;
+    }
+
+    public TextInTurnsGame(LocalizedText localizedText, bool liked)
+    {
+        this.localizedText = localizedText;
+        this.liked = liked;
+    }
+}
+
 public abstract class TurnsGame : SectionManager
 {
     #region Texts
     
-    private List<LocalizedText> history = new List<LocalizedText>();
+    private List<TextInTurnsGame> history = new List<TextInTurnsGame>();
     private int historyIndex = -1;
 
     private int minDelayForRandomChallenge = 10;
@@ -66,7 +84,7 @@ public abstract class TurnsGame : SectionManager
 
     private void RegisterNewTextInHistory(LocalizedText lt)
     {
-        history.Add(lt);
+        history.Add(new TextInTurnsGame(lt));
         
         if (historyIndex == history.Count)
             historyIndex++;
@@ -100,7 +118,7 @@ public abstract class TurnsGame : SectionManager
         if (historyIndex < 0)
             return null;
         
-        return history[historyIndex];
+        return history[historyIndex].localizedText;
     }
     
     #endregion Texts
@@ -129,6 +147,6 @@ public abstract class TurnsGame : SectionManager
     /*public abstract void LikeButton();
     public abstract void AddSentenceButton();
     public abstract void ShareButton();*/
-
+    
     #endregion
 }

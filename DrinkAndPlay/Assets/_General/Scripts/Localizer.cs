@@ -98,6 +98,12 @@ public class Localizer : MonoBehaviour
         SetId(id);
         Localize();
     }
+    
+    public void Localize(LocalizedText lt)
+    {
+        SetId(lt.id);
+        Localize();
+    }
 
     public void Localize(string id, LocalizationFile localizationFile)
     {
@@ -125,24 +131,31 @@ public class Localizer : MonoBehaviour
             Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'localizationFile' in the 'Localizer' component is null.", go);
             return;
         }
-
-        // = isUi ? GameManager.instance.uiLocalizationFile : SectionManager.instance.section;
+        
         currentLanguage = GameManager.instance.dataManager.language;
-        string localizedText = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize).text;
+        LocalizedText localizedText = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize);
+        SetText(localizedText);
+    }
+
+    public void SetText(LocalizedText localizedText)
+    {
+        SetId(localizedText.id);
+        
+        string text = localizedText.text;
         
         foreach (TextsToLocalize txt in textsToLocalize)
         {
             if (txt.tmProGui == null)
-                Debug.LogWarning("A TMProGUI is null in " + name, gameObject);
+                Debug.LogWarning("A TMProGUI is null in a text to localize " + name, gameObject);
             
             if (string.IsNullOrEmpty(txt.stringTag))
             {
-                ApplyText(txt.tmProGui, localizedText);
+                ApplyText(txt.tmProGui, text);
                 return;
             }
             
-            int pFrom = localizedText.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
-            int pTo = localizedText.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
+            int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+            int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
             if (pFrom >= pTo || pFrom < 0 || pTo < 0)
             {
@@ -151,14 +164,13 @@ public class Localizer : MonoBehaviour
             }
             else
             {
-                ApplyText(txt.tmProGui, localizedText.Substring(pFrom, pTo - pFrom));
+                ApplyText(txt.tmProGui, text.Substring(pFrom, pTo - pFrom));
             }
             
         }
-
     }
 
-    public void ApplyText(TextMeshProUGUI tmProGui, string text)
+    private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
         tmProGui.richText = true;
         tmProGui.text = text;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class NeverHaveIEverManager : TurnsGame
 {
 
-    [SerializeField] private TextMeshProUGUI sentenceText;
+    [SerializeField] private Localizer sentenceText;
 
     public override void NextButton()
     {
@@ -24,7 +24,7 @@ public class NeverHaveIEverManager : TurnsGame
     private void SetupText(LocalizedText lt)
     {
         if (lt != null)
-            sentenceText.text = lt.text;
+            sentenceText.SetText(lt);
 
         likeButton.SetToInitialState();
         

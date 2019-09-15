@@ -3453,7 +3453,7 @@ PrefabInstance:
         type: 3}
       propertyPath: localizationFile
       value: 
-      objectReference: {fileID: 11400000, guid: 69ac660e3f4d4e246a4a431422094ec5,
+      objectReference: {fileID: 11400000, guid: 6aa1185f0f767b64e99787265f70f835,
         type: 2}
     - target: {fileID: 7455247267632815948, guid: fc478f510856cf845b3a82b906d7b2b0,
         type: 3}

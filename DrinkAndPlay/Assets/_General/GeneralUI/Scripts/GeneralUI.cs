@@ -61,7 +61,19 @@ public class GeneralUI : MonoBehaviour
     public void CloseLastOpenUiElement()
     {
         if (openUI.Count > 0)
-            Hide(openUI.Pop());
+        {
+            AnimationUI lastElement = openUI.Pop();
+            if (lastElement == null)
+            {
+                CloseLastOpenUiElement();
+                return;
+            }
+            else
+            {
+                Hide(lastElement);
+            }
+        }
+            
         else
             GameManager.LoadSection(GameManager.instance.landingSection);
     }

@@ -22,6 +22,10 @@ public class TextInTurnsGame
 
 public abstract class TurnsGame : SectionManager
 {
+    
+    
+    [SerializeField] protected ImageSwitcher likeButton;
+    
     #region Texts
     
     private List<TextInTurnsGame> history = new List<TextInTurnsGame>();
@@ -128,8 +132,13 @@ public abstract class TurnsGame : SectionManager
 
     public void Like()
     {
-        //TODO: like functions
-        Debug.Log("Liked text.");
+        history[historyIndex].liked = !history[historyIndex].liked;
+        likeButton.Switch();
+    }
+
+    public bool IsCurrentTextLiked()
+    {
+        return history[historyIndex].liked;
     }
 
     public void AddSentence()

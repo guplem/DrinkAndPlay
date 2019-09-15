@@ -32,6 +32,12 @@ public class MainMenuSection : MonoBehaviour
 
     public void OpenSectionDescription()
     {
+        GetComponent<ButtonAnimation>().MidAnimEvent += OpenSectionDescriptionAtEvent;
+    }
+
+    private void OpenSectionDescriptionAtEvent()
+    {
         ((MainMenuManager)SectionManager.instance).OpenSectionDescription(section, image.gameObject);
+        GetComponent<ButtonAnimation>().MidAnimEvent -= OpenSectionDescriptionAtEvent;
     }
 }

@@ -72,12 +72,12 @@ public class Description : AnimationUI
     }
 
     //Show animation control
-    public void PlayOpenAnimationOf(string titleId, string descriptionId, GameObject originalImage)
+    public void SetupAnimationOf(string titleId, string descriptionId, GameObject originalImage)
     {
         SetOpenAnimStart(originalImage);
         SetDescriptionContents(titleId, descriptionId);
         SaveActualPositionsAsCloseState();
-        Show();
+        
     }
 
     private void SaveActualPositionsAsCloseState()
@@ -138,6 +138,11 @@ public class Description : AnimationUI
         StartAnim(false);
     }
 
+    public void CloseLastOpenUiElement()
+    {
+        GameManager.instance.generalUi.CloseLastOpenUiElement();
+    }
+
     public void CheckIfShouldHide(Vector2 position)
     {
         if (!isShowing)
@@ -161,7 +166,7 @@ public class Description : AnimationUI
     private void CheckScrollPosToHide()
     {
         if (scrollContentsContainer.rect.height/4 < -1*scrollContentsContainer.offsetMin.y)
-            Hide();
+            CloseLastOpenUiElement();
     }
     
     public override void EndAnimHiding()

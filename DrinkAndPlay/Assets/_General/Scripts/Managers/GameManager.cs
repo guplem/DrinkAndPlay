@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
     public static void LoadSection(Section section)
     {
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
-        SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
+        //SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
     }
 
     private void Update()

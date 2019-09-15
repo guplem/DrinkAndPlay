@@ -10,6 +10,7 @@ public class ButtonAnimation : AnimationUI
     private IEnumerator startHideHolder;
     
     public Action MidAnimEvent;
+    public Action EndAnimEvent;
     
     public override void Show()
     {
@@ -42,7 +43,9 @@ public class ButtonAnimation : AnimationUI
 
     public override void EndAnimHiding()
     {
-        
+        //Spread the word
+        if (EndAnimEvent != null)
+            EndAnimEvent();
     }
 
     protected override void Transition()

@@ -85,7 +85,7 @@ public class MainMenuManager : SectionManager
     }
 
     public void LoadSelectedSection()
-    {
+    {   
         GameManager.LoadSection(currentSelectedSection);
     }
 

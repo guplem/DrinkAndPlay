@@ -638,7 +638,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 329231a3d38736c46861941f265a645b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65874f1d1e82a6b41b92c259c9bf5406, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -745,7 +745,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190080
   m_fontSize: 55
-  m_fontSizeBase: 63
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
@@ -790,7 +790,7 @@ MonoBehaviour:
     spaceCount: 23
     wordCount: 24
     linkCount: 0
-    lineCount: 5
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  localizationFile: {fileID: 0}
+  localizationFile: {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca, type: 2}
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
   textsToLocalize:

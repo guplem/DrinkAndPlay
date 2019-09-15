@@ -840,31 +840,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 148
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009350255603807397, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 9009350255499999866, guid: fd97e7df3df4de542a3933b9457abeb4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -970,37 +945,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 9009350255499999867, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 65874f1d1e82a6b41b92c259c9bf5406,
-        type: 3}
     - target: {fileID: 7095612215098976249, guid: fd97e7df3df4de542a3933b9457abeb4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 276943058}
-    - target: {fileID: 5592181796739888240, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5592181796739888240, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5592181796739888240, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5592181796739888240, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2363774505073270092, guid: fd97e7df3df4de542a3933b9457abeb4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1011,11 +960,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 276943058}
-    - target: {fileID: 4967981588915645114, guid: fd97e7df3df4de542a3933b9457abeb4,
-        type: 3}
-      propertyPath: localizationFile
-      value: 
-      objectReference: {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd97e7df3df4de542a3933b9457abeb4, type: 3}

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 42
   m_fontStyle: 0
-  m_textAlignment: 1028
+  m_textAlignment: 516
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -681,10 +681,10 @@ RectTransform:
   m_Father: {fileID: 9009350255499999866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.15}
+  m_AnchorMin: {x: 0, y: 0.35}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -170, y: -170}
+  m_AnchoredPosition: {x: 0, y: -42.5}
+  m_SizeDelta: {x: -170, y: -85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9009350255603807398
 CanvasRenderer:
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   localizationFile: {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca, type: 2}
-  automaticallyLocalize: 1
+  automaticallyLocalize: 0
   registerTimestampAtLocalize: 0
   textsToLocalize:
   - stringTag: 

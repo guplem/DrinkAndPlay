@@ -30,8 +30,8 @@ public abstract class SectionManager : MonoBehaviour
         SetupSectionUi();
         
         Debug.Log(" ========= Finished section setup - SectionManager (Awake) ========= ");
+        
     }
-
 
     private void SetupGameManager()
     {

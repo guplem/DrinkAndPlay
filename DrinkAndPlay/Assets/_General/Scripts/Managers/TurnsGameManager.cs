@@ -183,7 +183,7 @@ public abstract class TurnsGameManager : SectionManager
     public void Share()
     {
         gm.generalUi.Share();
-        Debug.Log("Sharing text.");
+        Debug.Log("Sharing.");
         
     }
 

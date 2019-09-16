@@ -187,4 +187,13 @@ public class GeneralUI : MonoBehaviour
     {
         ratePopup.Hide();
     }
+
+    public void Share()
+    {
+        //TODO: share functions
+        string filePath = "Screenshot";
+        ScreenCapture.CaptureScreenshot(filePath);
+        string text = GameManager.instance.localizationManager.GetLocalizedText(GameManager.instance.uiLocalizationFile, "ShareText", false).text;
+        new NativeShare().AddFile(filePath).SetSubject("SUBJECT").SetText(text).Share();
+    }
 }

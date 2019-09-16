@@ -25,7 +25,7 @@ MonoBehaviour:
   topBar: 1
   backButton: 0
   sectionTitle: 0
-  gameTitle: 1
+  appTitle: 1
   configButton: 0
   showNaughtyLevelConfigurator: 0
   showPlayersConfigurator: 0

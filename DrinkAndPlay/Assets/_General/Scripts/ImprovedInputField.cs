@@ -8,38 +8,40 @@ using UnityEngine.UI;
 [RequireComponent(typeof(TMP_InputField))]
 public class ImprovedInputField : MonoBehaviour
 {
+    private TMP_InputField inputField;
+    
+    //PlaceHolder
+    private TextMeshProUGUI placeHolder;
     private string defaultPlaceHolderText = "";
+    
+    //CloseKeyboardHandeling
+    private bool keepOldTextInField = false;
     private string editText = "";
     private string oldEditText = "";
-    private TMP_InputField inputField;
-    private TextMeshProUGUI placeHolder;
-    private bool keepOldTextInField = false;
 
     private void Start()
     {
         inputField = gameObject.GetComponent<TMP_InputField>();
+        
+        //PlaceHolder
         placeHolder = (TextMeshProUGUI) inputField.placeholder;
         defaultPlaceHolderText = placeHolder.text;
-        
         inputField.onSelect.AddListener(RemovePlaceHolder);
-        inputField.onDeselect.AddListener(SetPlaceHolder);
-        inputField.onEndEdit.AddListener(OnEndEdit);
-        inputField.onValueChanged.AddListener(OnEditting);
+        inputField.onDeselect.AddListener(CheckAndSetPlaceHolder);
         
+        //CloseKeyboardHandeling
+        inputField.onEndEdit.AddListener(EndEdit);
+        inputField.onValueChanged.AddListener(Editting);
         inputField.onTouchScreenKeyboardStatusChanged.AddListener(ReportChangeStatus);
         
     }
 
-    private void ReportChangeStatus(TouchScreenKeyboard.Status newStatus)
-    {
-        Debug.Log("/////////////////////////////////////////////// New keyboard status: " + newStatus);
-        if (newStatus == TouchScreenKeyboard.Status.Canceled)
-            keepOldTextInField = true;
-    }
-    
+
+    #region PlaceHolder
+
     private void RemovePlaceHolder(string currentText)
     {
-        Debug.Log("******************* RemovePlaceHolder called with '" + currentText + "'");
+        Debug.Log("**** @@@ RemovePlaceHolder called with '" + currentText + "'");
         
         /*if (string.IsNullOrEmpty(currentText))
         {
@@ -52,35 +54,55 @@ public class ImprovedInputField : MonoBehaviour
         placeHolder.text = "";
     }
 
-    private void SetPlaceHolder(string currentText)
+    private void CheckAndSetPlaceHolder(string currentText)
     {
-        Debug.Log("******************* SetPlaceHolder called with '" + currentText + "'");
+        Debug.Log("**** @@@ CheckAndSetPlaceHolder called with '" + currentText + "'");
         
         if (!string.IsNullOrEmpty(defaultPlaceHolderText))
             if (string.IsNullOrEmpty(currentText))
                 placeHolder.text = defaultPlaceHolderText;
     }
-    
-    
-  
-    public void OnEditting(string currentText)
+
+    #endregion
+
+
+    #region CloseKeyboardHandeling
+
+    private void ReportChangeStatus(TouchScreenKeyboard.Status newStatus)
     {
-        Debug.Log("******************* OnEditting called with '" + currentText + "'");
-        
-        oldEditText = editText;
-        editText = currentText;
+        Debug.Log("cdbf /// New keyboard status: " + newStatus);
+        if (newStatus == TouchScreenKeyboard.Status.Canceled)
+            keepOldTextInField = true;
     }
   
-    private void OnEndEdit(string currentText)
+    public void Editting(string currentText)
     {
-        Debug.Log("******************* OnEndEdit called with '" + currentText + "'. Keep text = " + keepOldTextInField);
+        Debug.Log("cdbf @@@ Editting called with '" + currentText + "'");
+        
+        oldEditText = editText;
+        Debug.Log("cdbf ### EDIT1 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
+        editText = currentText;
+        
+        Debug.Log("cdbf ### EDIT2f OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
+    }
+  
+    private void EndEdit(string currentText)
+    {
+        Debug.Log("cdbf @@@ EndEdit called with '" + currentText + "'. Keep text = " + keepOldTextInField);
         
         if (keepOldTextInField && !string.IsNullOrEmpty(oldEditText))
         {
+            //IMPORTANT ORDER
+            editText = oldEditText;
+            Debug.Log("cdbf ### END1 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
             inputField.text = oldEditText;
+            Debug.Log("cdbf ### END2 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
+            
             keepOldTextInField = false;
+            Debug.Log("cdbf ### END3f OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
         }
     }
-    
+
+    #endregion
     
 }

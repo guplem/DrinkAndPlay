@@ -46,9 +46,16 @@ public class GameManager : MonoBehaviour
 
     public static void LoadSection(Section section)
     {
-        Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
-        //SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
-        SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
+        {
+            Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
+            return;
+        }
+        else
+        {
+            Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
+            SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        }
     }
 
     private void Update()

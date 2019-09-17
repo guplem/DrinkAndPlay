@@ -10,9 +10,10 @@ public class ImprovedInputField : MonoBehaviour
 {
     private string defaultPlaceHolderText = "";
     private string editText = "";
+    private string oldEditText = "";
     private TMP_InputField inputField;
     private TextMeshProUGUI placeHolder;
-    private TouchScreenKeyboard kb;
+    private bool keepOldTextInField = false;
 
     private void Start()
     {
@@ -24,8 +25,18 @@ public class ImprovedInputField : MonoBehaviour
         inputField.onDeselect.AddListener(SetPlaceHolder);
         inputField.onEndEdit.AddListener(OnEndEdit);
         inputField.onValueChanged.AddListener(OnEditting);
+        
+        inputField.onTouchScreenKeyboardStatusChanged.AddListener(ReportChangeStatus);
+        
     }
 
+    private void ReportChangeStatus(TouchScreenKeyboard.Status newStatus)
+    {
+        Debug.Log("/////////////////////////////////////////////// New keyboard status: " + newStatus);
+        if (newStatus == TouchScreenKeyboard.Status.Canceled)
+            keepOldTextInField = true;
+    }
+    
     private void RemovePlaceHolder(string currentText)
     {
         Debug.Log("******************* RemovePlaceHolder called with '" + currentText + "'");
@@ -56,30 +67,19 @@ public class ImprovedInputField : MonoBehaviour
     {
         Debug.Log("******************* OnEditting called with '" + currentText + "'");
         
-        /*Debug.Log("******************* OnEditting with '" + currentText + "'");
-        
-        if (!Input.GetKey(KeyCode.Escape))
-        {
-            if (!string.IsNullOrEmpty(currentText))
-            {
-                editText = currentText;
-                Debug.Log("###################### Updated text to: " + editText);
-            }
-        }*/
+        oldEditText = editText;
+        editText = currentText;
     }
   
     private void OnEndEdit(string currentText)
     {
-        Debug.Log("******************* OnEndEdit called with '" + currentText + "'");
+        Debug.Log("******************* OnEndEdit called with '" + currentText + "'. Keep text = " + keepOldTextInField);
         
-        /*if (Input.GetKey(KeyCode.Escape))
+        if (keepOldTextInField && !string.IsNullOrEmpty(oldEditText))
         {
-            inputField.text = editText;
-            Debug.Log("$$$$$$$$$$$$$$$$$$$$$$$$$ Setted input field text to: " + editText);
-            
-            if (string.IsNullOrEmpty(editText))
-                SetPlaceHolder(editText);
-        }*/
+            inputField.text = oldEditText;
+            keepOldTextInField = false;
+        }
     }
     
     

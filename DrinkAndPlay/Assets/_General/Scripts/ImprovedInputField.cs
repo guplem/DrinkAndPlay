@@ -30,10 +30,10 @@ public class ImprovedInputField : MonoBehaviour
         inputField.onDeselect.AddListener(CheckAndSetPlaceHolder);
         
         //CloseKeyboardHandeling
+        placeHolder = (TextMeshProUGUI) inputField.placeholder;
+        inputField.onTouchScreenKeyboardStatusChanged.AddListener(ReportHidedKeyboard);
+        inputField.onValueChanged.AddListener(Editing);
         inputField.onEndEdit.AddListener(EndEdit);
-        inputField.onValueChanged.AddListener(Editting);
-        inputField.onTouchScreenKeyboardStatusChanged.AddListener(ReportChangeStatus);
-        
     }
 
 
@@ -41,23 +41,11 @@ public class ImprovedInputField : MonoBehaviour
 
     private void RemovePlaceHolder(string currentText)
     {
-        Debug.Log("**** @@@ RemovePlaceHolder called with '" + currentText + "'");
-        
-        /*if (string.IsNullOrEmpty(currentText))
-        {
-            if (string.IsNullOrEmpty(defaultPlaceHolderText))
-                defaultPlaceHolderText = placeHolder.text;
-
-            placeHolder.text = "";
-        }*/
-        
         placeHolder.text = "";
     }
 
     private void CheckAndSetPlaceHolder(string currentText)
     {
-        Debug.Log("**** @@@ CheckAndSetPlaceHolder called with '" + currentText + "'");
-        
         if (!string.IsNullOrEmpty(defaultPlaceHolderText))
             if (string.IsNullOrEmpty(currentText))
                 placeHolder.text = defaultPlaceHolderText;
@@ -68,38 +56,27 @@ public class ImprovedInputField : MonoBehaviour
 
     #region CloseKeyboardHandeling
 
-    private void ReportChangeStatus(TouchScreenKeyboard.Status newStatus)
+    private void ReportHidedKeyboard(TouchScreenKeyboard.Status newStatus)
     {
-        Debug.Log("cdbf /// New keyboard status: " + newStatus);
         if (newStatus == TouchScreenKeyboard.Status.Canceled)
             keepOldTextInField = true;
     }
-  
-    public void Editting(string currentText)
+
+    private void Editing(string currentText)
     {
-        Debug.Log("cdbf @@@ Editting called with '" + currentText + "'");
-        
         oldEditText = editText;
-        Debug.Log("cdbf ### EDIT1 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
         editText = currentText;
-        
-        Debug.Log("cdbf ### EDIT2f OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
     }
   
     private void EndEdit(string currentText)
     {
-        Debug.Log("cdbf @@@ EndEdit called with '" + currentText + "'. Keep text = " + keepOldTextInField);
-        
         if (keepOldTextInField && !string.IsNullOrEmpty(oldEditText))
         {
             //IMPORTANT ORDER
             editText = oldEditText;
-            Debug.Log("cdbf ### END1 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
             inputField.text = oldEditText;
-            Debug.Log("cdbf ### END2 OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
             
             keepOldTextInField = false;
-            Debug.Log("cdbf ### END3f OLDtxt: " + oldEditText + ", NEWtxt: " + editText);
         }
     }
 

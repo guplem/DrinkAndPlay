@@ -150,7 +150,7 @@ public class LocalizationManager
             Debug.LogError("Trying to get a localized text from a null localization file.");
             return null;
         }
-        
+
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
             if (localizedText.id == id)

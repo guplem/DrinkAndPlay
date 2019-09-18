@@ -76,6 +76,9 @@ public class Localizer : MonoBehaviour
 
     private void Start()
     {
+        if (localizationFile == null)
+            Debug.LogWarning("Null localization file in " + gameObject.name, gameObject);
+        
         previouslyStarted = true;
 
         if (automaticallyLocalize)

@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  localizationFile: {fileID: 11400000, guid: e44acca8f26df7647be2de357733c1ca, type: 2}
+  localizationFile: {fileID: 0}
   automaticallyLocalize: 0
   registerTimestampAtLocalize: 0
   textsToLocalize:

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_General/Scenes/NeverHaveIEver.unity
     guid: 2fcef199e43099b40bcd3ea568047839
+  - enabled: 1
+    path: Assets/_General/Scenes/GuessWho.unity
+    guid: a9b6d72c03a3d07458fe458f4dccce06
+  - enabled: 1
+    path: Assets/_General/Scenes/WeKnowEachOther.unity
+    guid: 4822be11abf8f8b45ad55a7a28779d92
   m_configObjects: {}

@@ -118,6 +118,31 @@ public class DataManager
         clonePlayers.Remove(player);
         players = clonePlayers;
     }
+
+    private int playerTurn = 0;
+
+    public void NextPlayerTurn()
+    {
+        playerTurn ++;
+        if (playerTurn > GetPlayersQuantity() - 1)
+            playerTurn = 0;
+    }
+    public void PreviousPlayerTurn()
+    {
+        playerTurn --;
+        if (playerTurn < 0)
+            playerTurn = GetPlayersQuantity() - 1;
+    }
+    
+    public string GetCurrentPlayer()
+    {
+        return GetPlayer(playerTurn);
+    }
+
+    public string GetRandomPlayer()
+    {
+        return GetPlayer(Random.Range(0, GetPlayersQuantity()));
+    }
     #endregion
 
 

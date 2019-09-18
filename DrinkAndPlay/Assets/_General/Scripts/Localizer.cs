@@ -185,6 +185,9 @@ public class Localizer : MonoBehaviour
     private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
         //TODO: Check for player names if necessary
+
+        text = text.Replace("<p>", GameManager.instance.dataManager.GetCurrentPlayer());
+        text = text.Replace("<pr>", GameManager.instance.dataManager.GetRandomPlayer());
         
         tmProGui.richText = true;
         tmProGui.text = text;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonAnimation : AnimationUI
 {
@@ -11,7 +12,14 @@ public class ButtonAnimation : AnimationUI
     
     public Action MidAnimEvent;
     public Action EndAnimEvent;
-    
+
+    private void Start()
+    {
+        Button bt = GetComponent<Button>();
+        if (bt != null)
+            bt.onClick.AddListener(Show);
+    }
+
     public override void Show()
     {
         StartAnim(true);

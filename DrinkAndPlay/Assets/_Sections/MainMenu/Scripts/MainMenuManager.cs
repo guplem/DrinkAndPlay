@@ -86,9 +86,16 @@ public class MainMenuManager : SectionManager
         gm.generalUi.Show(cocktailDescription);
     }
 
-    public void LoadSelectedSection()
-    {   
-        GameManager.LoadSection(currentSelectedSection);
+    public void PlaySelectedSection()
+    {
+        if (currentSelectedSection.minNumberOfPlayers > 0 && currentSelectedSection.minNumberOfPlayers > gm.dataManager.GetPlayersQuantity())
+        {
+            gm.generalUi.OpenPlayersMenu(currentSelectedSection.minNumberOfPlayers);
+        }
+        else
+        {
+            GameManager.LoadSection(currentSelectedSection);
+        }
     }
 
     public void OpenConfigMenu()

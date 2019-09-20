@@ -20,13 +20,13 @@ MonoBehaviour:
   premium: 0
   localizationFiles:
   - {fileID: 11400000, guid: 52788a94836cf4649a14e86957e0a439, type: 2}
-  minNumberOfPlayers: -1
+  minNumberOfPlayers: 2
   sceneName: GuessWho
   topBar: 1
   backButton: 1
   sectionTitle: 1
   appTitle: 0
   configButton: 1
-  showNaughtyLevelConfigurator: 0
-  showPlayersConfigurator: 0
-  showLanguageConfigurator: 0
+  forceShowNaughtyLevelConfigurator: 0
+  forceShowPlayersConfigurator: 0
+  forceShowLanguageConfigurator: 0

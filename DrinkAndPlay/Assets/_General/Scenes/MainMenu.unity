@@ -3350,7 +3350,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &1480206466
 RectTransform:
@@ -4706,7 +4706,7 @@ PrefabInstance:
     - target: {fileID: 2032926909796019034, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadSelectedSection
+      value: PlaySelectedSection
       objectReference: {fileID: 0}
     - target: {fileID: 2032926910134185147, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}

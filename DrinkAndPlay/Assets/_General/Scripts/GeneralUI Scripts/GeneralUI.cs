@@ -23,6 +23,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI configMenu;
     [SerializeField] private AnimationUI languageMenu;
     [SerializeField] private AnimationUI playersMenu;
+    private PlayersMenu playersMenuController;
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
@@ -57,6 +58,9 @@ public class GeneralUI : MonoBehaviour
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
+
+        if (playersMenuController == null)
+            playersMenuController = playersMenu.GetComponent<PlayersMenu>();
     }
 
     public void CloseLastOpenUiElement()
@@ -115,6 +119,17 @@ public class GeneralUI : MonoBehaviour
         Show(languageMenu);
     }
     public void OpenPlayersMenu()
+    {
+        ShowPlayersMenu();
+        playersMenuController.HidePLayersDescription();
+    }
+    public void OpenPlayersMenu(int minPlayerNumber)
+    {
+        ShowPlayersMenu();
+        playersMenuController.ShowPlayersDescription(minPlayerNumber);
+    }
+
+    private void ShowPlayersMenu()
     {
         Debug.Log("Opening PlayersMenu");
         Show(playersMenu);
@@ -192,11 +207,6 @@ public class GeneralUI : MonoBehaviour
     public void Share()
     {
         //TODO: share functions
-        /*string filePath = "Screenshot";
-        ScreenCapture.CaptureScreenshot(filePath);
-        string text = GameManager.instance.localizationManager.GetLocalizedText(GameManager.instance.uiLocalizationFile, "ShareText", false).text;
-        new NativeShare().AddFile(filePath).SetSubject("SUBJECT").SetText(text).Share();
-        */
         StartCoroutine( TakeSSAndShare() );
     }
     
@@ -220,5 +230,11 @@ public class GeneralUI : MonoBehaviour
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )
         //	new NativeShare().AddFile( filePath ).SetText( "Hello world!" ).SetTarget( "com.whatsapp" ).Share();
+    }
+
+    public void ShowInformationPopup(LocalizationFile messageLocalizationFile, string messageId, LocalizationFile buttonLocalizationFile, string buttonId)
+    {
+        Debug.Log("Displaying information popup with text with id = ''" + messageId + "'");
+        //TODO
     }
 }

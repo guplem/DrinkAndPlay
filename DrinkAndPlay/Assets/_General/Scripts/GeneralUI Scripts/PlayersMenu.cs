@@ -15,6 +15,7 @@ public class PlayersMenu : MonoBehaviour
     [Tooltip("Elements that are child of the 'Contents' GameObject that are not part of the player's list (input field, white spaces, ...)")]
     [SerializeField] private Transform[] elementsNotInPlayerList;
     [SerializeField] private TMP_InputField addPlayerInputField;
+    [SerializeField] private Localizer minNumberOfPlayersDescription;
     private void Start()
     {
         BuildPlayerList();
@@ -53,9 +54,21 @@ public class PlayersMenu : MonoBehaviour
         {
             string player = GameManager.instance.dataManager.GetPlayer(p);
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
-            playerGo.transform.SetSiblingIndex(p+3);
+            playerGo.transform.SetSiblingIndex(p+4);
             playerGo.GetComponent<Player>().Setup(player, this);
         }
         
+    }
+
+    public void HidePLayersDescription()
+    {
+        minNumberOfPlayersDescription.gameObject.SetActive(false);
+    }
+
+    public void ShowPlayersDescription(int minPlayerQuantity)
+    {
+        minNumberOfPlayersDescription.gameObject.SetActive(true);
+        minNumberOfPlayersDescription.Localize();
+        minNumberOfPlayersDescription.textsToLocalize[0].tmProGui.text += " " + minPlayerQuantity + "+";
     }
 }

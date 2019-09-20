@@ -88,14 +88,7 @@ public class MainMenuManager : SectionManager
 
     public void PlaySelectedSection()
     {
-        if (currentSelectedSection.minNumberOfPlayers > 0 && currentSelectedSection.minNumberOfPlayers > gm.dataManager.GetPlayersQuantity())
-        {
-            gm.generalUi.OpenPlayersMenu(currentSelectedSection.minNumberOfPlayers);
-        }
-        else
-        {
-            GameManager.LoadSection(currentSelectedSection);
-        }
+        gm.PlaySection(currentSelectedSection);
     }
 
     public void OpenConfigMenu()

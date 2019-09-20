@@ -80,7 +80,7 @@ public class GeneralUI : MonoBehaviour
         }
             
         else
-            GameManager.LoadSection(GameManager.instance.landingSection);
+            GameManager.instance.PlaySection(GameManager.instance.landingSection);
     }
 
     public bool Show(AnimationUI uiElement)

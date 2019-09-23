@@ -78,6 +78,9 @@ public class DataManager
 
     public string GetPlayer(int playerNumber)
     {
+        if (playerNumber > players.Count-1 || playerNumber < 0)
+            return "PLAYER '" + playerNumber + "' NOT EXISTENT";
+        
         return players[playerNumber];
     }    
     public List<string> GetPlayers()

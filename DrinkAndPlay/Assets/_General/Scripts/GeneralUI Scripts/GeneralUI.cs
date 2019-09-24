@@ -121,7 +121,10 @@ public class GeneralUI : MonoBehaviour
     public void OpenPlayersMenu()
     {
         ShowPlayersMenu();
-        playersMenuController.HidePLayersDescription();
+        if (SectionManager.instance.section.minNumberOfPlayers > 0)
+            playersMenuController.ShowPlayersDescription(SectionManager.instance.section.minNumberOfPlayers);
+        else
+            playersMenuController.HidePLayersDescription();
     }
     public void OpenPlayersMenu(int minPlayerNumber)
     {

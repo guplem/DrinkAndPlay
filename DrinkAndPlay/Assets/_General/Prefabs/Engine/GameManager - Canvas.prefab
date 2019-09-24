@@ -1180,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 101.82337
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}
@@ -6921,6 +6921,11 @@ PrefabInstance:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8431293790569419034, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
+        type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.6862745
+      objectReference: {fileID: 0}
     - target: {fileID: 8649350685367608384, guid: 31a84a34ccb9b8440bb7b4cbb740b5de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7325,7 +7330,7 @@ PrefabInstance:
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 101.82337
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8565632885890489927, guid: 1b84dcbdc26f183448c383b18fc003b1,
         type: 3}

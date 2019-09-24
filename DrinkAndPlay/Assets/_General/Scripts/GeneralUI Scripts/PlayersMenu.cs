@@ -55,7 +55,14 @@ public class PlayersMenu : MonoBehaviour
             string player = GameManager.instance.dataManager.GetPlayer(p);
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
             playerGo.transform.SetSiblingIndex(p+4);
-            playerGo.GetComponent<Player>().Setup(player, this);
+            
+            bool allowRemoval = true;
+            if (SectionManager.instance.section.minNumberOfPlayers > 0)
+                allowRemoval = SectionManager.instance.section.minNumberOfPlayers <
+                               GameManager.instance.dataManager.GetPlayersQuantity();
+
+            
+            playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
         }
         
     }

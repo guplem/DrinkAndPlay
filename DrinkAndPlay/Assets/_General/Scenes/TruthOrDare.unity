@@ -192,6 +192,7 @@ MonoBehaviour:
   truthOrDareElements:
   - {fileID: 273426151}
   - {fileID: 252939594}
+  chooseText: {fileID: 1506106510}
 --- !u!1 &252939594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4100582925243912259, guid: a9fc59502e418034abb60c8fa9f988c4,
@@ -485,6 +486,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1506106510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8481135271296722155, guid: 2d1873f3f12f3c545af0e16f1685fed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6557994831036049876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1600294431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7533413777780883683, guid: 235f386f4517dd34a969325fdf4e8d54,

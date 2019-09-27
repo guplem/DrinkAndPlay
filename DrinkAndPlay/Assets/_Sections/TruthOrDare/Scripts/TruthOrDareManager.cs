@@ -10,6 +10,7 @@ public class TruthOrDareManager : TurnsGameManager
 
     [SerializeField] private GameObject[] chooseStepElements;
     [SerializeField] private GameObject[] truthOrDareElements;
+    [SerializeField] private Localizer chooseText;
     
     private void Start()
     {
@@ -20,6 +21,7 @@ public class TruthOrDareManager : TurnsGameManager
     public override void NextButton()
     {
         gm.dataManager.NextPlayerTurn();
+        chooseText.Localize(); //Update player
 
         SetActivateChooseStepElements(true);
         SetActivateTruthOrDareElements(false);

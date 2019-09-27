@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class TextInTurnsGame
 {
-    //public LocalizedText localizedText;
-    public string localizedTextId;
+    public readonly string localizedTextId;
     public bool liked;
-    public LocalizationFile localizationFile;
-    
+    public readonly LocalizationFile localizationFile;
 
     public TextInTurnsGame(LocalizedText localizedText, LocalizationFile localizationFile)
     {
@@ -162,6 +160,22 @@ public abstract class TurnsGameManager : SectionManager
         return history[historyIndex];
     }
     
+    protected void SetupTextInCard(TextInTurnsGame getPreviousText)
+    {
+        if (getPreviousText == null)
+        {
+            Debug.LogWarning("The obtained text for the card is null.", gameObject);    
+            return;
+        }
+        
+        sentenceText.Localize(getPreviousText.localizedTextId, getPreviousText.localizationFile);
+
+        likeButton.SetToInitialState();
+        
+        if (IsCurrentTextLiked())
+            likeButton.Switch();
+    }
+    
     #endregion Texts
 
 
@@ -212,38 +226,5 @@ public abstract class TurnsGameManager : SectionManager
         
     }
 
-
-    /*protected void SetupTextInCard(string id)
-    {
-        if (string.IsNullOrEmpty(id))
-        {
-            Debug.LogWarning("The obtained ID for the card is null or empty.", gameObject);    
-            return;
-        }
-        
-        sentenceText.Localize(id);
-
-        likeButton.SetToInitialState();
-        
-        if (IsCurrentTextLiked())
-            likeButton.Switch();
-    }*/
-    
-    protected void SetupTextInCard(TextInTurnsGame getPreviousText)
-    {
-        if (getPreviousText == null)
-        {
-            Debug.LogWarning("The obtained text for the card is null.", gameObject);    
-            return;
-        }
-        
-        sentenceText.Localize(getPreviousText.localizedTextId, getPreviousText.localizationFile);
-
-        likeButton.SetToInitialState();
-        
-        if (IsCurrentTextLiked())
-            likeButton.Switch();
-    }
-    
     #endregion
 }

@@ -20,9 +20,10 @@ public class TruthOrDareManager : TurnsGameManager
     public override void NextButton()
     {
         gm.dataManager.NextPlayerTurn();
+
+        SetActivateChooseStepElements(true);
+        SetActivateTruthOrDareElements(false);
         
-        foreach (GameObject go in chooseStepElements)
-            go.SetActive(true);
     }
 
     public override void PreviousButton()
@@ -31,22 +32,32 @@ public class TruthOrDareManager : TurnsGameManager
         SetupTextInCard(GetPreviousText());
     }
 
-    private void ActivateTruthOrDareElements()
+    private void SetActivateTruthOrDareElements(bool state)
     {
         foreach (GameObject go in truthOrDareElements)
-            go.SetActive(true);
+            go.SetActive(state);
+    }
+    
+    private void SetActivateChooseStepElements(bool state)
+    {
+        foreach (GameObject go in chooseStepElements)
+            go.SetActive(state);
     }
 
     public void CoosenDare()
     {
-        ActivateTruthOrDareElements();
-        SetupTextInCard(GetNextText(truthLocalizationFile));
+        
+        SetActivateChooseStepElements(false);
+        SetActivateTruthOrDareElements(true);
+        SetupTextInCard(GetNextText(dareLocalizationFile));
         
     }
 
     public void ChoosenTruth()
     {
-        ActivateTruthOrDareElements();
+        
+        SetActivateChooseStepElements(false);
+        SetActivateTruthOrDareElements(true);
         SetupTextInCard(GetNextText(truthLocalizationFile));
     }
 }

@@ -128,6 +128,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6554456614764686571, guid: 9f7a38eba35327b40b81dc299edb3556,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6554456614764686569, guid: 9f7a38eba35327b40b81dc299edb3556,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -147,6 +152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554456614764686569, guid: 9f7a38eba35327b40b81dc299edb3556,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6554456614764686569, guid: 9f7a38eba35327b40b81dc299edb3556,
         type: 3}

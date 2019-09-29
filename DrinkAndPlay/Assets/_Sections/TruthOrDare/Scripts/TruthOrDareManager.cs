@@ -21,10 +21,18 @@ public class TruthOrDareManager : TurnsGameManager
     public override void NextButton()
     {
         gm.dataManager.NextPlayerTurn();
-        chooseText.Localize(); //Update player
+        
+        if (AreWeOnTopHistory())
+        {
+            chooseText.Localize(); //Update player
 
-        SetActivateChooseStepElements(true);
-        SetActivateTruthOrDareElements(false);
+            SetActivateChooseStepElements(true);
+            SetActivateTruthOrDareElements(false);
+        }
+        else
+        {
+            SetupTextInCard(GetNextText());
+        }
         
     }
 

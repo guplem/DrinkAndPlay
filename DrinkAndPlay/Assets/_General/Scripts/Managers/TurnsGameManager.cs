@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextInTurnsGame
 {
@@ -28,6 +29,7 @@ public abstract class TurnsGameManager : SectionManager
     
     [SerializeField] private Localizer sentenceText;
     [SerializeField] protected ImageSwitcher likeButton;
+    [SerializeField] private Button backButton;
     
     
     #region Texts
@@ -62,6 +64,16 @@ public abstract class TurnsGameManager : SectionManager
         }
         
         return GetCurrentText();
+    }
+
+    public bool AreWeOnTopHistory() //The newest sentence
+    {
+        return historyIndex == history.Count - 1;
+    }
+    
+    public bool AreWeOnBottomHistory() //The oldest sentence
+    {
+        return historyIndex == 0;
     }
     
     private LocalizedText GetRandomText(bool register, bool checkNotRegistered)
@@ -174,8 +186,18 @@ public abstract class TurnsGameManager : SectionManager
         
         if (IsCurrentTextLiked())
             likeButton.Switch();
+
+
+        SetBackButtonAvaliability();
     }
-    
+
+    private void SetBackButtonAvaliability()
+    {
+        if (backButton == null) return;
+
+        backButton.interactable = !AreWeOnBottomHistory();
+    }
+
     #endregion Texts
 
 

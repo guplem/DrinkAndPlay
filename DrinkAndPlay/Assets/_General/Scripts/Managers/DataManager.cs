@@ -127,7 +127,6 @@ public class DataManager
     public void NextPlayerTurn()
     {
         playerTurn ++;
-        Debug.Log("PLAYER TURN: " + playerTurn);
         if (playerTurn > GetPlayersQuantity() - 1)
             playerTurn = 0;
     }

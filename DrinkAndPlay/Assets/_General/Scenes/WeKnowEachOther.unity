@@ -237,16 +237,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4100582924375389827, guid: a9fc59502e418034abb60c8fa9f988c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1854384016}
-    - target: {fileID: 4100582924375389827, guid: a9fc59502e418034abb60c8fa9f988c4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextButton
-      objectReference: {fileID: 0}
     - target: {fileID: 4100582924935970320, guid: a9fc59502e418034abb60c8fa9f988c4,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -267,6 +257,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4100582924375389827, guid: a9fc59502e418034abb60c8fa9f988c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1854384016}
+    - target: {fileID: 4100582924375389827, guid: a9fc59502e418034abb60c8fa9f988c4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4972376637470174843, guid: a9fc59502e418034abb60c8fa9f988c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -285,6 +285,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 509133489}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &509133491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4972376637470174843, guid: a9fc59502e418034abb60c8fa9f988c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 509133489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &592356179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,5 +787,6 @@ MonoBehaviour:
   gameManagerPrefab: {fileID: 6904223532832502549, guid: 64fa286c71ae77f4a9b1b1b25b4abac5,
     type: 3}
   section: {fileID: 11400000, guid: 9396491c7fd1ceb49ab3c06e275d8ff6, type: 2}
-  likeButton: {fileID: 831963149}
   sentenceText: {fileID: 831963148}
+  likeButton: {fileID: 831963149}
+  backButton: {fileID: 509133491}

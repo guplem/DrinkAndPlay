@@ -240,7 +240,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5105238331558707376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -323,11 +323,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4334883986190577510}
     m_Modifications:
-    - target: {fileID: 1282630808044343764, guid: bc5dd075a0174454c987bb3815eda42d,
-        type: 3}
-      propertyPath: m_Name
-      value: TopBar
-      objectReference: {fileID: 0}
     - target: {fileID: 4151529799529583733, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,6 +422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282630808044343764, guid: bc5dd075a0174454c987bb3815eda42d,
+        type: 3}
+      propertyPath: m_Name
+      value: TopBar
       objectReference: {fileID: 0}
     - target: {fileID: 1053196304176049299, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}

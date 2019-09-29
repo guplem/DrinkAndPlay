@@ -285,11 +285,11 @@ public class DataManager
             return false;
         }
     }
-    public int GetTextRegisteredQuantity(Section section)
+    public int GetTextRegisteredQuantity(LocalizationFile localizationFile)
     {
         try
         {
-            return textsRegistered[section.ToString()].Count;
+            return textsRegistered[localizationFile.ToString()].Count;
         }
         catch (KeyNotFoundException)
         {

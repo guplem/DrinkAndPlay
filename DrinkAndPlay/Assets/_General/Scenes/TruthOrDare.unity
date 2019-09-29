@@ -364,6 +364,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1726361635832452239, guid: a9fc59502e418034abb60c8fa9f988c4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4972376637470174843, guid: a9fc59502e418034abb60c8fa9f988c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -373,6 +378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PreviousButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646013237734329463, guid: a9fc59502e418034abb60c8fa9f988c4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fc59502e418034abb60c8fa9f988c4, type: 3}
@@ -1227,6 +1237,21 @@ PrefabInstance:
         type: 3}
       propertyPath: id
       value: Truth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225731240434751126, guid: 235f386f4517dd34a969325fdf4e8d54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157036474767246383, guid: 235f386f4517dd34a969325fdf4e8d54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213158256187350231, guid: 235f386f4517dd34a969325fdf4e8d54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235f386f4517dd34a969325fdf4e8d54, type: 3}

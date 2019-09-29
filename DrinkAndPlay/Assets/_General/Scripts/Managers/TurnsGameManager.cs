@@ -90,7 +90,7 @@ public abstract class TurnsGameManager : SectionManager
             {
                 Debug.Log("Localized text not found");
 
-                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(section) > 2) // To know if there are enough to remove the register of the 50%
+                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
                 {
                     GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
                     Debug.Log("REMOVED 25%");
@@ -168,6 +168,12 @@ public abstract class TurnsGameManager : SectionManager
     {
         if (historyIndex < 0)
             return null;
+
+        if (historyIndex >= history.Count)
+        {
+            Debug.LogWarning("Trying to get the text with number " + historyIndex + " in historey but there are only " + history.Count + " elements on the list (" + (history.Count-1) + " is the top index)");
+            return null;
+        }
         
         return history[historyIndex];
     }

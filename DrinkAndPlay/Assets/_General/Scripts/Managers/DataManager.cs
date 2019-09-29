@@ -146,6 +146,24 @@ public class DataManager
     {
         return GetPlayer(Random.Range(0, GetPlayersQuantity()));
     }
+    
+    public string GetRandomPlayer(List<string> exclusions)
+    {
+        if (exclusions.Count <= 0)
+            return GetRandomPlayer();
+        
+        List<string> clonedPlayers = players.CloneToList();
+
+        foreach (string excluded in exclusions)
+            clonedPlayers.Remove(excluded);
+
+        if (players.Count > 0)
+        {
+            return clonedPlayers[Random.Range(0, clonedPlayers.Count)];
+        }
+        else
+            return GetRandomPlayer();
+    }
     #endregion
 
 

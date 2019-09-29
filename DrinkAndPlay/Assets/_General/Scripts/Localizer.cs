@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -187,11 +188,22 @@ public class Localizer : MonoBehaviour
 
     private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
-        //TODO: Check for player names if necessary
-
         text = text.Replace("<p>", GameManager.instance.dataManager.GetCurrentPlayer());
-        text = text.Replace("<pr>", GameManager.instance.dataManager.GetRandomPlayer());
-        
+
+        if (text.Contains("<pr>"))
+        {
+            Regex regex = new Regex(Regex.Escape("<pr>"));   
+            List<string> alreadyIncludedPlayers = new List<string>();
+            
+            do
+            {
+                string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers);
+                text = regex.Replace(text, randPlayer, 1);
+                alreadyIncludedPlayers.Add(randPlayer);
+            }
+            while (text.Contains("<pr>"));
+        }
+
         tmProGui.richText = true;
         tmProGui.text = text;
     }

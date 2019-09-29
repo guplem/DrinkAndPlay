@@ -19,6 +19,11 @@ public class ButtonAnimation : AnimationUI
         if (bt != null)
             bt.onClick.AddListener(Show);
     }
+    
+    private void OnEnable()
+    {
+        InstantHide();
+    }
 
     public override void Show()
     {

@@ -195,11 +195,8 @@ public class GeneralUI : MonoBehaviour
 
     public void RateApp()
     {
-        //TODO: Open rate link
-        
-        //TODO: AT LAUNCH Enable bottom line to ensure non-repetitive popups
-        // GameManager.instance.dataManager.ratedApp = true;
-        
+        Application.OpenURL ("market://details?id=com.TriunityStudios.DrinkAndPlay");
+        GameManager.instance.dataManager.ratedApp = true;
     }
     
     public void HideRatePopup()
@@ -209,7 +206,6 @@ public class GeneralUI : MonoBehaviour
 
     public void Share()
     {
-        //TODO: share functions
         StartCoroutine( TakeSSAndShare() );
     }
     
@@ -231,13 +227,13 @@ public class GeneralUI : MonoBehaviour
         new NativeShare().AddFile(filePath).SetText(text).Share();
 
         // Share on WhatsApp only, if installed (Android only)
-        //if( NativeShare.TargetExists( "com.whatsapp" ) )
-        //	new NativeShare().AddFile( filePath ).SetText( "Hello world!" ).SetTarget( "com.whatsapp" ).Share();
+        // if( NativeShare.TargetExists( "com.whatsapp" ) )
+        // new NativeShare().AddFile( filePath ).SetText( "Hello world!" ).SetTarget( "com.whatsapp" ).Share();
     }
 
     public void ShowInformationPopup(LocalizationFile messageLocalizationFile, string messageId, LocalizationFile buttonLocalizationFile, string buttonId)
     {
         Debug.Log("Displaying information popup with text with id = ''" + messageId + "'");
-        //TODO
+        //TODO - Not necessary yet. Prepared for future needs
     }
 }

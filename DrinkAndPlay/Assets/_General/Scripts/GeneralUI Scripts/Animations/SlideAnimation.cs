@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class SlideAnimation : AnimationUI
 {
-    private readonly Vector2 minOpen = new Vector2(0, 0);
-    private readonly Vector2 maxOpen = new Vector2(1, 1);
-    private readonly Vector2 minClose = new Vector2(1, 0);
-    private readonly Vector2 maxClose = new Vector2(2, 1);
+    private Vector2 minOpen;// = new Vector2(0, 0);
+    private Vector2 maxOpen;// = new Vector2(1, 1);
+    private Vector2 minClose;// = new Vector2(1, 0);
+    private Vector2 maxClose;// = new Vector2(2, 1);
 
     //Default characteristics at start
     private void Start()
     {
+        minOpen = new Vector2(0, rt.anchorMin.y);
+        maxOpen = new Vector2(1, rt.anchorMax.y);
+        minClose = new Vector2(1, rt.anchorMin.y);
+        maxClose = new Vector2(2, rt.anchorMax.y);
+    
         rt.anchorMin = minClose;
         rt.anchorMax = maxClose;
     }

@@ -170,7 +170,7 @@ public class Description : AnimationUI
 
     private void CheckScrollPosToHide()
     {
-        if (scrollContentsContainer.rect.height/6 < -1*scrollContentsContainer.offsetMin.y)
+        if (scrollContentsContainer.rect.height/8 < -1*scrollContentsContainer.offsetMin.y)
             CloseLastOpenUiElement();
     }
     

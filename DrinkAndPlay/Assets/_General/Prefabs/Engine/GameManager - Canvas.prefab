@@ -2314,6 +2314,11 @@ PrefabInstance:
       propertyPath: id
       value: Players
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 3549326250679804441}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2370,11 +2375,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 3549326250679804441}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!224 &234769708262064338 stripped
@@ -2785,6 +2785,11 @@ PrefabInstance:
       propertyPath: id
       value: Configuration
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 3285657183346098743}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -2826,11 +2831,6 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 55
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 3285657183346098743}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!114 &3161135297718718016 stripped
@@ -3219,6 +3219,11 @@ PrefabInstance:
       propertyPath: id
       value: NaughtyLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 3335885704986334492}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3275,11 +3280,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 3335885704986334492}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!224 &2038124000638744535 stripped
@@ -5721,6 +5721,11 @@ PrefabInstance:
       propertyPath: id
       value: RandomChallenges
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 557917098536219971}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -5761,11 +5766,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 557917098536219971}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!114 &141998249969531188 stripped
@@ -5990,6 +5990,11 @@ PrefabInstance:
       propertyPath: id
       value: Feedback
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 115737538579921626}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6046,11 +6051,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 115737538579921626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!224 &3717864466109257745 stripped
@@ -7497,6 +7497,11 @@ PrefabInstance:
       propertyPath: id
       value: RandomSentences
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 7525039246585323179}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -7553,11 +7558,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 7525039246585323179}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!224 &7525039246585323179 stripped
@@ -9371,6 +9371,11 @@ PrefabInstance:
       propertyPath: id
       value: Language
       objectReference: {fileID: 0}
+    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
+        type: 3}
+      propertyPath: menuOfTopBar
+      value: 
+      objectReference: {fileID: 5574217775136309241}
     - target: {fileID: 1524630010445888263, guid: 0545cd3c15194694c937e1a3b55eaef5,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -9427,11 +9432,6 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3651602778651349383, guid: 0545cd3c15194694c937e1a3b55eaef5,
-        type: 3}
-      propertyPath: menuOfTopBar
-      value: 
-      objectReference: {fileID: 5574217775136309241}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0545cd3c15194694c937e1a3b55eaef5, type: 3}
 --- !u!224 &5574217775136309241 stripped
@@ -9845,6 +9845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853837197424807790, guid: bc5dd075a0174454c987bb3815eda42d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5dd075a0174454c987bb3815eda42d, type: 3}

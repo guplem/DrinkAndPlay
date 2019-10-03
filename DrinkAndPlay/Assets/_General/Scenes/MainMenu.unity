@@ -246,7 +246,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 409.3381, y: 0}
+  m_SizeDelta: {x: 441.1063, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129068728
 MonoBehaviour:
@@ -406,7 +406,7 @@ PrefabInstance:
     - target: {fileID: 4452736129909396068, guid: d855c1c6381377a4abfb531002ffbb0f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 171.41412
+      value: 184.32
       objectReference: {fileID: 0}
     - target: {fileID: 4452736129909396068, guid: d855c1c6381377a4abfb531002ffbb0f,
         type: 3}
@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 4452736129909396068, guid: d855c1c6381377a4abfb531002ffbb0f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 171.41412
+      value: 184.32
       objectReference: {fileID: 0}
     - target: {fileID: 4452736129909396068, guid: d855c1c6381377a4abfb531002ffbb0f,
         type: 3}
@@ -1029,7 +1029,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 441.92703}
+  m_SizeDelta: {x: 0, y: 475.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516947045
 MonoBehaviour:
@@ -1279,7 +1279,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 441.92703}
+  m_SizeDelta: {x: 0, y: 475.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641020038
 MonoBehaviour:
@@ -1708,7 +1708,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 669.5864}
+  m_SizeDelta: {x: 0, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849438402
 MonoBehaviour:
@@ -2380,7 +2380,7 @@ PrefabInstance:
     - target: {fileID: 8805026883035796615, guid: 9610c74f4924ed24c86362a0197dc1e5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 409.33813
+      value: 441.10635
       objectReference: {fileID: 0}
     - target: {fileID: 8805026883035796615, guid: 9610c74f4924ed24c86362a0197dc1e5,
         type: 3}
@@ -3022,21 +3022,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 59981492469114688, guid: 1d7a719d8f604994da46ceb777042876,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 59981492469114688, guid: 1d7a719d8f604994da46ceb777042876,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 59981492469114688, guid: 1d7a719d8f604994da46ceb777042876,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7a719d8f604994da46ceb777042876, type: 3}
 --- !u!1 &1593957882 stripped
@@ -3095,7 +3080,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 409.3381, y: 0}
+  m_SizeDelta: {x: 441.1063, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594644680
 MonoBehaviour:
@@ -3535,7 +3520,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 409.3381, y: 0}
+  m_SizeDelta: {x: 441.1063, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1711307447
 MonoBehaviour:
@@ -3648,7 +3633,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 441.92703}
+  m_SizeDelta: {x: 0, y: 475.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1741619769
 MonoBehaviour:
@@ -4497,7 +4482,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 441.92703}
+  m_SizeDelta: {x: 0, y: 475.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132100780
 MonoBehaviour:

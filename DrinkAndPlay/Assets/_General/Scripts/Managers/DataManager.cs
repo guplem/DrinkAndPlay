@@ -428,5 +428,37 @@ public class DataManager
     private const string ratedAppSavename = "ratedApp";
 
     #endregion
-    
+
+
+    #region DarkMode
+
+    public bool darkMode
+    {
+        get
+        {
+            //TODO: default value depending on time of the time or depending on device configuration
+            _darkMode = SaveGame.Load(darkModeSavename, true);
+            return _darkMode;
+        }
+        set
+        {
+            if (_darkMode == value) 
+                return;
+            Debug.Log("New dark mode state: " + value);
+            _darkMode = value;
+            SaveGame.Save(darkModeSavename, value);
+            changedVisualMode(GetVisualMode());
+        }
+    }
+
+    public Action<LightDarkColor.ColorType> changedVisualMode;
+    private bool _darkMode;
+    private const string darkModeSavename = "darkMode";
+
+    #endregion
+
+    public LightDarkColor.ColorType GetVisualMode()
+    {
+        return darkMode? LightDarkColor.ColorType.Dark : LightDarkColor.ColorType.Light;
+    }
 }

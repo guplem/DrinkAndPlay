@@ -8,10 +8,10 @@ public abstract class AnimationUI : MonoBehaviour
     protected bool isShowing { get; set; }
     [SerializeField] protected AnimationCurve mainAnimationCurve;
     protected RectTransform rt { get; private set; }
-    protected float animationDurationOpen { get; set; }
-    protected float animationDurationClose { get; set; }
+    private float animationDurationOpen { get; set; }
+    private float animationDurationClose { get; set; }
 
-    protected float currentAnimTime = 0;
+    private float currentAnimTime = 0;
     private bool reachedPos;
 
 
@@ -25,7 +25,7 @@ public abstract class AnimationUI : MonoBehaviour
         animationDurationOpen = 0.20f;
         animationDurationClose = 0.15f;
     }
-    
+
     public static AnimationCurve CreateLinearCurve()
     {
         AnimationCurve curve = new AnimationCurve();

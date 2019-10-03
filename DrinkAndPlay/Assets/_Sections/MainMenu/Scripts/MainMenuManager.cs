@@ -47,13 +47,13 @@ public class MainMenuManager : SectionManager
 
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
-            // Keeping the prefab connection
+            // OPTION A Keeping the prefab connection
             /*
             GameObject game = PrefabUtility.InstantiatePrefab(mainMenuGamePrefab) as GameObject;
             game.transform.SetParent(verticalScrollContentHolder.transform);
             */
 
-            // Destroying the prefab connection
+            // OPTION A Destroying the prefab connection
             GameObject game = Instantiate(mainMenuSectionPrefab, verticalScrollContentHolder.transform);
 
             game.transform.SetSiblingIndex(s+1);
@@ -86,9 +86,9 @@ public class MainMenuManager : SectionManager
         gm.generalUi.Show(cocktailDescription);
     }
 
-    public void LoadSelectedSection()
-    {   
-        GameManager.LoadSection(currentSelectedSection);
+    public void PlaySelectedSection()
+    {
+        gm.PlaySection(currentSelectedSection);
     }
 
     public void OpenConfigMenu()

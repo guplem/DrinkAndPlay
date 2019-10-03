@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -76,6 +77,9 @@ public class Localizer : MonoBehaviour
 
     private void Start()
     {
+        if (localizationFile == null)
+            Debug.LogWarning("Null localization file in " + gameObject.name, gameObject);
+        
         previouslyStarted = true;
 
         if (automaticallyLocalize)
@@ -151,35 +155,55 @@ public class Localizer : MonoBehaviour
             
             if (string.IsNullOrEmpty(txt.stringTag))
             {
-                //ApplyText(txt.tmProGui, text);
                 savedForLater.Add(txt);
             }
             else
             {
-                int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + (">"+txt.stringTag+">").Length;
+                int tagLength = (">" + txt.stringTag + ">").Length;
+                int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + tagLength;
                 int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
-                if (pFrom >= pTo || pFrom < 0 || pTo < 0)
+                if (pFrom >= pTo || pFrom < 0 || pTo < 0) //Error handeling
                 {
-                    GameObject o = gameObject;
-                    //Debug.LogWarning(o.name +  " is trying to localize an object but the text between the designed stringTag (" + txt.stringTag + ") was not found in the text with id = '" + id + "' from localization file '" + localizationFile + "'", o);
                     ApplyText(txt.tmProGui, "");
                 }
                 else
                 {
-                    ApplyText(txt.tmProGui, text.Substring(pFrom, pTo - pFrom));
+                    int searchedTextLength = pTo - pFrom;
+                    ApplyText(txt.tmProGui, text.Substring(pFrom, searchedTextLength));
+                    text = text.Remove(pFrom - tagLength,  searchedTextLength + tagLength*2);
                 }
             }
         }
 
+        if (savedForLater.Count > 1)
+            Debug.LogWarning("The text with id " + localizedText.id + " have multiple separated strings to ad in the default container of the localizer in " + gameObject.name, gameObject);
+        
         foreach (TextsToLocalize txt in savedForLater)
         {
             ApplyText(txt.tmProGui, text);
+            
         }
     }
 
     private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
+        text = text.Replace("<p>", GameManager.instance.dataManager.GetCurrentPlayer());
+
+        if (text.Contains("<pr>"))
+        {
+            Regex regex = new Regex(Regex.Escape("<pr>"));   
+            List<string> alreadyIncludedPlayers = new List<string>();
+            
+            do
+            {
+                string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers);
+                text = regex.Replace(text, randPlayer, 1);
+                alreadyIncludedPlayers.Add(randPlayer);
+            }
+            while (text.Contains("<pr>"));
+        }
+
         tmProGui.richText = true;
         tmProGui.text = text;
     }

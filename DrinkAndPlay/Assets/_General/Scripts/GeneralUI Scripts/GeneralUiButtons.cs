@@ -6,14 +6,11 @@ public class GeneralUiButtons : MonoBehaviour
 {
     public void ClickBackButton()
     {
-        Debug.Log("Clicked 'Back' button.");
         GameManager.instance.generalUi.CloseLastOpenUiElement();
     }
 
     public void ClickConfigurationButton()
     {
-        Debug.Log("Clicked 'Configuration' button.");
-        
         GameManager.instance.generalUi.OpenConfigMenu();
     }
 

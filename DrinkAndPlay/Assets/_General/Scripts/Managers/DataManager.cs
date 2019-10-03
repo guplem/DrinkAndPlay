@@ -78,6 +78,9 @@ public class DataManager
 
     public string GetPlayer(int playerNumber)
     {
+        if (playerNumber > players.Count-1 || playerNumber < 0)
+            return "PLAYER '" + playerNumber + "' NOT EXISTENT";
+        
         return players[playerNumber];
     }    
     public List<string> GetPlayers()
@@ -117,6 +120,49 @@ public class DataManager
         List<string> clonePlayers = GetCloneOfList(players);
         clonePlayers.Remove(player);
         players = clonePlayers;
+    }
+
+    private int playerTurn = 0;
+
+    public void NextPlayerTurn()
+    {
+        playerTurn ++;
+        if (playerTurn > GetPlayersQuantity() - 1)
+            playerTurn = 0;
+    }
+    public void PreviousPlayerTurn()
+    {
+        playerTurn --;
+        if (playerTurn < 0)
+            playerTurn = GetPlayersQuantity() - 1;
+    }
+    
+    public string GetCurrentPlayer()
+    {
+        return GetPlayer(playerTurn);
+    }
+
+    public string GetRandomPlayer()
+    {
+        return GetPlayer(Random.Range(0, GetPlayersQuantity()));
+    }
+    
+    public string GetRandomPlayer(List<string> exclusions)
+    {
+        if (exclusions.Count <= 0)
+            return GetRandomPlayer();
+        
+        List<string> clonedPlayers = players.CloneToList();
+
+        foreach (string excluded in exclusions)
+            clonedPlayers.Remove(excluded);
+
+        if (players.Count > 0)
+        {
+            return clonedPlayers[Random.Range(0, clonedPlayers.Count)];
+        }
+        else
+            return GetRandomPlayer();
     }
     #endregion
 
@@ -257,11 +303,11 @@ public class DataManager
             return false;
         }
     }
-    public int GetTextRegisteredQuantity(Section section)
+    public int GetTextRegisteredQuantity(LocalizationFile localizationFile)
     {
         try
         {
-            return textsRegistered[section.ToString()].Count;
+            return textsRegistered[localizationFile.ToString()].Count;
         }
         catch (KeyNotFoundException)
         {

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MainMenuPlayButton : MonoBehaviour
 {
-    public void LoadSelectedSection()
+    public void PlaySelectedSection()
     {
         GetComponent<ButtonAnimation>().MidAnimEvent += LoadSelectedSectionAtEvent;
     }
 
     private void LoadSelectedSectionAtEvent()
     {
-        ((MainMenuManager)SectionManager.instance).LoadSelectedSection();
+        ((MainMenuManager)SectionManager.instance).PlaySelectedSection();
         GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
     }
 }

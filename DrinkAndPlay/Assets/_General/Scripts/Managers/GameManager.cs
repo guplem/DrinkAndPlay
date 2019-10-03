@@ -44,11 +44,26 @@ public class GameManager : MonoBehaviour
     }
     
 
-    public static void LoadSection(Section section)
+    public void PlaySection(Section section)
     {
+        if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
+        {
+            Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
+            return;
+        }
+
+        
+        if (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity())
+        {
+            generalUi.OpenPlayersMenu(section.minNumberOfPlayers);
+            return;
+        }
+
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
-        //SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
         SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+
+
+
     }
 
     private void Update()

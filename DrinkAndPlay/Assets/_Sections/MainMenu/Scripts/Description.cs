@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UtilsUI;
@@ -14,6 +15,7 @@ public class Description : AnimationUI
     [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject closeButton;
     [SerializeField] private GameObject image;
+    [SerializeField] private GameObject textInImage;
     [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
     [SerializeField] private AnimationCurve contentsAnimation;
@@ -108,6 +110,9 @@ public class Description : AnimationUI
 
         image.GetComponent<Image>().sprite = originalImage.GetComponent<Image>().sprite;
         
+        if (textInImage != null)
+            textInImage.GetComponent<TextMeshProUGUI>().text = originalImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
         //Get original image size
         Rect rect = originalImageRect.rect;
@@ -165,7 +170,7 @@ public class Description : AnimationUI
 
     private void CheckScrollPosToHide()
     {
-        if (scrollContentsContainer.rect.height/4 < -1*scrollContentsContainer.offsetMin.y)
+        if (scrollContentsContainer.rect.height/8 < -1*scrollContentsContainer.offsetMin.y)
             CloseLastOpenUiElement();
     }
     

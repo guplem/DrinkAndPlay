@@ -29,9 +29,12 @@ public abstract class SectionManager : MonoBehaviour
 
         SetupSectionUi();
         
+        GetComponent<RectTransform>().SetTop(gm.generalUi.topBar.GetComponent<RectTransform>().GetHeight());
+
         Debug.Log(" ========= Finished section setup - SectionManager (Awake) ========= ");
         
     }
+    
 
     private void SetupGameManager()
     {
@@ -50,17 +53,14 @@ public abstract class SectionManager : MonoBehaviour
         if (section.topBar)
             rt.anchorMax = new Vector2(1, gm.generalUi.topBar.GetComponent<RectTransform>().anchorMin.y);
         
-        if (section.showNaughtyLevelConfigurator)
+        if (section.forceShowNaughtyLevelConfigurator)
             gm.generalUi.OpenNaughtyLevelMenu();
     
-        if (section.showPlayersConfigurator)
+        if (section.forceShowPlayersConfigurator)
             gm.generalUi.OpenPlayersMenu();
     
-        if (section.showLanguageConfigurator)
+        if (section.forceShowLanguageConfigurator)
             gm.generalUi.OpenLanguageMenu();
-
-        //if (section.bottomBar)
-        //    rt.anchorMin = new Vector2(0, gm.generalUi.bottomBar.GetComponent<RectTransform>().anchorMax.y);
     }
 
 }

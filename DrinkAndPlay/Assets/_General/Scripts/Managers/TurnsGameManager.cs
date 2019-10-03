@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextInTurnsGame
 {
-    //public LocalizedText localizedText;
-    public string localizedTextId;
+    public readonly string localizedTextId;
     public bool liked;
+    public readonly LocalizationFile localizationFile;
 
-    public TextInTurnsGame(LocalizedText localizedText)
+    public TextInTurnsGame(LocalizedText localizedText, LocalizationFile localizationFile)
     {
         this.localizedTextId = localizedText.id;
         this.liked = false;
+        this.localizationFile = localizationFile;
     }
 
     public TextInTurnsGame(LocalizedText localizedText, bool liked)
@@ -23,7 +26,11 @@ public class TextInTurnsGame
 
 public abstract class TurnsGameManager : SectionManager
 {
+    
+    [SerializeField] private Localizer sentenceText;
     [SerializeField] protected ImageSwitcher likeButton;
+    [SerializeField] private Button backButton;
+    
     
     #region Texts
     
@@ -41,26 +48,33 @@ public abstract class TurnsGameManager : SectionManager
     public abstract void NextButton();
     public abstract void PreviousButton();
     
-    protected string GetNextTextId()
+    protected TextInTurnsGame GetNextText()
     {
-        string ltId = "";
-
-        historyIndex++;
-        if (historyIndex == history.Count)
-        {
-            LocalizedText lt = GetRandomText(true, true);
-            ltId = lt.id;
-            RegisterNewTextInHistory(lt);
-            ProcessRandomChallenge();
-        }
-        else
-        {
-            ltId = GetCurrentTextId();
-        }
-        
-        return ltId;
+        return GetNextText(section.localizationFiles[0]);
     }
     
+    protected TextInTurnsGame GetNextText(LocalizationFile localizationFile)
+    {
+        historyIndex++;
+        if (historyIndex == history.Count) //We are "generating" new turns, not going back or forward
+        {
+            LocalizedText lt = GetRandomText(true, true, localizationFile);
+            RegisterNewTextInHistory(lt, localizationFile);
+            ProcessRandomChallenge();
+        }
+        
+        return GetCurrentText();
+    }
+
+    public bool AreWeOnTopHistory() //The newest sentence
+    {
+        return historyIndex == history.Count - 1;
+    }
+    
+    public bool AreWeOnBottomHistory() //The oldest sentence
+    {
+        return historyIndex == 0;
+    }
     
     private LocalizedText GetRandomText(bool register, bool checkNotRegistered)
     {
@@ -76,7 +90,7 @@ public abstract class TurnsGameManager : SectionManager
             {
                 Debug.Log("Localized text not found");
 
-                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(section) > 2) // To know if there are enough to remove the register of the 50%
+                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
                 {
                     GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
                     Debug.Log("REMOVED 25%");
@@ -95,9 +109,9 @@ public abstract class TurnsGameManager : SectionManager
         }
     }
 
-    private void RegisterNewTextInHistory(LocalizedText lt)
+    private void RegisterNewTextInHistory(LocalizedText localizedText, LocalizationFile localizationFile)
     {
-        history.Add(new TextInTurnsGame(lt));
+        history.Add(new TextInTurnsGame(localizedText, localizationFile));
         
         if (historyIndex == history.Count)
             historyIndex++;
@@ -128,6 +142,19 @@ public abstract class TurnsGameManager : SectionManager
 
         return GetCurrentTextId();
     }
+    
+    protected TextInTurnsGame GetPreviousText()
+    {
+        if (history.Count <= 0)
+            return null;
+        
+        historyIndex--;
+        
+        if (historyIndex < 0)
+            historyIndex = 0;
+
+        return GetCurrentText();
+    }
 
     protected string GetCurrentTextId()
     {
@@ -137,6 +164,46 @@ public abstract class TurnsGameManager : SectionManager
         return history[historyIndex].localizedTextId;
     }
     
+    protected TextInTurnsGame GetCurrentText()
+    {
+        if (historyIndex < 0)
+            return null;
+
+        if (historyIndex >= history.Count)
+        {
+            Debug.LogWarning("Trying to get the text with number " + historyIndex + " in historey but there are only " + history.Count + " elements on the list (" + (history.Count-1) + " is the top index)");
+            return null;
+        }
+        
+        return history[historyIndex];
+    }
+    
+    protected void SetupTextInCard(TextInTurnsGame getPreviousText)
+    {
+        if (getPreviousText == null)
+        {
+            Debug.LogWarning("The obtained text for the card is null.", gameObject);    
+            return;
+        }
+        
+        sentenceText.Localize(getPreviousText.localizedTextId, getPreviousText.localizationFile);
+
+        likeButton.SetToInitialState();
+        
+        if (IsCurrentTextLiked())
+            likeButton.Switch();
+
+
+        SetBackButtonAvaliability();
+    }
+
+    private void SetBackButtonAvaliability()
+    {
+        if (backButton == null) return;
+
+        backButton.interactable = !AreWeOnBottomHistory();
+    }
+
     #endregion Texts
 
 
@@ -187,9 +254,5 @@ public abstract class TurnsGameManager : SectionManager
         
     }
 
-    /*public abstract void LikeButton();
-    public abstract void AddSentenceButton();
-    public abstract void ShareButton();*/
-    
     #endregion
 }

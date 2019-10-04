@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 6291403363647732177}
   - component: {fileID: 6822547954060481074}
   - component: {fileID: 3117409656358523416}
+  - component: {fileID: 8712727331530439277}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -108,8 +109,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -120,3 +119,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8712727331530439277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580934871763052977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: d5972e322423b034abed448a446254db, type: 2}

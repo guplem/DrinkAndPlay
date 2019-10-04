@@ -56,6 +56,8 @@ public partial class ColorSwitcher : MonoBehaviour
             return;
         }
         
+        //TODO: Buttons
+        
         Camera cam = GetComponent<Camera>();
         if (cam != null)
         {

@@ -37,7 +37,7 @@ public partial class ColorSwitcher : MonoBehaviour
     {
         if (subscribed)
         {
-            GameManager.instance.dataManager.changedVisualMode += SetColorTo;
+            GameManager.instance.dataManager.changedVisualMode -= SetColorTo;
             subscribed = false;
         }
     }

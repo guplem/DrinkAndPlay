@@ -10,8 +10,12 @@ public class VisualsMenu : MonoBehaviour
     
     private void Start()
     {
-        darkModeToggle.isOn = GameManager.instance.dataManager.darkMode;
-        setUpDone = true;
+        if (!setUpDone)
+        {
+            darkModeToggle.isOn = GameManager.instance.dataManager.darkMode;
+            setUpDone = true;
+        }
+
     }
 
     public void SetDarkModeTo(bool state)

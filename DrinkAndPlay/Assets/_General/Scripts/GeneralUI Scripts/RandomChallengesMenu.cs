@@ -7,14 +7,17 @@ using UnityEngine.UI;
 public class RandomChallengesMenu : MonoBehaviour
 {
     [SerializeField] private Toggle rndChallengesToggle;
+    private bool setUpDone = false; 
     
     private void Start()
     {
         rndChallengesToggle.isOn = GameManager.instance.dataManager.randomChallenges;
+        setUpDone = true;
     }
 
     public void SetRandomChallengeTo(bool state)
     {
-        GameManager.instance.dataManager.randomChallenges = state;
+        if (setUpDone)
+            GameManager.instance.dataManager.randomChallenges = state;
     }
 }

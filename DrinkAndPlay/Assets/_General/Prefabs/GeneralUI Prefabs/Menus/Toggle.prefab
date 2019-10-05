@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 307446157468111533}
   - component: {fileID: 9150465692816209134}
   - component: {fileID: 6589468337858603059}
+  - component: {fileID: 8141064865144848423}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8141064865144848423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42989124560432492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: 967ba241f1f9d1844b411b9c997c8091, type: 2}
 --- !u!1 &4165982564135574969
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +98,7 @@ GameObject:
   - component: {fileID: 3216697360314271090}
   - component: {fileID: 7695970680635061306}
   - component: {fileID: 1239610357966122956}
+  - component: {fileID: 2384725377349439191}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -147,6 +162,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2384725377349439191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165982564135574969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: 967ba241f1f9d1844b411b9c997c8091, type: 2}
 --- !u!1 &8485323568367378603
 GameObject:
   m_ObjectHideFlags: 0

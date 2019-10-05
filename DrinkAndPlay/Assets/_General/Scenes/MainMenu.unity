@@ -3024,6 +3024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 59981492469114688, guid: 1d7a719d8f604994da46ceb777042876,
         type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59981492469114688, guid: 1d7a719d8f604994da46ceb777042876,
+        type: 3}
       propertyPath: m_BackGroundColor.r
       value: 1
       objectReference: {fileID: 0}
@@ -5027,6 +5032,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SectionDescription
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 1421627542}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: scrollContentsContainer
+      value: 
+      objectReference: {fileID: 1136910372}
     - target: {fileID: 2032926908444704290, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5132,16 +5147,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: shadow
-      value: 
-      objectReference: {fileID: 1421627542}
-    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: scrollContentsContainer
-      value: 
-      objectReference: {fileID: 1136910372}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.lineCount

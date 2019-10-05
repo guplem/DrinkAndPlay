@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2137021668796756600}
   - component: {fileID: 5120635331500800961}
   - component: {fileID: 2656851073194885842}
+  - component: {fileID: 4128504539716405825}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -64,8 +65,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Big description text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c607f39461045044bb2b9f83ec88728, type: 2}
@@ -88,6 +87,8 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -102,7 +103,10 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 42
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_isAlignmentEnumConverted: 0
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -114,7 +118,7 @@ MonoBehaviour:
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
-  m_isLinkedTextComponent: 0
+  parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
   m_enableKerning: 1
   m_enableExtraPadding: 0
@@ -148,15 +152,6 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
-  m_subTextObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &2656851073194885842
@@ -172,10 +167,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  isUi: 1
+  localizationFile: {fileID: 0}
   automaticallyLocalize: 1
   registerTimestampAtLocalize: 0
   textsToLocalize: []
+--- !u!114 &4128504539716405825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383593192861457322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: 7e31277f4ea98844aa8e9630a6078254, type: 2}
 --- !u!1001 &19615824161425153
 PrefabInstance:
   m_ObjectHideFlags: 0

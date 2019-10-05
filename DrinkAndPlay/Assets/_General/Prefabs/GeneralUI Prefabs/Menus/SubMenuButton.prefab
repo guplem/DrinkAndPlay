@@ -63,8 +63,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ee1c448967e0dac459cacd79ef3a89d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -86,6 +84,7 @@ GameObject:
   - component: {fileID: 8144764172130136606}
   - component: {fileID: 2347085712645834841}
   - component: {fileID: 843500996417132806}
+  - component: {fileID: 8362162928394560655}
   m_Layer: 5
   m_Name: ArrowImage
   m_TagString: Untagged
@@ -138,8 +137,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 0f1fd360f5005224da2ebf94aaab333e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -150,6 +147,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8362162928394560655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849469560403679668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: 967ba241f1f9d1844b411b9c997c8091, type: 2}
 --- !u!1001 &7864107339141076787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,11 +277,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7059356353457299942, guid: 8577a7f5cbd3d9b40860a40219097193,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 1577613244511878601, guid: 8577a7f5cbd3d9b40860a40219097193,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -306,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7059356353457299942, guid: 8577a7f5cbd3d9b40860a40219097193,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8577a7f5cbd3d9b40860a40219097193, type: 3}

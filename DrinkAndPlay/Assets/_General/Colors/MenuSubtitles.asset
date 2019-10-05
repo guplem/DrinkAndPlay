@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52814cb224e2ebb4d84cf7e75996483e, type: 3}
-  m_Name: StandardMenuButton
+  m_Name: MenuSubtitles
   m_EditorClassIdentifier: 
-  lightColor: {r: 0, g: 0, b: 0, a: 1}
-  darkColor: {r: 1, g: 1, b: 1, a: 1}
+  useTheColorsOf: {fileID: 0}
+  _lightColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  _darkColor: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 1}

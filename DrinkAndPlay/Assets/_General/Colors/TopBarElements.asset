@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52814cb224e2ebb4d84cf7e75996483e, type: 3}
   m_Name: TopBarElements
   m_EditorClassIdentifier: 
-  lightColor: {r: 1, g: 1, b: 1, a: 1}
-  darkColor: {r: 0, g: 0, b: 0, a: 1}
+  useTheColorsOf: {fileID: 0}
+  _lightColor: {r: 0, g: 0, b: 0, a: 1}
+  _darkColor: {r: 1, g: 1, b: 1, a: 1}

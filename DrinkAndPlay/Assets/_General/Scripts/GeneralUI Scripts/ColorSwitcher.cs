@@ -15,6 +15,9 @@ public partial class ColorSwitcher : MonoBehaviour
     {
         if (!subscribed)
             OnEnable();
+        
+        if (lightDarkColor == null)
+            Debug.LogError("No 'LightDarkColor' set in " + gameObject.name, gameObject);
     }
 
     private void OnEnable()

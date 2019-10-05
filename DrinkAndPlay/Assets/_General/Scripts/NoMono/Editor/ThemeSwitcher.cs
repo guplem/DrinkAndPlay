@@ -10,13 +10,18 @@ public class ThemeSwitcher : MonoBehaviour
     [MenuItem("Drink and Play/Switch Theme %&d")]
     public static void SwitchTheme()
     {
-        currentTheme = (currentTheme == LightDarkColor.ColorType.Light)
-            ? LightDarkColor.ColorType.Dark
-            : LightDarkColor.ColorType.Light;
+        if (Application.isPlaying)
+            GameManager.instance.dataManager.darkMode = !GameManager.instance.dataManager.darkMode;
+        else
+        {
+            currentTheme = (currentTheme == LightDarkColor.ColorType.Light)
+                ? LightDarkColor.ColorType.Dark
+                : LightDarkColor.ColorType.Light;
         
-        ColorSwitcher[] foundObjects = FindObjectsOfType<ColorSwitcher>();
-        foreach (ColorSwitcher obj in foundObjects)
-            obj.SetColorTo(currentTheme);
+            ColorSwitcher[] foundObjects = FindObjectsOfType<ColorSwitcher>();
+            foreach (ColorSwitcher obj in foundObjects)
+                obj.SetColorTo(currentTheme);
+        }
         
     }
     

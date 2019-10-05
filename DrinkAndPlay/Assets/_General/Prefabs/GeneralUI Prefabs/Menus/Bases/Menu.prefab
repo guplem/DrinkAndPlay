@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4210582005292475153}
   - component: {fileID: 3840080349367219471}
   - component: {fileID: 8448005081936779519}
+  - component: {fileID: 3602818915612266210}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -235,6 +236,19 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
+--- !u!114 &3602818915612266210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147674281116943025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightDarkColor: {fileID: 11400000, guid: e0933590340406941940c6fc75b5ca75, type: 2}
 --- !u!1 &8850857330660272404
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 4151529799529583733, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 240
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 4151529799529583733, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
@@ -409,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 4151529799529583733, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 480
+      value: 1440
       objectReference: {fileID: 0}
     - target: {fileID: 4151529799529583733, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
@@ -459,7 +473,7 @@ PrefabInstance:
     - target: {fileID: 6600119289130321789, guid: bc5dd075a0174454c987bb3815eda42d,
         type: 3}
       propertyPath: m_fontSize
-      value: 47.6
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc5dd075a0174454c987bb3815eda42d, type: 3}

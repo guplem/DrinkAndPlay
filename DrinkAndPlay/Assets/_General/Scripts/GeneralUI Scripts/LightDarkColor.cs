@@ -5,8 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Light and Dark color", menuName = "Color Light and Dark")]
 public class LightDarkColor : ScriptableObject
 {
-    public Color lightColor;
-    public Color darkColor;
+
+    [Header("Inheritance of colors")]
+    [Tooltip("If set, the colors of the attached 'LightDarkColor' will be used instead of the manually selected colors.")]
+    public LightDarkColor useTheColorsOf;
+
+    [Header("Custom colors")]
+    [Tooltip("Only used if there is no LightDarkColor assigned in 'Use TheColors Of'.")]
+    [SerializeField] private Color _lightColor;
+    [Tooltip("Only used if there is no LightDarkColor assigned in 'Use TheColors Of'.")]
+    [SerializeField] private Color _darkColor;
+
+    public Color lightColor
+    {
+        get { return useTheColorsOf == null ? _lightColor : useTheColorsOf.lightColor; }
+        private set { }
+    }
+    public Color darkColor    
+    {
+        get { return useTheColorsOf == null ? _darkColor : useTheColorsOf.darkColor; }
+        private set { }
+    }
 
     public enum ColorType
     {
@@ -16,7 +35,7 @@ public class LightDarkColor : ScriptableObject
     
     public LightDarkColor()
     {
-        this.lightColor = Color.white;
-        this.darkColor = Color.black;
+        this._lightColor = Color.white;
+        this._darkColor = Color.black;
     }
 }

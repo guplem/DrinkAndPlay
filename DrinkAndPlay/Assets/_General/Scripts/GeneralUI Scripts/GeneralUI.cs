@@ -87,7 +87,7 @@ public class GeneralUI : MonoBehaviour
     {
         if (openUI.Contains(uiElement))
         {
-            Debug.LogError("Trying to open an UI element (" + uiElement + ") that already is opened. This can not happen");
+            Debug.LogWarning("Trying to open an UI element (" + uiElement + ") that already is opened. This can not happen");
             return false;
         }
 

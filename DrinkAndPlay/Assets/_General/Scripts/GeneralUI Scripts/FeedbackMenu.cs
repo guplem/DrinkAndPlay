@@ -65,16 +65,18 @@ public class FeedbackMenu : MonoBehaviour
     {
         //TODO: Show warning if there is no internet connection
         
+        ColorBlock buttonColors = sendButton.colors;
+        
         if (AreContentsCorrect() /*&& Application.internetReachability != NetworkReachability.NotReachable*/) //This test only checks the connectivity,not if the internet is actually reachable
         {
-            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, 1f);
-            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, 1f);
+            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, buttonColors.normalColor.a);
+            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, buttonColors.normalColor.a);
             sendButton.interactable = true;
         }
         else
         {
-            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, 0.5f);
-            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, 0.5f);
+            sendTextButton.color = new Color(sendTextButton.color.r, sendTextButton.color.g, sendTextButton.color.b, buttonColors.disabledColor.a);
+            sendIconButton.color = new Color(sendIconButton.color.r, sendIconButton.color.g, sendIconButton.color.b, buttonColors.disabledColor.a);
             sendButton.interactable = false;
         }
     }

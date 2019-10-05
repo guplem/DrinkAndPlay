@@ -11,7 +11,9 @@ public class ThemeSwitcher : MonoBehaviour
     public static void SwitchTheme()
     {
         if (Application.isPlaying)
+        {
             GameManager.instance.dataManager.darkMode = !GameManager.instance.dataManager.darkMode;
+        }
         else
         {
             currentTheme = (currentTheme == LightDarkColor.ColorType.Light)

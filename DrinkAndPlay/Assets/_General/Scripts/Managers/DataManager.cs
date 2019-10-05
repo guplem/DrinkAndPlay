@@ -444,9 +444,12 @@ public class DataManager
         {
             if (_darkMode == value) 
                 return;
+            
             Debug.Log("New dark mode state: " + value);
             _darkMode = value;
+            
             SaveGame.Save(darkModeSavename, value);
+            
             changedVisualMode(GetVisualMode());
         }
     }

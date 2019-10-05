@@ -22,6 +22,7 @@ public class GeneralUI : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private AnimationUI configMenu;
     [SerializeField] private AnimationUI languageMenu;
+    [SerializeField] private AnimationUI visualsMenu;
     [SerializeField] private AnimationUI playersMenu;
     private PlayersMenu playersMenuController;
     [SerializeField] private AnimationUI naughtyLevelMenu;
@@ -117,6 +118,11 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening LanguageMenu");
         Show(languageMenu);
+    }
+    public void OpenVisualsMenu()
+    {
+        Debug.Log("Opening VisualsMenu");
+        Show(visualsMenu);
     }
     public void OpenPlayersMenu()
     {

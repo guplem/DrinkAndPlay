@@ -7,13 +7,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class ImageSwitcher : MonoBehaviour
 {
-    private Image imageComponent;
-    [SerializeField] private Sprite switchingSprite;
     private bool initialState = true;
     
+    private Image imageComponent;
+    [SerializeField] private Sprite switchingSprite;
+
+    private ColorSwitcher colorSwitcher;
+    [SerializeField] private LightDarkColor switchingColor;
+
+
     private void Start()
     {
         imageComponent = GetComponent<Image>();
+        colorSwitcher = GetComponent<ColorSwitcher>();
     }
 
     public void Switch()
@@ -21,6 +27,15 @@ public class ImageSwitcher : MonoBehaviour
         Sprite oldSprite = imageComponent.sprite;
         imageComponent.sprite = switchingSprite;
         switchingSprite = oldSprite;
+
+        if (colorSwitcher != null && switchingColor != null)
+        {
+            LightDarkColor oldColor = colorSwitcher.lightDarkColor;
+            colorSwitcher.lightDarkColor = switchingColor;
+            switchingColor = oldColor;
+            colorSwitcher.UpdateColor();
+        }
+
         initialState = !initialState;
     }
 

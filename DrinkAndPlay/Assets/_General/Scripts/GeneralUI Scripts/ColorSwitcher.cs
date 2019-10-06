@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
 
 public partial class ColorSwitcher : MonoBehaviour
 {
-    [SerializeField] private LightDarkColor lightDarkColor;
+    [SerializeField] public LightDarkColor lightDarkColor;
 
     private bool subscribed = false;
 
@@ -30,7 +31,8 @@ public partial class ColorSwitcher : MonoBehaviour
             GameManager.instance.dataManager.changedVisualMode += SetColorTo;
             subscribed = true;
         }
-        SetColorTo(GameManager.instance.dataManager.GetVisualMode());
+
+        UpdateColor();
     }
     
     private void OnDisable()
@@ -67,12 +69,15 @@ public partial class ColorSwitcher : MonoBehaviour
             cam.backgroundColor = GetColor(colorType);
             return;
         }
-            
-
-
 
     }
 
+    public void UpdateColor()
+    {
+        SetColorTo(GameManager.instance.dataManager.GetVisualMode());
+    }
+    
+    
     public Color GetColor(LightDarkColor.ColorType colorType)
     {
         switch (colorType)

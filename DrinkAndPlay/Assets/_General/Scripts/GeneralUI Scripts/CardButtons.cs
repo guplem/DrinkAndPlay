@@ -23,7 +23,7 @@ public class CardButtons : MonoBehaviour
         {
             secMan = (TurnsGameManager) (SectionManager.instance);
         }
-        catch (InvalidCastException e)
+        catch (InvalidCastException)
         {
             //Must be added manually
             return; 

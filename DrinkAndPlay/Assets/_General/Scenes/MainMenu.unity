@@ -5432,16 +5432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SectionDescription
       objectReference: {fileID: 0}
-    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: shadow
-      value: 
-      objectReference: {fileID: 1421627542}
-    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: scrollContentsContainer
-      value: 
-      objectReference: {fileID: 1136910372}
     - target: {fileID: 2032926908444704290, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5547,6 +5537,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 1421627542}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: scrollContentsContainer
+      value: 
+      objectReference: {fileID: 1136910372}
     - target: {fileID: 2032926908881851596, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r

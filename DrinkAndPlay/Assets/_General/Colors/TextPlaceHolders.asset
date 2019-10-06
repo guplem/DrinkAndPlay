@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTheColorsOf: {fileID: 0}
   _lightColor: {r: 0.627451, g: 0.627451, b: 0.627451, a: 1}
-  _darkColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+  _darkColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}

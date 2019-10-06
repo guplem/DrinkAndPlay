@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: GWN
   descriptionId: GWD
-  image: {fileID: 21300000, guid: b382f2f1ddbdd9a409b7d11af3de0755, type: 3}
+  image: {fileID: 21300000, guid: c95995f0e3106094e9a0381a9a41888a, type: 3}
   newness: 0
   comingSoon: 0
   premium: 0

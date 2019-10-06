@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: MMN
   descriptionId: MMD
-  image: {fileID: 21300000, guid: b382f2f1ddbdd9a409b7d11af3de0755, type: 3}
+  image: {fileID: 21300000, guid: 4ea16e57016154347a9e194f9d0746fe, type: 3}
   newness: 0
   comingSoon: 0
   premium: 0
@@ -27,6 +27,6 @@ MonoBehaviour:
   sectionTitle: 0
   appTitle: 1
   configButton: 0
-  showNaughtyLevelConfigurator: 0
-  showPlayersConfigurator: 0
-  showLanguageConfigurator: 0
+  forceShowNaughtyLevelConfigurator: 0
+  forceShowPlayersConfigurator: 0
+  forceShowLanguageConfigurator: 0

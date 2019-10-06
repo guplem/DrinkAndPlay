@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
@@ -50,6 +51,8 @@ public partial class ColorSwitcher : MonoBehaviour
         Image img = GetComponent<Image>();
         if (img != null)
         {
+            Undo.RecordObject(img, "Changing the component 'Image' on " + gameObject.name);
+            
             img.color = GetColor(colorType);
             return;
         }
@@ -57,15 +60,17 @@ public partial class ColorSwitcher : MonoBehaviour
         TextMeshProUGUI txt = GetComponent<TextMeshProUGUI>();
         if (txt != null)
         {
+            Undo.RecordObject(txt, "Changing the component 'TextMeshProUGUI' on " + gameObject.name);
+
             txt.color = GetColor(colorType);
             return;
         }
         
-        //TODO: Buttons
-        
         Camera cam = GetComponent<Camera>();
         if (cam != null)
         {
+            Undo.RecordObject(cam, "Changing the component 'Camera' on " + gameObject.name);
+
             cam.backgroundColor = GetColor(colorType);
             return;
         }

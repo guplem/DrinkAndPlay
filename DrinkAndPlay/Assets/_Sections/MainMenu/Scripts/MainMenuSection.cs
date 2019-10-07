@@ -19,6 +19,7 @@ public class MainMenuSection : MonoBehaviour
         //ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
         ar.aspectRatio = section.image.rect.width / section.image.rect.height;
 
+        transform.parent.GetComponent<AspectRatioFitter>().aspectRatio = ar.aspectRatio*2;
         
         image.sprite = section.image;
 

@@ -10,7 +10,7 @@ public class MainMenuManager : SectionManager
 {
     [Header("Sections - Games")]
     [SerializeField] private GameObject verticalScrollContentHolder;
-    [SerializeField] private GameObject mainMenuSectionPrefab;
+    [SerializeField] private GameObject mainMenuSectionDoublePrefab;
     [SerializeField] private Section[] sectionsToDisplay;
     [SerializeField] private Description sectionDescription;
     [SerializeField] private Transform[] exceptionsInVerticalMenu; 
@@ -45,18 +45,25 @@ public class MainMenuManager : SectionManager
         destroyExceptions.AddRange(exceptionsInVerticalMenu.ToList());
         UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
+        GameObject doubleSection = null;
         for (int s = 0; s < sectionsToDisplay.Length; s++)
         {
-            // OPTION A Keeping the prefab connection
-            /*
-            GameObject game = PrefabUtility.InstantiatePrefab(mainMenuGamePrefab) as GameObject;
-            game.transform.SetParent(verticalScrollContentHolder.transform);
-            */
+            int childIndex = Math.Abs(((float) s) % 2f) < 0.01f ? 0 : 1;
 
-            // OPTION A Destroying the prefab connection
-            GameObject game = Instantiate(mainMenuSectionPrefab, verticalScrollContentHolder.transform);
+            if (childIndex == 0)
+            {
+                // OPTION A Keeping the prefab connection
+                doubleSection = PrefabUtility.InstantiatePrefab(mainMenuSectionDoublePrefab) as GameObject;
+                doubleSection.transform.SetParent(verticalScrollContentHolder.transform);
+                doubleSection.transform.localScale = Vector3.one;
+            
+                // OPTION A Destroying the prefab connection
+                //GameObject doubleSection = Instantiate(mainMenuSectionDoublePrefab, verticalScrollContentHolder.transform);
+            
+                doubleSection.transform.SetSiblingIndex(s/2+1);
+            }
 
-            game.transform.SetSiblingIndex(s+1);
+            GameObject game = doubleSection.transform.GetChild(childIndex).gameObject;
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }
 

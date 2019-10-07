@@ -5,7 +5,7 @@ MM3,ES3,EN3
 MM4,ES4,EN4
 MM5,ES5,EN5
 MM6,ES6,EN6
-CN1,Ron Cocacola,Ron Coke
+CN1,RonCola,RonCoke
 CD1,"<b>Ingredientes</b><br> - Ron<br> - Coca Cola<br><br><b>¿Cómo prepararlo?</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in euismod diam. Cras ut erat turpis. Etiam feugiat lacinia mauris nonk.","<b>INGR1EN</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<br><br>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW"
 CN2,Ginebra Tonica,DinTonic
 CD2,"<b>INGR2ES</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<br><br>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW","<b>INGR2EN</b> vitae. Nullam gravida. <br> est eu viverra consectetur, risus <br> massa porttitor risus, eu INGR<br><br>HOW1ES lacus vitae ante. Aenean molestie elit non hendrerit euismod. Nunc egestas fringilla HOW"

@@ -15,7 +15,7 @@ public class Description : AnimationUI
     [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject closeButton;
     [SerializeField] private GameObject image;
-    [SerializeField] private GameObject textInImage;
+    [SerializeField] private TextMeshProUGUI textInImage;
     [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
     [SerializeField] private AnimationCurve contentsAnimation;
@@ -44,6 +44,9 @@ public class Description : AnimationUI
     private RectTransform backgroundRect;
     private RectTransform imageRect;
     private RectTransform contentsRect;
+
+    private float originalImageWidth = 0;
+    private float originalTextSize = 0;
 
     //Default characteristics at start
     private void Start()
@@ -80,6 +83,21 @@ public class Description : AnimationUI
         SetDescriptionContents(titleId, descriptionId);
         SaveActualPositionsAsCloseState();
         
+        originalImageWidth = originalImage.GetComponent<RectTransform>().GetWidthTransform();
+
+        Transform textChild = null;
+        try {
+            textChild = originalImage.transform.GetChild(0);
+        } catch (Exception) { }
+        
+        TextMeshProUGUI originalText = null;
+        if (textChild != null)
+            originalText = textChild.gameObject.GetComponent<TextMeshProUGUI>();
+        
+        if (originalText != null)
+            originalTextSize = originalText.fontSize;
+        else
+            originalTextSize = 0;
     }
 
     private void SaveActualPositionsAsCloseState()
@@ -105,13 +123,14 @@ public class Description : AnimationUI
     {
         //Activate elements
         image.SetActive(true);
+        shadow.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
 
         image.GetComponent<Image>().sprite = originalImage.GetComponent<Image>().sprite;
         
-        if (textInImage != null)
-            textInImage.GetComponent<TextMeshProUGUI>().text = originalImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        if (textInImage != null && textInImage.gameObject.activeSelf)
+            textInImage.text = originalImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
 
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
         //Get original image size
@@ -170,6 +189,7 @@ public class Description : AnimationUI
 
     private void CheckScrollPosToHide()
     {
+        //Debug.Log((scrollContentsContainer.rect.height/8 < -1*scrollContentsContainer.offsetMin.y) + " / " + scrollContentsContainer.rect.height/8 + " < " + -1*scrollContentsContainer.offsetMin.y);
         if (scrollContentsContainer.rect.height/8 < -1*scrollContentsContainer.offsetMin.y)
             CloseLastOpenUiElement();
     }
@@ -177,6 +197,7 @@ public class Description : AnimationUI
     public override void EndAnimHiding()
     {
         image.SetActive(false);
+        shadow.SetActive(false);
         background.SetActive(false);
         contents.SetActive(false);
     }
@@ -199,7 +220,9 @@ public class Description : AnimationUI
         SetOpacityTo(image, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
         //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
-        SetOpacityTo(shadow, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
+        SetOpacityTo(shadow, Mathf.Lerp(0f, 0.490196078f, GetAnimationPosByCurve()), false);
+
+        textInImage.fontSize = imageRect.GetWidthTransform() * originalTextSize / originalImageWidth;
     }
 
 }

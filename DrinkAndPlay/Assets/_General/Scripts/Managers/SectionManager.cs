@@ -29,7 +29,7 @@ public abstract class SectionManager : MonoBehaviour
 
         SetupSectionUi();
         
-        GetComponent<RectTransform>().SetTop(gm.generalUi.topBar.GetComponent<RectTransform>().GetHeight());
+        GetComponent<RectTransform>().SetTop(gm.generalUi.topBar.GetComponent<RectTransform>().GetHeightAnchors());
 
         Debug.Log(" ========= Finished section setup - SectionManager (Awake) ========= ");
         

@@ -51,7 +51,9 @@ public partial class ColorSwitcher : MonoBehaviour
         Image img = GetComponent<Image>();
         if (img != null)
         {
+            #if UNITY_EDITOR
             Undo.RecordObject(img, "Changing the component 'Image' on " + gameObject.name);
+            #endif
             
             img.color = GetColor(colorType);
             return;
@@ -60,8 +62,10 @@ public partial class ColorSwitcher : MonoBehaviour
         TextMeshProUGUI txt = GetComponent<TextMeshProUGUI>();
         if (txt != null)
         {
+            #if UNITY_EDITOR
             Undo.RecordObject(txt, "Changing the component 'TextMeshProUGUI' on " + gameObject.name);
-
+            #endif
+            
             txt.color = GetColor(colorType);
             return;
         }
@@ -69,8 +73,10 @@ public partial class ColorSwitcher : MonoBehaviour
         Camera cam = GetComponent<Camera>();
         if (cam != null)
         {
+            #if UNITY_EDITOR
             Undo.RecordObject(cam, "Changing the component 'Camera' on " + gameObject.name);
-
+            #endif
+            
             cam.backgroundColor = GetColor(colorType);
             return;
         }

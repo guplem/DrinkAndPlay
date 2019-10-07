@@ -53,19 +53,28 @@ public class MainMenuManager : SectionManager
             if (childIndex == 0)
             {
                 // OPTION A Keeping the prefab connection
+                #if UNITY_EDITOR
                 doubleSection = PrefabUtility.InstantiatePrefab(mainMenuSectionDoublePrefab) as GameObject;
                 doubleSection.transform.SetParent(verticalScrollContentHolder.transform);
                 doubleSection.transform.localScale = Vector3.one;
-            
+                
+                #else
+                
                 // OPTION A Destroying the prefab connection
-                //GameObject doubleSection = Instantiate(mainMenuSectionDoublePrefab, verticalScrollContentHolder.transform);
-            
+                doubleSection = Instantiate(mainMenuSectionDoublePrefab, verticalScrollContentHolder.transform);
+                doubleSection.transform.localScale = Vector3.one;
+                #endif
                 doubleSection.transform.SetSiblingIndex(s/2+1);
             }
 
             GameObject game = doubleSection.transform.GetChild(childIndex).gameObject;
             game.GetComponent<MainMenuSection>().Setup(sectionsToDisplay[s]);
         }
+
+        if (sectionsToDisplay.Length % 2 != 0)
+            doubleSection.transform.GetChild(1).gameObject.SetActive(false);
+            
+            
 
         //Cocktails
         destroyExceptions.Clear();
@@ -74,7 +83,20 @@ public class MainMenuManager : SectionManager
 
         for (int c = 0; c < cocktailsToDisplay.Length; c++)
         {
-            GameObject cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
+            // OPTION A Keeping the prefab connection
+            GameObject cocktail = null;
+            
+            #if UNITY_EDITOR
+            cocktail = PrefabUtility.InstantiatePrefab(mainMenuCocktailPrefab) as GameObject;
+            cocktail.transform.SetParent(horizontalScrollContentHolder.transform);
+            cocktail.transform.localScale = Vector3.one;
+            
+            #else
+
+            // OPTION A Destroying the prefab connectioz
+            cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
+            #endif
+            
             cocktail.transform.SetSiblingIndex(c+1);
             cocktail.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
         }

@@ -222,7 +222,8 @@ public class Description : AnimationUI
         //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
         SetOpacityTo(shadow, Mathf.Lerp(0f, 0.490196078f, GetAnimationPosByCurve()), false);
 
-        textInImage.fontSize = imageRect.GetWidthTransform() * originalTextSize / originalImageWidth;
+        if (textInImage != null)
+            textInImage.fontSize = imageRect.GetWidthTransform() * originalTextSize / originalImageWidth;
     }
 
 }

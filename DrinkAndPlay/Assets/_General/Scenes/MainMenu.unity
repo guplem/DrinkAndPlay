@@ -1129,6 +1129,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d855c1c6381377a4abfb531002ffbb0f, type: 3}
+--- !u!114 &486414989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
+    type: 3}
+  m_PrefabInstance: {fileID: 4669026258432992901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c5bdfb6c59d064395d76ad1b9dee38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &589985218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,11 +1743,11 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4669026258432992901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &886751972 stripped
+--- !u!114 &909100099 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+  m_CorrespondingSourceObject: {fileID: 9158627699133940312, guid: 1e1ba320151aba048bf2d10e756623ff,
     type: 3}
-  m_PrefabInstance: {fileID: 4669026258432992901}
+  m_PrefabInstance: {fileID: 410878006052135348}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1749,18 +1761,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 410878006052135348}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &948320671 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8029706516109563573, guid: 1e1ba320151aba048bf2d10e756623ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 410878006052135348}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18b55d6953636f4b86c968c8828909b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1021485100 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 762515059796641082, guid: f571a6d8246bdee4b9966d30746f8192,
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a9fedac00ef8eb345bad0bdda7a53972, type: 2}
   - {fileID: 11400000, guid: 93a4f343459d1bf40a5a7cc65b42b7db, type: 2}
   - {fileID: 11400000, guid: f877d0a042e66c84387c03a3626128e1, type: 2}
-  sectionDescription: {fileID: 886751972}
+  sectionDescription: {fileID: 486414989}
   exceptionsInVerticalMenu:
   - {fileID: 311224969}
   - {fileID: 1021485100}
@@ -2799,7 +2799,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62bc9224d9c079f409153e8aebffbaf0, type: 2}
   - {fileID: 11400000, guid: 82ccbb532887cec45b44afa87189458f, type: 2}
   - {fileID: 11400000, guid: 62bc9224d9c079f409153e8aebffbaf0, type: 2}
-  cocktailDescription: {fileID: 948320671}
+  cocktailDescription: {fileID: 909100099}
   exceptionsInHorizontalMenu:
   - {fileID: 1534556921}
   - {fileID: 1289570419}
@@ -2880,7 +2880,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886751972}
+      - m_Target: {fileID: 486414989}
         m_MethodName: CheckIfShouldHide
         m_Mode: 0
         m_Arguments:
@@ -2891,7 +2891,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 948320671}
+      - m_Target: {fileID: 909100099}
         m_MethodName: CheckIfShouldHide
         m_Mode: 0
         m_Arguments:
@@ -4473,6 +4473,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -14.000061
       objectReference: {fileID: 0}
+    - target: {fileID: 9158627699133940312, guid: 1e1ba320151aba048bf2d10e756623ff,
+        type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 1421627542}
+    - target: {fileID: 9158627699133940312, guid: 1e1ba320151aba048bf2d10e756623ff,
+        type: 3}
+      propertyPath: scrollContentsContainer
+      value: 
+      objectReference: {fileID: 1136910372}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1ba320151aba048bf2d10e756623ff, type: 3}
 --- !u!1001 &4275858387034780071
@@ -5101,5 +5111,15 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: scrollContentsContainer
+      value: 
+      objectReference: {fileID: 1136910372}
+    - target: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 1421627542}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe50530d30b884b9eed03659738a38, type: 3}

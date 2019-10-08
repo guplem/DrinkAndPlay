@@ -13,7 +13,7 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject verticalScrollContentHolder;
     [SerializeField] private GameObject mainMenuSectionDoublePrefab;
     [SerializeField] private Section[] sectionsToDisplay;
-    [SerializeField] private Description sectionDescription;
+    [SerializeField] private SectionDescription sectionDescription;
     [SerializeField] private Transform[] exceptionsInVerticalMenu; 
 
     [Header("Coctels - Recipes")]

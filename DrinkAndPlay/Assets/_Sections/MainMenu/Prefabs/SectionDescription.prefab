@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032926908444704290}
   - component: {fileID: 2032926908444704288}
-  - component: {fileID: 2032926908444704289}
+  - component: {fileID: 5304000150085340791}
   m_Layer: 5
   m_Name: SectionDescription
   m_TagString: Untagged
@@ -232,7 +232,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032926908444704293}
   m_CullTransparentMesh: 0
---- !u!114 &2032926908444704289
+--- !u!114 &5304000150085340791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2032926908444704293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18b55d6953636f4b86c968c8828909b, type: 3}
+  m_Script: {fileID: 11500000, guid: 21c5bdfb6c59d064395d76ad1b9dee38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainAnimationCurve:
@@ -304,8 +304,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -358,6 +358,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   title: {fileID: 2032926908072384819}
   description: {fileID: 2032926909812376382}
+  playButton: {fileID: 2032926909796019034}
+  playText: {fileID: 2032926910134185146}
 --- !u!1 &2032926908820710180
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032926908444704289}
+      - m_Target: {fileID: 5304000150085340791}
         m_MethodName: CloseLastOpenUiElement
         m_Mode: 1
         m_Arguments:

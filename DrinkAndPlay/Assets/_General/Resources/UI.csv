@@ -1,6 +1,6 @@
 Id,es-es,en-us
 Configuration,Ajustes,Settings
-Credits,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.
+Credits,Este juego ha sido creado por Guillem Poy con la colaboración de Aina Lopez.,This game has been created by Guillem Poy with the collaboration of his friends.
 Language,Idioma,Language
 Visuals,Apariencia,Appearance
 DarkMode,Modo oscuro,Dark theme
@@ -19,6 +19,7 @@ Send,Enviar,Send
 FeedbackExplanation,Tras enviar el formulario vamos a revisarlo y consideraremos tu aportación para mejorar la aplicación.,After submitting the form we will review it and consider your contribution to improve the application.
 Players,Jugadores,Players
 Play,Jugar,Play
+ComingSoon,Próximamente...,Coming son...
 PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
 Max,Máximo,Maximum

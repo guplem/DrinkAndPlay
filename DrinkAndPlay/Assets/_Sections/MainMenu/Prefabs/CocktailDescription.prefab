@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 8805026883035796615, guid: 9610c74f4924ed24c86362a0197dc1e5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -414.40512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8805026883035796615, guid: 9610c74f4924ed24c86362a0197dc1e5,
         type: 3}
@@ -124,11 +124,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8805026883035796612, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
-    - {fileID: 8805026883035796614, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
-    - {fileID: 8805026883035796611, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
     - {fileID: 1178973392202606333, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
     - {fileID: 913565579455247564, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
+--- !u!1 &7770018974309028259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8805026883035796616, guid: 9610c74f4924ed24c86362a0197dc1e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1289465843983385899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6424176292511148848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242849773316075035, guid: 9610c74f4924ed24c86362a0197dc1e5,
@@ -142,11 +146,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2032926908444704293, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: m_Name
-      value: CocktailDescription
-      objectReference: {fileID: 0}
     - target: {fileID: 2032926908444704290, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,6 +251,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926908444704293, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: m_Name
+      value: CocktailDescription
+      objectReference: {fileID: 0}
     - target: {fileID: 2032926909796019036, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_IsActive
@@ -260,7 +264,7 @@ PrefabInstance:
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -270,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -280,27 +284,27 @@ PrefabInstance:
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_isTextTruncated
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 100
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 15
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 16
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2032926908072384821, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2032926908072384821, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -380,6 +384,16 @@ PrefabInstance:
       propertyPath: textInImage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: imageOrMainMenuSection
+      value: 
+      objectReference: {fileID: 7770018974309028259}
+    - target: {fileID: 2032926908444704289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: MainMenuCocktailOrSection
+      value: 
+      objectReference: {fileID: 7770018974309028259}
     - target: {fileID: 3955137610473893251, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_IsActive

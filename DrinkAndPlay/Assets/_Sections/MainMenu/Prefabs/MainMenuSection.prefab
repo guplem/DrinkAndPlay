@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 5258939499341647178}
   titleText: {fileID: 2985918944868216657}
+  commingSoon: {fileID: 2149476534736931922}
 --- !u!114 &4355296072449536978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   localizationFile: {fileID: 11400000, guid: 69ac660e3f4d4e246a4a431422094ec5, type: 2}
-  automaticallyLocalize: 1
+  automaticallyLocalize: 0
   registerTimestampAtLocalize: 0
   textsToLocalize: []
 --- !u!1 &2149476534736931922
@@ -595,7 +596,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.55
+  m_fontSize: 33.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

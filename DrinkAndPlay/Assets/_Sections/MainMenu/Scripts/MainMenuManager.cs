@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,14 +105,14 @@ public class MainMenuManager : SectionManager
 
     public void OpenSectionDescription(Section selectedSection, GameObject originalImage)
     {
-        sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage);
+        sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage, selectedSection);
         gm.generalUi.Show(sectionDescription);
         currentSelectedSection = selectedSection;
     }
     
-    public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage)
+    public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage, Cocktail selectedCocktail)
     {
-        cocktailDescription.SetupAnimationOf(nameId, descriptionId, originalImage);
+        cocktailDescription.SetupAnimationOf(nameId, descriptionId, originalImage, selectedCocktail);
         gm.generalUi.Show(cocktailDescription);
     }
 

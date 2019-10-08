@@ -14,9 +14,9 @@ public class MainMenuCoctel : MonoBehaviour
         this.cocktail = cocktail;
 
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
-        //ar.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
-        ar.aspectRatio = cocktail.image.rect.width / cocktail.image.rect.height;
-
+        if (ar != null)
+            ar.aspectRatio = cocktail.image.rect.width / cocktail.image.rect.height;
+        
         image.sprite = cocktail.image;
     }
 
@@ -27,7 +27,7 @@ public class MainMenuCoctel : MonoBehaviour
 
     private void OpenCocktailAtEvent()
     {
-        ((MainMenuManager)SectionManager.instance).OpenCocktailDescription(cocktail.nameId, cocktail.descriptionId, image.gameObject);
+        ((MainMenuManager)SectionManager.instance).OpenCocktailDescription(cocktail.nameId, cocktail.descriptionId, image.gameObject, cocktail);
         GetComponent<ButtonAnimation>().MidAnimEvent -= OpenCocktailAtEvent;
     }
     

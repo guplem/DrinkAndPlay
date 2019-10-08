@@ -9,21 +9,28 @@ public class MainMenuSection : MonoBehaviour
     private Section section;
     [SerializeField] private Image image;
     [SerializeField] private Localizer titleText;
-
+    [SerializeField] private GameObject commingSoon;
 
     public void Setup(Section section)
     {
         this.section = section;
 
         AspectRatioFitter ar = GetComponent<AspectRatioFitter>();
-        //ar.aspectMode = AspectRatioFitter.AspectMode.WidthControlsHeight;
-        ar.aspectRatio = section.image.rect.width / section.image.rect.height;
+        if (ar != null)
+        {
+            ar.aspectRatio = section.image.rect.width / section.image.rect.height;
 
-        transform.parent.GetComponent<AspectRatioFitter>().aspectRatio = ar.aspectRatio*2;
+            AspectRatioFitter parentAr = transform.parent.GetComponent<AspectRatioFitter>();
+            if (parentAr != null)
+                parentAr.aspectRatio = ar.aspectRatio*2;
+        }
+
         
         image.sprite = section.image;
+        
+        commingSoon.SetActive(section.comingSoon);
 
-        titleText.SetId(section.nameId);
+        titleText.Localize(section.nameId);
     }
 
     /*public void SelectGame()

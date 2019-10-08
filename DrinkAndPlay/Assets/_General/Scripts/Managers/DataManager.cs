@@ -458,10 +458,41 @@ public class DataManager
     private bool _darkMode;
     private const string darkModeSavename = "darkMode";
 
-    #endregion
-
     public LightDarkColor.ColorType GetVisualMode()
     {
         return darkMode? LightDarkColor.ColorType.Dark : LightDarkColor.ColorType.Light;
     }
+    
+    #endregion
+
+
+    #region BetaTester
+
+    public bool betaTester
+    {
+        get
+        {
+            _betaTester = SaveGame.Load(betaTesterSavename, false);
+            return _betaTester;
+        }
+        set
+        {
+            if (_betaTester == value || value == false) 
+                return;
+            
+            _betaTester = value;
+            
+            SaveGame.Save(betaTesterSavename, value);
+        }
+    }
+    private bool _betaTester = false;
+    private const string betaTesterSavename = "betaTester";
+
+    public bool IsBetaTester()
+    {
+        return betaTester;
+    }
+    
+    #endregion
+    
 }

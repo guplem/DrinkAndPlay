@@ -16,15 +16,23 @@ public class MainMenuManager : SectionManager
     [SerializeField] private SectionDescription sectionDescription;
     [SerializeField] private Transform[] exceptionsInVerticalMenu; 
 
-    [Header("Coctels - Recipes")]
-    [SerializeField] private GameObject horizontalMenu;
-    [SerializeField] private GameObject horizontalScrollContentHolder;
-    [SerializeField] private GameObject mainMenuCocktailPrefab;
+    [Header("Cocktails - Recipes")]
+    //[SerializeField] private GameObject horizontalMenuCocktails;
+    [SerializeField] private GameObject horizontalScrollContentHolderCocktails;
     [SerializeField] private Cocktail[] cocktailsToDisplay;
+    [SerializeField] private Transform[] exceptionsInHorizontalMenuCocktails; 
+    
+    [Header("Cubatas - Recipes")]
+    //[SerializeField] private GameObject horizontalMenuCubatas;
+    [SerializeField] private GameObject horizontalScrollContentHolderCubatas;
+    [SerializeField] private Cocktail[] cubatasToDisplay;
+    [SerializeField] private Transform[] exceptionsInHorizontalMenuCubatas; 
+    
+    [Space(20)]
+    [SerializeField] private GameObject mainMenuCocktailPrefab;
     [SerializeField] private Description cocktailDescription;
+    
     private Section currentSelectedSection;
-    [SerializeField] private Transform[] exceptionsInHorizontalMenu; 
-
 
     private void Start()
     {
@@ -41,8 +49,10 @@ public class MainMenuManager : SectionManager
     {
         List<Transform> destroyExceptions = new List<Transform>();
 
+        #region GAMES
+
         //Games
-        destroyExceptions.Add(horizontalMenu.transform);
+        //destroyExceptions.Add(horizontalMenuCocktails.transform);
         destroyExceptions.AddRange(exceptionsInVerticalMenu.ToList());
         UtilsUI.DestroyContentsOf(verticalScrollContentHolder.transform, destroyExceptions);
 
@@ -54,17 +64,17 @@ public class MainMenuManager : SectionManager
             if (childIndex == 0)
             {
                 // OPTION A Keeping the prefab connection
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 doubleSection = PrefabUtility.InstantiatePrefab(mainMenuSectionDoublePrefab) as GameObject;
                 doubleSection.transform.SetParent(verticalScrollContentHolder.transform);
                 doubleSection.transform.localScale = Vector3.one;
                 
-                #else
+#else
                 
                 // OPTION A Destroying the prefab connection
                 doubleSection = Instantiate(mainMenuSectionDoublePrefab, verticalScrollContentHolder.transform);
                 doubleSection.transform.localScale = Vector3.one;
-                #endif
+#endif
                 doubleSection.transform.SetSiblingIndex(s/2+1);
             }
 
@@ -74,32 +84,41 @@ public class MainMenuManager : SectionManager
 
         if (sectionsToDisplay.Length % 2 != 0)
             doubleSection.transform.GetChild(1).gameObject.SetActive(false);
-            
-            
 
+        #endregion
+        
+        
         //Cocktails
+        SpawnCocktails(cocktailsToDisplay, exceptionsInHorizontalMenuCocktails, horizontalScrollContentHolderCocktails);
+        SpawnCocktails(cubatasToDisplay, exceptionsInHorizontalMenuCubatas, horizontalScrollContentHolderCubatas);
+    }
+
+    public void SpawnCocktails(Cocktail[] drinkToDisplay, Transform[] exceptionsInHorizontalMenu,
+        GameObject scrollContentHolder)
+    {
+        List<Transform> destroyExceptions = new List<Transform>();
         destroyExceptions.Clear();
         destroyExceptions.AddRange(exceptionsInHorizontalMenu.ToList());
-        UtilsUI.DestroyContentsOf(horizontalScrollContentHolder.transform, destroyExceptions);
+        UtilsUI.DestroyContentsOf(scrollContentHolder.transform, destroyExceptions);
 
-        for (int c = 0; c < cocktailsToDisplay.Length; c++)
+        for (int c = 0; c < drinkToDisplay.Length; c++)
         {
             // OPTION A Keeping the prefab connection
-            GameObject cocktail = null;
+            GameObject drink = null;
             
-            #if UNITY_EDITOR
-            cocktail = PrefabUtility.InstantiatePrefab(mainMenuCocktailPrefab) as GameObject;
-            cocktail.transform.SetParent(horizontalScrollContentHolder.transform);
-            cocktail.transform.localScale = Vector3.one;
+#if UNITY_EDITOR
+            drink = PrefabUtility.InstantiatePrefab(mainMenuCocktailPrefab) as GameObject;
+            drink.transform.SetParent(scrollContentHolder.transform);
+            drink.transform.localScale = Vector3.one;
             
-            #else
+#else
 
             // OPTION A Destroying the prefab connectioz
-            cocktail = Instantiate(mainMenuCocktailPrefab, horizontalScrollContentHolder.transform);
-            #endif
+            drink = Instantiate(mainMenuCocktailPrefab, scrollContentHolder.transform);
+#endif
             
-            cocktail.transform.SetSiblingIndex(c+1);
-            cocktail.GetComponent<MainMenuCoctel>().Setup(cocktailsToDisplay[c]);
+            drink.transform.SetSiblingIndex(c+1);
+            drink.GetComponent<MainMenuCoctel>().Setup(drinkToDisplay[c]);
         }
     }
 
@@ -134,6 +153,11 @@ public class MainMenuManager : SectionManager
     public void OpenSendNewCocktailFeedbakc()
     {
         GameManager.instance.generalUi.OpenFeedbackMenuCocktails();
+    }
+    
+    public void OpenSendNewCubataFeedbakc()
+    {
+        GameManager.instance.generalUi.OpenFeedbackMenuCubata();
     }
 
 }

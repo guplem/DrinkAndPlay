@@ -20,29 +20,34 @@ public class FeedbackMenu : MonoBehaviour
     [SerializeField] private Image sendIconButton;
     [SerializeField] private Button sendButton;
 
-    public enum FeedbackTime
+    public enum FeedbackType
     {
         General,
         Section,
-        Cocktail
+        Cocktail,
+        Cubata
     }
 
 
-    public void Setup(FeedbackTime feedbackTime)
+    public void Setup(FeedbackType feedbackType)
     {
-        switch (feedbackTime)
+        switch (feedbackType)
         {
-            case FeedbackTime.General:
+            case FeedbackType.General:
                 this.theme = "General";
                 topBarText.Localize("Feedback");
                 break;
-            case FeedbackTime.Section:
+            case FeedbackType.Section:
                 topBarText.Localize("SendGameContent");
                 this.theme = SectionManager.instance.section.ToString();
                 break;
-            case FeedbackTime.Cocktail:
+            case FeedbackType.Cocktail:
                 topBarText.Localize("SendCocktail");
                 this.theme = "Cocktail";
+                break;
+            case FeedbackType.Cubata:
+                topBarText.Localize("SendCubata");
+                this.theme = "Cubata";
                 break;
         }
 

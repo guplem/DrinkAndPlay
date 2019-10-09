@@ -52,11 +52,6 @@ public class GeneralUI : MonoBehaviour
         gameTitle.SetActive(section.appTitle);
         configButton.SetActive(section.configButton);
 
-        /*bottomBar.SetActive(section.bottomBar);
-        likeButton.SetActive(section.likeButton);
-        addButton.SetActive(section.addButton);
-        shareButton.SetActive(section.shareButton);*/
-
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
 
@@ -128,14 +123,18 @@ public class GeneralUI : MonoBehaviour
     {
         ShowPlayersMenu();
         if (SectionManager.instance.section.minNumberOfPlayers > 0)
-            playersMenuController.ShowPlayersDescription(SectionManager.instance.section.minNumberOfPlayers);
+            playersMenuController.ShowPlayersAdditionalElements(SectionManager.instance.section.minNumberOfPlayers, null);
         else
-            playersMenuController.HidePLayersDescription();
+            playersMenuController.HidePlayersAdditionalElements();
+
+        playersMenuController.BuildPlayerList();
     }
-    public void OpenPlayersMenu(int minPlayerNumber)
+    public void OpenPlayersMenu(int minPlayerNumber, Section sectionToOpenAfter)
     {
         ShowPlayersMenu();
-        playersMenuController.ShowPlayersDescription(minPlayerNumber);
+        playersMenuController.ShowPlayersAdditionalElements(minPlayerNumber, sectionToOpenAfter);
+        
+        playersMenuController.BuildPlayerList();
     }
 
     private void ShowPlayersMenu()

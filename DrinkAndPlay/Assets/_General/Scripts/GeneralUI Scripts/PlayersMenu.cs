@@ -16,9 +16,13 @@ public class PlayersMenu : MonoBehaviour
     [SerializeField] private Transform[] elementsNotInPlayerList;
     [SerializeField] private TMP_InputField addPlayerInputField;
     [SerializeField] private Localizer minNumberOfPlayersDescription;
+
+    [SerializeField] private Button playButton;
+    [SerializeField] private GameObject[] playButtonElements;
+    private Section selectedSection;
     private void Start()
     {
-        BuildPlayerList();
+        //BuildPlayerList();
         SetDoneButtonAvailability();
     }
 
@@ -61,21 +65,49 @@ public class PlayersMenu : MonoBehaviour
                 allowRemoval = SectionManager.instance.section.minNumberOfPlayers <
                                GameManager.instance.dataManager.GetPlayersQuantity();
 
-            
             playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
         }
         
+        playButton.interactable = GameManager.instance.HaveEnoughPlayersFor(selectedSection);
     }
 
-    public void HidePLayersDescription()
+    public void HidePlayersAdditionalElements()
     {
         minNumberOfPlayersDescription.gameObject.SetActive(false);
+        SetupPlayButton(null);
     }
 
-    public void ShowPlayersDescription(int minPlayerQuantity)
+    public void ShowPlayersAdditionalElements(int minPlayerQuantity, Section sectionToPlayAfter)
+    {
+        ShowPlayersDescription(minPlayerQuantity);
+        SetupPlayButton(sectionToPlayAfter);
+    }
+    
+    private void ShowPlayersDescription(int minPlayerQuantity)
     {
         minNumberOfPlayersDescription.gameObject.SetActive(true);
         minNumberOfPlayersDescription.Localize();
         minNumberOfPlayersDescription.textsToLocalize[0].tmProGui.text += " " + minPlayerQuantity + "+";
+    }
+
+    private void SetupPlayButton(Section sectionToPlayAfter)
+    {
+        selectedSection = sectionToPlayAfter;
+        foreach (GameObject element in playButtonElements)
+            element.SetActive(sectionToPlayAfter != null);
+    }
+    
+    
+    public void PlaySelectedSection()
+    {
+        playButton.GetComponent<ButtonAnimation>().MidAnimEvent += LoadSelectedSectionAtEvent;
+    }
+    
+    private void LoadSelectedSectionAtEvent()
+    {
+        GameManager.instance.PlaySection(selectedSection);
+        GameManager.instance.generalUi.CloseLastOpenUiElement();
+        
+        GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
     }
 }

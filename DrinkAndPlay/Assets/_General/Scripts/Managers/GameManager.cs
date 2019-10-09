@@ -56,17 +56,24 @@ public class GameManager : MonoBehaviour
         }
 
         
-        if (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity())
+        if (!HaveEnoughPlayersFor(section))
         {
-            generalUi.OpenPlayersMenu(section.minNumberOfPlayers);
+            generalUi.OpenPlayersMenu(section.minNumberOfPlayers, section);
             return;
         }
 
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
-        SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        //SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
+    }
 
+    public bool HaveEnoughPlayersFor(Section section)
+    {
+        if (section != null)
+            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity());
 
-
+        Debug.LogWarning("Checking if there are enough players to play a NULL section.");
+        return true;
     }
 
     private void Update()

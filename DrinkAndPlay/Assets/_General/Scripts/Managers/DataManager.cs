@@ -57,10 +57,14 @@ public class DataManager
         {
             case SystemLanguage.Spanish:
                 return "es-es";
+            case SystemLanguage.Basque:
+                return "es-es";
+            case SystemLanguage.Catalan:
+                return "es-es";
             case SystemLanguage.English:
                 return "en-us";
             default:
-                return "es-es";
+                return "en-us";
         }
     }
     

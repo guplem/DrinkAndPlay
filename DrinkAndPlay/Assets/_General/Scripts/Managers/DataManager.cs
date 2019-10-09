@@ -33,7 +33,7 @@ public class DataManager
         get
         {
             if (_language == null)
-                _language = SaveGame.Load(languageSavename, "es-es");
+                _language = SaveGame.Load(languageSavename, GetSystemLanguage() );
 
             return _language;
         }
@@ -51,6 +51,19 @@ public class DataManager
     private string _language;
     private const string languageSavename = "language";
 
+    private string GetSystemLanguage()
+    {
+        switch (Application.systemLanguage)
+        {
+            case SystemLanguage.Spanish:
+                return "es-es";
+            case SystemLanguage.English:
+                return "en-us";
+            default:
+                return "es-es";
+        }
+    }
+    
     #endregion
 
 

@@ -1,6 +1,6 @@
 Id,es-es,en-us
 Configuration,Ajustes,Settings
-Credits,Este juego ha sido creado por Guillem Poy con la colaboración de Aina Lopez.,This game has been created by Guillem Poy with the collaboration of his friends.
+Credits,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.
 Language,Idioma,Language
 Visuals,Apariencia,Appearance
 DarkMode,Modo oscuro,Dark theme
@@ -28,6 +28,7 @@ NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan lo
 NaughtyLevelWarning,"<color=#cd293c>Atención:</color> Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>The smaller the range, the more repetitive the games will be."
 General,General,General
 Games,Juegos,Games
+Help,Ayuda,Help
 Us,Nosotros,Us
 PlayerName,Nombre de jugador,Player name
 RandomChallenges,Retos aleatorios,Random challenges
@@ -46,9 +47,9 @@ RateText,¿Nos valoras?,Would you rate us?
 ShareText,Mira qué me he encontrado jugando a Drink and Play!,Look what I found playing Drink and Play!
 PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:
 MMN,Menu Principal,Main Menu
-MMD,MMD,MMD
-UIN,UIN,UIN
-UID,UID,UID
+MMD,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ..."
+UIN,Interfaz,Interface
+UID,La interfaz ayuda a mantener coherencia estética y funcional en toda la app,The interface helps maintain aesthetic and functional coherence throughout the app
 YNN,Yo Nunca,Never Have I Ever
 YND,"Se mostrarán frases empezadas por ""Yo nunca..."". Las personas que sí hayan hecho lo afirmado en la frase, deben beber un trago.<br><br>Norma extra: si solo bebe una persona, está obligada a contar la historia.","Phrases started with ""Never have I ever ..."" will be displayed. People who have done what is said in the sentence should take a gulp.<br><br>Extra rule: if only one person drinks, they should tell the story."
 GWN,Adivina Quién,Guess Who
@@ -66,4 +67,3 @@ TN,Tabú,Taboo
 TD,Desc Tabú ES,Desc Taboo EN
 MN,Mímica,Mime
 MD,Desc Mímica ES,Desc Mime EN
-Help,Ayuda,Help

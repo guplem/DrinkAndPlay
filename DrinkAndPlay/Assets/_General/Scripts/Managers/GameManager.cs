@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
         localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
 
         dataManager.betaTester = saveUserAsBetaTester;
+        
+        #if UNITY_ANDROID
+            Screen.fullScreen = false;
+        #endif
     }
     
 

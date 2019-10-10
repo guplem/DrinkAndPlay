@@ -191,19 +191,23 @@ public class Description : AnimationUI
         if (!isShowing)
             return;
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            CheckScrollPosToHide();
-        }
-        
-        if (Input.touchCount <= 0) return;
-        Touch touch = Input.GetTouch(0);
-        switch (touch.phase)
-        {
-            case TouchPhase.Ended:
+        #if UNITY_EDITOR
+            if (Input.GetMouseButtonUp(0))
+            {
                 CheckScrollPosToHide();
-                return;
-        }
+            }
+            
+        #elif UNITY_ANDROID
+            if (Input.touchCount <= 0) return;
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
+            {
+                case TouchPhase.Ended:
+                    CheckScrollPosToHide();
+                    return;
+            }
+        
+        #endif
     }
 
     private void CheckScrollPosToHide()

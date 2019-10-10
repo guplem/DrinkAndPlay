@@ -12,6 +12,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private GameObject sectionTitle;
     [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
+    [SerializeField] private GameObject helpButton;
 
     /*[Header("Bottom Bar")]
     [SerializeField] public GameObject bottomBar;
@@ -28,6 +29,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
+    [SerializeField] private AnimationUI helpMenu;
     
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
@@ -51,6 +53,7 @@ public class GeneralUI : MonoBehaviour
         sectionTitle.SetActive(section.sectionTitle);
         gameTitle.SetActive(section.appTitle);
         configButton.SetActive(section.configButton);
+        helpButton.SetActive(section.helpButton);
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
@@ -247,5 +250,12 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Displaying information popup with text with id = ''" + messageId + "'");
         //TODO - Not necessary yet. Prepared for future needs
+    }
+
+    public void OpenHelpMenu(Section section)
+    {
+        Debug.Log("Opening HelpMenu for " + section);
+        Show(helpMenu);
+        helpMenu.GetComponent<HelpMenu>().Setup(section);
     }
 }

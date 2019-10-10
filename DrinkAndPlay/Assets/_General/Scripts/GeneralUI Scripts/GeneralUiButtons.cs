@@ -13,5 +13,10 @@ public class GeneralUiButtons : MonoBehaviour
     {
         GameManager.instance.generalUi.OpenConfigMenu();
     }
+    
+    public void ClickHelpButton()
+    {
+        GameManager.instance.generalUi.OpenHelpMenu(SectionManager.instance.section);
+    }
 
 }

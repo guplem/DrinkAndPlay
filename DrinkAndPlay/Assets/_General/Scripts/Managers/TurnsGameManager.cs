@@ -37,8 +37,8 @@ public abstract class TurnsGameManager : SectionManager
     private List<TextInTurnsGame> history = new List<TextInTurnsGame>();
     private int historyIndex = -1;
 
-    private int minDelayForRandomChallenge = 10;
-    private int maxDelayForRandomChallenge = 25;
+    private int minDelayForRandomChallenge = 8;
+    private int maxDelayForRandomChallenge = 16;
     private int currentDelayForRandomChallenge = 0;
     
     

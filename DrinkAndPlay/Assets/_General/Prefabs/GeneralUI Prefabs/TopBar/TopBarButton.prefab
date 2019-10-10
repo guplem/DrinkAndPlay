@@ -273,4 +273,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118fc570d56c20647b72c8abce5c69ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDarkColor: {fileID: 0}
+  lightDarkColor: {fileID: 11400000, guid: b236f872cab86e64d8581619a2f9ed90, type: 2}

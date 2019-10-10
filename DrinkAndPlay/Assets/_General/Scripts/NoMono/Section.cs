@@ -25,6 +25,7 @@ public class Section : ScriptableObject
     public bool sectionTitle = true;
     public bool appTitle = false;
     public bool configButton = true;
+    public bool helpButton = true;
 
     [Header("Start configuration")]
     public bool forceShowNaughtyLevelConfigurator;

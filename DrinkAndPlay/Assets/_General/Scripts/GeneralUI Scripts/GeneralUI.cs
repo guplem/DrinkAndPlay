@@ -12,6 +12,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private GameObject sectionTitle;
     [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
+    [SerializeField] private GameObject helpButton;
 
     /*[Header("Bottom Bar")]
     [SerializeField] public GameObject bottomBar;
@@ -28,6 +29,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI naughtyLevelMenu;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
+    [SerializeField] private AnimationUI helpMenu;
     
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
@@ -51,11 +53,7 @@ public class GeneralUI : MonoBehaviour
         sectionTitle.SetActive(section.sectionTitle);
         gameTitle.SetActive(section.appTitle);
         configButton.SetActive(section.configButton);
-
-        /*bottomBar.SetActive(section.bottomBar);
-        likeButton.SetActive(section.likeButton);
-        addButton.SetActive(section.addButton);
-        shareButton.SetActive(section.shareButton);*/
+        helpButton.SetActive(section.helpButton);
 
         if (section.sectionTitle)
             sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
@@ -66,6 +64,8 @@ public class GeneralUI : MonoBehaviour
 
     public void CloseLastOpenUiElement()
     {
+        Debug.Log("Closing last opened UI element");
+        
         if (openUI.Count > 0)
         {
             AnimationUI lastElement = openUI.Pop();
@@ -79,9 +79,22 @@ public class GeneralUI : MonoBehaviour
                 Hide(lastElement);
             }
         }
-            
+
         else
-            GameManager.instance.PlaySection(GameManager.instance.landingSection);
+        {
+            if (!GameManager.instance.PlaySection(GameManager.instance.landingSection))
+            {
+                Debug.Log("Exiting the app as expected with the 'back' button");
+                
+                #if UNITY_EDITOR
+                #elif UNITY_ANDROID
+                    AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+                    activity.Call<bool>("moveTaskToBack" , true);
+                #endif
+                
+            }
+        }
+            
     }
 
     public bool Show(AnimationUI uiElement)
@@ -128,14 +141,18 @@ public class GeneralUI : MonoBehaviour
     {
         ShowPlayersMenu();
         if (SectionManager.instance.section.minNumberOfPlayers > 0)
-            playersMenuController.ShowPlayersDescription(SectionManager.instance.section.minNumberOfPlayers);
+            playersMenuController.ShowPlayersAdditionalElements(SectionManager.instance.section.minNumberOfPlayers, null);
         else
-            playersMenuController.HidePLayersDescription();
+            playersMenuController.HidePlayersAdditionalElements();
+
+        playersMenuController.BuildPlayerList();
     }
-    public void OpenPlayersMenu(int minPlayerNumber)
+    public void OpenPlayersMenu(int minPlayerNumber, Section sectionToOpenAfter)
     {
         ShowPlayersMenu();
-        playersMenuController.ShowPlayersDescription(minPlayerNumber);
+        playersMenuController.ShowPlayersAdditionalElements(minPlayerNumber, sectionToOpenAfter);
+        
+        playersMenuController.BuildPlayerList();
     }
 
     private void ShowPlayersMenu()
@@ -157,21 +174,28 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening FeedbackMenu - General");
         Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.General);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.General);
     }
     
     public void OpenFeedbackMenuCocktails()
     {
         Debug.Log("Opening FeedbackMenu - Cocktails");
         Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.Cocktail);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Cocktail);
+    }
+    
+    public void OpenFeedbackMenuCubata()
+    {
+        Debug.Log("Opening FeedbackMenu - Cubata");
+        Show(feedbackMenu);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Cubata);
     }
     
     public void OpenFeedbackMenuCurrentSection()
     {
         Debug.Log("Opening FeedbackMenu - Current Section");
         Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackTime.Section);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Section);
     }
     
     public void OpenRandomChallengesMenu()
@@ -241,5 +265,12 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Displaying information popup with text with id = ''" + messageId + "'");
         //TODO - Not necessary yet. Prepared for future needs
+    }
+
+    public void OpenHelpMenu(Section section)
+    {
+        Debug.Log("Opening HelpMenu for " + section);
+        Show(helpMenu);
+        helpMenu.GetComponent<HelpMenu>().Setup(section);
     }
 }

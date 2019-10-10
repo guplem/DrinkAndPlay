@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("uiSection")] [SerializeField] public LocalizationFile uiLocalizationFile;
     [SerializeField] public GeneralUI generalUi;
     [SerializeField] public Section landingSection;
+    [SerializeField] public bool saveUserAsBetaTester;
 
     public static GameManager instance { get; private set; }
     public void Initialize()
@@ -41,29 +42,46 @@ public class GameManager : MonoBehaviour
         if (uiLocalizationFile == null)
             Debug.LogError("UI Section not set up in the GameManager.");
         localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
+
+        dataManager.betaTester = saveUserAsBetaTester;
+        
+        #if UNITY_EDITOR
+        #elif UNITY_ANDROID
+            Screen.fullScreen = false;
+        #endif
     }
     
 
-    public void PlaySection(Section section)
+    public bool PlaySection(Section section)
     {
         if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
-            return;
+            return false;
         }
 
         
-        if (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity())
+        if (!HaveEnoughPlayersFor(section))
         {
-            generalUi.OpenPlayersMenu(section.minNumberOfPlayers);
-            return;
+            Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
+            generalUi.OpenPlayersMenu(section.minNumberOfPlayers, section);
+            return false;
         }
 
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
-        SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        //SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
 
+        return true;
+    }
 
+    public bool HaveEnoughPlayersFor(Section section)
+    {
+        if (section != null)
+            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity());
 
+        Debug.LogWarning("Checking if there are enough players to play a NULL section.");
+        return true;
     }
 
     private void Update()

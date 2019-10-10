@@ -45,30 +45,34 @@ public class GameManager : MonoBehaviour
 
         dataManager.betaTester = saveUserAsBetaTester;
         
-        #if UNITY_ANDROID
+        #if UNITY_EDITOR
+        #elif UNITY_ANDROID
             Screen.fullScreen = false;
         #endif
     }
     
 
-    public void PlaySection(Section section)
+    public bool PlaySection(Section section)
     {
         if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
-            return;
+            return false;
         }
 
         
         if (!HaveEnoughPlayersFor(section))
         {
+            Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
             generalUi.OpenPlayersMenu(section.minNumberOfPlayers, section);
-            return;
+            return false;
         }
 
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
         //SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
+
+        return true;
     }
 
     public bool HaveEnoughPlayersFor(Section section)

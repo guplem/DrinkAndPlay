@@ -98,6 +98,8 @@ public class Description : AnimationUI
             originalTextSize = originalText.fontSize;
         else
             originalTextSize = 0;
+
+        Transition();
     }
 
     private void SaveActualPositionsAsCloseState()

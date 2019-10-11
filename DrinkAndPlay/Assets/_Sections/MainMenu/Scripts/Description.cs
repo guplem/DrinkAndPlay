@@ -162,8 +162,8 @@ public class Description : AnimationUI
         //Set all elements at start position and size
         Vector3 position = originalImageRect.position;
         SetElementAndPosAndSize(imageRect, position, imageSize);
-        SetElementAndPosAndSize(backgroundRect, position, imageSize/*0.8f*/);
-        SetElementAndPosAndSize(contentsRect, position, imageSize/*0.8f*/);
+        SetElementAndPosAndSize(backgroundRect, position, imageSize);
+        SetElementAndPosAndSize(contentsRect, position, imageSize);
         
         //Set the start anchors' position
         SetAnchorsAroundObject(MainMenuCocktailOrSection);
@@ -200,7 +200,7 @@ public class Description : AnimationUI
                 CheckScrollPosToHide();
             }
             
-        #elif UNITY_ANDROID
+        #else 
             if (Input.touchCount <= 0) return;
             Touch touch = Input.GetTouch(0);
             switch (touch.phase)

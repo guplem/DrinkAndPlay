@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         dataManager.betaTester = saveUserAsBetaTester;
         
         #if UNITY_EDITOR
-        #elif UNITY_ANDROID
+        #else
             Screen.fullScreen = false;
         #endif
     }

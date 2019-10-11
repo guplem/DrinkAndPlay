@@ -98,7 +98,8 @@ public class Description : AnimationUI
             originalTextSize = originalText.fontSize;
         else
             originalTextSize = 0;
-
+        
+        Debug.Log(GetAnimationPosByCurve());
         Transition();
     }
 
@@ -161,8 +162,8 @@ public class Description : AnimationUI
         //Set all elements at start position and size
         Vector3 position = originalImageRect.position;
         SetElementAndPosAndSize(imageRect, position, imageSize);
-        SetElementAndPosAndSize(backgroundRect, position, imageSize*0.8f);
-        SetElementAndPosAndSize(contentsRect, position, imageSize*0.8f);
+        SetElementAndPosAndSize(backgroundRect, position, imageSize/*0.8f*/);
+        SetElementAndPosAndSize(contentsRect, position, imageSize/*0.8f*/);
         
         //Set the start anchors' position
         SetAnchorsAroundObject(MainMenuCocktailOrSection);

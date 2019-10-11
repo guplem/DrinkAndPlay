@@ -124,15 +124,18 @@ public class MainMenuManager : SectionManager
 
     public void OpenSectionDescription(Section selectedSection, GameObject originalImage)
     {
-        sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage, selectedSection);
+        //First step
         gm.generalUi.Show(sectionDescription);
+        sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage, selectedSection);
+        
         currentSelectedSection = selectedSection;
     }
     
     public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage, Cocktail selectedCocktail)
     {
-        cocktailDescription.SetupAnimationOf(nameId, descriptionId, originalImage, selectedCocktail);
+        //First step
         gm.generalUi.Show(cocktailDescription);
+        cocktailDescription.SetupAnimationOf(nameId, descriptionId, originalImage, selectedCocktail);
     }
 
     public void PlaySelectedSection()

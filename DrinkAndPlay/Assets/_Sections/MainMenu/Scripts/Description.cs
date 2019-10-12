@@ -134,6 +134,9 @@ public class Description : AnimationUI
         shadow.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
+        
+        rect.SetTop(0);
+        rect.SetBottom(0);
 
         MainMenuSection mms = MainMenuCocktailOrSection.GetComponent<MainMenuSection>();
         if (mms != null)
@@ -161,8 +164,8 @@ public class Description : AnimationUI
         
         RectTransform originalImageRect = originalImage.GetComponent<RectTransform>();
         //Get original image size
-        Rect rect = originalImageRect.rect;
-        Vector2 imageSize = new Vector2(rect.width,rect.height);
+        Rect oImgrect = originalImageRect.rect;
+        Vector2 imageSize = new Vector2(oImgrect.width,oImgrect.height);
         
         //Set all elements at start position and size
         Vector3 position = originalImageRect.position;

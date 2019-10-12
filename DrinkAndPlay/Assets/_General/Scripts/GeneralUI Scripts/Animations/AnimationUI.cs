@@ -100,7 +100,25 @@ public abstract class AnimationUI : MonoBehaviour
 
     protected float GetAnimationPosByCurve(AnimationCurve animCurve)
     {
-        float percentageAnim = isShowing ? currentAnimTime / animationDurationOpen : 1 - currentAnimTime / animationDurationClose;
+        float percentageAnim = isShowing ? GetAnimProgress(true) : 1 - GetAnimProgress(false);
+        return animCurve.Evaluate(percentageAnim);
+    }
+
+    private float GetAnimProgress(bool openAnimationDuration)
+    {
+        if (openAnimationDuration)
+            return currentAnimTime / animationDurationOpen;
+        return currentAnimTime / animationDurationClose;
+    }
+
+    protected float GetUnidirectionalAnimationPosByCurve()
+    {
+        return GetUnidirectionalAnimationPosByCurve(mainAnimationCurve);
+    }
+    
+    protected float GetUnidirectionalAnimationPosByCurve(AnimationCurve animCurve)
+    {
+        float percentageAnim = isShowing ? GetAnimProgress(true) : GetAnimProgress(false);
         return animCurve.Evaluate(percentageAnim);
     }
 

@@ -65,5 +65,26 @@ public static class RectTransformExtensions
     {
         return rt.rect.x;
     }
+    
+        // Top/Bottom/Right/Left
+    public static float GetLeft(this RectTransform rt)
+    {
+        return rt.offsetMin.x; //return rt.rect.xMin;
+    }
+ 
+    public static float GetRight(this RectTransform rt)
+    {
+        return -rt.offsetMax.x; //return rt.rect.xMax;
+    }
+ 
+    public static float GetTop(this RectTransform rt)
+    {
+        return -rt.offsetMax.y; //return rt.rect.yMin;
+    }
+ 
+    public static float GetBottom(this RectTransform rt)
+    {
+        return rt.offsetMin.y; //return rt.rect.yMax;
+    }
 
 }

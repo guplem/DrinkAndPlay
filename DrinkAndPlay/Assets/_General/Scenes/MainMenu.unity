@@ -4895,6 +4895,11 @@ PrefabInstance:
       propertyPath: scrollContentsContainer
       value: 
       objectReference: {fileID: 1136910372}
+    - target: {fileID: 9158627699133940312, guid: 1e1ba320151aba048bf2d10e756623ff,
+        type: 3}
+      propertyPath: scrollForDescriptions
+      value: 
+      objectReference: {fileID: 1703629809}
     - target: {fileID: 8029706516109563574, guid: 1e1ba320151aba048bf2d10e756623ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5643,6 +5648,11 @@ PrefabInstance:
       propertyPath: shadow
       value: 
       objectReference: {fileID: 1421627542}
+    - target: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: scrollForDescriptions
+      value: 
+      objectReference: {fileID: 1703629809}
     - target: {fileID: 2032926909812376368, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_textInfo.lineCount

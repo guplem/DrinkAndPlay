@@ -22,6 +22,10 @@ public class Description : AnimationUI
     
     [SerializeField] private Localizer title;
     [SerializeField] private Localizer description;
+
+    [SerializeField] private ScrollRect scrollForDescriptions;
+
+    private RectTransform rect;
     
     #region Open caracteristics
     private Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
@@ -54,7 +58,8 @@ public class Description : AnimationUI
         backgroundRect = background.GetComponent<RectTransform>();
         imageRect = MainMenuCocktailOrSection.GetComponent<RectTransform>();
         contentsRect = contents.GetComponent<RectTransform>();
-        
+        rect = GetComponent<RectTransform>();
+            
         rt.anchorMin = Vector2.zero;
         rt.anchorMax = Vector2.one;
 
@@ -99,7 +104,7 @@ public class Description : AnimationUI
         else
             originalTextSize = 0;
         
-        Debug.Log(GetAnimationPosByCurve());
+//        Debug.Log(GetAnimationPosByCurve());
         Transition();
     }
 
@@ -215,7 +220,6 @@ public class Description : AnimationUI
 
     private void CheckScrollPosToHide()
     {
-        //Debug.Log((scrollContentsContainer.rect.height/8 < -1*scrollContentsContainer.offsetMin.y) + " / " + scrollContentsContainer.rect.height/8 + " < " + -1*scrollContentsContainer.offsetMin.y);
         if (scrollContentsContainer.rect.height/19 < -1*scrollContentsContainer.offsetMin.y)
             CloseLastOpenUiElement();
     }
@@ -250,6 +254,13 @@ public class Description : AnimationUI
 
         if (textInImage != null)
             textInImage.fontSize = imageRect.GetWidthTransform() * originalTextSize / originalImageWidth;
+        
+        
+        //Fix close with scroll
+        float topSpace = Mathf.Lerp(0, -scrollContentsContainer.GetTop(), GetUnidirectionalAnimationPosByCurve() ) ;
+        rect.SetTop(topSpace);
+        float bottomSpace = Mathf.Lerp(0, -scrollContentsContainer.GetBottom(), GetUnidirectionalAnimationPosByCurve() ) ;
+        rect.SetBottom(bottomSpace);
     }
 
 }

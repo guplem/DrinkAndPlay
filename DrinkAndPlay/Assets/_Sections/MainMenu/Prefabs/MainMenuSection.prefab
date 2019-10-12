@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 675431963551414895}
   - component: {fileID: 4740774600791368035}
   m_Layer: 5
-  m_Name: CommingSoon - Circle
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ RectTransform:
   m_Father: {fileID: 7495982334901558673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6, y: -0.03}
+  m_AnchorMin: {x: 0.6, y: -0.02}
   m_AnchorMax: {x: 1.125, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 49.2
+  m_fontSize: 48.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

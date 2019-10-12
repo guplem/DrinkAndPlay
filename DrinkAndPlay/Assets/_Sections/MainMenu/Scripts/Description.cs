@@ -23,9 +23,8 @@ public class Description : AnimationUI
     [SerializeField] private Localizer title;
     [SerializeField] private Localizer description;
 
-    [SerializeField] private ScrollRect scrollForDescriptions;
-
     private RectTransform rect;
+    private GameObject originalImage;
     
     #region Open caracteristics
     private Vector2 backgroundOpenAnchorMin = new Vector2(0f, 0f);
@@ -129,11 +128,14 @@ public class Description : AnimationUI
     
     private void SetOpenAnimStart(GameObject originalImage, ScriptableObject cockOrSec)
     {
+        this.originalImage = originalImage.gameObject;
+        
         //Activate elements
         MainMenuCocktailOrSection.SetActive(true);
         shadow.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
+        this.originalImage.SetActive(false);
         
         rect.SetTop(0);
         rect.SetBottom(0);
@@ -233,6 +235,8 @@ public class Description : AnimationUI
         shadow.SetActive(false);
         background.SetActive(false);
         contents.SetActive(false);
+        if (originalImage != null)
+            originalImage.SetActive(true);
     }
 
 

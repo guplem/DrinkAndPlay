@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: TN
   descriptionId: TD
-  image: {fileID: 21300000, guid: 6ee183d9443bb3f479ab1322d02b22e0, type: 3}
+  image: {fileID: 21300000, guid: a7c3bd8b9295a5c47a397de5f56912eb, type: 3}
   newness: 0
   comingSoon: 1
   premium: 0
@@ -26,6 +26,7 @@ MonoBehaviour:
   sectionTitle: 1
   appTitle: 0
   configButton: 1
+  helpButton: 1
   forceShowNaughtyLevelConfigurator: 0
   forceShowPlayersConfigurator: 0
   forceShowLanguageConfigurator: 0

@@ -168,7 +168,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   delayInOut: 0
-  movement: 0.05
+  movement: 0.02
 --- !u!114 &5322874559379064553
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: TN
   descriptionId: TD
-  image: {fileID: 21300000, guid: a7c3bd8b9295a5c47a397de5f56912eb, type: 3}
+  image: {fileID: 21300000, guid: 913ef9b4171573744a80f68bf6995d90, type: 3}
   newness: 0
   comingSoon: 1
   premium: 0

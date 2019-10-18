@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: WAIN
   descriptionId: WAID
-  image: {fileID: 21300000, guid: b382f2f1ddbdd9a409b7d11af3de0755, type: 3}
+  image: {fileID: 21300000, guid: 315e5eb5bd733ba45b772932b8d61e07, type: 3}
   newness: 0
   comingSoon: 1
   premium: 0
@@ -27,6 +27,7 @@ MonoBehaviour:
   sectionTitle: 1
   appTitle: 0
   configButton: 1
+  helpButton: 1
   forceShowNaughtyLevelConfigurator: 0
   forceShowPlayersConfigurator: 0
   forceShowLanguageConfigurator: 0

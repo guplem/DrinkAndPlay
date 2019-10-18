@@ -68,6 +68,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8959230048344011492}
     m_Modifications:
+    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+        type: 3}
+      propertyPath: m_Name
+      value: MainMenuSection - L
+      objectReference: {fileID: 0}
     - target: {fileID: 311017140039658529, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -173,15 +178,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
-        type: 3}
-      propertyPath: m_Name
-      value: MainMenuSection - L
-      objectReference: {fileID: 0}
     - target: {fileID: 311017140039658530, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_AspectRatio
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149476534736931922, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+        type: 3}
+      propertyPath: m_Name
+      value: CommingSoon
       objectReference: {fileID: 0}
     - target: {fileID: 6636352921515532351, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
@@ -213,10 +218,10 @@ PrefabInstance:
       propertyPath: m_TextStyleHashCode
       value: -1183493901
       objectReference: {fileID: 0}
-    - target: {fileID: 2149476534736931922, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+    - target: {fileID: 8408220257693943182, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
-      propertyPath: m_Name
-      value: CommingSoon
+      propertyPath: m_fontSize
+      value: 36.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}
@@ -233,6 +238,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8959230048344011492}
     m_Modifications:
+    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+        type: 3}
+      propertyPath: m_Name
+      value: MainMenuSection - R
+      objectReference: {fileID: 0}
     - target: {fileID: 311017140039658529, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -338,11 +348,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
-        type: 3}
-      propertyPath: m_Name
-      value: MainMenuSection - R
-      objectReference: {fileID: 0}
     - target: {fileID: 311017140039658530, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_AspectRatio
@@ -377,6 +382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408220257693943182, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}

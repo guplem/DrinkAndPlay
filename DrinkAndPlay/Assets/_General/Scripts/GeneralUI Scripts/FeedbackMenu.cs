@@ -10,10 +10,11 @@ public class FeedbackMenu : MonoBehaviour
 {
     private string theme;
     private string message;
-    private string author;
+    //private string author;
 
     [SerializeField] private Localizer topBarText;
     [SerializeField] private TMP_InputField messageInputField;
+    [SerializeField] private TMP_InputField authorInputField;
     
     
     [SerializeField] private TextMeshProUGUI sendTextButton;
@@ -51,6 +52,8 @@ public class FeedbackMenu : MonoBehaviour
                 break;
         }
 
+        authorInputField.text = GameManager.instance.dataManager.author;
+        
         UpdateVisuals();
     }
 
@@ -62,7 +65,7 @@ public class FeedbackMenu : MonoBehaviour
     
     public void UpdateAuthor(string newAuthor)
     {
-        this.author = newAuthor;
+        GameManager.instance.dataManager.author = newAuthor;
         UpdateVisuals();
     }
 
@@ -88,7 +91,7 @@ public class FeedbackMenu : MonoBehaviour
     
     private bool AreContentsCorrect()
     {
-        return !(   string.IsNullOrEmpty(theme) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(author)   /*TODO: Or there is no internet connection*/    );
+        return !(   string.IsNullOrEmpty(theme) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(GameManager.instance.dataManager.author)   /*TODO: Or there is no internet connection*/    );
     }
 
     public void SendForm()
@@ -99,7 +102,7 @@ public class FeedbackMenu : MonoBehaviour
             return;
         }
 
-        StartCoroutine(Post(theme, message, author));
+        StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
 
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";

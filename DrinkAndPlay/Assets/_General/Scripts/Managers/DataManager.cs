@@ -512,4 +512,31 @@ public class DataManager
     
     #endregion
     
+    
+    #region author
+    public string author
+    {
+        get
+        {
+            if (_author == null)
+                _author = SaveGame.Load(authorSavename, "" );
+
+            return _author;
+        }
+        set
+        {
+            if (string.Compare(_author, value, StringComparison.Ordinal) == 0) 
+                return;
+            
+            Debug.Log("New author: " + value);
+            
+            _author = value;
+            
+            SaveGame.Save(authorSavename, value);
+        }
+    }
+    private string _author;
+    private const string authorSavename = "author";
+
+    #endregion
 }

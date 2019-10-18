@@ -5,10 +5,12 @@ Settings,Ajustes,Settings
 Cubatas,Cubatas,Drinks
 Cocktails,Cócteles,Cocktails
 Feedback,Feedback,Feedback
-CU1N,Vodka piña  - CU1,Vodka pineaple  - CU1
+CU1N,Ron,Rum
 CU1D,"<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
-CU2N,Cubata 2,Drink 2
+CU2N,Ginebra,Gin
 CU2D,"<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
+CU3N,Vodka,Vodka
+CU3D,"<b>Mezclas:</b><br> - Piña<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Pineapple<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
 CO1N,Cóctel 1,Cóctel 1
 CO1D,"<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
 CO2N,Cóctel 2,Cocktail 2

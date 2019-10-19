@@ -5,7 +5,7 @@ Language,Idioma,Language
 Visuals,Apariencia,Appearance
 DarkMode,Modo oscuro,Dark theme
 DarkModeExplanation,El modo oscuro puede reducir el consumo de batería y la fatiga visual especialmente durante la noche.,Dark mode can reduce battery consumption and eyestrain especially at night.
-NaughtyLevel,Nivel de Picante,Naughty Level
+NaughtyLevel,Nivel de Picante,Naughtiness Level
 Donations,Donaciones,Donations
 Feedback,Feedback,Feedback
 SendGameContent,Enviar Frase,Send Sentence
@@ -24,7 +24,7 @@ ComingSoon,Próximamente...,Coming son...
 PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
 Max,Máximo,Maximum
-NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughty level you want the games to have.
+NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.
 NaughtyLevelWarning,"<color=#cd293c>Atención:</color> Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>The smaller the range, the more repetitive the games will be."
 General,General,General
 Games,Juegos,Games

@@ -84,7 +84,8 @@ public class LocalizationManager
             {
                 int.TryParse(dataRead[row][1], out int naughtiness);
                 LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
-                AddLocalizedTextToTextsList(localizationFile, localizedText);
+                if (!string.IsNullOrEmpty(localizedText.text)) //Only if the text is valid
+                    AddLocalizedTextToTextsList(localizationFile, localizedText);
             }
 
         }

@@ -14,7 +14,7 @@ public class Description : AnimationUI
     [SerializeField] private GameObject background;
     [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject closeButton;
-    [SerializeField] private GameObject MainMenuCocktailOrSection;
+    [SerializeField] private GameObject descriptionImageHolder;
     [SerializeField] private TextMeshProUGUI textInImage;
     [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
@@ -45,7 +45,7 @@ public class Description : AnimationUI
     #endregion
 
     private RectTransform backgroundRect;
-    private RectTransform imageRect;
+    private RectTransform descriptionImageHolderRT;
     private RectTransform contentsRect;
 
     private float originalImageWidth = 0;
@@ -55,7 +55,7 @@ public class Description : AnimationUI
     private void Start()
     {
         backgroundRect = background.GetComponent<RectTransform>();
-        imageRect = MainMenuCocktailOrSection.GetComponent<RectTransform>();
+        descriptionImageHolderRT = descriptionImageHolder.GetComponent<RectTransform>();
         contentsRect = contents.GetComponent<RectTransform>();
         rect = GetComponent<RectTransform>();
             
@@ -64,8 +64,8 @@ public class Description : AnimationUI
 
         backgroundOpenAnchorMin = backgroundRect.anchorMin;
         backgroundOpenAnchorMax = backgroundRect.anchorMax;
-        imageOpenAnchorMin = imageRect.anchorMin;
-        imageOpenAnchorMax = imageRect.anchorMax;
+        imageOpenAnchorMin = descriptionImageHolderRT.anchorMin;
+        imageOpenAnchorMax = descriptionImageHolderRT.anchorMax;
         contentsOpenAnchorMin = contentsRect.anchorMin;
         contentsOpenAnchorMax = contentsRect.anchorMax;
         
@@ -112,8 +112,8 @@ public class Description : AnimationUI
         backgroundCloseAnchorMin = backgroundRect.anchorMin;
         backgroundCloseAnchorMax  = backgroundRect.anchorMax;
         
-        imageCloseAnchorMin = imageRect.anchorMin;
-        imageCloseAnchorMax = imageRect.anchorMax;
+        imageCloseAnchorMin = descriptionImageHolderRT.anchorMin;
+        imageCloseAnchorMax = descriptionImageHolderRT.anchorMax;
 
         contentsCloseAnchorMin = contentsRect.anchorMin;
         contentsCloseAnchorMax = contentsRect.anchorMax;
@@ -131,7 +131,7 @@ public class Description : AnimationUI
         this.originalImage = originalImage.gameObject;
         
         //Activate elements
-        MainMenuCocktailOrSection.SetActive(true);
+        descriptionImageHolder.SetActive(true);
         shadow.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
@@ -140,7 +140,7 @@ public class Description : AnimationUI
         rect.SetTop(0);
         rect.SetBottom(0);
 
-        MainMenuSection mms = MainMenuCocktailOrSection.GetComponent<MainMenuSection>();
+        MainMenuSection mms = descriptionImageHolder.GetComponent<MainMenuSection>();
         if (mms != null)
         {
             mms.Setup((Section)cockOrSec);
@@ -148,7 +148,7 @@ public class Description : AnimationUI
         
         else
         {
-            MainMenuCoctel mmc = MainMenuCocktailOrSection.GetComponent<MainMenuCoctel>();
+            MainMenuCoctel mmc = descriptionImageHolder.GetComponent<MainMenuCoctel>();
             if (mmc != null)
             {
                 mmc.Setup((Cocktail)cockOrSec);
@@ -171,12 +171,12 @@ public class Description : AnimationUI
         
         //Set all elements at start position and size
         Vector3 position = originalImageRect.position;
-        SetElementAndPosAndSize(imageRect, position, imageSize);
+        SetElementAndPosAndSize(descriptionImageHolderRT, position, imageSize);
         SetElementAndPosAndSize(backgroundRect, position, imageSize);
         SetElementAndPosAndSize(contentsRect, position, imageSize);
         
         //Set the start anchors' position
-        SetAnchorsAroundObject(MainMenuCocktailOrSection);
+        SetAnchorsAroundObject(descriptionImageHolder);
         SetAnchorsAroundObject(background);
         SetAnchorsAroundObject(contents);
     }
@@ -231,7 +231,7 @@ public class Description : AnimationUI
     
     public override void EndAnimHiding()
     {
-        MainMenuCocktailOrSection.SetActive(false);
+        descriptionImageHolder.SetActive(false);
         shadow.SetActive(false);
         background.SetActive(false);
         contents.SetActive(false);
@@ -246,21 +246,26 @@ public class Description : AnimationUI
         backgroundRect.anchorMin = Vector2.Lerp(backgroundCloseAnchorMin, backgroundOpenAnchorMin,  GetAnimationPosByCurve(backgroundAnimation) );
         backgroundRect.anchorMax = Vector2.Lerp(backgroundCloseAnchorMax, backgroundOpenAnchorMax, GetAnimationPosByCurve(backgroundAnimation) );
         
-        imageRect.anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, GetAnimationPosByCurve(imageAnimation));
-        imageRect.anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, GetAnimationPosByCurve(imageAnimation));
+        descriptionImageHolderRT.anchorMin = Vector2.Lerp(imageCloseAnchorMin, imageOpenAnchorMin, GetAnimationPosByCurve(imageAnimation));
+        descriptionImageHolderRT.anchorMax = Vector2.Lerp(imageCloseAnchorMax, imageOpenAnchorMax, GetAnimationPosByCurve(imageAnimation));
         
         contentsRect.anchorMin = Vector2.Lerp(contentsCloseAnchorMin, contentsOpenAnchorMin, GetAnimationPosByCurve(backgroundAnimation));
         contentsRect.anchorMax = Vector2.Lerp(contentsCloseAnchorMax, contentsOpenAnchorMax, GetAnimationPosByCurve(backgroundAnimation));
 
+        //Fix Buf with aspect ratio filter moving arround the image
+        Vector3 pos= descriptionImageHolderRT.anchoredPosition;
+        pos.x= 0f;
+        descriptionImageHolderRT.anchoredPosition = pos;
+
         SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
-        SetOpacityTo(MainMenuCocktailOrSection, Mathf.Lerp(0f, 1f, 1), true);
+        SetOpacityTo(descriptionImageHolder, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
         //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
         SetOpacityTo(shadow, Mathf.Lerp(0f, 0.490196078f, GetAnimationPosByCurve()), false);
 
         if (textInImage != null)
-            textInImage.fontSize = imageRect.GetWidthTransform() * originalTextSize / originalImageWidth;
+            textInImage.fontSize = descriptionImageHolderRT.GetWidthTransform() * originalTextSize / originalImageWidth;
         
         
         //Fix close with scroll

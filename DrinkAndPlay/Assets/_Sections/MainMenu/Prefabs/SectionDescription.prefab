@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8811307376390819049}
+  mainMenuCoctel: {fileID: 0}
+  mainMenuSection: {fileID: 6718295646129333107}
 --- !u!114 &2656869553090822043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +372,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   closeButton: {fileID: 2032926908881851598}
-  descriptionImageHolder: {fileID: 471012802688427493}
+  descriptionImageHolder: {fileID: 6711312371325854287}
   textInImage: {fileID: 7974330200492433820}
   imageAnimation:
     serializedVersion: 2
@@ -942,11 +944,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8796363189801827001}
     m_Modifications:
-    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
-        type: 3}
-      propertyPath: m_Name
-      value: Image - MainMenuSection
-      objectReference: {fileID: 0}
     - target: {fileID: 311017140039658529, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1052,6 +1049,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 311017140039658528, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+        type: 3}
+      propertyPath: m_Name
+      value: Image - MainMenuSection
+      objectReference: {fileID: 0}
     - target: {fileID: 6636352921515532351, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1080,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 8408220257693943182, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
         type: 3}
       propertyPath: m_fontSize
-      value: 43.45
+      value: 46.25
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4355296072449536978, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}
@@ -1088,12 +1090,18 @@ PrefabInstance:
     - {fileID: 311017140039658530, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}
     - {fileID: 311017140039658556, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735, type: 3}
---- !u!224 &3955137610473893250 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 311017140039658529, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+--- !u!114 &6718295646129333107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8038822569083527888, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
     type: 3}
   m_PrefabInstance: {fileID: 3653418493770613155}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105f54cd0fe45e54cbbb59b722191711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8811307376390819049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5258939499341647178, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
@@ -1118,6 +1126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3955137610473893250 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 311017140039658529, guid: 80abfcd80f3fe3f42a4c0d8dda4d4735,
+    type: 3}
+  m_PrefabInstance: {fileID: 3653418493770613155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8478880764823344400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1125,11 +1139,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2032926909467525289}
     m_Modifications:
-    - target: {fileID: 7610346014977392204, guid: 9e4e124df74e275448569fa2f9a68ec8,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayButton
-      objectReference: {fileID: 0}
     - target: {fileID: 7610346014977392205, guid: 9e4e124df74e275448569fa2f9a68ec8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1234,6 +1243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610346014977392204, guid: 9e4e124df74e275448569fa2f9a68ec8,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e4e124df74e275448569fa2f9a68ec8, type: 3}

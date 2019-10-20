@@ -12,6 +12,9 @@ public class DescriptionImageHolder : MonoBehaviour
     [SerializeField] private Image image;
     private RectTransform rt;
     private AspectRatioFitter arf;
+
+    [SerializeField] public MainMenuCoctel mainMenuCoctel;
+    [SerializeField] public MainMenuSection mainMenuSection;
     
     private void Start()
     {

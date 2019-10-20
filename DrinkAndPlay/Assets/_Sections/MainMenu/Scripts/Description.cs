@@ -14,7 +14,7 @@ public class Description : AnimationUI
     [SerializeField] private GameObject background;
     [SerializeField] private AnimationCurve backgroundAnimation;
     [SerializeField] private GameObject closeButton;
-    [SerializeField] private GameObject descriptionImageHolder;
+    [SerializeField] private DescriptionImageHolder descriptionImageHolder;
     [SerializeField] private TextMeshProUGUI textInImage;
     [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
@@ -131,7 +131,7 @@ public class Description : AnimationUI
         this.originalImage = originalImage.gameObject;
         
         //Activate elements
-        descriptionImageHolder.SetActive(true);
+        descriptionImageHolder.gameObject.SetActive(true);
         shadow.SetActive(true);
         background.SetActive(true);
         contents.SetActive(true);
@@ -140,19 +140,15 @@ public class Description : AnimationUI
         rect.SetTop(0);
         rect.SetBottom(0);
 
-        MainMenuSection mms = descriptionImageHolder.GetComponent<MainMenuSection>();
+        MainMenuSection mms = descriptionImageHolder.mainMenuSection;
         if (mms != null)
-        {
             mms.Setup((Section)cockOrSec);
-        }
-        
+
         else
         {
-            MainMenuCoctel mmc = descriptionImageHolder.GetComponent<MainMenuCoctel>();
+            MainMenuCoctel mmc = descriptionImageHolder.mainMenuCoctel;
             if (mmc != null)
-            {
                 mmc.Setup((Cocktail)cockOrSec);
-            }
         }
         
         /*
@@ -176,7 +172,7 @@ public class Description : AnimationUI
         SetElementAndPosAndSize(contentsRect, position, imageSize);
         
         //Set the start anchors' position
-        SetAnchorsAroundObject(descriptionImageHolder);
+        SetAnchorsAroundObject(descriptionImageHolder.gameObject);
         SetAnchorsAroundObject(background);
         SetAnchorsAroundObject(contents);
     }
@@ -231,7 +227,7 @@ public class Description : AnimationUI
     
     public override void EndAnimHiding()
     {
-        descriptionImageHolder.SetActive(false);
+        descriptionImageHolder.gameObject.SetActive(false);
         shadow.SetActive(false);
         background.SetActive(false);
         contents.SetActive(false);
@@ -259,7 +255,7 @@ public class Description : AnimationUI
 
         SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
-        SetOpacityTo(descriptionImageHolder, Mathf.Lerp(0f, 1f, 1), true);
+        SetOpacityTo(descriptionImageHolder.gameObject, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
         //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);
         SetOpacityTo(shadow, Mathf.Lerp(0f, 0.490196078f, GetAnimationPosByCurve()), false);

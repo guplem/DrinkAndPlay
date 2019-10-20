@@ -70,8 +70,7 @@ public class MainMenuManager : SectionManager
                 doubleSection.transform.localScale = Vector3.one;
                 
 #else
-                
-                // OPTION A Destroying the prefab connection
+                // OPTION B Destroying the prefab connection
                 doubleSection = Instantiate(mainMenuSectionDoublePrefab, verticalScrollContentHolder.transform);
                 doubleSection.transform.localScale = Vector3.one;
 #endif

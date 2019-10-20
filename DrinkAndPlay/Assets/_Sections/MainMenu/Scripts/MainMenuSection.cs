@@ -33,11 +33,6 @@ public class MainMenuSection : MonoBehaviour
         titleText.Localize(section.nameId);
     }
 
-    /*public void SelectGame()
-    {
-        Debug.Log(" Section " + section + " selected.");
-    }*/
-
     public void OpenSectionDescription()
     {
         GetComponent<ButtonAnimation>().MidAnimEvent += OpenSectionDescriptionAtEvent;

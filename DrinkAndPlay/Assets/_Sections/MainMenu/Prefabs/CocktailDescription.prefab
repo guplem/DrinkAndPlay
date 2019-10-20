@@ -65,7 +65,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   closeButton: {fileID: 8029706515403783258}
   MainMenuCocktailOrSection: {fileID: 7770018974309028259}
-  textInImage: {fileID: 0}
+  textInImage: {fileID: 2683600993566135856}
   imageAnimation:
     serializedVersion: 2
     m_Curve:
@@ -271,6 +271,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1289465843983385899}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2683600993566135856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3808649698630439707, guid: 9610c74f4924ed24c86362a0197dc1e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1289465843983385899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8311771107677202580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,22 +290,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2032926909812376382, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: localizationFile
-      value: 
-      objectReference: {fileID: 11400000, guid: 70b68ff4bcea20c4d8ae5b31283aae58,
-        type: 2}
-    - target: {fileID: 2032926908072384819, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: localizationFile
-      value: 
-      objectReference: {fileID: 11400000, guid: 70b68ff4bcea20c4d8ae5b31283aae58,
-        type: 2}
     - target: {fileID: 2032926908444704293, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_Name
       value: CocktailDescription
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2032926908444704290, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -400,11 +405,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5304000150085340791, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2032926909796019036, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_IsActive
@@ -448,7 +448,7 @@ PrefabInstance:
     - target: {fileID: 2032926908072384821, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2032926908072384821, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -488,17 +488,12 @@ PrefabInstance:
     - target: {fileID: 2032926909467525289, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.6
+      value: 0.585
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376371, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032926909812376371, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 3955137610473893251, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -508,8 +503,20 @@ PrefabInstance:
     - target: {fileID: 2032926908072384823, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926908072384819, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: localizationFile
+      value: 
+      objectReference: {fileID: 11400000, guid: 70b68ff4bcea20c4d8ae5b31283aae58,
+        type: 2}
+    - target: {fileID: 2032926909812376382, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: localizationFile
+      value: 
+      objectReference: {fileID: 11400000, guid: 70b68ff4bcea20c4d8ae5b31283aae58,
+        type: 2}
     - target: {fileID: 2032926908885714035, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AnchorMin.y

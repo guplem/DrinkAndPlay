@@ -7,6 +7,7 @@ public class MainMenuCoctel : MonoBehaviour
 {
     private Cocktail cocktail;
     [SerializeField] private Image image;
+    [SerializeField] private Localizer titleText;
 
 
     public void Setup(Cocktail cocktail)
@@ -18,6 +19,8 @@ public class MainMenuCoctel : MonoBehaviour
             ar.aspectRatio = cocktail.image.rect.width / cocktail.image.rect.height;
         
         image.sprite = cocktail.image;
+        
+        titleText.Localize(cocktail.nameId);
     }
 
     public void OpenCocktail()

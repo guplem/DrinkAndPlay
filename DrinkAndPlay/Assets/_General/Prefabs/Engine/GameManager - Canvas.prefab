@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e545c6890887c144fb2a6649f12b509e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: MMD
   localizationFile: {fileID: 11400000, guid: 69ac660e3f4d4e246a4a431422094ec5, type: 2}
   automaticallyLocalize: 0
   registerTimestampAtLocalize: 0

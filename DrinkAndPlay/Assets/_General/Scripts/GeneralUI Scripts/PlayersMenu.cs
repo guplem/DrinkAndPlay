@@ -68,7 +68,8 @@ public class PlayersMenu : MonoBehaviour
             playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
         }
         
-        playButton.interactable = GameManager.instance.HaveEnoughPlayersFor(selectedSection);
+        if (selectedSection != null)
+            playButton.interactable = GameManager.instance.HaveEnoughPlayersFor(selectedSection);
     }
 
     public void HidePlayersAdditionalElements()

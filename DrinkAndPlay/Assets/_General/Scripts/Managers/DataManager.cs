@@ -95,7 +95,11 @@ public class DataManager
 
     public string GetPlayer(int playerNumber)
     {
-        if (playerNumber > players.Count-1 || playerNumber < 0)
+        if (GetPlayersQuantity() <= 0)
+            return GameManager.instance.localizationManager.GetLocalizedText(GameManager.instance.uiLocalizationFile,
+                "ChoosePlayer", false).text;
+        
+        if (playerNumber > GetPlayersQuantity()-1 || playerNumber < 0)
             return "PLAYER '" + playerNumber + "' NOT EXISTENT";
         
         return players[playerNumber];

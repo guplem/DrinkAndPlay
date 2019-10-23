@@ -12,6 +12,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private GameObject sectionTitle;
     [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
+    [SerializeField] private GameObject playersButton;
     [SerializeField] private GameObject helpButton;
 
     /*[Header("Bottom Bar")]
@@ -53,6 +54,7 @@ public class GeneralUI : MonoBehaviour
         sectionTitle.SetActive(section.sectionTitle);
         gameTitle.SetActive(section.appTitle);
         configButton.SetActive(section.configButton);
+        playersButton.SetActive(section.playersButton);
         helpButton.SetActive(section.helpButton);
 
         if (section.sectionTitle)

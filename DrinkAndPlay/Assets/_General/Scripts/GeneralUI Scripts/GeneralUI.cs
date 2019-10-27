@@ -31,6 +31,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
     [SerializeField] private AnimationUI helpMenu;
+    [SerializeField] private AnimationUI creditsMenu;
     
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
@@ -275,4 +276,12 @@ public class GeneralUI : MonoBehaviour
         Show(helpMenu);
         helpMenu.GetComponent<HelpMenu>().Setup(section);
     }
+    
+    public void OpenCreditsMenu()
+    {
+        Debug.Log("Opening CreditsMenu");
+        Show(creditsMenu);
+    }
+    
+    
 }

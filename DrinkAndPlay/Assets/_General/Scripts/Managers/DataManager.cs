@@ -226,7 +226,7 @@ public class DataManager
         {
             if (_naughtyLevel == null)
             {
-                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, new NaughtyLevel(1, 10));
+                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, new NaughtyLevel(1, 6));
             }
 
             return _naughtyLevel;
@@ -242,7 +242,7 @@ public class DataManager
     }
     private NaughtyLevel _naughtyLevel;
     public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
-    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 10);
+    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 6);
     private const string naughtyLevelSavename = "naughtyLevel";
 
     public void SetNaughtyLevelMin(int value)
@@ -471,7 +471,8 @@ public class DataManager
             
             SaveGame.Save(darkModeSavename, value);
             
-            changedVisualMode(GetVisualMode());
+            if (changedVisualMode != null)
+                changedVisualMode(GetVisualMode());
         }
     }
 

@@ -90,6 +90,7 @@ public class GeneralUI : MonoBehaviour
                 Debug.Log("Exiting the app as expected with the 'back' button");
                 
                 #if UNITY_EDITOR
+                    OpenConfigMenu();
                 #else
                     AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
                     activity.Call<bool>("moveTaskToBack" , true);

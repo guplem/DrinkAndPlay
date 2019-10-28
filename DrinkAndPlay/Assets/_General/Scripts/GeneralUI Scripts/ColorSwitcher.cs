@@ -52,10 +52,11 @@ public partial class ColorSwitcher : MonoBehaviour
         if (img != null)
         {
             #if UNITY_EDITOR
-            Undo.RecordObject(img, "Changing the component 'Image' on " + gameObject.name);
+                Undo.RecordObject(img, "Changing the component 'Image' on " + gameObject.name);
             #endif
             
             img.color = GetColor(colorType);
+            AfterColorSwitchCallMethod(colorType);
             return;
         }
 
@@ -63,10 +64,11 @@ public partial class ColorSwitcher : MonoBehaviour
         if (txt != null)
         {
             #if UNITY_EDITOR
-            Undo.RecordObject(txt, "Changing the component 'TextMeshProUGUI' on " + gameObject.name);
+                Undo.RecordObject(txt, "Changing the component 'TextMeshProUGUI' on " + gameObject.name);
             #endif
             
             txt.color = GetColor(colorType);
+            AfterColorSwitchCallMethod(colorType);
             return;
         }
         
@@ -74,14 +76,23 @@ public partial class ColorSwitcher : MonoBehaviour
         if (cam != null)
         {
             #if UNITY_EDITOR
-            Undo.RecordObject(cam, "Changing the component 'Camera' on " + gameObject.name);
+                Undo.RecordObject(cam, "Changing the component 'Camera' on " + gameObject.name);
             #endif
             
             cam.backgroundColor = GetColor(colorType);
+            AfterColorSwitchCallMethod(colorType);
             return;
         }
 
+        
     }
+
+    private void AfterColorSwitchCallMethod(LightDarkColor.ColorType colorType)
+    {
+        if (afterColorSwitchCall != null)
+            afterColorSwitchCall(colorType);
+    }
+
 
     public void UpdateColor()
     {
@@ -101,4 +112,6 @@ public partial class ColorSwitcher : MonoBehaviour
                 return Color.magenta;
         }
     }
+    
+    public Action<LightDarkColor.ColorType> afterColorSwitchCall;
 }

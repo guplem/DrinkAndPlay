@@ -8,6 +8,7 @@ public class Language : ScriptableObject, IComparable<Language>
 {
     public string languageId;
     public string languageName;
+    public bool isEnabled = true;
 
     public int CompareTo(Language other)
     {

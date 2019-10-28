@@ -28,10 +28,41 @@ public class FeedbackMenu : MonoBehaviour
         Cocktail,
         Cubata
     }
+    
+    private bool subscribed = false;
+    private void OnEnable()
+    {
+        if (GameManager.instance == null)
+            return;
+        
+        if (!subscribed)
+        {
+            sendIconButton.GetComponent<ColorSwitcher>().afterColorSwitchCall += SetColorsAfterSwitch;
+            sendTextButton.GetComponent<ColorSwitcher>().afterColorSwitchCall += SetColorsAfterSwitch;
+            subscribed = true;
+        }
+    }
+    
+    private void OnDisable()
+    {
+        if (subscribed)
+        {
+            sendIconButton.GetComponent<ColorSwitcher>().afterColorSwitchCall += SetColorsAfterSwitch;
+            sendTextButton.GetComponent<ColorSwitcher>().afterColorSwitchCall += SetColorsAfterSwitch;
+            subscribed = false;
+        }
+    }
+
+    private void SetColorsAfterSwitch(LightDarkColor.ColorType obj)
+    {
+        UpdateVisuals();
+    }
 
 
     public void Setup(FeedbackType feedbackType)
     {
+        OnEnable();
+        
         switch (feedbackType)
         {
             case FeedbackType.General:

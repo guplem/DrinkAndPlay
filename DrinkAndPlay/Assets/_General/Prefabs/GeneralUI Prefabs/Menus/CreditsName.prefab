@@ -147,9 +147,9 @@ PrefabInstance:
       propertyPath: m_text
       value: Steve Comepollas
       objectReference: {fileID: 0}
-    - target: {fileID: 3285970720367939937, guid: 88245757512a2134bad574450efaa726,
+    - target: {fileID: 1605526390481322697, guid: 88245757512a2134bad574450efaa726,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

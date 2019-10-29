@@ -83,30 +83,7 @@ public abstract class TurnsGameManager : SectionManager
 
     private LocalizedText GetRandomText(bool register, bool checkNotRegistered, LocalizationFile localizationFile)
     {
-        while (true)
-        {
-            LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, register, checkNotRegistered);
-            if (lt == null)
-            {
-                Debug.Log("Localized text not found");
-
-                if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
-                {
-                    GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
-                    Debug.Log("REMOVED 25%");
-                    GameManager.instance.localizationManager.RandomizeLocalizedTexts(localizationFile); // To change the order of the new avaliable texts
-                }
-                else
-                {
-                    Debug.LogWarning("There are not enough texts for the section " + section);
-                    return null;
-                }
-            }
-            else
-            {
-                return lt;
-            }
-        }
+        return GameManager.instance.localizationManager.GetLocalizedText(localizationFile, register, checkNotRegistered);
     }
 
     private void RegisterNewTextInHistory(LocalizedText localizedText, LocalizationFile localizationFile)

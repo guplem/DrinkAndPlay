@@ -99,6 +99,9 @@ public class Localizer : MonoBehaviour
     
     public void Localize(string id)
     {
+        if (string.IsNullOrEmpty(id))
+            Debug.LogError("Trying to set a null 'id' into the Localizer in object " + gameObject.name, gameObject);
+        
         SetId(id);
         Localize();
     }

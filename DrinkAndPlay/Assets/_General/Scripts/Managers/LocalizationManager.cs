@@ -205,8 +205,32 @@ public class LocalizationManager
                 return localizedText;
             }
         }
-
+        
+        
+        //If it is not found probably is because it is because it is looking for a not registered text
+        if (checkNotRegistered)
+            if (ResetRegisteredSentences(localizationFile))
+                    return GetLocalizedText(localizationFile, register, checkNotRegistered);
+                
+        
+        Debug.LogWarning("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered);
         return null;
+    }
+
+    private bool ResetRegisteredSentences(LocalizationFile localizationFile)
+    {
+        if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
+        {
+            GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
+            Debug.Log("Resetted the top 25% of the registered sentences in the localization file '" + localizationFile + "'");
+            GameManager.instance.localizationManager.RandomizeLocalizedTexts(localizationFile); // To change the order of the new avaliable texts
+            return true;
+        }
+        else
+        {
+            Debug.LogWarning("There are not enough texts in the localization file: '" + localizationFile + "'");
+            return false;
+        }
     }
 
     public bool IsSectionLocalized(LocalizationFile localizationFile)

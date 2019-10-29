@@ -60,10 +60,10 @@ public class LocalizationManager
             {
                 for (int col = 0; col < dataRead[row].Length; col++)
                 {
-
-                    if (string.Compare(dataRead[row][col].ToUpper(), "ID", StringComparison.Ordinal) != 0)
+                    
+                    if (string.Compare(dataRead[row][col].ToUpper(), "ID", StringComparison.Ordinal) == 0)
                         idCol = col;
-                    if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) != 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) == 0)
                         naughtyCol = col;
                     if (string.Compare(dataRead[row][col].ToUpper(), lang.ToUpper(), StringComparison.Ordinal) == 0)
                         langCol = col;
@@ -75,7 +75,11 @@ public class LocalizationManager
                 if (idCol < 0)
                     Debug.LogError("The localizationFile '" + localizationFile + "' is missing the 'ID' column in its localization file");
                 else if (langCol < 0)
+                {
                     Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + lang + "' in its localization file.     ('"  + lang + "' is the current language.)");
+                    Debug.LogError("The ID COLUMN IS: " + idCol);
+                    
+                }
             }
 
 

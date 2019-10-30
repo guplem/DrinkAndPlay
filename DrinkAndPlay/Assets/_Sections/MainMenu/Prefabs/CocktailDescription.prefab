@@ -39,6 +39,7 @@ MonoBehaviour:
   scrollContentsContainer: {fileID: 0}
   shadow: {fileID: 0}
   background: {fileID: 8029706515212602288}
+  closeButtonImage: {fileID: 8541099965211685031}
   backgroundAnimation:
     serializedVersion: 2
     m_Curve:
@@ -63,7 +64,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  closeButton: {fileID: 8029706515403783258}
   descriptionImageHolder: {fileID: 3348998909920512731}
   textInImage: {fileID: 2683600993566135856}
   imageAnimation:
@@ -124,6 +124,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  avoidClickPanel: {fileID: 8331682997709758367}
   title: {fileID: 8029706515693220263}
   description: {fileID: 8029706514220936106}
 --- !u!1001 &1289465843983385899
@@ -616,15 +617,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8311771107677202580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8331682997709758367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 70160128838645515, guid: aebe50530d30b884b9eed03659738a38,
+    type: 3}
+  m_PrefabInstance: {fileID: 8311771107677202580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8029706515212602288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2032926908820710180, guid: aebe50530d30b884b9eed03659738a38,
     type: 3}
   m_PrefabInstance: {fileID: 8311771107677202580}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8029706515403783258 stripped
+--- !u!1 &8541099965211685031 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2032926908881851598, guid: aebe50530d30b884b9eed03659738a38,
+  m_CorrespondingSourceObject: {fileID: 419189781151307827, guid: aebe50530d30b884b9eed03659738a38,
     type: 3}
   m_PrefabInstance: {fileID: 8311771107677202580}
   m_PrefabAsset: {fileID: 0}

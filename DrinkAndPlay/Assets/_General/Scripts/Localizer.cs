@@ -191,13 +191,18 @@ public class Localizer : MonoBehaviour
 
     private void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
-        text = text.Replace("<p>", GameManager.instance.dataManager.GetCurrentPlayer());
+        List<string> alreadyIncludedPlayers = new List<string>();
+        
+        if (text.Contains("<p>"))
+        {
+            string currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
+            text = text.Replace("<p>", currentPlayer);
+            alreadyIncludedPlayers.Add(currentPlayer);
+        }
 
         if (text.Contains("<pr>"))
         {
-            Regex regex = new Regex(Regex.Escape("<pr>"));   
-            List<string> alreadyIncludedPlayers = new List<string>();
-            
+            Regex regex = new Regex(Regex.Escape("<pr>"));
             do
             {
                 string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers);

@@ -33,6 +33,7 @@ public class MainMenuManager : SectionManager
     [SerializeField] private Description cocktailDescription;
     
     private Section currentSelectedSection;
+    private Cocktail currentSelectedCocktail;
 
     private void Start()
     {
@@ -123,6 +124,9 @@ public class MainMenuManager : SectionManager
 
     public void OpenSectionDescription(Section selectedSection, GameObject originalImage)
     {
+        if (isDescOpen())
+            return;
+        
         //First step
         gm.generalUi.Show(sectionDescription);
         sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage, selectedSection);
@@ -132,9 +136,25 @@ public class MainMenuManager : SectionManager
     
     public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage, Cocktail selectedCocktail)
     {
+        if (isDescOpen())
+            return;
+        
         //First step
         gm.generalUi.Show(cocktailDescription);
         cocktailDescription.SetupAnimationOf(nameId, descriptionId, originalImage, selectedCocktail);
+
+        currentSelectedCocktail = selectedCocktail;
+    }
+
+    public bool isDescOpen()
+    {
+        return currentSelectedCocktail != null || currentSelectedSection != null;
+    }
+    
+    public void setDescIsNotOpen()
+    {
+        currentSelectedCocktail = null;
+        currentSelectedSection = null;
     }
 
     public void PlaySelectedSection()

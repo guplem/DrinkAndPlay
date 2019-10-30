@@ -12,13 +12,15 @@ public class Description : AnimationUI
     [SerializeField] private RectTransform scrollContentsContainer;
     [SerializeField] private GameObject shadow;
     [SerializeField] private GameObject background;
+    [SerializeField] private GameObject closeButtonImage;
     [SerializeField] private AnimationCurve backgroundAnimation;
-    [SerializeField] private GameObject closeButton;
+    //[SerializeField] private GameObject closeButton;
     [SerializeField] private DescriptionImageHolder descriptionImageHolder;
     [SerializeField] private TextMeshProUGUI textInImage;
     [SerializeField] private AnimationCurve imageAnimation;
     [SerializeField] private GameObject contents;
     [SerializeField] private AnimationCurve contentsAnimation;
+    [SerializeField] private GameObject avoidClickPanel;
     
     [SerializeField] private Localizer title;
     [SerializeField] private Localizer description;
@@ -131,6 +133,7 @@ public class Description : AnimationUI
         this.originalImage = originalImage.gameObject;
         
         //Activate elements
+        avoidClickPanel.SetActive(true);
         descriptionImageHolder.gameObject.SetActive(true);
         shadow.SetActive(true);
         background.SetActive(true);
@@ -227,12 +230,15 @@ public class Description : AnimationUI
     
     public override void EndAnimHiding()
     {
+        avoidClickPanel.SetActive(false);
         descriptionImageHolder.gameObject.SetActive(false);
         shadow.SetActive(false);
         background.SetActive(false);
         contents.SetActive(false);
         if (originalImage != null)
             originalImage.SetActive(true);
+        
+        ((MainMenuManager) SectionManager.instance).setDescIsNotOpen();
     }
 
 
@@ -253,8 +259,9 @@ public class Description : AnimationUI
         pos.x= 0f;
         descriptionImageHolderRT.anchoredPosition = pos;
 
-        SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), true);
-        SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
+        SetOpacityTo(background, Mathf.Lerp(0f, 1f, 1), false);
+        SetOpacityTo(closeButtonImage, Mathf.Lerp(0f, 1f, 1), false);
+        //SetOpacityTo(closeButton, GetAnimationPosByCurve(contentsAnimation), true);
         SetOpacityTo(descriptionImageHolder.gameObject, Mathf.Lerp(0f, 1f, 1), true);
         SetOpacityTo(contents, Mathf.Lerp(0f, 1f, GetAnimationPosByCurve(contentsAnimation)), true);
         //SetOpacityTo(gameObject, Mathf.Lerp(0f, 0.35f, GetAnimationPosByCurve()), false);

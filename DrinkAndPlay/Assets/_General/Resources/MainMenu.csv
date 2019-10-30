@@ -2,16 +2,28 @@ Id,es-es,en-us
 Games,Juegos,Games
 Other,Más,More
 Settings,Ajustes,Settings
-Cubatas,Cubatas,Drinks
-Cocktails,Cócteles,Cocktails
+Drinks,Bebidas,Drinks
+NonAppGames,Juegos sin app,Non-App Games
 Feedback,Feedback,Feedback
-CU1N,Ron,Rum
-CU1D,"<b>MEZCLAS:</b><br> - Cola<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>MIXES:</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
-CU2N,Ginebra,Gin
-CU2D,"<b>MEZCLAS:</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>MIXES:</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
-CU3N,Vodka,Vodka
-CU3D,"<b>MEZCLAS:</b><br> - Piña<br> - Lima<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>MIXES:</b><br> - Pineapple<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
-CO1N,Cóctel 1,Cóctel 1
-CO1D,"<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
-CO2N,Cóctel 2,Cocktail 2
-CO2D,"<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi.","<b>INGREDIENTES</b><br> - Ingrediente 1<br> - Ingrediente 2<br> - Ingrediente 3<br><br><b>CÓMO PREPARARLO</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra, ex in vestibulum pharetra, orci ante tempus risus, vitae varius est risus in nisi."
+DR1N,Ron,Rum
+DR1D,"<b>Mojito</b><br>Se mezclan dos cucharadas de azúcar, se estrujan ramas de menta/hierbabuena y se añade un poco de zumo de lima. Se añade un chorrito de soda y se rellena el vaso con hielo picado y ron.<br><br><b>Piña Colada</b><br>Mezcla de ron blanco, zumo de piña natura, leche de coco y hielo picado.",Lorem ipsum
+DR2N,Ginebra,Gin
+DR2D,<b>Gry Martini</b><br>Ginebra con martini o vermut seco y hielo.<br><br><b>Gin Tonic</b><br>Ginebra con tónica adornada con una rodaja de limón.<br><br><b>Bull Dog</b><br>Mezcla de zumo de naranja con ginebra en un vaso con hielo.,Lorem ipsum
+DR3N,Vodka,Vodka
+DR3D,"<b>Cubatas</b><br>El vodka se puede mezclar fácilmente con sprite, bebidas energéticas, tónica, zumo de fruta (piña, naranja, arándano, lima, ...), triple sec, crema de menta, martini, bebidas isotónicas, ...<br><br><b>Chocolate Martini</b><br>Vodka mezclado con licor de cacao y un poco de sirope de chocolate.<br>También se puede sustituir el vodka por ron blanco, brandy, ...",Lorem ipsum
+GA1N,Mechero,The Lighter
+GA1D,Uno por uno los integrantes del grupo tendrán que intentar encender un mechero a la primera.<br><br>En el caso de que no lo consigan tendrán que beber o hacer la prueba que el grupo decida.,Lorem ipsum
+GA2N,Llámame,Call Me
+GA2D,"Por turnos, cada uno de los miembros del grupo tendrá que decir su número de teléfono en voz alta.<br><br>La primera persona del grupo que consiga llamar a quien haya dicho el número de teléfono reparte 4 tragos.<br><br><br><i>No te distraigas y apunta los que te interesen.</i>",Lorem ipsum
+GA3N,Espaldas,
+GA3D,"Dos miembros del grupo se ponen de espaldas con una copa. Se les hará una pregunta sobre alguna habilidad (Ejemplo: quién es mejor bailando).<br><br>Quien crea que es mejor en lo cuestionado, tendrá que beber.<br><br>En el caso de que ambos beban o ninguno lo haga, se les hará otra pregunta. En caso contrario rotará la pareja a otros miembros del grupo.",
+GA4N,Preguntas rápidas,
+GA4D,Se elige a un jugador que empiece. És tendrá que hacer una pregunta a alguien del grupo.<br><br>La persona a la que hayan preguntado tendrá que hacer otra pregunta en menos de 3 segundos a otra persona.<br><br>Si no la hace tendrá que responder a la pregunta que le han hecho o le tocará beber.,
+GA5N,La Moneda,
+GA5D,"Por orden cada jugador hará una pregunta de su elección a alguien del grupo. Esa persona estará obligada a responderle en secreto a quine haya preguntado.<br><br>Tras hacerlo se lanzará una moneda al aire y, si sale cara, se tendrá que decir la respuesta en voz alta, en caso contrario, no pasará nada y será el turno de preguntar del siguiente jugador.",
+GA6N,Nombres,
+GA6D,"Por turnos se elige a quién hacerle una pregunta que se tendrá que responder con el nombre de aguien del grupo (Ejemplo: ¿quién crees que besa mejor?).<br><br>La pregunta será secreta y, tras formulara, a la cuenta de tres, la persona que haya preguntado y a la que le toque responder tendrán que decir el nombre de la persona que piensen que dirá el/la preguntado/a en voz alta.<br><br>Si el nombre coincide se revelará a pregunta, si no, le toca preguntar al siguiente jugador.<br><br>Extra: Si se coincide con el nombre, la persona nombrada gana una vida que podrá gastar para revelar cualquier pregunta en la que se le nombre.<br>",
+GA7N,Apuestas,
+GA7D,"Por turnos los jugadores retarán a otros jugadores para hacer pruebas.<br><br>Se preguntará al jugador retado qué numero elige (mayor o igual que 1).<br><br>Una vez elegido, ambos deberán decir un numero que esté entre el 1 y el elegido (incluídos) en voz alta. Si el numero coincide, se tendrá que cumplir el reto. ",
+GA8N,Música,
+GA8D,"Se elige una canción que tenga una palabra repetitiva (Ejemplos: ""It's My Life"" con <i>Life</i>, o ""Thunder"" con <i>Thunder</i>) y los participantes tendrán que beber cada vez que la digan.<br>Se pueden elegir varios tipos de reglas:<br><br> - Por turnos y no se puede dejar de beber hasta que se vuelva a decir la palabra.<br> - Por turnos uno por uno.<br> - Todos a la vez cada vez que salga la palabra.",

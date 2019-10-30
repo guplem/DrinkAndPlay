@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button - Image
       objectReference: {fileID: 0}
+    - target: {fileID: 3808649698630439707, guid: 9610c74f4924ed24c86362a0197dc1e5,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8805026883035796612, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
     - {fileID: 1178973392202606333, guid: 9610c74f4924ed24c86362a0197dc1e5, type: 3}
@@ -328,6 +333,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 66456348259695421}
+    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: mainMenuCoctel
+      value: 
+      objectReference: {fileID: 7770018974309028264}
+    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: mainMenuSection
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376382, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
@@ -541,6 +561,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.585
       objectReference: {fileID: 0}
+    - target: {fileID: 2032926909467525289, guid: aebe50530d30b884b9eed03659738a38,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.025
+      objectReference: {fileID: 0}
     - target: {fileID: 2032926909812376371, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -577,21 +602,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c98c6d8c45073694f94c67bbfac7a1ba,
         type: 3}
-    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 66456348259695421}
-    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: mainMenuCoctel
-      value: 
-      objectReference: {fileID: 7770018974309028264}
-    - target: {fileID: 6711312371325854287, guid: aebe50530d30b884b9eed03659738a38,
-        type: 3}
-      propertyPath: mainMenuSection
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2656869553090822043, guid: aebe50530d30b884b9eed03659738a38,
         type: 3}
       propertyPath: m_AspectRatio

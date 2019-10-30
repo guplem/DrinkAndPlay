@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9d1a91a3dc192e43bc7d2243735eb21, type: 3}
-  m_Name: CU3
+  m_Name: GA6
   m_EditorClassIdentifier: 
-  nameId: CU3N
-  descriptionId: CU3D
-  image: {fileID: 21300000, guid: b5d34bef729b01244b07211f9a473fcb, type: 3}
+  nameId: GA6N
+  descriptionId: GA6D
+  image: {fileID: 21300000, guid: 891cf5731aa371f4eb0cc750a617d5fc, type: 3}
   newness: 0
   top: 0

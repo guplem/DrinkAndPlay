@@ -98,9 +98,9 @@ MonoBehaviour:
   m_fontSize: 42
   m_fontSizeBase: 42
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 42
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c98c6d8c45073694f94c67bbfac7a1ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8ad9ff27cee91145841f0ed408a49ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -181,18 +181,18 @@ public class GeneralUI : MonoBehaviour
         feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.General);
     }
     
-    public void OpenFeedbackMenuCocktails()
+    public void OpenFeedbackMenuGames()
     {
-        Debug.Log("Opening FeedbackMenu - Cocktails");
+        Debug.Log("Opening FeedbackMenu - Game");
         Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Cocktail);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Game);
     }
     
-    public void OpenFeedbackMenuCubata()
+    public void OpenFeedbackMenuDrinks()
     {
-        Debug.Log("Opening FeedbackMenu - Cubata");
+        Debug.Log("Opening FeedbackMenu - Drinks");
         Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Cubata);
+        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Drink);
     }
     
     public void OpenFeedbackMenuCurrentSection()

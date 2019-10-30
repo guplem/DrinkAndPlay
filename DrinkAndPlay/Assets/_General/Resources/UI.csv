@@ -10,8 +10,8 @@ NaughtyLevel,Nivel de Picante,Naughtiness Level
 Donations,Donaciones,Donations
 Feedback,Feedback,Feedback
 SendGameContent,Enviar Frase,Send Sentence
-SendCubata,Enviar Cubata,Send Drink
-SendCocktail,Enviar Cóctel,Send Cocktail
+SendDrink,Enviar Bebida,Send Drink
+SendGame,Enviar un Juego,Send a Game
 RandomSentences,Pruebas Aleatorias,Random Activities
 Text,Texto,Text
 WriteHere,Escribe aquí...,Write here...

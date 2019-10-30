@@ -25,8 +25,8 @@ public class FeedbackMenu : MonoBehaviour
     {
         General,
         Section,
-        Cocktail,
-        Cubata
+        Game,
+        Drink
     }
     
     private bool subscribed = false;
@@ -73,13 +73,13 @@ public class FeedbackMenu : MonoBehaviour
                 topBarText.Localize("SendGameContent");
                 this.theme = SectionManager.instance.section.ToString();
                 break;
-            case FeedbackType.Cocktail:
-                topBarText.Localize("SendCocktail");
-                this.theme = "Cocktail";
+            case FeedbackType.Game:
+                topBarText.Localize("SendGame");
+                this.theme = "Game";
                 break;
-            case FeedbackType.Cubata:
-                topBarText.Localize("SendCubata");
-                this.theme = "Cubata";
+            case FeedbackType.Drink:
+                topBarText.Localize("SendDrink");
+                this.theme = "Drink";
                 break;
         }
 

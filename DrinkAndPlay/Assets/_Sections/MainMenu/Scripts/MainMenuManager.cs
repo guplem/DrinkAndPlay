@@ -172,14 +172,14 @@ public class MainMenuManager : SectionManager
         GameManager.instance.generalUi.OpenFeedbackMenu();
     }
 
-    public void OpenSendNewCocktailFeedbakc()
+    public void OpenSendNewGamesFeedback()
     {
-        GameManager.instance.generalUi.OpenFeedbackMenuCocktails();
+        GameManager.instance.generalUi.OpenFeedbackMenuGames();
     }
     
-    public void OpenSendNewCubataFeedbakc()
+    public void OpenSendNewDrinkFeedback()
     {
-        GameManager.instance.generalUi.OpenFeedbackMenuCubata();
+        GameManager.instance.generalUi.OpenFeedbackMenuDrinks();
     }
 
 }

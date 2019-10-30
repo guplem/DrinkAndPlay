@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [Serializable]
@@ -81,7 +82,7 @@ public class Localizer : MonoBehaviour
             Debug.LogWarning("Null localization file in " + gameObject.name, gameObject);
         
         previouslyStarted = true;
-
+        
         if (automaticallyLocalize)
             if (currentLanguage != GameManager.instance.dataManager.language)
                 Localize();
@@ -120,28 +121,37 @@ public class Localizer : MonoBehaviour
     }
 
 
-    public void Localize()
+    public LocalizedText GetLocalizedText()
     {
         if (!Application.isPlaying)
-            return;
+            return null;
 
         if (string.IsNullOrEmpty(id))
         {
             GameObject go = gameObject;
             Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'id' in the 'Localizer' component is null or empty.", go);
-            return;
+            return null;
         }
         
         if (localizationFile == null)
         {
             GameObject go = gameObject;
             Debug.LogWarning("Trying to localize the object '" + go.name + "' but the 'localizationFile' in the 'Localizer' component is null.", go);
-            return;
+            return null;
         }
         
-        currentLanguage = GameManager.instance.dataManager.language;
-        LocalizedText localizedText = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize);
-        SetText(localizedText);
+        return GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize);
+    }
+    
+    public void Localize()
+    {
+        LocalizedText lt = GetLocalizedText();
+
+        if (lt != null)
+        {
+            currentLanguage = GameManager.instance.dataManager.language;
+            SetText(lt);
+        }
     }
 
     public void SetText(LocalizedText localizedText)

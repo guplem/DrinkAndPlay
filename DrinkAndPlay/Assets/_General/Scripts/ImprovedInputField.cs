@@ -25,7 +25,7 @@ public class ImprovedInputField : MonoBehaviour
         
         //PlaceHolder
         placeHolder = (TextMeshProUGUI) inputField.placeholder;
-        defaultPlaceHolderText = placeHolder.text;
+        defaultPlaceHolderText = GetDefaultPlaceHolderText();
         inputField.onSelect.AddListener(RemovePlaceHolder);
         inputField.onDeselect.AddListener(CheckAndSetPlaceHolder);
         
@@ -37,8 +37,20 @@ public class ImprovedInputField : MonoBehaviour
     }
 
 
-    #region PlaceHolder
 
+
+    #region PlaceHolder
+    
+    private string GetDefaultPlaceHolderText()
+    {
+        Localizer placeHolderLocalizer = placeHolder.GetComponent<Localizer>();
+        
+        if (placeHolderLocalizer != null)
+            return placeHolderLocalizer.GetLocalizedText().text;
+        
+        return placeHolder.text;
+    }
+    
     private void RemovePlaceHolder(string currentText)
     {
         placeHolder.text = "";

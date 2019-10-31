@@ -26,7 +26,7 @@ PlayerList,Lista de jugadores,Player list
 Min,Mínimo,Minimum
 Max,Máximo,Maximum
 NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.
-NaughtyLevelWarning,"<color=#cd293c>Atención:</color> Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>The smaller the range, the more repetitive the games will be."
+NaughtyLevelWarning,"<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto (1,6).<br>Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels (1,6).<br>The smaller the range, the more repetitive the games will be."
 General,General,General
 Games,Juegos,Games
 Help,Ayuda,Help

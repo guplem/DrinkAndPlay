@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 
 public class LocalizationManager
 {
-    private readonly DataManager configurationManager;
+    private readonly DataManager dataManager;
     private Dictionary<LocalizationFile, List<LocalizedText>> localizedTexts;
 
     public LocalizationManager(DataManager dataManager)
     {
         Debug.Log("Creating localization Manager");
-        this.configurationManager = dataManager;
+        this.dataManager = dataManager;
         localizedTexts = new Dictionary<LocalizationFile, List<LocalizedText>>();
     }
 
@@ -40,7 +40,7 @@ public class LocalizationManager
             return false;
         }
 
-        string lang = configurationManager.language;
+        string lang = dataManager.language;
 
         if (string.IsNullOrEmpty(lang))
         {

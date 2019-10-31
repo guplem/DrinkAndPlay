@@ -109,6 +109,6 @@ public class PlayersMenu : MonoBehaviour
         GameManager.instance.PlaySection(selectedSection);
         GameManager.instance.generalUi.CloseLastOpenUiElement();
         
-        GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
+        playButton.GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
     }
 }

@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("uiSection")] [SerializeField] public LocalizationFile uiLocalizationFile;
     [SerializeField] public GeneralUI generalUi;
     [SerializeField] public Section landingSection;
-    [SerializeField] public bool saveUserAsBetaTester;
 
     public static GameManager instance { get; private set; }
     public void Initialize()
@@ -36,14 +35,15 @@ public class GameManager : MonoBehaviour
 
         // SETUP
         
-        dataManager = new DataManager(false);
+        dataManager = new DataManager(false, false);
+        
         localizationManager = new LocalizationManager(dataManager);
 
         if (uiLocalizationFile == null)
             Debug.LogError("UI Section not set up in the GameManager.");
         localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
 
-        dataManager.betaTester = saveUserAsBetaTester;
+        
         /*
         #if UNITY_EDITOR
         #else

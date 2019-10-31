@@ -8,10 +8,11 @@ using Random = UnityEngine.Random;
 
 public class DataManager
 {
-    public DataManager(bool encode)
+    public DataManager(bool encode, bool betaTester)
     {
         Debug.Log("Creating DataManager");
         SaveGame.Encode = encode;
+        this.betaTester = betaTester;
     }
 
     private static List<T> GetCloneOfList<T>(List<T> originalList)

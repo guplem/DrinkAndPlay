@@ -42,8 +42,8 @@ public abstract class TurnsGameManager : SectionManager
     private int currentDelayForRandomChallenge = 0;
     
     
-    private int minLikesToRatePopup = 5;
-    private float minPercentageToRatePopup = 30f;
+    private int minLikesToRatePopup = 4;
+    private float minPercentageToRatePopup = 15f;
 
     public abstract void NextButton();
     public abstract void PreviousButton();

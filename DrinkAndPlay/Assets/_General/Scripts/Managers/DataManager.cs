@@ -153,10 +153,19 @@ public class DataManager
 
     public void NextPlayerTurn()
     {
-        playerTurn ++;
-        if (playerTurn > GetPlayersQuantity() - 1)
-            playerTurn = 0;
+        if (!randomPlayerOrder)
+        {
+            playerTurn ++;
+            if (playerTurn > GetPlayersQuantity() - 1)
+                playerTurn = 0;
+        }
+        else
+        {
+            playerTurn = Random.Range(0, GetPlayersQuantity());
+        }
+        
     }
+    
     public void PreviousPlayerTurn()
     {
         playerTurn --;
@@ -419,7 +428,7 @@ public class DataManager
             if (_randomChallenges == value) 
                 return;
             
-            Debug.Log("New random challenges state: " + value);
+            Debug.Log("New randomChallenges state: " + value);
             _randomChallenges = value;
             SaveGame.Save(randomChallengesSavename, value);
         }
@@ -429,6 +438,29 @@ public class DataManager
 
     #endregion
 
+    #region RandomPlayerOrder
+
+    public bool randomPlayerOrder
+    {
+        get
+        {
+            _randomPlayerOrder = SaveGame.Load(randomPlayerOrderSavename, false);
+            return _randomPlayerOrder;
+        }
+        set
+        {
+            if (_randomPlayerOrder == value) 
+                return;
+            
+            Debug.Log("New randomPlayerOrder state: " + value);
+            _randomPlayerOrder = value;
+            SaveGame.Save(randomPlayerOrderSavename, value);
+        }
+    }
+    private bool _randomPlayerOrder;
+    private const string randomPlayerOrderSavename = "randomPlayerOrder";
+
+    #endregion
     
     #region RatePopup
     public bool ratePopupShown;

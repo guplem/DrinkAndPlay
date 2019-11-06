@@ -1295,6 +1295,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorLine
       objectReference: {fileID: 0}
+    - target: {fileID: 5474550533692336329, guid: 5895cc67c28f9ea4995a75479c06df80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1400,6 +1405,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6580934871763052977, guid: 5895cc67c28f9ea4995a75479c06df80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5895cc67c28f9ea4995a75479c06df80, type: 3}
 --- !u!224 &6417910142415529806 stripped
@@ -1419,6 +1429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VerLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474550533692336329, guid: 5895cc67c28f9ea4995a75479c06df80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8080697977503628129, guid: 5895cc67c28f9ea4995a75479c06df80,
         type: 3}
@@ -1554,6 +1569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6580934871763052977, guid: 5895cc67c28f9ea4995a75479c06df80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5895cc67c28f9ea4995a75479c06df80, type: 3}

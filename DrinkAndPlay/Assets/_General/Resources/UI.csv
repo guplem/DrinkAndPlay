@@ -69,3 +69,4 @@ TD,"Aparecerá una palabra a adivinar junto a 3 palabras consideradas tabú. Nun
 MN,Mímica,Mime
 MD,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink."
 ChoosePlayer,¡Elegid a un jugador!,Choose a player!
+RandomOrder,Orden aleatorio,Random order

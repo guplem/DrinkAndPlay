@@ -12,6 +12,7 @@ public class PlayersMenu : MonoBehaviour
     [SerializeField] private Button doneButton;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Transform contentsObject;
+    [SerializeField] private Toggle rndPlayerOrderToggle;
     [Tooltip("Elements that are child of the 'Contents' GameObject that are not part of the player's list (input field, white spaces, ...)")]
     [SerializeField] private Transform[] elementsNotInPlayerList;
     [SerializeField] private TMP_InputField addPlayerInputField;
@@ -20,10 +21,21 @@ public class PlayersMenu : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private GameObject[] playButtonElements;
     private Section selectedSection;
+    
+    private bool setUpDone = false; 
+    
     private void Start()
     {
         //BuildPlayerList();
         SetDoneButtonAvailability();
+        rndPlayerOrderToggle.isOn = GameManager.instance.dataManager.randomPlayerOrder;
+        setUpDone = true;
+    }
+    
+    public void SetRandomPlayerOrder(bool state)
+    {
+        if (setUpDone)
+            GameManager.instance.dataManager.randomPlayerOrder = state;
     }
 
     public void AddPlayer(string newPlayer)
@@ -58,7 +70,7 @@ public class PlayersMenu : MonoBehaviour
         {
             string player = GameManager.instance.dataManager.GetPlayer(p);
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
-            playerGo.transform.SetSiblingIndex(p+4);
+            playerGo.transform.SetSiblingIndex(p+5);
             
             bool allowRemoval = true;
             if (SectionManager.instance.section.minNumberOfPlayers > 0)

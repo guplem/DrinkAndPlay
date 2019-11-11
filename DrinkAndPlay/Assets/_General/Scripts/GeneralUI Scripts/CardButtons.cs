@@ -12,7 +12,8 @@ public class CardButtons : MonoBehaviour
         Like,
         AddSentence,
         Share,
-        NextTurn
+        NextTurn,
+        Error
     }
 
     private void Start()
@@ -43,6 +44,9 @@ public class CardButtons : MonoBehaviour
                 break;
             case ButtonType.NextTurn:
                 button.onClick.AddListener(secMan.NextButton);
+                break;
+            case ButtonType.Error:
+                button.onClick.AddListener(secMan.ErrorButton);
                 break;
             default:
                 Debug.LogError("Button type of card not set properly for " + gameObject.name, gameObject);

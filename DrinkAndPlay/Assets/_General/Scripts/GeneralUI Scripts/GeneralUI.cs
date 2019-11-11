@@ -15,12 +15,6 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private GameObject playersButton;
     [SerializeField] private GameObject helpButton;
 
-    /*[Header("Bottom Bar")]
-    [SerializeField] public GameObject bottomBar;
-    [SerializeField] private GameObject likeButton;
-    [SerializeField] private GameObject addButton;
-    [SerializeField] private GameObject shareButton;*/
-
     [Header("Menus")]
     [SerializeField] private AnimationUI configMenu;
     [SerializeField] private AnimationUI languageMenu;
@@ -32,6 +26,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI randomChallengesMenu;
     [SerializeField] private AnimationUI helpMenu;
     [SerializeField] private AnimationUI creditsMenu;
+    [SerializeField] private AnimationUI errorsMenu;
+    private ErrorsMenu errorsMenuController;
     
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
@@ -63,6 +59,9 @@ public class GeneralUI : MonoBehaviour
 
         if (playersMenuController == null)
             playersMenuController = playersMenu.GetComponent<PlayersMenu>();
+        
+        if (errorsMenuController == null)
+            errorsMenuController = playersMenu.GetComponent<ErrorsMenu>();
     }
 
     public void CloseLastOpenUiElement()
@@ -288,6 +287,12 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Opening CreditsMenu");
         Show(creditsMenu);
     }
-    
-    
+
+
+    public void OpenErrorMenu(TextInTurnsGame currentTextInCard)
+    {
+        Debug.Log("Opening CreditsMenu");
+        Show(errorsMenu);
+        errorsMenuController.Setup(currentTextInCard);
+    }
 }

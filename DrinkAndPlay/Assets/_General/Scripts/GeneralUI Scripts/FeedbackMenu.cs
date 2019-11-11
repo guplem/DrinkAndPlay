@@ -133,13 +133,19 @@ public class FeedbackMenu : MonoBehaviour
             return;
         }
 
-        StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
-
+        //StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
+        ForceSendForm(theme, message, GameManager.instance.dataManager.author);
+        
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
         //UtilsUI.ClearSelectedElement();
 
         UpdateVisuals();
+    }
+    
+    public void ForceSendForm(string theme, string message, string author)
+    {
+        StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
     }
     
     IEnumerator Post(string theme, string message, string author) {

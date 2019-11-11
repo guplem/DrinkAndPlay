@@ -44,6 +44,7 @@ public abstract class TurnsGameManager : SectionManager
     
     private int minLikesToRatePopup = 4;
     private float minPercentageToRatePopup = 15f;
+    public TextInTurnsGame currentTextInCard { get; private set; }
 
     public abstract void NextButton();
     public abstract void PreviousButton();
@@ -155,21 +156,22 @@ public abstract class TurnsGameManager : SectionManager
         return history[historyIndex];
     }
     
-    protected void SetupTextInCard(TextInTurnsGame getPreviousText)
+    protected void SetupTextInCard(TextInTurnsGame textInCard)
     {
-        if (getPreviousText == null)
+        if (textInCard == null)
         {
             Debug.LogWarning("The obtained text for the card is null.", gameObject);    
             return;
         }
         
-        sentenceText.Localize(getPreviousText.localizedTextId, getPreviousText.localizationFile);
+        sentenceText.Localize(textInCard.localizedTextId, textInCard.localizationFile);
 
         likeButton.SetToInitialState();
         
         if (IsCurrentTextLiked())
             likeButton.Switch();
 
+        currentTextInCard = textInCard;
 
         SetBackButtonAvaliability();
     }
@@ -232,4 +234,9 @@ public abstract class TurnsGameManager : SectionManager
     }
 
     #endregion
+
+    public void ErrorButton()
+    {
+        gm.generalUi.OpenErrorMenu(currentTextInCard);
+    }
 }

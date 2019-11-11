@@ -174,6 +174,11 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Opening Donations");
         Application.OpenURL("https://paypal.me/gillemp");
     }
+    public void OpenInstagram()
+    {
+        Debug.Log("Opening Instagram");
+        Application.OpenURL("instagram://user?username=drinkandplayapp");
+    }
     public void OpenFeedbackMenu()
     {
         Debug.Log("Opening FeedbackMenu - General");

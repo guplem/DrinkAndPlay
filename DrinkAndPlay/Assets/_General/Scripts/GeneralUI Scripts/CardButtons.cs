@@ -11,7 +11,8 @@ public class CardButtons : MonoBehaviour
     {
         Like,
         AddSentence,
-        Share
+        Share,
+        NextTurn
     }
 
     private void Start()
@@ -29,8 +30,6 @@ public class CardButtons : MonoBehaviour
             return; 
         }
         
-        
-        
         switch (buttonType)
         {
             case ButtonType.Like:
@@ -41,6 +40,9 @@ public class CardButtons : MonoBehaviour
                 break;
             case ButtonType.Share:
                 button.onClick.AddListener(secMan.Share);
+                break;
+            case ButtonType.NextTurn:
+                button.onClick.AddListener(secMan.NextButton);
                 break;
             default:
                 Debug.LogError("Button type of card not set properly for " + gameObject.name, gameObject);

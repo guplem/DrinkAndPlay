@@ -871,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 5495938720462074920, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}
       propertyPath: m_Name
-      value: Card Without Bg
+      value: Card Without Elements
       objectReference: {fileID: 0}
     - target: {fileID: 5495938720462074923, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}
@@ -977,6 +977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822263400742221944, guid: 2d1873f3f12f3c545af0e16f1685fed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8481135271296722155, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}

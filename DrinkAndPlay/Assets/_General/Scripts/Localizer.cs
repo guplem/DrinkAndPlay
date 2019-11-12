@@ -120,6 +120,10 @@ public class Localizer : MonoBehaviour
         Localize();
     }
 
+    /*public LocalizedText GetLocalizedText(string id, LocalizationFile localizationFile)
+    {
+        return GameManager.instance.localizationManager.GetLocalizedText(localizationFile, id, registerTimestampAtLocalize);
+    }*/
 
     public LocalizedText GetLocalizedText()
     {

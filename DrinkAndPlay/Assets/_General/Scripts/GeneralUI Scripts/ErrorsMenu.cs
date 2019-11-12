@@ -2,18 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ErrorsMenu : MonoBehaviour
 {
     private bool typo;
     private bool offensive;
     private bool nonInclusive;
+    private bool other;
+    private TextInTurnsGame currentTextOfError;
+    [SerializeField] private Toggle typoToggle;
+    [SerializeField] private Toggle offensiveToggle;
+    [SerializeField] private Toggle nonInclusiveToggle;
+    [SerializeField] private Toggle otherToggle;
 
     public void Setup(TextInTurnsGame currentTextInCard)
     {
-        // TODO save it
+        currentTextOfError = currentTextInCard;
+        ClearToggles();
     }
-    
+
+    private void ClearToggles()
+    {
+        typoToggle.isOn = false;
+        offensiveToggle.isOn = false;
+        nonInclusiveToggle.isOn = false;
+        otherToggle.isOn = false;
+    }
+
     public void SetTypo(bool newValue)
     {
         typo = newValue;
@@ -28,22 +44,35 @@ public class ErrorsMenu : MonoBehaviour
     {
         nonInclusive = newValue;
     }
+    
+    public void SetOther(bool newValue)
+    {
+        other = newValue;
+    }
 
-    private void SendForm()
+    public void SendForm()
     {
         ForceSendForm("ERROR", GetMessage(), SectionManager.instance.section.ToString());
     }
 
     private string GetMessage()
     {
-        
-        
-        return "MESSAGE - TODO";
+        string message = "";
+
+        if (typo) message += "TYPO, ";
+        if (offensive) message += "OFFENSIVE, ";
+        if (nonInclusive) message += "NON-INCLUSIVE, ";
+        if (other) message += "OTHER, ";
+        if (currentTextOfError != null) message += "Localized Text: " +  GameManager.instance.localizationManager.GetLocalizedText(currentTextOfError.localizationFile, currentTextOfError.localizedTextId, false)
+                                                   + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
+
+        ClearToggles();
+        return message;
     }
 
     public void ForceSendForm(string theme, string message, string author)
     {
-        StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
+        StartCoroutine(Post(theme, message, author));
     }
     
     IEnumerator Post(string theme, string message, string author) {
@@ -64,7 +93,7 @@ public class ErrorsMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("Form upload complete.");
+            Debug.Log("Error form upload complete.");
         }
     }
 }

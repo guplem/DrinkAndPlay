@@ -17,11 +17,13 @@ public class TextInTurnsGame
         this.localizationFile = localizationFile;
     }
 
+    /*
     public TextInTurnsGame(LocalizedText localizedText, bool liked)
     {
         this.localizedTextId = localizedText.id;
         this.liked = liked;
     }
+    */
 }
 
 public abstract class TurnsGameManager : SectionManager

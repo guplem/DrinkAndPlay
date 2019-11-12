@@ -847,6 +847,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: 1814761101869083059, guid: eb61a0677b26cce4e80f32e141bb7d0d,
+        type: 3}
+      propertyPath: lightDarkColor
+      value: 
+      objectReference: {fileID: 11400000, guid: dd662c8364f2cb24cb2ba757a5687ca1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb61a0677b26cce4e80f32e141bb7d0d, type: 3}
 --- !u!224 &1640563903773967598 stripped
@@ -1112,6 +1118,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4554692656874043128, guid: b1310a092d63e8742a6bb75b5e642be1,
+        type: 3}
+      propertyPath: lightDarkColor
+      value: 
+      objectReference: {fileID: 11400000, guid: dd662c8364f2cb24cb2ba757a5687ca1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1310a092d63e8742a6bb75b5e642be1, type: 3}
 --- !u!224 &4194118458601995688 stripped

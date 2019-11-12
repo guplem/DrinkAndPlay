@@ -61,7 +61,7 @@ public class GeneralUI : MonoBehaviour
             playersMenuController = playersMenu.GetComponent<PlayersMenu>();
         
         if (errorsMenuController == null)
-            errorsMenuController = playersMenu.GetComponent<ErrorsMenu>();
+            errorsMenuController = errorsMenu.GetComponent<ErrorsMenu>();
     }
 
     public void CloseLastOpenUiElement()

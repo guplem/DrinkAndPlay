@@ -26,7 +26,7 @@ public class LocalizedText
 
     public override string ToString()
     {
-        return "Id: " + id + ", Naughtiness: " + naughtiness + ", Text: " + text /*+ ". Hash code = " + GetHashCode()*/;
+        return "Id: '" + id + "', Naughtiness: '" + naughtiness + "', Text: '" + text + "'";
     }
 
 }

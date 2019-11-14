@@ -94,6 +94,7 @@ public class DataManager
              
             _players = value;
             SaveGame.Save(playersSavename, value);
+            GenerateNewRandomRoundOrder();
         }
     }
     private List<string> _players;
@@ -119,7 +120,7 @@ public class DataManager
         if (!string.IsNullOrEmpty(player)) 
             return players.IndexOf(player);
         
-        Debug.LogWarning("Searching the index of a null player");
+        Debug.LogWarning("Searching the index of a null or empty player");
         return -1;
     }
     public int GetPlayersQuantity()
@@ -153,36 +154,62 @@ public class DataManager
 
     public void NextPlayerTurn()
     {
-        if (!randomPlayerOrder)
+        playerTurn ++;
+        if (playerTurn > GetPlayersQuantity() - 1)
         {
-            playerTurn ++;
-            if (playerTurn > GetPlayersQuantity() - 1)
-                playerTurn = 0;
+            playerTurn = 0;
+            GenerateNewRandomRoundOrder();
         }
-        else
-        {
-            playerTurn = Random.Range(0, GetPlayersQuantity());
-        }
-        
     }
-    
+
+    private int[] roundOrder;
+    private void GenerateNewRandomRoundOrder()
+    {
+        roundOrder = new int[GetPlayersQuantity()];
+        
+        List<int> numbersToOrder = new List<int>();
+        for (int i = 0; i < GetPlayersQuantity(); i++)
+            numbersToOrder.Add(i);
+
+        for (int r = 0; r < roundOrder.Length; r++)
+        {
+            roundOrder[r] = numbersToOrder[Random.Range(0, numbersToOrder.Count)];
+            numbersToOrder.Remove(roundOrder[r]);
+        }
+    }
+
     public void PreviousPlayerTurn()
     {
         playerTurn --;
         if (playerTurn < 0)
             playerTurn = GetPlayersQuantity() - 1;
     }
-    
+
     public string GetCurrentPlayer()
     {
-        return GetPlayer(playerTurn);
+        if (!randomPlayerOrder)
+            return GetPlayer(playerTurn);
+        else
+            return GetPlayer(GetCurrentRandomPlayer());
     }
 
     public string GetRandomPlayer()
     {
         return GetPlayer(Random.Range(0, GetPlayersQuantity()));
     }
-    
+
+    private int GetCurrentRandomPlayer()
+    {
+        if (roundOrder == null || roundOrder.Length <= 0)
+        {
+            GenerateNewRandomRoundOrder();
+            if (roundOrder == null || roundOrder.Length <= 0)
+                Debug.LogError("Error generating the new random round order of the players.");
+        }
+            
+        return roundOrder[playerTurn];
+    }
+
     public string GetRandomPlayer(List<string> exclusions)
     {
         if (exclusions.Count <= 0)

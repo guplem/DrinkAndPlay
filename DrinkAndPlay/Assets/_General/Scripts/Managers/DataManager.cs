@@ -307,6 +307,11 @@ public class DataManager
     {
         return Random.Range(GetNaughtyLevelMin(), GetNaughtyLevelMax() + 1);
     }
+
+    public bool IsValueOfNaughtyLevelCorrect(int valueToCheck)
+    {
+        return (naughtyLevel.min < valueToCheck) && (valueToCheck < naughtyLevel.max);
+    }
     #endregion
 
 
@@ -377,9 +382,9 @@ public class DataManager
             return 0;
         }
     }
-    public int GetTextRegisteredQuantity(LocalizationFile localizationFile, int naughtyLevel)
+    public int GetTextRegisteredQuantity(LocalizationFile localizationFile, bool properNaughtyLevel)
     {
-        return GetRegisteredTexts(localizationFile, naughtyLevel).Count;
+        return GetRegisteredTexts(localizationFile, properNaughtyLevel).Count;
     }
     
     
@@ -395,12 +400,12 @@ public class DataManager
         textsRegistered = clonedCs;
     }
 
-    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage, int naughtyLevel)
+    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage,  bool properNaughtyLevel)
     {
         List<string> regTexts = new List<string>();
         
         // List all the registered texts in the localizationFile with the selected Naughty Level
-        regTexts = naughtyLevel == -1 ? GetRegisteredTexts(localizationFile) : GetRegisteredTexts(localizationFile, naughtyLevel);
+        regTexts = !properNaughtyLevel ? GetRegisteredTexts(localizationFile) : GetRegisteredTexts(localizationFile, true);
 
         // Remove the desired quantity of the registered texts
         int quantityToRemove = (int) (percentage * regTexts.Count / 100);
@@ -412,19 +417,16 @@ public class DataManager
         
         textsRegistered = clonedCs;
     }
-    
-    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage)
-    {
-        RemoveOldestPercentageOfTextsRegistered(localizationFile, percentage, -1);
-    }
 
-    private List<string> GetRegisteredTexts(LocalizationFile localizationFile, int naughtyLevel)
+    private List<string> GetRegisteredTexts(LocalizationFile localizationFile, bool properNaughtyLevel)
     {
+        if (!properNaughtyLevel) return GetRegisteredTexts(localizationFile);
+        
         List<string> regTextsWithProperNl = new List<string>();
         foreach (string textId in textsRegistered[localizationFile.ToString()])
         {
             LocalizedText curr = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, textId, false);
-            if (curr.naughtiness == naughtyLevel || naughtyLevel == -1)
+            if (IsValueOfNaughtyLevelCorrect(curr.naughtiness))
                 regTextsWithProperNl.Add(textId);
         }
 

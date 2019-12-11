@@ -220,7 +220,7 @@ public class GeneralUI : MonoBehaviour
         if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
             GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
 
-        LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, GameManager.instance.dataManager.GetRandomNaughtyLevel(), true, true);
+        LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, true, true, true, true);
         
         Debug.Log("Displaying random challenge: " + lt);
         

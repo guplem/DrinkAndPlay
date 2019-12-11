@@ -141,6 +141,8 @@ public class FeedbackMenu : MonoBehaviour
         //UtilsUI.ClearSelectedElement();
 
         UpdateVisuals();
+        
+        GameManager.instance.generalUi.CloseLastOpenUiElement();
     }
     
     public void ForceSendForm(string theme, string message, string author)

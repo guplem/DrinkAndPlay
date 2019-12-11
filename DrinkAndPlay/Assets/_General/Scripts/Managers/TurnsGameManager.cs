@@ -55,7 +55,7 @@ public abstract class TurnsGameManager : SectionManager
         historyIndex++;
         if (historyIndex == history.Count) //We are "generating" new turns, not going back or forward
         {
-            LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, gm.dataManager.GetRandomNaughtyLevel(), true, true);
+            LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, true, true, true, true);
             RegisterNewTextInHistory(lt, localizationFile);
             ProcessRandomChallenge();
         }
@@ -135,7 +135,7 @@ public abstract class TurnsGameManager : SectionManager
 
         if (historyIndex >= history.Count)
         {
-            Debug.LogWarning("Trying to get the text with number " + historyIndex + " in historey but there are only " + history.Count + " elements on the list (" + (history.Count-1) + " is the top index)");
+            Debug.LogError("Trying to get the text with number " + historyIndex + " in historey but there are only " + history.Count + " elements on the list (" + (history.Count-1) + " is the top index)");
             return null;
         }
         

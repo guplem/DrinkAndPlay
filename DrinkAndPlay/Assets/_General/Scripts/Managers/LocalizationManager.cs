@@ -171,16 +171,14 @@ public class LocalizationManager
     }
 
     
-    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, int naughtyLevel, bool register, bool checkNotRegistered)
+    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, bool useProperNaughtyLevel, bool register, bool checkNotRegistered, bool trySecondSearchAfterResetRegister)
     {
         // Search for it
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
-            if (localizedText.naughtiness == naughtyLevel)
+            if (useProperNaughtyLevel && dataManager.IsValueOfNaughtyLevelCorrect(localizedText.naughtiness) || !useProperNaughtyLevel)
             {
-                if (checkNotRegistered &&
-                    !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) ||
-                    !checkNotRegistered)
+                if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
                 {
                     if (register)
                         GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
@@ -192,12 +190,20 @@ public class LocalizationManager
         
         
         //If it is not found probably is because it is because it is looking for a not registered text
-        if (checkNotRegistered)
+        if (checkNotRegistered && trySecondSearchAfterResetRegister)
+        {
+            Debug.Log("Going to reset registered sentences looking for a text from " + localizationFile + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel);
             if (ResetRegisteredSentences(localizationFile))
-                return SearchLocalizedText(localizationFile, naughtyLevel, register, checkNotRegistered);
+            {
+                Debug.Log("Going to do the second search.");
                 
+                return SearchLocalizedText(localizationFile, useProperNaughtyLevel, register, checkNotRegistered, false);
+            }
+                
+        }
         
-        Debug.LogError("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered + ", naughtyLevel="+naughtyLevel);
+        Debug.LogError("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel);
+        Debug.Break();
         return null;
     }
 
@@ -205,14 +211,14 @@ public class LocalizationManager
     {
         if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
         {
-            GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f);
-            Debug.Log("Resetted the top 25% of the registered sentences in the localization file '" + localizationFile + "'");
+            GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f, true);
+            Debug.Log("Reset the top 25% of the registered sentences in the localization file '" + localizationFile + "'");
             GameManager.instance.localizationManager.RandomizeLocalizedTexts(localizationFile); // To change the order of the new avaliable texts
             return true;
         }
         else
         {
-            Debug.LogWarning("There are not enough texts in the localization file: '" + localizationFile + "'");
+            Debug.LogError("There are not enough registered texts of the localization file: '" + localizationFile + "'. Found only " + GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile));
             return false;
         }
     }

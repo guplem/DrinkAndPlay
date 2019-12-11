@@ -53,6 +53,10 @@ public class ErrorsMenu : MonoBehaviour
     public void SendForm()
     {
         ForceSendForm("ERROR", GetMessage(), SectionManager.instance.section.ToString());
+        
+        ClearToggles();
+        
+        GameManager.instance.generalUi.CloseLastOpenUiElement();
     }
 
     private string GetMessage()
@@ -65,7 +69,6 @@ public class ErrorsMenu : MonoBehaviour
         if (other) message += "OTHER, ";
         if (currentTextOfError != null) message += "Localized Text: " + currentTextOfError.localizedText + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
 
-        ClearToggles();
         return message;
     }
 

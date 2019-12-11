@@ -103,7 +103,7 @@ public class DataManager
     public string GetPlayer(int playerNumber)
     {
         if (GetPlayersQuantity() <= 0)
-            return GameManager.instance.localizationManager.GetLocalizedText(GameManager.instance.uiLocalizationFile,
+            return GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile,
                 "ChoosePlayer", false).text;
         
         if (playerNumber > GetPlayersQuantity()-1 || playerNumber < 0)
@@ -152,7 +152,7 @@ public class DataManager
 
     private int playerTurn = 0;
 
-    public void NextPlayerTurn()
+    public void SetTurnForNextPlayer()
     {
         playerTurn ++;
         if (playerTurn > GetPlayersQuantity() - 1)
@@ -423,7 +423,7 @@ public class DataManager
         List<string> regTextsWithProperNl = new List<string>();
         foreach (string textId in textsRegistered[localizationFile.ToString()])
         {
-            LocalizedText curr = GameManager.instance.localizationManager.GetLocalizedText(localizationFile, textId, false);
+            LocalizedText curr = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, textId, false);
             if (curr.naughtiness == naughtyLevel || naughtyLevel == -1)
                 regTextsWithProperNl.Add(textId);
         }

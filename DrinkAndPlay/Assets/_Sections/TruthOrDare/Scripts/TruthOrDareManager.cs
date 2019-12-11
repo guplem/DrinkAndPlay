@@ -20,7 +20,7 @@ public class TruthOrDareManager : TurnsGameManager
 
     public override void NextButton()
     {
-        gm.dataManager.NextPlayerTurn();
+        gm.dataManager.SetTurnForNextPlayer();
         
         if (AreWeOnTopHistory())
         {

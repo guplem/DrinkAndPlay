@@ -63,8 +63,7 @@ public class ErrorsMenu : MonoBehaviour
         if (offensive) message += "OFFENSIVE, ";
         if (nonInclusive) message += "NON-INCLUSIVE, ";
         if (other) message += "OTHER, ";
-        if (currentTextOfError != null) message += "Localized Text: " +  GameManager.instance.localizationManager.GetLocalizedText(currentTextOfError.localizationFile, currentTextOfError.localizedTextId, false)
-                                                   + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
+        if (currentTextOfError != null) message += "Localized Text: " + currentTextOfError.localizedText + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
 
         ClearToggles();
         return message;

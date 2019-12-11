@@ -148,7 +148,7 @@ public class LocalizationManager
     }
     
     
-    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, string id, bool register)
+    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, string id, bool register)
     {
         if (localizationFile == null)
         {
@@ -171,38 +171,22 @@ public class LocalizationManager
     }
 
     
-    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, int naughtyLevel, bool register, bool checkNotRegistered)
+    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, int naughtyLevel, bool register, bool checkNotRegistered)
     {
         // Search for it
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
-            if (localizedText.naughtiness == naughtyLevel )
+            if (localizedText.naughtiness == naughtyLevel)
             {
-                if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
+                if (checkNotRegistered &&
+                    !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) ||
+                    !checkNotRegistered)
                 {
                     if (register)
-                            GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
+                        GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
 
                     return localizedText;
                 }
-            }
-        }
-
-        return null;
-    }
-    
-    
-    public LocalizedText GetLocalizedText(LocalizationFile localizationFile, bool register, bool checkNotRegistered)
-    {
-        // Search for it
-        foreach (LocalizedText localizedText in localizedTexts[localizationFile])
-        {
-            if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
-            {
-                if (register)
-                    GameManager.instance.dataManager.AddTextRegistered(localizationFile, localizedText.id);
-
-                return localizedText;
             }
         }
         
@@ -210,10 +194,10 @@ public class LocalizationManager
         //If it is not found probably is because it is because it is looking for a not registered text
         if (checkNotRegistered)
             if (ResetRegisteredSentences(localizationFile))
-                    return GetLocalizedText(localizationFile, register, checkNotRegistered);
+                return SearchLocalizedText(localizationFile, naughtyLevel, register, checkNotRegistered);
                 
         
-        Debug.LogWarning("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered);
+        Debug.LogError("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered + ", naughtyLevel="+naughtyLevel);
         return null;
     }
 

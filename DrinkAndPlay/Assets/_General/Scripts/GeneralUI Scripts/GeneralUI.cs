@@ -214,13 +214,16 @@ public class GeneralUI : MonoBehaviour
 
     public void ShowRandomChallenge()
     {
-        Debug.Log("Displaying random challenge");
+        
         randomChallengePopup.Show();
 
         if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
             GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
 
-        LocalizedText lt = GameManager.instance.localizationManager.GetLocalizedText(randomChallengesLocalizationFile, true, true);
+        LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, GameManager.instance.dataManager.GetRandomNaughtyLevel(), true, true);
+        
+        Debug.Log("Displaying random challenge: " + lt);
+        
         randomChallengesText.Localize(lt.id);
     }
 
@@ -261,7 +264,7 @@ public class GeneralUI : MonoBehaviour
         // To avoid memory leaks
         Destroy( ss );
 
-        string text = GameManager.instance.localizationManager.GetLocalizedText(GameManager.instance.uiLocalizationFile, "ShareText", false).text;
+        string text = GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, "ShareText", false).text;
         new NativeShare().AddFile(filePath).SetText(text).Share();
 
         // Share on WhatsApp only, if installed (Android only)

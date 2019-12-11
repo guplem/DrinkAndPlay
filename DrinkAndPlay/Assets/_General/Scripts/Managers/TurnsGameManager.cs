@@ -1,29 +1,23 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class TextInTurnsGame
 {
-    public readonly string localizedTextId;
+    public readonly LocalizedText localizedText;
     public bool liked;
     public readonly LocalizationFile localizationFile;
 
     public TextInTurnsGame(LocalizedText localizedText, LocalizationFile localizationFile)
     {
-        this.localizedTextId = localizedText.id;
-        this.liked = false;
+        this.localizedText = localizedText;
+        this.liked = false; // TODO: History of likes? (TBD)
         this.localizationFile = localizationFile;
     }
-
-    /*
-    public TextInTurnsGame(LocalizedText localizedText, bool liked)
-    {
-        this.localizedTextId = localizedText.id;
-        this.liked = liked;
-    }
-    */
 }
 
 public abstract class TurnsGameManager : SectionManager
@@ -61,7 +55,7 @@ public abstract class TurnsGameManager : SectionManager
         historyIndex++;
         if (historyIndex == history.Count) //We are "generating" new turns, not going back or forward
         {
-            LocalizedText lt = GetRandomText(true, true, localizationFile);
+            LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, gm.dataManager.GetRandomNaughtyLevel(), true, true);
             RegisterNewTextInHistory(lt, localizationFile);
             ProcessRandomChallenge();
         }
@@ -77,16 +71,6 @@ public abstract class TurnsGameManager : SectionManager
     public bool AreWeOnBottomHistory() //The oldest sentence
     {
         return historyIndex == 0;
-    }
-    
-    private LocalizedText GetRandomText(bool register, bool checkNotRegistered)
-    {
-        return GetRandomText(register, checkNotRegistered, section.localizationFiles[0]);
-    }
-
-    private LocalizedText GetRandomText(bool register, bool checkNotRegistered, LocalizationFile localizationFile)
-    {
-        return GameManager.instance.localizationManager.GetLocalizedText(localizationFile, register, checkNotRegistered);
     }
 
     private void RegisterNewTextInHistory(LocalizedText localizedText, LocalizationFile localizationFile)
@@ -141,7 +125,7 @@ public abstract class TurnsGameManager : SectionManager
         if (historyIndex < 0)
             return null;
         
-        return history[historyIndex].localizedTextId;
+        return history[historyIndex].localizedText.id;
     }
     
     protected TextInTurnsGame GetCurrentText()
@@ -162,11 +146,18 @@ public abstract class TurnsGameManager : SectionManager
     {
         if (textInCard == null)
         {
-            Debug.LogWarning("The obtained text for the card is null.", gameObject);    
+            Debug.LogError("The obtained text for the card is null.", gameObject);    
+            return;
+        } 
+        else if (textInCard.localizedText == null)
+        {
+            Debug.LogError("The text for the card does not have a localized text.", gameObject);    
             return;
         }
         
-        sentenceText.Localize(textInCard.localizedTextId, textInCard.localizationFile);
+        Debug.Log("Setting text in card: " + textInCard.localizedText +  ".\nFrom the localization file: '" + textInCard.localizationFile + "'");
+        
+        sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
 
         likeButton.SetToInitialState();
         

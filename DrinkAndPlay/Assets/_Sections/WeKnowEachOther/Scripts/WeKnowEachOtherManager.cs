@@ -12,7 +12,7 @@ public class WeKnowEachOtherManager : TurnsGameManager
 
     public override void NextButton()
     {
-        gm.dataManager.NextPlayerTurn();
+        gm.dataManager.SetTurnForNextPlayer();
         SetupTextInCard(GetNextText());
     }
 

@@ -66,44 +66,62 @@ public class PlayersMenu : MonoBehaviour
     {
         UtilsUI.DestroyContentsOf(contentsObject, elementsNotInPlayerList.ToList());
 
+        bool allowRemoval = true;
+        if (SectionManager.instance.section.minNumberOfPlayers > 0)
+            allowRemoval = CanAPlayerBeRemoved();
+        
         for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)
         {
             string player = GameManager.instance.dataManager.GetPlayer(p);
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
             playerGo.transform.SetSiblingIndex(p+5);
             
-            bool allowRemoval = true;
-            if (SectionManager.instance.section.minNumberOfPlayers > 0)
-                allowRemoval = SectionManager.instance.section.minNumberOfPlayers <
-                               GameManager.instance.dataManager.GetPlayersQuantity();
+
 
             playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
         }
-        
+
         if (selectedSection != null)
+        {
             playButton.interactable = GameManager.instance.HaveEnoughPlayersFor(selectedSection);
+            ShowPlayersDescription(selectedSection.minNumberOfPlayers);
+        }
+        else
+        {
+            ShowPlayersDescription(allowRemoval? -1 : SectionManager.instance.section.minNumberOfPlayers);
+        }
+            
+    }
+
+    private bool CanAPlayerBeRemoved()
+    {
+        return SectionManager.instance.section.minNumberOfPlayers < GameManager.instance.dataManager.GetPlayersQuantity();
     }
 
     public void HidePlayersAdditionalElements()
     {
-        minNumberOfPlayersDescription.gameObject.SetActive(false);
-        SetupPlayButton(null);
+        ShowPlayButton(null);
     }
 
     public void ShowPlayersAdditionalElements(int minPlayerQuantity, Section sectionToPlayAfter)
     {
-        ShowPlayersDescription(minPlayerQuantity);
-        SetupPlayButton(sectionToPlayAfter);
+        ShowPlayButton(sectionToPlayAfter);
     }
     
     private void ShowPlayersDescription(int minPlayerQuantity)
     {
+        if (minPlayerQuantity < 0)
+        {
+            minNumberOfPlayersDescription.gameObject.SetActive(false);
+            return;            
+        }
+        
         minNumberOfPlayersDescription.gameObject.SetActive(true);
         minNumberOfPlayersDescription.Localize();
         minNumberOfPlayersDescription.textsToLocalize[0].tmProGui.text += " " + minPlayerQuantity + "+";
     }
 
-    private void SetupPlayButton(Section sectionToPlayAfter)
+    private void ShowPlayButton(Section sectionToPlayAfter)
     {
         selectedSection = sectionToPlayAfter;
         foreach (GameObject element in playButtonElements)

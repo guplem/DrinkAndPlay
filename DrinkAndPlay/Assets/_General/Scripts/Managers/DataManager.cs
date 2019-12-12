@@ -262,13 +262,18 @@ public class DataManager
             return "(" + min + "," + max + ")";
         }
     }
+    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
+    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 5);
     public NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
     {
         get
         {
             if (_naughtyLevel == null)
             {
-                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, new NaughtyLevel(1, 6));
+                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, naughtyLevelExtremes);
+
+                if (naughtyLevel.max > naughtyLevelExtremes.max) naughtyLevel = new NaughtyLevel(naughtyLevel.min, naughtyLevelExtremes.max);
+                if (naughtyLevel.min < naughtyLevelExtremes.min) naughtyLevel = new NaughtyLevel(naughtyLevelExtremes.min, naughtyLevel.max);
             }
 
             return _naughtyLevel;
@@ -283,8 +288,7 @@ public class DataManager
         }
     }
     private NaughtyLevel _naughtyLevel;
-    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
-    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 6);
+
     private const string naughtyLevelSavename = "naughtyLevel";
 
     public void SetNaughtyLevelMin(int value)

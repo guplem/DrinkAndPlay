@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: MainMenu
   m_EditorClassIdentifier: 
   localizationUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vQGs31fwKF9vuUg9uUOvgN8Jr7bVSQvDILQEMPk6xiKkzk3PDYosuOPMhd0FjrnKPzLkMA998tnZfGN/pub?gid=987858067&single=true&output=csv
+  checkForEnoughSentencesOfAllNaughtyLevels: 0

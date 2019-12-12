@@ -40,7 +40,7 @@ public class LanguageButton : MonoBehaviour
         OnEnable();
         
         this.language = language;
-        textName.text = language.languageName;
+        textName.text = language.titleName;
         
         btn.interactable = language.isEnabled;
 
@@ -49,7 +49,7 @@ public class LanguageButton : MonoBehaviour
 
     public void SelectLanguage()
     {
-        GameManager.instance.dataManager.language = language.languageId;
+        GameManager.instance.dataManager.language = language.id;
     }
 
     public void SetColors(LightDarkColor.ColorType colorType)

@@ -7,6 +7,7 @@ public class LocalizationFile : ScriptableObject
 {
     [TextArea]
     public string localizationUrl;
+    public bool checkForEnoughSentencesOfAllNaughtyLevels = true;
     
     public override string ToString()
     {

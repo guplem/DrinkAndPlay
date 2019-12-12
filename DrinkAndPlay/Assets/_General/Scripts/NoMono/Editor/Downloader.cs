@@ -95,13 +95,7 @@ class Downloader
     public static void DownloadAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
-        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
-        for (int i = 0; i < guids.Length; i++)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
-        }
+        LocalizationFile[] localizationFiles = GameManager.GetAllLocalizationFiles();
 
         //Download every localizationFile (including UI)
         foreach (LocalizationFile localizationFile in localizationFiles)

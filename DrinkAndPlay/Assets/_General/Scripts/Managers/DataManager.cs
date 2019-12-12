@@ -10,7 +10,7 @@ public class DataManager
 {
     public DataManager(bool encode, bool betaTester)
     {
-        Debug.Log("Creating DataManager");
+        Debug.Log("Creating DataManager.");
         SaveGame.Encode = encode;
         this.betaTester = betaTester;
     }
@@ -262,7 +262,7 @@ public class DataManager
             return "(" + min + "," + max + ")";
         }
     }
-    private NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
+    public NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
     {
         get
         {
@@ -273,7 +273,7 @@ public class DataManager
 
             return _naughtyLevel;
         }
-        set
+        private set
         {
             if (!_naughtyLevel.Equals(value))
             {
@@ -310,7 +310,7 @@ public class DataManager
 
     public bool IsValueOfNaughtyLevelCorrect(int valueToCheck)
     {
-        return (naughtyLevel.min < valueToCheck) && (valueToCheck < naughtyLevel.max);
+        return (naughtyLevel.min <= valueToCheck) && (valueToCheck <= naughtyLevel.max);
     }
     #endregion
 
@@ -371,7 +371,7 @@ public class DataManager
             return false;
         }
     }
-    public int GetTextRegisteredQuantity(LocalizationFile localizationFile)
+    /*public int GetTextRegisteredQuantity(LocalizationFile localizationFile)
     {
         try
         {
@@ -381,7 +381,7 @@ public class DataManager
         {
             return 0;
         }
-    }
+    }*/
     public int GetTextRegisteredQuantity(LocalizationFile localizationFile, bool properNaughtyLevel)
     {
         return GetRegisteredTexts(localizationFile, properNaughtyLevel).Count;
@@ -405,8 +405,9 @@ public class DataManager
         List<string> regTexts = new List<string>();
         
         // List all the registered texts in the localizationFile with the selected Naughty Level
-        regTexts = !properNaughtyLevel ? GetRegisteredTexts(localizationFile) : GetRegisteredTexts(localizationFile, true);
-
+        regTexts = GetRegisteredTexts(localizationFile, properNaughtyLevel);
+        regTexts.DebugLog(" >>> Sentences found to reset: ");
+        
         // Remove the desired quantity of the registered texts
         int quantityToRemove = (int) (percentage * regTexts.Count / 100);
         regTexts.RemoveRange(0, quantityToRemove);
@@ -420,7 +421,7 @@ public class DataManager
 
     private List<string> GetRegisteredTexts(LocalizationFile localizationFile, bool properNaughtyLevel)
     {
-        if (!properNaughtyLevel) return GetRegisteredTexts(localizationFile);
+        if (!properNaughtyLevel) return textsRegistered[localizationFile.ToString()];
         
         List<string> regTextsWithProperNl = new List<string>();
         foreach (string textId in textsRegistered[localizationFile.ToString()])
@@ -433,10 +434,10 @@ public class DataManager
         return regTextsWithProperNl;
     }
     
-    private List<string> GetRegisteredTexts(LocalizationFile localizationFile)
+    /*private List<string> GetRegisteredTexts(LocalizationFile localizationFile)
     {
         return textsRegistered[localizationFile.ToString()];
-    }
+    }*/
         
     #endregion
 

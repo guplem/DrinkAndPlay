@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
         
         dataManager = new DataManager(false, false);
         
-        localizationManager = new LocalizationManager(dataManager);
+        localizationManager = new LocalizationManager(dataManager, 25);
 
         if (uiLocalizationFile == null)
             Debug.LogError("UI Section not set up in the GameManager.");
@@ -91,5 +92,31 @@ public class GameManager : MonoBehaviour
         {
             instance.generalUi.CloseLastOpenUiElement();
         }
+    }
+
+    public static LocalizationFile[] GetAllLocalizationFiles()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
+        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
+        }
+
+        return localizationFiles;
+    }
+    
+    public static Language[] GetAllLanguages()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Language).Name);
+        Language[] languages = new Language[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            languages[i] = AssetDatabase.LoadAssetAtPath<Language>(path);
+        }
+
+        return languages;
     }
 }

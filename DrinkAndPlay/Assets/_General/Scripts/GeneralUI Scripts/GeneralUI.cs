@@ -222,7 +222,7 @@ public class GeneralUI : MonoBehaviour
 
         LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, true, true, true, true);
         
-        Debug.Log("Displaying random challenge: " + lt);
+        Debug.Log("Displaying random challenge: " + lt + "\nAfter a search for a text with NaughtyLevel = " + GameManager.instance.dataManager.naughtyLevel);
         
         randomChallengesText.Localize(lt.id);
     }

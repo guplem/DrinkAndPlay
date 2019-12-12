@@ -8,12 +8,14 @@ public class LocalizationManager
 {
     private readonly DataManager dataManager;
     private Dictionary<LocalizationFile, List<LocalizedText>> localizedTexts;
+    public int resetPercentage { get; private set; }
 
-    public LocalizationManager(DataManager dataManager)
+    public LocalizationManager(DataManager dataManager, int resetPercentage)
     {
-        Debug.Log("Creating localization Manager");
+        Debug.Log("Creating localization Manager.");
         this.dataManager = dataManager;
         localizedTexts = new Dictionary<LocalizationFile, List<LocalizedText>>();
+        this.resetPercentage = resetPercentage;
     }
 
     public bool ReloadForCurrentLanguage()
@@ -32,21 +34,26 @@ public class LocalizationManager
 
     public bool LoadCurrentLanguageFor(LocalizationFile localizationFile)
     {
-        Debug.Log("Loading '" + localizationFile + "' localization file");
-        
+        return LoadLanguageFor(localizationFile, dataManager.language);
+    }
+    
+    public bool LoadLanguageFor(LocalizationFile localizationFile, string language)
+    {
         if (localizationFile == null)
         {
-            Debug.LogError("Trying to load a 'null' localizationFile's localized texts");
+            Debug.LogError("Trying to load a null localizationFile");
             return false;
         }
-
-        string lang = dataManager.language;
-
-        if (string.IsNullOrEmpty(lang))
+        
+        if (string.IsNullOrEmpty(language))
         {
-            Debug.LogError("The language to be loaded is null or empty");
+            Debug.LogError("The language to be loaded for " + localizationFile + " is null or empty.");
             return false;
         }
+        
+        Debug.Log("Loading '" + localizationFile + "' localization file for language '" + language + "'.");
+        
+        //string language = dataManager.language;
 
         string[][] dataRead = CSVReader.Read(localizationFile).ToArray();
         int idCol = -1;
@@ -65,7 +72,7 @@ public class LocalizationManager
                         idCol = col;
                     if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) == 0)
                         naughtyCol = col;
-                    if (string.Compare(dataRead[row][col].ToUpper(), lang.ToUpper(), StringComparison.Ordinal) == 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), language.ToUpper(), StringComparison.Ordinal) == 0)
                         langCol = col;
 
                     if (idCol > -1 && naughtyCol > -1 && langCol > -1)
@@ -76,9 +83,8 @@ public class LocalizationManager
                     Debug.LogError("The localizationFile '" + localizationFile + "' is missing the 'ID' column in its localization file");
                 else if (langCol < 0)
                 {
-                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + lang + "' in its localization file.     ('"  + lang + "' is the current language.)");
-                    Debug.LogError("The ID COLUMN IS: " + idCol);
-                    
+                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + language + "' in its localization file.     ('"  + language + "' is the current language.)");
+                    //Debug.LogError("The ID COLUMN IS: " + idCol);
                 }
             }
 
@@ -95,8 +101,47 @@ public class LocalizationManager
         }
 
         RandomizeLocalizedTexts(localizationFile);
+        Debug.Log("Loaded " + localizedTexts[localizationFile].Count + " texts from the localization file '" + localizationFile + "'.");
+        
+        /*#if UNITY_EDITOR
+            CheckValidityOf(localizedTexts[localizationFile], resetPercentage, localizationFile, language);
+        #endif*/
         
         return true;
+    }
+
+    public List<LocalizedText> GetLocalizedTextsFrom(LocalizationFile localizationFile)
+    {
+        return localizedTexts[localizationFile];
+    }
+    
+    public void CheckValidityOf(List<LocalizedText> localizedTexts, int percentage, LocalizationFile localizationFile, string lang)
+    {
+        if (localizedTexts == null || localizedTexts.Count <= 0)
+            Debug.LogError("Checking validity of a null or empty localizedTexts.");
+        if (localizationFile == null)
+            Debug.LogError("Checking validity of a null localizationFile.");
+        
+        
+        for (int nl = dataManager.naughtyLevelExtremes.min; nl <= dataManager.naughtyLevelExtremes.max; nl++)
+        {
+            if (nl <= 0)
+            {
+                Debug.LogWarning("The minimum naughty level shouldn't be below '1'.");
+                nl=1;
+            }
+            
+            int counter = 0;
+            
+            foreach (LocalizedText localizedText in localizedTexts)
+                if (localizedText.naughtiness == nl)
+                    counter++;
+
+            int minQttOfSentences = 100 / percentage;
+            if (counter < minQttOfSentences)
+                Debug.LogWarning("Only found " + counter + " texts while searching sentences of naughty level = " + nl + " in the localization file '" + localizationFile + "' with language = '" + lang + "'.\nAt least " + minQttOfSentences + " texts are needed.");
+        }
+
     }
 
     public void RandomizeLocalizedTexts(LocalizationFile localizationFile)
@@ -186,14 +231,15 @@ public class LocalizationManager
                     return localizedText;
                 }
             }
+            //else Debug.LogWarning("NL of sentence = " + localizedText.naughtiness + ". Expected " + dataManager.naughtyLevel );
         }
         
         
         //If it is not found probably is because it is because it is looking for a not registered text
         if (checkNotRegistered && trySecondSearchAfterResetRegister)
         {
-            Debug.Log("Going to reset registered sentences looking for a text from " + localizationFile + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel);
-            if (ResetRegisteredSentences(localizationFile))
+            Debug.Log("Going to reset registered sentences looking for a text from " + localizationFile + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel + " NL = " + dataManager.naughtyLevel);
+            if (ResetRegisteredSentences(localizationFile, useProperNaughtyLevel, resetPercentage))
             {
                 Debug.Log("Going to do the second search.");
                 
@@ -202,23 +248,24 @@ public class LocalizationManager
                 
         }
         
-        Debug.LogError("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel);
+        Debug.LogError("Localized text not found in the file '" + localizationFile + "'. Search filter: Register="+register + ", checkNotRegistered="+checkNotRegistered + ". Using ProperNaughtyLevel? " + useProperNaughtyLevel + ". NL = " + dataManager.naughtyLevel);
         Debug.Break();
         return null;
     }
 
-    private bool ResetRegisteredSentences(LocalizationFile localizationFile)
+    private bool ResetRegisteredSentences(LocalizationFile localizationFile, bool useProperNaughtyLevel, int percentage)
     {
-        if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile) > 2) // To know if there are enough to remove the register of the 50%
+        int minQttToApplyUnregistering = 100 / percentage;
+        if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile, useProperNaughtyLevel) >= minQttToApplyUnregistering) // To know if there are enough to remove the register of the 50%
         {
-            GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, 25f, true);
+            GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, percentage, useProperNaughtyLevel);
             Debug.Log("Reset the top 25% of the registered sentences in the localization file '" + localizationFile + "'");
             GameManager.instance.localizationManager.RandomizeLocalizedTexts(localizationFile); // To change the order of the new avaliable texts
             return true;
         }
         else
         {
-            Debug.LogError("There are not enough registered texts of the localization file: '" + localizationFile + "'. Found only " + GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile));
+            Debug.LogError("There are not enough registered texts from the localization file '" + localizationFile + "'. Found only " + GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile, useProperNaughtyLevel) + " and needed at least " + minQttToApplyUnregistering + ".\nUsing ProperNaughtyLevel? " + useProperNaughtyLevel + " NL = " + dataManager.naughtyLevel);
             return false;
         }
     }
@@ -227,6 +274,5 @@ public class LocalizationManager
     {
         return localizedTexts.ContainsKey(localizationFile);
     }
-
-
+    
 }

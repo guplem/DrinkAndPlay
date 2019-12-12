@@ -23,8 +23,9 @@ public class LocalizationFilesChecker : MonoBehaviour
                 Debug.Log("Disabled language, skipping.");
                 continue;
             }
-                
 
+            int sentencesByLanguage = 0;
+            
             foreach (LocalizationFile localizationFile in localizationFiles)
             {
                 Debug.Log("Starting check of localizationFile '" + localizationFile+"'.");
@@ -37,12 +38,15 @@ public class LocalizationFilesChecker : MonoBehaviour
                 // Load
                 localizationManager.LoadLanguageFor(localizationFile, language.id);
                 // Check
-                localizationManager.CheckValidityOf(localizationManager.GetLocalizedTextsFrom(localizationFile), localizationManager.resetPercentage, localizationFile, language.id);
+                List<LocalizedText> lt = localizationManager.GetLocalizedTextsFrom(localizationFile);
+                localizationManager.CheckValidityOf(lt, localizationManager.resetPercentage, localizationFile, language.id);
+                sentencesByLanguage += lt.Count;
             }
             
+            Debug.Log("Checked " + sentencesByLanguage + " in-game texts for the language " + language);
         }
 
-        Debug.Log("Localization files checked.");
+        Debug.Log("Localization files checking finished.");
     }
 
 

@@ -95,7 +95,7 @@ class Downloader
     public static void DownloadAllLocalizationFileAsCsv()
     {
         //Search all sections (including UI)
-        LocalizationFile[] localizationFiles = GameManager.GetAllLocalizationFiles();
+        LocalizationFile[] localizationFiles = GetAllLocalizationFiles();
 
         //Download every localizationFile (including UI)
         foreach (LocalizationFile localizationFile in localizationFiles)
@@ -126,4 +126,19 @@ class Downloader
 
         Debug.Log("All Localization files have been deleted.");
     }
+    
+    public static LocalizationFile[] GetAllLocalizationFiles()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
+        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
+        }
+
+        return localizationFiles;
+    }
+    
+    
 }

@@ -94,29 +94,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static LocalizationFile[] GetAllLocalizationFiles()
-    {
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
-        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
-        for (int i = 0; i < guids.Length; i++)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
-        }
 
-        return localizationFiles;
-    }
     
-    public static Language[] GetAllLanguages()
-    {
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Language).Name);
-        Language[] languages = new Language[guids.Length];
-        for (int i = 0; i < guids.Length; i++)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            languages[i] = AssetDatabase.LoadAssetAtPath<Language>(path);
-        }
-
-        return languages;
-    }
 }

@@ -12,8 +12,8 @@ public class LocalizationFilesChecker : MonoBehaviour
     {
         LocalizationManager localizationManager = new LocalizationManager(new DataManager(false, true), 25);
 
-        LocalizationFile[] localizationFiles = GameManager.GetAllLocalizationFiles();
-        Language[] languages = GameManager.GetAllLanguages();
+        LocalizationFile[] localizationFiles = Downloader.GetAllLocalizationFiles();
+        Language[] languages = GetAllLanguages();
 
         foreach (Language language in languages)
         {
@@ -48,6 +48,20 @@ public class LocalizationFilesChecker : MonoBehaviour
 
         Debug.Log("Localization files checking finished.");
     }
+
+    public static Language[] GetAllLanguages()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Language).Name);
+        Language[] languages = new Language[guids.Length];
+        for (int i = 0; i < guids.Length; i++)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            languages[i] = AssetDatabase.LoadAssetAtPath<Language>(path);
+        }
+
+        return languages;
+    }
+    
 
 
 }

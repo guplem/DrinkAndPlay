@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -11,11 +12,13 @@ using UnityEngine.UI;
 public struct TextsToLocalize {
     public string stringTag;
     public TextMeshProUGUI tmProGui;
+    public UnityEvent methodToCallAfter;
 
-    public TextsToLocalize(string stringTag, TextMeshProUGUI tmProGui)
+    public TextsToLocalize(string stringTag, TextMeshProUGUI tmProGui, UnityEvent methodToCallAfter)
     {
         this.stringTag = stringTag;
         this.tmProGui = tmProGui;
+        this.methodToCallAfter = methodToCallAfter;
     }
 
     public TextsToLocalize(TextMeshProUGUI tmProGui) : this()
@@ -178,12 +181,14 @@ public class Localizer : MonoBehaviour
                 if (pFrom >= pTo || pFrom < 0 || pTo < 0) //Error handeling
                 {
                     ApplyText(txt.tmProGui, "");
+                    if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
                 }
                 else
                 {
                     int searchedTextLength = pTo - pFrom;
                     ApplyText(txt.tmProGui, text.Substring(pFrom, searchedTextLength));
                     text = text.Remove(pFrom - tagLength,  searchedTextLength + tagLength*2);
+                    if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
                 }
             }
         }
@@ -194,11 +199,11 @@ public class Localizer : MonoBehaviour
         foreach (TextsToLocalize txt in savedForLater)
         {
             ApplyText(txt.tmProGui, text);
-            
+            if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
         }
     }
 
-    private void ApplyText(TextMeshProUGUI tmProGui, string text)
+    private static void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
         List<string> alreadyIncludedPlayers = new List<string>();
         

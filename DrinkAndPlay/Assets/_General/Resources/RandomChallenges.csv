@@ -6,7 +6,7 @@ Id,Naughtiness,es-es,en-us
 5,5,<pr> escoge a dos jugadores y decide cual de los dos tiene mejor culo (puedes tocar),"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 6,3,<pr> realiza un baile sensual para alguno de los jugadores.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 7,1,Todos los que tengan el móvil en la mano se terminan la copa.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-8,2,<pr> tienes diez segundos para eructar.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+8,2,<pr> tienes diez segundos para eructar.>s>10<s<,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 9,2,<pr> confiesa quien es la persona que te resulta más atraciva del grupo.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 10,1,"Los que tengan tatuajes, beben.","Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 11,3,<pr> el grupo decide qué pieza de ropa te tienes que quitar.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -37,12 +37,12 @@ Id,Naughtiness,es-es,en-us
 36,5,El grupo decide un reto y <pr> tira una moneda. Si sale cara él deberá cumplirlo.,
 37,2,<pr> chúpale un pié sensualmente a quien tu quieras.,
 38,2,<pr> intenta ponerle la piel de gallina a <pr>.,
-39,2,<pr> ponte los zapatos de <pr> en la nariz durante 30 segundos.,
+39,2,<pr> ponte los zapatos de <pr> en la nariz durante 30 segundos.>s>30<s<,
 40,1,<pr> hazun solo de guitarra invisible.,
 41,2,"<pr> deja que cada jugador te arranque un pelo. Si eres calvo, tu arrancas un pelo a cada jugador.",
 42,2,<pr> di la tabla del 7 entera. Si te equivocas te terminas la copa.,
 43,2,<pr> convence a tus amigos de que entiendes la teoría de la relatividad.,
-44,1,<pr> haz un retrato en menos de un minuto del jugador que tienes a la derecha.,
+44,1,<pr> haz un retrato en menos de un minuto del jugador que tienes a la derecha.>s>60<s<,
 45,2,<pr> sube una historia con el dibujo de una polla a tu instagram.,
 46,2,<pr> chúpale la nariz a <pr>.,
 47,2,"<pr> canta y baila ""La Macarena"".",

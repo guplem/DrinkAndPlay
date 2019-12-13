@@ -10,16 +10,16 @@ Id,Naughtiness,es-es,en-us
 9,3,<p> enseña tu historial a <pr>.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 10,3,<p> tócale las partes a <pr>.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 11,2,<p> dale un beso en los pies a <pr>.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-12,1,<p> siéntate encima de <pr> durante los siguientes 2 minutos.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-13,1,<p> habla con acento inglés durante los siguientes 2 minutos.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-14,1,<p> habla con acento francés durante los siguientes 2 minutos.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-15,1,<p> habla con acento sevillano durante los siguientes 2 minutos.,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+12,1,<p> siéntate encima de <pr> durante los siguientes 2 minutos.>s>120<s<,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+13,1,<p> habla con acento inglés durante los siguientes 2 minutos.>s>120<s<,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+14,1,<p> habla con acento francés durante los siguientes 2 minutos.>s>120<s<,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+15,1,<p> habla con acento sevillano durante los siguientes 2 minutos.>s>120<s<,"Dare Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 16,3,<p> elige un jugador a quien deberás darle un beso en la boca en cualquier momento de la noche.,
 17,3,<p> quita la camiseta a <pr> sin usar las manos.,
 18,2,<p> en algun momento de la noche pide el número de teléfono a alguien con una frase que te digan tus amigos.,
 19,2,<p> baila una sevillana.,
-20,1,<p> durante 2 minutos debes hablarle a la gente con el articulo del sexo opuesto. Acábate la copa si te equivocas.,
-21,2,"<p> si durante los próximos 5 minutos dices la palabra no, tendrás que quitarte una prenda.",
+20,1,<p> durante 2 minutos debes hablarle a la gente con el articulo del sexo opuesto. Acábate la copa si te equivocas.>s>120<s<,
+21,2,"<p> si durante los próximos 5 minutos dices la palabra no, tendrás que quitarte una prenda.>s>120<s<",
 22,2,<p> intercanviate una prenda de ropa con <pr>.,
 23,4,<p> elige a alguien para que beba hasta que tu pares de beber.,
 24,2,<p> deja que tus amigos den 5 likes en tu app para ligar.,
@@ -38,12 +38,12 @@ Id,Naughtiness,es-es,en-us
 37,3,<p> seduce a <pr>.,
 38,2,<p> tira alguna cosa que haya encima de la mesa por la ventana.,
 39,2,<p> deja que tus amigos respondan a alguno de tus mensajes no leídos.,
-40,2,<p> imita a un pato durante 15 segundos.,
+40,2,<p> imita a un pato durante 15 segundos.>s>15<s<,
 41,5,<p> desabrocha el sujetador a una jugadora de tu elección.,
 42,3,<p> muerdele el culo a <pr>.,
 43,5,<p> lámele el torso a <pr>.,
-44,1,<p> deja que <pr> te haga cosquillas durante 30 segundos.,
-45,1,<p> durante los próximos 5 minutos tendrás que dirigirte a la gente por su apellido.,
+44,1,<p> deja que <pr> te haga cosquillas durante 30 segundos.>s>30<s<,
+45,1,<p> durante los próximos 5 minutos tendrás que dirigirte a la gente por su apellido.>s>300<s<,
 45,4,<p> representa a una persona encocada.,
 46,2,<p> el grupo elige que prendra de ropa te tienes que quitar.,
 47,3,<p> el grupo decide a quien le das un beso.,

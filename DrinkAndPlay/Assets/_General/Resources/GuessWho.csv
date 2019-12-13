@@ -1,6 +1,6 @@
 Id,Naughtiness,es-es,en-us
 1,2,¿Quién es más probable que mate a alguien?,Who is more likely to kill someone? <pr> or <pr>?
-2,5,¿Quién es más probable que folle con un transexual?,Who is more likely to fuck with a transsexual? <pr> or <pr>?
+2,5,¿Quién es más probable que folle con alguien transexual?,Who is more likely to fuck with a transsexual? <pr> or <pr>?
 3,2,¿Quién es más probable que trabaje en el McDonald's?,Who is more likely to work at McDonald's? <pr> or <pr>?
 4,5,¿Quién es más probable que organice una orgía?,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 5,5,¿Quién es más probable que se masturbe viendo national geographic?,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -125,3 +125,5 @@ Id,Naughtiness,es-es,en-us
 124,3,¿Quién es más probable que tenga más contactos con los que se pueda acostar ahora mismo?,
 125,1,¿Quién es más probable que muera el primero en un apocalipsis zombie?,
 126,1,¿Quién es más probable que muera el último en un apocalipsis zombie?,
+127,1,¿Quién es más probable que le pida una canción al DJ?,
+128,4,¿Quién es más probable que sea peor de aguantar borracho/a,

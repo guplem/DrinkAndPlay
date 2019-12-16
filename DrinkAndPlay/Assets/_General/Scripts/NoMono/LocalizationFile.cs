@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,4 +14,17 @@ public class LocalizationFile : ScriptableObject
     {
         return name;
     }
+
+    public override bool Equals(object other)
+    {
+        LocalizationFile lf;
+        try
+        {
+            lf = (LocalizationFile) other;
+        }
+        catch (InvalidCastException) {return false;}
+
+        return lf != null && String.Compare(lf.localizationUrl, this.localizationUrl, StringComparison.Ordinal) == 0;
+    }
+    
 }

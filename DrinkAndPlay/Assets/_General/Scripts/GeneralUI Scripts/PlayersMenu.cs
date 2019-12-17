@@ -135,9 +135,9 @@ public class PlayersMenu : MonoBehaviour
     
     private void LoadSelectedSectionAtEvent()
     {
-        GameManager.instance.PlaySection(GameManager.instance.dataManager.lastSelectedSection);
         GameManager.instance.generalUi.CloseLastOpenUiElement();
-        
+        GameManager.instance.PlaySection(GameManager.instance.dataManager.lastSelectedSection);
+
         playButton.GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
     }
 }

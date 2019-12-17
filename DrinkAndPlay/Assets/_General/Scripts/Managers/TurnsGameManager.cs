@@ -50,7 +50,7 @@ public abstract class TurnsGameManager : SectionManager
         if (!checkIfSelected)
             return GetNextText(section.localizationFiles[Random.Range(0, section.localizationFiles.Length)]);
         
-        return GetNextText(gm.dataManager.GetRandomSelectedSection());
+        return GetNextText(gm.dataManager.GetRandomSelectedLocalizationFiles());
     }
     
     protected TextInTurnsGame GetNextText(LocalizationFile localizationFile)

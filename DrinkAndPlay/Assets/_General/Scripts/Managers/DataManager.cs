@@ -55,19 +55,19 @@ public class DataManager
             lastSelectedLocalizationFiles.Add(locFile);
     }
     
-    public LocalizationFile GetRandomSelectedSection()
+    public LocalizationFile GetRandomSelectedLocalizationFiles()
     {
         if (lastSelectedLocalizationFiles.Count <= 0) return null;
         
-        return lastSelectedLocalizationFiles[Random.Range(0, GetSelectedSectionsQuantity())];
+        return lastSelectedLocalizationFiles[Random.Range(0, GetSelectedLocalizationFilesQuantity())];
     }
     
-    public int GetSelectedSectionsQuantity()
+    public int GetSelectedLocalizationFilesQuantity()
     {
         return lastSelectedLocalizationFiles.Count;
     }
 
-    public bool IsSelectedSectionsListInitialized()
+    public bool IsSelectedLocalizationFilesListInitialized()
     {
         return lastSelectedLocalizationFiles != null;
     }

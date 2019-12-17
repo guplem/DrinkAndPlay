@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c33cc80490e1241bc72d07bf92bb48, type: 3}
   m_Name: MixMode
   m_EditorClassIdentifier: 
-  nameId: MMN
-  descriptionId: MMD
-  image: {fileID: 21300000, guid: c95995f0e3106094e9a0381a9a41888a, type: 3}
+  nameId: MIXN
+  descriptionId: MIXD
+  image: {fileID: 21300000, guid: 082dcb1e777546b448ad7d71c3dd9de8, type: 3}
   comingSoon: 0
   premium: 0
   localizationFiles:
@@ -32,7 +32,4 @@ MonoBehaviour:
   configButton: 1
   playersButton: 1
   helpButton: 1
-  forceShowNaughtyLevelConfigurator: 0
-  forceShowPlayersConfigurator: 0
-  forceShowLanguageConfigurator: 0
-  forceShowSectionSelector: 1
+  showLocalizationFilesSelectorBeforeLoading: 1

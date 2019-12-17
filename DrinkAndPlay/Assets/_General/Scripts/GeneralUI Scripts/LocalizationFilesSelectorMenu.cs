@@ -43,6 +43,7 @@ public class LocalizationFilesSelectorMenu : MonoBehaviour
             {
                 modeStates[m] = newState;
                 GameManager.instance.dataManager.SetSelectedLocalizationFiles(currentSection.localizationFiles, modeStates);
+                playButton.interactable = GameManager.instance.dataManager.GetSelectedLocalizationFilesQuantity()>0;
                 return; 
             }
 

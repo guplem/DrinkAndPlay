@@ -1,80 +1,92 @@
-Id,es-es,en-us
-Configuration,Ajustes,Settings
-Credits,Créditos y Agradecimientos,Credits and Acknowledgments
-CreditsText,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.
-Language,Idioma,Language
-Visuals,Apariencia,Appearance
-DarkMode,Modo oscuro,Dark theme
-DarkModeExplanation,El modo oscuro puede reducir el consumo de batería y la fatiga visual especialmente durante la noche.,Dark mode can reduce battery consumption and eyestrain especially at night.
-NaughtyLevel,Nivel de Picante,Naughtiness Level
-Donations,Donaciones,Donations
-Instagram,Instagram,Instagram
-Feedback,Comentarios,Feedback
-SendGameContent,Enviar Frase,Send Sentence
-SendDrink,Enviar Bebida,Send Drink
-SendGame,Enviar un Juego,Send a Game
-RandomSentences,Pruebas Aleatorias,Random Activities
-Text,Texto,Text
-WriteHere,Escribe aquí...,Write here...
-Author,Autor,Author
-Name,Nick,Nick
-Send,Enviar,Send
-FeedbackExplanation,Tras enviarnos el texto vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,After sending the text we will read it and consider your contribution to improve the application.<br><br>Thank you very much!
-Players,Jugadores,Players
-Play,Jugar,Play
-ComingSoon,Próximamente,Coming son
-PlayerList,Lista de jugadores,Player list
-Min,Mínimo,Minimum
-Max,Máximo,Maximum
-NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.
-NaughtyLevelWarning,"<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto (1, 5).<br>Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels (1, 5).<br>The smaller the range, the more repetitive the games will be."
-General,General,General
-Games,Juegos,Games
-Help,Ayuda,Help
-Us,Nosotros,Us
-PlayerName,Nombre de jugador,Player name
-RandomChallenges,Retos aleatorios,Random challenges
-RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.
-RC,Prueba Aleatoria,Random Challenge
-Cancel,Cancelar,Cancel
-Accept,Aceptar,Accept
-Rate,Valorar,Rate
-Done,Hecho,Done
-Next,Siguiente,Next
-Yes,Sí,Yes
-No,No,No
-NoCool,Nahhh...,Nohhh
-YesCool,¡Sí!,Yasss
-RateText,¿Nos valoras?,Would you rate us?
-ShareText,Mira qué me he encontrado jugando a Drink and Play!,Look what I found playing Drink and Play!
-PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:
-MMN,Menu Principal,Main Menu
-MMD,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ..."
-UIN,Interfaz,Interface
-UID,La interfaz ayuda a mantener coherencia estética y funcional en toda la app,The interface helps maintain aesthetic and functional coherence throughout the app
-YNN,Yo Nunca,Never Have I Ever
-YND,"Se mostrarán frases empezadas por ""Yo nunca..."".<br><br>Las personas que sí hayan hecho lo afirmado en la frase, deben beber un trago.<br><br>Norma extra: si solo bebe una persona, está obligada a contar la historia.","Phrases started with ""Never have I ever ..."" will be displayed.<br><br>People who have done what is said in the sentence should take a gulp.<br><br>Extra rule: if only one person drinks, they should tell the story."
-GWN,Adivina Quién,Guess Who
-GWD,Se mostrarán frases con preguntas que harán que los jugadores decidan entre unode ellos.<br><br>La persona más votada tendrá que beber.,Phrases will be displayed with questions that will make players decide between two of them.<br><br>The minority loses and it is their turn to drink a gulp.
-WKEON,¿Nos conocemos?,We Know Each Other?
-WKEOD,"Se harán preguntas sobre un jugador y los demás jugadores tendrán que decir si creen que es verdad o mentira.<br><br>Una vez todos hayan dado su opinión, el jugador sobre el que iba la pregunta revelará si era cierto o no y los que se hayan equivocado beben un trago.","Questions will be asked about a player and the other players will have to say if they affirm or deny it.<br><br>Once everyone has chosen, the player on whom the question was asked says whether it was true or false and those who were wrong drink a gulp."
-TODN,Verdad o Atrevimiento,Truth or Dare
-TODD,"Los jugadores tendrán que elegir entre responder con sinceridad una pregunta o cumplir un desafío.<br><br>Si no responden la pregunta o no hacen el reto les tocará beber.<br><br>Norma extra: si 3 jugadores seguidos han elegido decir verdades, el siguiente jugador está obligado a hacer un reto.","Players will have to choose between honestly answering a question or facing a challenge. <br> <br> If they don't answer the question or don't meet the challenge, they must drink. <br> <br> Extra rule: after 3 players answering questions the next player is required to choose dare."
-Choose,<p> elige:,<p> you choose:
-Truth,Verdad,Truth
-Dare,Atrevimiento,Dare
-WAIN,¿Qué soy?,What am I?
-WAID,"Se mostrará una palabra que un jugador tendrá que adivinar. Todos los jugadores, excepto el de ese turno, deberán leerla.<br><br>Los demás jugadores tendrán que conseguir que el jugador que no lo ha leído adivine de qué palabra se trata sin poder usarla.<br><br>Si no lo consigue, le toca beber. ","A word will be shown which, by turns, players will have to guess. So all players except the one of the current turn should read it.<br><br>They will have to get the player who has not read it to guess what word it is without being able to use it.<br><br>If they do not achieve it, the turn's player drinks."
-TN,Tabú,Taboo
-TD,"Aparecerá una palabra a adivinar junto a 3 palabras consideradas tabú. Nunguna de ellas podrá ser leída por el jugador de ese turno.<br><br>Los demás jugadores tendrán que conseguir que ese jugador adivine la palabra sin usar ninguna de las palabras mostradas.<br><br>Si los demás jugadores no consiguen que el jugador de ese turno adivine la palabra, beben. ","A word to guess will appear next to 3 words considered taboo. None of them can be read by the player of that turn.<br><br>The other players will have to get that player to guess the word without using any of the words shown.<br><br>If the other players do not get the player of that turn to guess the word, they drink."
-MN,Mímica,Mime
-MD,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink."
-ChoosePlayer,¡Elegid a un jugador!,Choose a player!
-RandomOrder,Orden aleatorio,Random order
-ErrorMenu,Informar de un Error,Report an Error
-IssueType,Tipo de error,Error type
-Typo,Ortográfico,Typo
-Offensive,Frase ofensiva,Offensive sentence
-NonInclusive,Frase no inclusiva,Non Inclusive sentence
-Other,Otro,Other
-ErrorDescriptionText,¡Muchas gracias por ayudarnos a mejorar la app!,Thank you very much for helping us improve the app!
+Id,es-es,en-us,ca
+Configuration,Ajustes,Settings,
+Credits,Créditos y Agradecimientos,Credits and Acknowledgments,
+CreditsText,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.,
+Language,Idioma,Language,
+Visuals,Apariencia,Appearance,
+DarkMode,Modo oscuro,Dark theme,
+DarkModeExplanation,El modo oscuro puede reducir el consumo de batería y la fatiga visual especialmente durante la noche.,Dark mode can reduce battery consumption and eyestrain especially at night.,
+NaughtyLevel,Nivel de Picante,Naughtiness Level,
+Donations,Donaciones,Donations,
+Instagram,Instagram,Instagram,
+Feedback,Comentarios,Feedback,
+SendGameContent,Enviar Frase,Send Sentence,
+SendDrink,Enviar Bebida,Send Drink,
+SendGame,Enviar un Juego,Send a Game,
+RandomSentences,Pruebas Aleatorias,Random Activities,
+Text,Texto,Text,
+WriteHere,Escribe aquí...,Write here...,
+Author,Autor,Author,
+Name,Nick,Nick,
+Send,Enviar,Send,
+FeedbackExplanation,Tras enviarnos el texto vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,After sending the text we will read it and consider your contribution to improve the application.<br><br>Thank you very much!,
+Players,Jugadores,Players,
+Play,Jugar,Play,
+ComingSoon,Próximamente,Coming son,
+PlayerList,Lista de jugadores,Player list,
+Min,Mínimo,Minimum,
+Max,Máximo,Maximum,
+NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.,
+NaughtyLevelWarning,"<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto (1, 5).<br>Como menor sea el rango de picante, más repetitivos serán los juegos.","<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels (1, 5).<br>The smaller the range, the more repetitive the games will be.",
+General,General,General,
+Games,Juegos,Games,
+Help,Ayuda,Help,
+Us,Nosotros,Us,
+PlayerName,Nombre de jugador,Player name,
+RandomChallenges,Retos aleatorios,Random challenges,
+RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.,
+RC,Prueba Aleatoria,Random Challenge,
+Cancel,Cancelar,Cancel,
+Accept,Aceptar,Accept,
+Rate,Valorar,Rate,
+Done,Hecho,Done,
+Next,Siguiente,Next,
+Yes,Sí,Yes,
+No,No,No,
+NoCool,Nahhh...,Nohhh,
+YesCool,¡Sí!,Yasss,
+RateText,¿Nos valoras?,Would you rate us?,
+ShareText,Mira qué me he encontrado jugando a Drink and Play!,Look what I found playing Drink and Play!,
+PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:,
+MMN,Menu Principal,Main Menu,
+MMD,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ...",
+UIN,Interfaz,Interface,
+UID,La interfaz ayuda a mantener coherencia estética y funcional en toda la app,The interface helps maintain aesthetic and functional coherence throughout the app,
+YNN,Yo Nunca,Never Have I Ever,
+YND,"Se mostrarán frases empezadas por ""Yo nunca..."".<br><br>Las personas que sí hayan hecho lo afirmado en la frase, deben beber un trago.<br><br>Norma extra: si solo bebe una persona, está obligada a contar la historia.","Phrases started with ""Never have I ever ..."" will be displayed.<br><br>People who have done what is said in the sentence should take a gulp.<br><br>Extra rule: if only one person drinks, they should tell the story.",
+GWN,Adivina Quién,Guess Who,
+GWD,Se mostrarán frases con preguntas que harán que los jugadores decidan entre unode ellos.<br><br>La persona más votada tendrá que beber.,Phrases will be displayed with questions that will make players decide between two of them.<br><br>The minority loses and it is their turn to drink a gulp.,
+WKEON,¿Nos Conocemos?,We Know Each Other?,
+WKEOD,"Se harán preguntas sobre un jugador y los demás jugadores tendrán que decir si creen que es verdad o mentira.<br><br>Una vez todos hayan dado su opinión, el jugador sobre el que iba la pregunta revelará si era cierto o no y los que se hayan equivocado beben un trago.","Questions will be asked about a player and the other players will have to say if they affirm or deny it.<br><br>Once everyone has chosen, the player on whom the question was asked says whether it was true or false and those who were wrong drink a gulp.",
+TODN,Verdad o Atrevimiento,Truth or Dare,
+TODD,"Los jugadores tendrán que elegir entre responder con sinceridad una pregunta o cumplir un desafío.<br><br>Si no responden la pregunta o no hacen el reto les tocará beber.<br><br>Norma extra: si 3 jugadores seguidos han elegido decir verdades, el siguiente jugador está obligado a hacer un reto.","Players will have to choose between honestly answering a question or facing a challenge. <br> <br> If they don't answer the question or don't meet the challenge, they must drink. <br> <br> Extra rule: after 3 players answering questions the next player is required to choose dare.",
+Choose,<p> elige:,<p> you choose:,
+Truth,Verdad,Truth,
+Dare,Atrevimiento,Dare,
+WAIN,¿Qué soy?,What am I?,
+WAID,"Se mostrará una palabra que un jugador tendrá que adivinar. Todos los jugadores, excepto el de ese turno, deberán leerla.<br><br>Los demás jugadores tendrán que conseguir que el jugador que no lo ha leído adivine de qué palabra se trata sin poder usarla.<br><br>Si no lo consigue, le toca beber. ","A word will be shown which, by turns, players will have to guess. So all players except the one of the current turn should read it.<br><br>They will have to get the player who has not read it to guess what word it is without being able to use it.<br><br>If they do not achieve it, the turn's player drinks.",
+TN,Tabú,Taboo,
+TD,"Aparecerá una palabra a adivinar junto a 3 palabras consideradas tabú. Nunguna de ellas podrá ser leída por el jugador de ese turno.<br><br>Los demás jugadores tendrán que conseguir que ese jugador adivine la palabra sin usar ninguna de las palabras mostradas.<br><br>Si los demás jugadores no consiguen que el jugador de ese turno adivine la palabra, beben. ","A word to guess will appear next to 3 words considered taboo. None of them can be read by the player of that turn.<br><br>The other players will have to get that player to guess the word without using any of the words shown.<br><br>If the other players do not get the player of that turn to guess the word, they drink.",
+MN,Mímica,Mime,
+MD,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink.",
+MIXN,Mix,,
+MIXD,¡Disfruta de más de 1.000 frases y que nada pare la fiesta!<br><br>Mix de todas las frases de juegos de Drink & Play.,,
+ChoosePlayer,¡Elegid a un jugador!,Choose a player!,
+RandomOrder,Orden aleatorio,Random order,
+ErrorMenu,Informar de un Error,Report an Error,
+IssueType,Tipo de error,Error type,
+Typo,Ortográfico,Typo,
+Offensive,Frase ofensiva,Offensive sentence,
+NonInclusive,Frase no inclusiva,Non Inclusive sentence,
+Other,Otro,Other,
+ErrorDescriptionText,¡Muchas gracias por ayudarnos a mejorar la app!,Thank you very much for helping us improve the app!,
+GamesSelector,Selector de Juegos,Games Selector,
+FilesList,Juegos,Games,
+WeKnowEachOther,¿Nos Conocemos?,,
+UI,Interfaz,,
+TruthOrDare-Truth,Preguntas,,
+TruthOrDare-Dare,Retos,,
+RandomChallenges,Retos Aleatorios,,
+NeverHaveIEver,Yo Nunca,,
+MainMenu,Menu Principal,,
+GuessWho,Adivina Quién,,

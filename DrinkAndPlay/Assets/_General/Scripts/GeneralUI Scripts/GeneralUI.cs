@@ -217,8 +217,8 @@ public class GeneralUI : MonoBehaviour
         
         randomChallengePopup.Show();
 
-        if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
-            GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
+        //if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
+        //    GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
 
         LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, true, true, true, true);
         
@@ -297,5 +297,10 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Opening CreditsMenu");
         Show(errorsMenu);
         errorsMenuController.Setup(currentTextInCard);
+    }
+
+    public void OpenSectionSelectorMenu()
+    {
+        throw new NotImplementedException();
     }
 }

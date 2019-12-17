@@ -32,7 +32,6 @@ public class MainMenuManager : SectionManager
     [SerializeField] private GameObject mainMenuCocktailPrefab;
     [SerializeField] private Description cocktailDescription;
     
-    private Section currentSelectedSection;
     private Cocktail currentSelectedCocktail;
 
     private void Start()
@@ -131,7 +130,7 @@ public class MainMenuManager : SectionManager
         gm.generalUi.Show(sectionDescription);
         sectionDescription.SetupAnimationOf(selectedSection.nameId, selectedSection.descriptionId, originalImage, selectedSection);
         
-        currentSelectedSection = selectedSection;
+        GameManager.instance.dataManager.lastSelectedSection = selectedSection;
     }
     
     public void OpenCocktailDescription(string nameId, string descriptionId, GameObject originalImage, Cocktail selectedCocktail)
@@ -148,18 +147,18 @@ public class MainMenuManager : SectionManager
 
     public bool isDescOpen()
     {
-        return currentSelectedCocktail != null || currentSelectedSection != null;
+        return currentSelectedCocktail != null || GameManager.instance.dataManager.lastSelectedSection != null;
     }
     
     public void setDescIsNotOpen()
     {
         currentSelectedCocktail = null;
-        currentSelectedSection = null;
+        GameManager.instance.dataManager.lastSelectedSection = null;
     }
 
     public void PlaySelectedSection()
     {
-        gm.PlaySection(currentSelectedSection);
+        gm.PlaySection(GameManager.instance.dataManager.lastSelectedSection);
     }
 
     public void OpenConfigMenu()

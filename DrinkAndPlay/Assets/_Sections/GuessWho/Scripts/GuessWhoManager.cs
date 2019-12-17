@@ -12,7 +12,7 @@ public class GuessWhoManager : TurnsGameManager
     public override void NextButton()
     {
         gm.dataManager.SetTurnForNextPlayer();
-        SetupTextInCard(GetNextText());
+        SetupTextInCard(GetNextText(false));
     }
 
 

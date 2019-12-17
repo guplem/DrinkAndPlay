@@ -9,7 +9,6 @@ public class Section : ScriptableObject
     public string nameId;
     public string descriptionId;
     public Sprite image;
-    public bool newness;
     public bool comingSoon;
     public bool premium;
 
@@ -32,7 +31,8 @@ public class Section : ScriptableObject
     public bool forceShowNaughtyLevelConfigurator;
     public bool forceShowPlayersConfigurator;
     public bool forceShowLanguageConfigurator;
-
+    public bool forceShowSectionSelector;
+    
     public Section()
     {
         minNumberOfPlayers = -1;

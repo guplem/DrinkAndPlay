@@ -22,8 +22,8 @@ public abstract class SectionManager : MonoBehaviour
         if (section == null)
             Debug.LogError("The 'section' is null in the object' " + name, gameObject);
 
-        foreach (LocalizationFile localizationFile in section.localizationFiles)
-            gm.localizationManager.LoadCurrentLanguageFor(localizationFile);
+        //foreach (LocalizationFile localizationFile in section.localizationFiles)
+        //    gm.localizationManager.LoadCurrentLanguageFor(localizationFile);
 
         gm.generalUi.SetupFor(section);
 
@@ -52,15 +52,6 @@ public abstract class SectionManager : MonoBehaviour
 
         if (section.topBar)
             rt.anchorMax = new Vector2(1, gm.generalUi.topBar.GetComponent<RectTransform>().anchorMin.y);
-        
-        if (section.forceShowNaughtyLevelConfigurator)
-            gm.generalUi.OpenNaughtyLevelMenu();
-    
-        if (section.forceShowPlayersConfigurator)
-            gm.generalUi.OpenPlayersMenu();
-    
-        if (section.forceShowLanguageConfigurator)
-            gm.generalUi.OpenLanguageMenu();
     }
 
 }

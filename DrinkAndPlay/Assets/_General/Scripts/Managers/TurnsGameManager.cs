@@ -45,15 +45,24 @@ public abstract class TurnsGameManager : SectionManager
     public abstract void NextButton();
     public abstract void PreviousButton();
     
-    protected TextInTurnsGame GetNextText()
+    protected TextInTurnsGame GetNextText(bool checkIfSelected)
     {
-        return GetNextText(section.localizationFiles[0]);
+        if (!checkIfSelected)
+            return GetNextText(section.localizationFiles[Random.Range(0, section.localizationFiles.Length)]);
+        
+        return GetNextText(gm.dataManager.GetRandomSelectedSection());
     }
     
     protected TextInTurnsGame GetNextText(LocalizationFile localizationFile)
     {
+        if (localizationFile == null)
+        {
+            Debug.LogError("Trying to get a text from a 'null' localization file. - TurnsManager", gameObject);
+            return null;
+        }
+        
         historyIndex++;
-        if (historyIndex == history.Count) //We are "generating" new turns, not going back or forward
+        if (historyIndex == history.Count) //We are "generating" new sentences, not going back or forward
         {
             LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(localizationFile, true, true, true, true);
             RegisterNewTextInHistory(lt, localizationFile);

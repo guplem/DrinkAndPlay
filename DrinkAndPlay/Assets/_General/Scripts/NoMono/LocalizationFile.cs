@@ -17,14 +17,17 @@ public class LocalizationFile : ScriptableObject
 
     public override bool Equals(object other)
     {
-        LocalizationFile lf;
-        try
-        {
-            lf = (LocalizationFile) other;
-        }
-        catch (InvalidCastException) {return false;}
-
-        return lf != null && String.Compare(lf.localizationUrl, this.localizationUrl, StringComparison.Ordinal) == 0;
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        if (other.GetType() != this.GetType()) return false;
+        return Equals((LocalizationFile) other);
     }
-    
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            return (base.GetHashCode() * 397) ^ (localizationUrl != null ? localizationUrl.GetHashCode() : 0);
+        }
+    }
 }

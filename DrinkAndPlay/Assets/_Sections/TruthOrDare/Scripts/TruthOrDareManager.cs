@@ -31,7 +31,7 @@ public class TruthOrDareManager : TurnsGameManager
         }
         else
         {
-            SetupTextInCard(GetNextText());
+            SetupTextInCard(GetNextText(false));
         }
         
     }

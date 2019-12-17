@@ -27,6 +27,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI helpMenu;
     [SerializeField] private AnimationUI creditsMenu;
     [SerializeField] private AnimationUI errorsMenu;
+    [SerializeField] public AnimationUI localizationFilesSelectorMenu;
+    private LocalizationFilesSelectorMenu localizationFilesSelectorMenuController;
     private ErrorsMenu errorsMenuController;
     
     [Header("Popups")]
@@ -59,6 +61,9 @@ public class GeneralUI : MonoBehaviour
 
         if (playersMenuController == null)
             playersMenuController = playersMenu.GetComponent<PlayersMenu>();
+        
+        if (localizationFilesSelectorMenuController == null)
+            localizationFilesSelectorMenuController = localizationFilesSelectorMenu.GetComponent<LocalizationFilesSelectorMenu>();
         
         if (errorsMenuController == null)
             errorsMenuController = errorsMenu.GetComponent<ErrorsMenu>();
@@ -150,10 +155,11 @@ public class GeneralUI : MonoBehaviour
 
         playersMenuController.BuildPlayerList();
     }
-    public void OpenPlayersMenu(int minPlayerNumber, Section sectionToOpenAfter)
+    
+    public void OpenPlayersMenu(Section sectionToOpenAfter)
     {
         ShowPlayersMenu();
-        playersMenuController.ShowPlayersAdditionalElements(minPlayerNumber, sectionToOpenAfter);
+        playersMenuController.ShowPlayersAdditionalElements(sectionToOpenAfter.minNumberOfPlayers, sectionToOpenAfter);
         
         playersMenuController.BuildPlayerList();
     }
@@ -162,6 +168,12 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening PlayersMenu");
         Show(playersMenu);
+    }
+
+    private void ShowLocalizationFilesSelectorMenu()
+    {
+        Debug.Log("Opening LocalizationFilesSelectorMenu");
+        Show(localizationFilesSelectorMenu);
     }
     public void OpenNaughtyLevelMenu()
     {
@@ -217,8 +229,8 @@ public class GeneralUI : MonoBehaviour
         
         randomChallengePopup.Show();
 
-        if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
-            GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
+        //if (!GameManager.instance.localizationManager.IsSectionLocalized(randomChallengesLocalizationFile))
+        //    GameManager.instance.localizationManager.LoadCurrentLanguageFor(randomChallengesLocalizationFile);
 
         LocalizedText lt = GameManager.instance.localizationManager.SearchLocalizedText(randomChallengesLocalizationFile, true, true, true, true);
         
@@ -298,4 +310,12 @@ public class GeneralUI : MonoBehaviour
         Show(errorsMenu);
         errorsMenuController.Setup(currentTextInCard);
     }
+
+    public void OpenLocalizationFilesSelectorMenu(Section section)
+    {
+        ShowLocalizationFilesSelectorMenu();
+        localizationFilesSelectorMenuController.BuildModesListFor(section);
+    }
+    
+
 }

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ModeMixModePrefab : MonoBehaviour
+public class LocalizationFileToggle : MonoBehaviour
 {
     [SerializeField] private Localizer localizer;
-    private MixModeMenu mixModeMenu;
+    private LocalizationFilesSelectorMenu localizationFilesSelectorMenu;
     private LocalizationFile localizationFile;
 
-    public void Setup(MixModeMenu mixModeMenu, LocalizationFile localizationFile, bool state)
+    public void Setup(LocalizationFilesSelectorMenu localizationFilesSelectorMenu, LocalizationFile localizationFile, bool state)
     {
         localizer.Localize(localizationFile.ToString());
-        this.mixModeMenu = mixModeMenu;
+        this.localizationFilesSelectorMenu = localizationFilesSelectorMenu;
         this.localizationFile = localizationFile;
         
         //TODO: set state in toggle
@@ -21,6 +21,6 @@ public class ModeMixModePrefab : MonoBehaviour
 
     public void SetState(bool newState)
     {
-        mixModeMenu.SetState(localizationFile, newState);
+        localizationFilesSelectorMenu.SetState(localizationFile, newState);
     }
 }

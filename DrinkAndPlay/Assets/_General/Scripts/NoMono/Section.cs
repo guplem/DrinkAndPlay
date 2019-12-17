@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Section", menuName = "Section - Game")]
 public class Section : ScriptableObject
@@ -9,7 +10,6 @@ public class Section : ScriptableObject
     public string nameId;
     public string descriptionId;
     public Sprite image;
-    public bool newness;
     public bool comingSoon;
     public bool premium;
 
@@ -28,11 +28,9 @@ public class Section : ScriptableObject
     public bool playersButton = true;
     public bool helpButton = true;
 
-    [Header("Start configuration")]
-    public bool forceShowNaughtyLevelConfigurator;
-    public bool forceShowPlayersConfigurator;
-    public bool forceShowLanguageConfigurator;
-
+    [FormerlySerializedAs("forceShowSectionSelector")] [Header("Start configuration")]
+    public bool showLocalizationFilesSelectorBeforeLoading;
+    
     public Section()
     {
         minNumberOfPlayers = -1;

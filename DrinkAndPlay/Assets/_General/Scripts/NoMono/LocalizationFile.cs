@@ -15,16 +15,23 @@ public class LocalizationFile : ScriptableObject
         return name;
     }
 
-    public override bool Equals(object other)
-    {
-        LocalizationFile lf;
-        try
-        {
-            lf = (LocalizationFile) other;
-        }
-        catch (InvalidCastException) {return false;}
-
-        return lf != null && String.Compare(lf.localizationUrl, this.localizationUrl, StringComparison.Ordinal) == 0;
-    }
     
+    // AUTO-GENERATED
+    private sealed class LocalizationUrlEqualityComparer : IEqualityComparer<LocalizationFile>
+    {
+        public bool Equals(LocalizationFile x, LocalizationFile y)
+        {
+            if (ReferenceEquals(x, y)) return true;
+            if (ReferenceEquals(x, null)) return false;
+            if (ReferenceEquals(y, null)) return false;
+            if (x.GetType() != y.GetType()) return false;
+            return x.localizationUrl == y.localizationUrl;
+        }
+
+        public int GetHashCode(LocalizationFile obj)
+        {
+            return (obj.localizationUrl != null ? obj.localizationUrl.GetHashCode() : 0);
+        }
+    }
+    public static IEqualityComparer<LocalizationFile> localizationUrlComparer { get; } = new LocalizationUrlEqualityComparer();
 }

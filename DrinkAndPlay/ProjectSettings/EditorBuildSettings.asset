@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_General/Scenes/TruthOrDare.unity
     guid: bc0d47ed37f07714b8d339e7171475d2
+  - enabled: 1
+    path: Assets/_General/Scenes/MixMode.unity
+    guid: d53a40814af11544f905b3caddf8806e
   m_configObjects: {}

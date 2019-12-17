@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
         if (uiLocalizationFile == null)
             Debug.LogError("UI Section not set up in the GameManager.");
-        localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
+        //localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
 
         
         /*
@@ -56,33 +56,38 @@ public class GameManager : MonoBehaviour
 
     public bool PlaySection(Section section)
     {
+
+        if (section == null)
+        {
+            Debug.LogError("Tying to load a null section.");
+            return false;
+        }
+        
         if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
             return false;
         }
-
         
-        if (!HaveEnoughPlayersFor(section))
+        if (!dataManager.HaveEnoughPlayersFor(section))
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
-            generalUi.OpenPlayersMenu(section.minNumberOfPlayers, section);
+            generalUi.OpenPlayersMenu(section);
             return false;
         }
 
+
+
+        if (section.showLocalizationFilesSelectorBeforeLoading && !generalUi.localizationFilesSelectorMenu.isShowing)
+        {
+            generalUi.OpenLocalizationFilesSelectorMenu(section);
+            return false;
+        }
+        
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
         //SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
-
-        return true;
-    }
-
-    public bool HaveEnoughPlayersFor(Section section)
-    {
-        if (section != null)
-            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > dataManager.GetPlayersQuantity());
-
-        Debug.LogWarning("Checking if there are enough players to play a NULL section.");
+        
         return true;
     }
 

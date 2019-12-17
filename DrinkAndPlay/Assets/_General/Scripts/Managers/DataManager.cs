@@ -27,6 +27,53 @@ public class DataManager
         return clonedDictionary;
     }
 
+    public Section lastSelectedSection;
+
+    #region selectedLocalizationFiles
+    public List<LocalizationFile> lastSelectedLocalizationFiles { get; private set; }
+
+    public void SetSelectedLocalizationFiles(LocalizationFile[] allLocalizationFiles, bool[] activatedLocFiles)
+    {
+        List<LocalizationFile> selectedLocFiles = new List<LocalizationFile>();
+        for (int i = 0; i < allLocalizationFiles.Length; i++)
+        {
+            if (activatedLocFiles[i])
+                selectedLocFiles.Add(allLocalizationFiles[i]);
+        }
+        SetSelectedLocalizationFiles(selectedLocFiles);
+    }
+    
+    public void SetSelectedLocalizationFiles(List<LocalizationFile> selectedLocalizationFiles)
+    {
+        string stringOfSelected = " >>> List of selected localization files: ";
+        foreach (LocalizationFile localizationFile in selectedLocalizationFiles)
+            stringOfSelected += localizationFile.ToString() + ", ";
+        Debug.Log(stringOfSelected);
+
+        lastSelectedLocalizationFiles = new List<LocalizationFile>();
+        foreach (LocalizationFile locFile in selectedLocalizationFiles)
+            lastSelectedLocalizationFiles.Add(locFile);
+    }
+    
+    public LocalizationFile GetRandomSelectedLocalizationFiles()
+    {
+        if (lastSelectedLocalizationFiles.Count <= 0) return null;
+        
+        return lastSelectedLocalizationFiles[Random.Range(0, GetSelectedLocalizationFilesQuantity())];
+    }
+    
+    public int GetSelectedLocalizationFilesQuantity()
+    {
+        return lastSelectedLocalizationFiles.Count;
+    }
+
+    public bool IsSelectedLocalizationFilesListInitialized()
+    {
+        return lastSelectedLocalizationFiles != null;
+    }
+
+    #endregion
+    
 
     #region language
     public string language
@@ -227,6 +274,15 @@ public class DataManager
         else
             return GetRandomPlayer();
     }
+    
+    public bool HaveEnoughPlayersFor(Section section)
+    {
+        if (section != null)
+            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > GetPlayersQuantity());
+
+        Debug.LogWarning("Checking if there are enough players to play a NULL section.");
+        return true;
+    }
     #endregion
 
 
@@ -317,8 +373,7 @@ public class DataManager
         return (naughtyLevel.min <= valueToCheck) && (valueToCheck <= naughtyLevel.max);
     }
     #endregion
-
-
+    
 
     #region textsRegistered
     private Dictionary<string, List<string>> textsRegistered
@@ -616,4 +671,5 @@ public class DataManager
     private const string authorSavename = "author";
 
     #endregion
+    
 }

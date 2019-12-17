@@ -197,9 +197,11 @@ public class LocalizationManager
     {
         if (localizationFile == null)
         {
-            Debug.LogError("Trying to get a localized text from a null localization file.");
+            Debug.LogError("Trying to get a localized text by id from a null localization file.");
             return null;
         }
+
+        CheckAndLoad(localizationFile);
 
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
@@ -215,9 +217,23 @@ public class LocalizationManager
         return new LocalizedText(id, -1, "The text with id '" + id + "' could not be found in the localizationFile '" + localizationFile + "'");
     }
 
-    
+    private void CheckAndLoad(LocalizationFile localizationFile)
+    {
+        if (!GameManager.instance.localizationManager.IsSectionLocalized(localizationFile))
+                    GameManager.instance.localizationManager.LoadCurrentLanguageFor(localizationFile);
+    }
+
+
     public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, bool useProperNaughtyLevel, bool register, bool checkNotRegistered, bool trySecondSearchAfterResetRegister)
     {
+        if (localizationFile == null)
+        {
+            Debug.LogError("Trying to get a localized text from a null localization file.");
+            return null;
+        }
+        
+        CheckAndLoad(localizationFile);
+        
         // Search for it
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {

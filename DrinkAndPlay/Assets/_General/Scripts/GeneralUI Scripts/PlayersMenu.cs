@@ -20,7 +20,6 @@ public class PlayersMenu : MonoBehaviour
 
     [SerializeField] private Button playButton;
     [SerializeField] private GameObject[] playButtonElements;
-    private Section selectedSection;
     
     private bool setUpDone = false; 
     
@@ -81,10 +80,10 @@ public class PlayersMenu : MonoBehaviour
             playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
         }
 
-        if (selectedSection != null)
+        if (GameManager.instance.dataManager.lastSelectedSection != null)
         {
-            playButton.interactable = GameManager.instance.HaveEnoughPlayersFor(selectedSection);
-            ShowPlayersDescription(selectedSection.minNumberOfPlayers);
+            playButton.interactable = GameManager.instance.dataManager.HaveEnoughPlayersFor(GameManager.instance.dataManager.lastSelectedSection);
+            ShowPlayersDescription(GameManager.instance.dataManager.lastSelectedSection.minNumberOfPlayers);
         }
         else
         {
@@ -123,7 +122,7 @@ public class PlayersMenu : MonoBehaviour
 
     private void ShowPlayButton(Section sectionToPlayAfter)
     {
-        selectedSection = sectionToPlayAfter;
+        GameManager.instance.dataManager.lastSelectedSection = sectionToPlayAfter;
         foreach (GameObject element in playButtonElements)
             element.SetActive(sectionToPlayAfter != null);
     }
@@ -136,9 +135,9 @@ public class PlayersMenu : MonoBehaviour
     
     private void LoadSelectedSectionAtEvent()
     {
-        GameManager.instance.PlaySection(selectedSection);
         GameManager.instance.generalUi.CloseLastOpenUiElement();
-        
+        GameManager.instance.PlaySection(GameManager.instance.dataManager.lastSelectedSection);
+
         playButton.GetComponent<ButtonAnimation>().MidAnimEvent -= LoadSelectedSectionAtEvent;
     }
 }

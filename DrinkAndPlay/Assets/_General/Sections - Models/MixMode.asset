@@ -35,4 +35,4 @@ MonoBehaviour:
   forceShowNaughtyLevelConfigurator: 0
   forceShowPlayersConfigurator: 0
   forceShowLanguageConfigurator: 0
-  forceShowSectionSelector: 0
+  forceShowSectionSelector: 1

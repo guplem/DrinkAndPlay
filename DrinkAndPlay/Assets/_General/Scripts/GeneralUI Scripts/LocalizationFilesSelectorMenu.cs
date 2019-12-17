@@ -28,7 +28,7 @@ public class LocalizationFilesSelectorMenu : MonoBehaviour
         for (int m = 0; m < section.localizationFiles.Length; m++)
         {
             GameObject modeGo = Instantiate(modeMixModePrefab, contentsObject);
-            modeGo.transform.SetSiblingIndex(m+5);
+            modeGo.transform.SetSiblingIndex(m+2);
             modeGo.GetComponent<LocalizationFileToggle>().Setup(this, section.localizationFiles[m], modeStates[m]);
         }
 

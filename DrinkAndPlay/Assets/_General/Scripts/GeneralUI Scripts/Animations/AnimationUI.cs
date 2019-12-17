@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class AnimationUI : MonoBehaviour
 {
-    protected bool isShowing { get; set; }
+    public bool isShowing { get; protected set; }
     [SerializeField] protected AnimationCurve mainAnimationCurve;
     protected RectTransform rt { get; private set; }
     private float animationDurationOpen { get; set; }

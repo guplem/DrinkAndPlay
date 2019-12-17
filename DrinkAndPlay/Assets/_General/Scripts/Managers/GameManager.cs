@@ -72,26 +72,21 @@ public class GameManager : MonoBehaviour
         if (!dataManager.HaveEnoughPlayersFor(section))
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
-            generalUi.OpenPlayersMenu(section.minNumberOfPlayers, section);
+            generalUi.OpenPlayersMenu(section);
             return false;
         }
 
+
+
+        if (section.showLocalizationFilesSelectorBeforeLoading && !generalUi.localizationFilesSelectorMenu.isShowing)
+        {
+            generalUi.OpenLocalizationFilesSelectorMenu(section);
+            return false;
+        }
+        
         Debug.Log(" >>>> Loading scene '" + section.sceneName + "' from section '" + section + "' <<<< ");
         //SceneManager.LoadSceneAsync(section.sceneName, LoadSceneMode.Single);
         SceneManager.LoadScene(section.sceneName, LoadSceneMode.Single);
-
-        if (section.forceShowNaughtyLevelConfigurator)
-            generalUi.OpenNaughtyLevelMenu();
-    
-        if (section.forceShowPlayersConfigurator)
-            generalUi.OpenPlayersMenu();
-    
-        if (section.forceShowLanguageConfigurator)
-            generalUi.OpenLanguageMenu();
-        
-        if (section.forceShowSectionSelector)
-            generalUi.OpenSectionSelectorMenu();
-        
         
         return true;
     }

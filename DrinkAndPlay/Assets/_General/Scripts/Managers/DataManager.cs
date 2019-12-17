@@ -45,6 +45,11 @@ public class DataManager
     
     public void SetSelectedLocalizationFiles(List<LocalizationFile> selectedLocalizationFiles)
     {
+        string stringOfSelected = " >>> List of selected localization files: ";
+        foreach (LocalizationFile localizationFile in selectedLocalizationFiles)
+            stringOfSelected += localizationFile.ToString() + ", ";
+        Debug.Log(stringOfSelected);
+
         lastSelectedLocalizationFiles = new List<LocalizationFile>();
         foreach (LocalizationFile locFile in selectedLocalizationFiles)
             lastSelectedLocalizationFiles.Add(locFile);

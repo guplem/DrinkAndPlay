@@ -45,9 +45,9 @@ public abstract class TurnsGameManager : SectionManager
     public abstract void NextButton();
     public abstract void PreviousButton();
     
-    protected TextInTurnsGame GetNextText(bool checkIfSelected)
+    protected TextInTurnsGame GetNextText(bool checkIfLocalizedFileIsSelected)
     {
-        if (!checkIfSelected)
+        if (!checkIfLocalizedFileIsSelected)
             return GetNextText(section.localizationFiles[Random.Range(0, section.localizationFiles.Length)]);
         
         return GetNextText(gm.dataManager.GetRandomSelectedLocalizationFiles());

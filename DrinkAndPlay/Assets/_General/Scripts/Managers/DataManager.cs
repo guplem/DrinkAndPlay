@@ -402,17 +402,24 @@ public class DataManager
         try { if (textsRegistered[localizationFile.ToString()].Contains(textId)) return; } catch (KeyNotFoundException) { }
         
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
-        try
-        {
-            clonedCs[localizationFile.ToString()].Add(textId);
-        }
-        catch (KeyNotFoundException)
-        {
+        
+        if (!textsRegistered.ContainsKey(localizationFile.ToString()))
             clonedCs.Add(localizationFile.ToString(), new List<string>());
-        }
+        
+        clonedCs[localizationFile.ToString()].Add(textId);
 
         textsRegistered = clonedCs;
+        
+        /*Debug.Log("Text registered.  LF: " + localizationFile + " ID: " + textId);
+        foreach (KeyValuePair<string, List<string>> kvp in textsRegistered)
+        {
+            string str = "";
+            foreach (string ids in kvp.Value)
+                str += ids + ", ";
+            Debug.Log ("DataManager information:\n LocalizationFile: " + kvp.Key + ". + Registered: " + str);
+        }*/
     }
+    
     public void RemoveTextRegistered(Section section, string textId)
     {
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
@@ -445,7 +452,6 @@ public class DataManager
     {
         return GetRegisteredTexts(localizationFile, properNaughtyLevel).Count;
     }
-    
     
     public void RemoveOldestTextRegistered(Section section)
     {

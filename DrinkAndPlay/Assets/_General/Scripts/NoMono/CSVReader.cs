@@ -49,7 +49,7 @@ public class CSVReader
     {
         if (localizationFile == null)
         {
-            Debug.LogError("Trying to read the localization file of a 'null' localizationFile");
+            Debug.LogError("Trying to read a 'null' localizationFile");
             return null;
         }
 

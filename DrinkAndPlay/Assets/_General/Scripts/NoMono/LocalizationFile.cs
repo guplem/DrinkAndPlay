@@ -9,7 +9,26 @@ public class LocalizationFile : ScriptableObject
     [TextArea]
     public string localizationUrl;
     public bool checkForEnoughSentencesOfAllNaughtyLevels = true;
+
+    public int quantityOfSentences
+    {
+        get
+        {
+            if (_quantityOfSentences < 0) 
+                _quantityOfSentences = CalculateQuantityOfSentences();
+            return _quantityOfSentences;
+        }
+        private set { _quantityOfSentences = value; }
+    }
+
+    private int _quantityOfSentences = -1;
     
+    private int CalculateQuantityOfSentences()
+    {
+        Debug.Log("CALCULATING");
+        return CSVReader.Read(this).ToArray().Length;
+    }
+
     public override string ToString()
     {
         return name;

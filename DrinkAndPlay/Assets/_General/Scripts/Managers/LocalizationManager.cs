@@ -53,8 +53,6 @@ public class LocalizationManager
         
         Debug.Log("Loading '" + localizationFile + "' localization file for language '" + language + "'.");
         
-        //string language = dataManager.language;
-
         string[][] dataRead = CSVReader.Read(localizationFile).ToArray();
         int idCol = -1;
         int naughtyCol = -1;
@@ -84,7 +82,6 @@ public class LocalizationManager
                 else if (langCol < 0)
                 {
                     Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + language + "' in its localization file.     ('"  + language + "' is the current language.)");
-                    //Debug.LogError("The ID COLUMN IS: " + idCol);
                 }
             }
 
@@ -291,4 +288,26 @@ public class LocalizationManager
         return localizedTexts.ContainsKey(localizationFile);
     }
     
+    public LocalizationFile GetRandomLocalizationFile(List<LocalizationFile> lastSelectedLocalizationFiles, bool uniformSentenceProbabilityDistribution)
+        //uniformSentenceProbabilityDistribution --> All localizations will finish at the same time (to avoid repetition)
+    {
+        if (lastSelectedLocalizationFiles.Count <= 0) return null;
+        
+        if (!uniformSentenceProbabilityDistribution)
+            return lastSelectedLocalizationFiles[Random.Range(0, lastSelectedLocalizationFiles.Count)];
+
+        int totalSentences = 0;
+        foreach (LocalizationFile lf in lastSelectedLocalizationFiles)
+            totalSentences += lf.quantityOfSentences;
+        int currentValue = 0;
+        int randomValue = Random.Range(0, totalSentences);
+        foreach (LocalizationFile lf in lastSelectedLocalizationFiles)
+        {
+            currentValue += lf.quantityOfSentences;
+            if (currentValue >= randomValue)
+                return lf;
+        }
+        
+        return null;
+    }
 }

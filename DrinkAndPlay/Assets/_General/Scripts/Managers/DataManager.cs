@@ -55,12 +55,28 @@ public class DataManager
             lastSelectedLocalizationFiles.Add(locFile);
     }
     
-    public LocalizationFile GetRandomSelectedLocalizationFiles()
+    /*public LocalizationFile GetRandomSelectedLocalizationFiles(bool uniformSentenceProbabilityDistribution)
+    //uniformSentenceProbabilityDistribution --> All localizations will finish at the same time (to avoid repetition)
     {
         if (lastSelectedLocalizationFiles.Count <= 0) return null;
         
-        return lastSelectedLocalizationFiles[Random.Range(0, GetSelectedLocalizationFilesQuantity())];
-    }
+        if (!uniformSentenceProbabilityDistribution)
+            return lastSelectedLocalizationFiles[Random.Range(0, GetSelectedLocalizationFilesQuantity())];
+
+        int totalSentences = 0;
+        foreach (LocalizationFile lf in lastSelectedLocalizationFiles)
+            totalSentences += lf.quantityOfSentences;
+        int currentValue = 0;
+        int randomValue = Random.Range(0, totalSentences);
+        foreach (LocalizationFile lf in lastSelectedLocalizationFiles)
+        {
+            currentValue += lf.quantityOfSentences;
+            if (currentValue >= randomValue)
+                return lf;
+        }
+        
+        return null;
+    }*/
     
     public int GetSelectedLocalizationFilesQuantity()
     {

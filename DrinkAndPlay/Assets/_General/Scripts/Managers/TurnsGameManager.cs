@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -47,14 +48,22 @@ public abstract class TurnsGameManager : SectionManager
     
     protected TextInTurnsGame GetNextText(bool checkIfLocalizedFileIsSelected)
     {
+        // Random from all in section's configuration
         if (!checkIfLocalizedFileIsSelected)
-            return GetNextText(section.localizationFiles[Random.Range(0, section.localizationFiles.Length)]);
+            return GetNextText(gm.localizationManager.GetRandomLocalizationFile(section.localizationFiles.ToList(), true));
+            // return GetNextText(section.localizationFiles[Random.Range(0, section.localizationFiles.Length)]);
         
-        return GetNextText(gm.dataManager.GetRandomSelectedLocalizationFiles());
+        // Random from all selected
+        return GetNextText(gm.localizationManager.GetRandomLocalizationFile(gm.dataManager.lastSelectedLocalizationFiles, true));
     }
+
+
+    //private Dictionary<LocalizationFile, int> counter = new Dictionary<LocalizationFile, int>();
     
     protected TextInTurnsGame GetNextText(LocalizationFile localizationFile)
     {
+        //CounterDebug(localizationFile);
+
         if (localizationFile == null)
         {
             Debug.LogError("Trying to get a text from a 'null' localization file. - TurnsManager", gameObject);
@@ -71,6 +80,24 @@ public abstract class TurnsGameManager : SectionManager
         
         return GetCurrentText();
     }
+
+    /*private void CounterDebug(LocalizationFile localizationFile)
+    {
+        if (!counter.ContainsKey(localizationFile))
+            counter.Add(localizationFile, 0);
+        counter[localizationFile] = counter[localizationFile]+1;
+        float total = 0f;
+        foreach(KeyValuePair<LocalizationFile, int> valDic in counter)
+            total += valDic.Value;
+        string str = "";
+        //foreach (LocalizationFile locFile in counter.Keys)
+        foreach(KeyValuePair<LocalizationFile, int> valDic in counter)
+        {
+            float percentage = valDic.Value / total * 100f;
+            str += valDic + ": " + percentage + ", ";
+        }
+        Debug.LogWarning(str);
+    }*/
 
     public bool AreWeOnTopHistory() //The newest sentence
     {
@@ -92,6 +119,8 @@ public abstract class TurnsGameManager : SectionManager
 
     private void ProcessRandomChallenge()
     {
+        if (!gm.dataManager.randomChallenges) return;
+        
         currentDelayForRandomChallenge++;
         if (currentDelayForRandomChallenge < minDelayForRandomChallenge) return;
         float probability = (currentDelayForRandomChallenge - minDelayForRandomChallenge) / (maxDelayForRandomChallenge - minDelayForRandomChallenge) * 100;

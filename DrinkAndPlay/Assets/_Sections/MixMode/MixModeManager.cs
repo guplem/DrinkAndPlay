@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class MixModeManager : TurnsGameManager
     {
         if (!gm.dataManager.IsSelectedLocalizationFilesListInitialized())
         {
-            Debug.LogWarning("The list of the selected localization files was not initialized. (It is normal if this scene is the first to run).");
+//            Debug.LogWarning("The list of the selected localization files was not initialized. (It is normal if this scene is the first to run).");
             gm.dataManager.SetSelectedLocalizationFiles(section.localizationFiles.ToList());
         }
         
@@ -21,7 +22,7 @@ public class MixModeManager : TurnsGameManager
         
         NextButton();
     }
-
+    
     public override void NextButton()
     {
         gm.dataManager.SetTurnForNextPlayer();
@@ -33,4 +34,6 @@ public class MixModeManager : TurnsGameManager
         gm.dataManager.PreviousPlayerTurn();
         SetupTextInCard(GetPreviousText());
     }
+
+
 }

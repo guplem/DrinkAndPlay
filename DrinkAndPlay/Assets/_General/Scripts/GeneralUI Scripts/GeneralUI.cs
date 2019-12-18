@@ -306,7 +306,7 @@ public class GeneralUI : MonoBehaviour
 
     public void OpenErrorMenu(TextInTurnsGame currentTextInCard)
     {
-        Debug.Log("Opening CreditsMenu");
+        Debug.Log("Opening ErrorMenu");
         Show(errorsMenu);
         errorsMenuController.Setup(currentTextInCard);
     }

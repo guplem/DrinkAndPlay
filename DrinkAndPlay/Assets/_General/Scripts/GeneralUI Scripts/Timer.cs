@@ -39,21 +39,28 @@ public class Timer : MonoBehaviour
                 _isTimerRunning = false;
                 if (TimerCorroutine != null)
                     StopCoroutine(TimerCorroutine);
-                playPauseImage.sprite = playSprite;
+                
             }
             else if (!isTimerRunning && value)
             {
                 _isTimerRunning = true;
-                
                 if (TimerCorroutine == null)
                     TimerCorroutine = DecreaseOneSecond();
                 StartCoroutine(TimerCorroutine);
-                
-                playPauseImage.sprite = pauseSprite;
             }
-               
-
-            _isTimerRunning = value;
+            else if (remainingTime <= 0 && !value)
+            {
+                _isTimerRunning = false;
+            }
+            else
+            {
+                _isTimerRunning = value;
+            }
+            
+            if (isTimerRunning)
+                playPauseImage.sprite = pauseSprite;
+            else
+                playPauseImage.sprite = playSprite;
         }
     }
     private bool _isTimerRunning = false;
@@ -116,9 +123,10 @@ public class Timer : MonoBehaviour
     {
         while (isTimerRunning)
         {
-            remainingTime--;
             if (remainingTime <= 0)
                 isTimerRunning = false;
+            else
+                remainingTime--;
             yield return new WaitForSeconds(1f);
         }
     }

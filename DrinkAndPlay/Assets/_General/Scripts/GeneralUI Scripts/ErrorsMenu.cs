@@ -95,7 +95,7 @@ public class ErrorsMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("Error form upload complete.");
+            Debug.Log("'Error form' upload complete.");
         }
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9985e634962abd044955023eb5ff1410, type: 3}
   m_Name: CA
   m_EditorClassIdentifier: 
-  languageId: ca
-  languageName: "Catal\xE0 (Pr\xF2ximament)"
-  isEnabled: 0
+  id: ca
+  titleName: "Catal\xE0"
+  isEnabled: 1

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9985e634962abd044955023eb5ff1410, type: 3}
   m_Name: EN-US
   m_EditorClassIdentifier: 
-  languageId: en-us
-  languageName: English (Coming soon)
-  isEnabled: 0
+  id: en-us
+  titleName: English
+  isEnabled: 1

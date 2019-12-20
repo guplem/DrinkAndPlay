@@ -96,15 +96,10 @@ public class DataManager
     {
         get
         {
-            return "es-es";
-            
-            //TODO: Remove comment when multi-language support (ENG or CAT)
-            /*
             if (_language == null)
                 _language = SaveGame.Load(languageSavename, GetSystemLanguage() );
 
             return _language;
-            */
         }
         set
         {
@@ -129,7 +124,7 @@ public class DataManager
             case SystemLanguage.Basque:
                 return "es-es";
             case SystemLanguage.Catalan:
-                return "es-es";
+                return "ca";
             case SystemLanguage.English:
                 return "en-us";
             default:

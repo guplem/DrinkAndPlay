@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using TMPro;
@@ -160,7 +161,9 @@ public class Localizer : MonoBehaviour
     {
         SetId(localizedText.id);
         
-        string text = localizedText.text;
+        string text = CleanTags(localizedText.text);
+
+        
 
         List<TextsToLocalize> savedForLater = new List<TextsToLocalize>(); 
         foreach (TextsToLocalize txt in textsToLocalize)
@@ -201,6 +204,17 @@ public class Localizer : MonoBehaviour
             ApplyText(txt.tmProGui, text);
             if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
         }
+    }
+
+    private string CleanTags(string text)
+    {
+        MatchCollection matchList = Regex.Matches(text, ">.*>|<.*<");
+        List<string> stringList = matchList.Cast<Match>().Select(match => match.Value).ToList();
+        
+        foreach (string match in stringList)
+            text = text.Replace(match, Regex.Replace(match, @"\s+", ""));
+
+        return text;
     }
 
     private static void ApplyText(TextMeshProUGUI tmProGui, string text)

@@ -34,12 +34,12 @@ Id,Naughtiness,es-es,en-us,ca
 33,2,¿<p> saldría en un videoclip de Ozuna sin ropa?,<p> would in a video clip Ozuna without clothes?,¿<P> sortiria en un videoclip de Ozuna sense roba?
 34,1,¿<p> cantaría frente a 5.000 personas?,"<p> sing in front of 5,000 people?",¿<P> cantaria davant de 5.000 persones?
 35,3,¿<p> se acostaría con alguien que tuviera hijos?,<p> sleep with someone who had children?,¿<P> es ficaria al llit amb algú que tingués fills?
-36,3,¿<p> se acostaría con el hijo/hija de <pr>?,<p> sleep with the son / daughter of <pr>?,¿<P> es ficaria al llit amb el fill / filla de <pr>?
-37,5,¿<p> se acostaría con alguien desconocido/a y muy atractivo/a sin condón?,<p> I sleep with a stranger / a and very attractive / a bareback?,¿<P> es ficaria al llit amb algú desconegut / a i molt atractiu / a sense condó?
+36,3,¿<p> se acostaría con el hijo/hija de <pr>?,<p> sleep with the son/daughter of <pr>?,¿<P> es ficaria al llit amb el fill/a de <pr>?
+37,5,¿<p> se acostaría con alguien desconocido/a y muy atractivo/a sin condón?,<p> would sleep with a very attractive stranger without condom?,¿<P> es ficaria al llit amb algú desconegut/da i molt atractiu/iva sense condó?
 38,5,¿<p> pagaría por sexo después de 3 años sin follar?,<p> pay for sex after 3 years without having sex?,¿<P> pagaria per sexe després de 3 anys sense follar?
 39,3,¿<p> pagaría por sexo?,<p> pay for sex?,¿<P> pagaria per sexe?
-40,2,¿<p> desearía volver a ser virgen?,<p> would again be a virgin?,¿<P> desitjaria tornar a ser verge?
-41,1,¿<p> donaría parte de su fortuna si fuera millonario/a?,<p> would donate part of his fortune if he were a millionaire / a?,¿<P> donaria part de la seva fortuna si fos milionari / a?
+40,2,¿<p> desearía volver a ser virgen?,<p> would be a virgin again?,¿<P> desitjaria tornar a ser verge?
+41,1,¿<p> donaría parte de su fortuna si fuera millonario/a?,<p> would donate part of his fortune if he were a millionaire?,¿<P> donaria part de la seva fortuna si fos milionari/a?
 42,5,¿<p> le pondría los cuernos a su pareja por alguien famoso?,<p> would put the horns to your partner by someone famous?,¿<P> li posaria les banyes a la seva parella per algú famós?
 43,2,¿<p> pondría un acento falso para ligar?,<p> put a fake accent to link?,¿<P> posaria un accent fals per lligar?
 44,4,¿<p> es capaz de beberse una botella de vino en 2 minutos?,<p> is able to drink a bottle of wine in 2 minutes?,¿<P> és capaç de beure una ampolla de vi en 2 minuts?
@@ -56,9 +56,9 @@ Id,Naughtiness,es-es,en-us,ca
 55,1,¿<p> piensa que Merelyn Monroe es atractiva?,<p> Merelyn thinks Monroe is attractive?,¿<P> pensa que Merelyn Monroe és atractiva?
 56,1,¿<p> piensa que Kim Kardashian está sobrevalorada?,<p> Kim Kardashian think is overrated?,¿<P> pensa que Kim Kardashian està sobrevalorada?
 57,2,¿<p> se cree que baila bien?,<p> it is believed to dance well?,¿<P> es creu que balla bé?
-58,2,¿<p> piensa que <pr> es atractivo/a?,<p> think <pr> is attractive / a?,¿<P> pensa que <pr> és atractiu / a?
+58,2,¿<p> piensa que <pr> es atractivo/a?,<p> thinks that <pr> is attractive?,¿<P> pensa que <pr> és atractiu/iva?
 59,2,¿<p> ha usado alguna vez ropa interior erótica?,<p> ever used erotic lingerie?,¿<P> fet servir alguna vegada roba interior eròtica?
-60,5,¿<p> es heterocurioso/a?,<p> is heterocurioso / a?,¿<P> és heterocurioso / a?
+60,5,¿<p> es heterocurioso/a?,<p> is hetero-curious?,¿<P> és heterocurioso / a?
 61,5,¿<p> tiene dudas sobre su sexualidad?,<p> have questions about your sexuality?,¿<P> té dubtes sobre la seva sexualitat?
 62,3,¿<p> mira porno homosexual?,<p> watch gay porn?,¿<P> miri porno homosexual?
 63,3,¿<p> mira porno heterosexual?,<p> looks straight porn?,¿<P> miri porno heterosexual?
@@ -74,10 +74,10 @@ Id,Naughtiness,es-es,en-us,ca
 73,1,¿<p> considera que sabe cocinar?,<p> considers that knows how to cook?,¿<P> considera que sap cuinar?
 74,1,¿<p> tiene una boina en casa?,<p> has a beret at home?,¿<P> té una boina a casa?
 75,1,"¿<p> jugaba a ""Buscando a Wally"" de pequeño?","<p> played ""Finding Wally"" small?","¿<P> jugava a ""Buscant a Wally"" de petit?"
-76,1,"¿<p> miraba la serie de ""Loss Pitufos"" de pequeño/a?","<p> looked at the number of ""Loss Smurfs"" small / a?","¿<P> mirava la sèrie de ""Loss Barrufets"" de petit / a?"
+76,1,"¿<p> miraba la serie de ""Loss Pitufos"" de pequeño/a?","<p> watched the cartoons ""The Smurfs""?","¿<P> mirava la sèrie ""Els Barrufets"" de petit/a?"
 77,3,¿<p> ha soñado con acostarse con <pr>?,<p> dreamed of sleeping with <pr>?,¿<P> ha somiat amb anar a dormir amb <pr>?
-78,2,¿<p> se siente atraído/a por asiáticos/as?,<p> I feel attracted / a by Asian / as?,¿<P> se sent atret / a per asiàtics / es?
-79,2,¿<p> se siente atraído/a por africanos/as?,<p> I feel attracted / a by African / as?,¿<P> se sent atret / a per africans / es?
+78,2,¿<p> se siente atraído/a por asiáticos/as?,<p> I feel attracted by an Asian ?,¿<P> se sent atret/a per gent asiàtica?
+79,2,¿<p> se siente atraído/a por africanos/as?,<p> I feel attracted by an African?,¿<P> se sent atret/a per gent africanana?
 80,3,¿<p> se ha equivocado de agujero?,<p> is wrong hole?,¿<P> s'ha equivocat de forat?
 81,2,¿<p> ha robado en una tienda?,<p> stolen from a store?,¿<P> ha robat en una botiga?
 82,1,¿<p> tiene más amigos que amigas?,<p> has more friends than friends?,¿<P> té més amics que amigues?
@@ -87,7 +87,7 @@ Id,Naughtiness,es-es,en-us,ca
 86,2,¿<p> le tiene miedo a la oscuridad?,<p> have you afraid of the dark?,¿<P> li té por a la foscor?
 87,1,¿<p> es más de carne que de pescado?,<p> is more than meat fish?,¿<P> és més de carn que de peix?
 88,1,¿<p> es más de pescado que de carne?,<p> is more fish than meat?,¿<P> és més de peix que de carn?
-89,1,¿<p> ha estado enamorado/a?,<p> has been in love / a?,¿<P> ha estat enamorat / a?
+89,1,¿<p> ha estado enamorado/a?,<p> has been in love?,¿<P> ha estat enamorat/ada?
 90,4,¿<p> es miembro de una asociación canábica?,<p> is a member of an association canábica?,¿<P> és membre d'una associació canábica?
 91,2,¿<p> ha cortado una relación por chat?,<p> has cut a relationship chat?,¿<P> ha tallat una relació per xat?
 92,4,¿<p> ha probado drogas duras?,<p> has tried hard drugs?,¿<P> ha provat drogues dures?
@@ -116,7 +116,7 @@ Id,Naughtiness,es-es,en-us,ca
 115,3,¿<p> podría hacer que cualquiera se corriera con un oral?,<p> could make anyone run with an oral?,¿<P> podria fer que qualsevol es corregués amb un oral?
 116,3,¿<p> se ha acostado con alguien de otro país?,<p> slept with someone from another country?,¿<P> s'ha ficat al llit amb algú d'un altre país?
 117,1,¿<p> le atraen más las personas extranjeras que las locales?,<p> will attract more foreigners than local?,¿<P> l'atrauen més les persones estrangeres que les locals?
-118,1,¿<p> es adicto/a a los videojuegos?,<p> is addicted / a video game?,¿<P> és addicte / a als videojocs?
+118,1,¿<p> es adicto/a a los videojuegos?,<p> is addicted to video games?,¿<P> és addicte/a als videojocs?
 119,5,¿<p> se acostaría con una persona mayor por 2000$?,<p> sleep with a person for $ 2000?,¿<P> es ficaria al llit amb una persona gran per 2000 $?
 120,1,¿<p> prefiere a Apple que a Google?,<p> Apple prefers to Google?,¿<P> prefereix a Apple que a Google?
 121,3,¿<p> le gusta el dirty talk?,<p> likes to talk dirty?,¿<P> li agrada el dirty talk?
@@ -140,7 +140,7 @@ Id,Naughtiness,es-es,en-us,ca
 139,1,¿<p> se ha gastado más de 100$ en un videojuego?,<p> has spent more than $ 100 on a video game?,¿<P> s'ha gastat més de 100 $ en un videojoc?
 140,1,¿<p> es más de motos que de coches?,<p> is more than car motorbikes?,¿<P> és més de motos que de cotxes?
 141,1,¿<p> es más de gatos que de perros?,<p> it is more cats than dogs?,¿<P> és més de gats que de gossos?
-142,5,¿<p> se ha tocado viéndose a si mismo/a?,<p> it has been touched seeing itself / a?,¿<P> s'ha tocat veient-se a si mateix / a?
+142,5,¿<p> se ha tocado viéndose a si mismo/a?,<p> has masturbated while watching porno of himself/herself?,¿<P> s'ha tocat veient-se a si mateix/a?
 143,3,¿<p> ha necesitado condones y no ha tenido?,<p> you have needed condoms and did not have?,¿<P> ha necessitat condons i no ha tingut?
 144,4,¿<p> ha vendido hierba?,<p> sold grass?,¿<P> ha venut herba?
 145,1,¿<p> ha pedido una canción en la radio?>a>Buri<a<,<p> has requested a song on the radio?> A> Buri <a <,¿<P> ha demanat una cançó a la ràdio?> A> Buri <a <

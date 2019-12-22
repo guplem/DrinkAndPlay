@@ -208,7 +208,7 @@ public class Localizer : MonoBehaviour
 
     private string CleanTags(string text)
     {
-        MatchCollection matchList = Regex.Matches(text, ">.*>|<.*<");
+        MatchCollection matchList = Regex.Matches(text, @"<\s*\w+\s*>|>\s*\w+\s*>|<\s*\w+\s*<"); // Test web: https://regexr.com/
         List<string> stringList = matchList.Cast<Match>().Select(match => match.Value).ToList();
         
         foreach (string match in stringList)
@@ -219,29 +219,38 @@ public class Localizer : MonoBehaviour
 
     private static void ApplyText(TextMeshProUGUI tmProGui, string text)
     {
-        List<string> alreadyIncludedPlayers = new List<string>();
+        text = ApplyPlayersTo(text);
         
-        if (text.Contains("<p>"))
-        {
-            string currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
-            text = text.Replace("<p>", currentPlayer);
-            alreadyIncludedPlayers.Add(currentPlayer);
-        }
-
-        if (text.Contains("<pr>"))
-        {
-            Regex regex = new Regex(Regex.Escape("<pr>"));
-            do
-            {
-                string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers);
-                text = regex.Replace(text, randPlayer, 1);
-                alreadyIncludedPlayers.Add(randPlayer);
-            }
-            while (text.Contains("<pr>"));
-        }
-
         tmProGui.richText = true;
         tmProGui.text = text;
     }
 
+    private static string ApplyPlayersTo(string text)
+    {
+        HashSet<string> alreadyIncludedPlayers = new HashSet<string>();
+
+        if (text.IndexOf("<p>", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            Regex rgx = new Regex("<p>", RegexOptions.IgnoreCase); 
+            do
+            {
+                string currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
+                text = rgx.Replace(text, currentPlayer, 1);
+                alreadyIncludedPlayers.Add(currentPlayer);
+            } while (text.IndexOf("<p>", StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        if (text.IndexOf("<pr>", StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            Regex rgx = new Regex("<pr>", RegexOptions.IgnoreCase); 
+            do
+            {
+                string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers.ToList());
+                text = rgx.Replace(text, randPlayer, 1);
+                alreadyIncludedPlayers.Add(randPlayer);
+            } while (text.IndexOf("<pr>", StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        return text;
+    }
 }

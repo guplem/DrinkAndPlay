@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: en-us
   titleName: English
-  isEnabled: 1
+  isEnabled: 0

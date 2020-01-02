@@ -25,7 +25,6 @@ public class LocalizationFile : ScriptableObject
     
     private int CalculateQuantityOfSentences()
     {
-        Debug.Log("CALCULATING");
         return CSVReader.Read(this).ToArray().Length;
     }
 

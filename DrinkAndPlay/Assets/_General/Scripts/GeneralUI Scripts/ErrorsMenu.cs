@@ -63,11 +63,12 @@ public class ErrorsMenu : MonoBehaviour
     {
         string message = "";
 
-        if (typo) message += "TYPO, ";
-        if (offensive) message += "OFFENSIVE, ";
-        if (nonInclusive) message += "NON-INCLUSIVE, ";
-        if (other) message += "OTHER, ";
-        if (currentTextOfError != null) message += "Localized Text: " + currentTextOfError.localizedText + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
+        if (typo) message += "TYPO, "; else
+        if (offensive) message += "OFFENSIVE, "; else
+        if (nonInclusive) message += "NON-INCLUSIVE, "; else
+        if (other) message += "OTHER, "; else
+            message += "UNDEFINED, ";
+        if (currentTextOfError != null) message += "Language: " + GameManager.instance.dataManager.language + ", Localized Text: " + currentTextOfError.localizedText + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
 
         return message;
     }

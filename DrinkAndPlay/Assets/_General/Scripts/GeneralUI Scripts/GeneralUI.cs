@@ -10,6 +10,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] public GameObject topBar;
     [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject sectionTitle;
+    [HideInInspector] public Localizer sectionTitleLocalizer;
     [SerializeField] private GameObject gameTitle;
     [SerializeField] private GameObject configButton;
     [SerializeField] private GameObject playersButton;
@@ -47,6 +48,11 @@ public class GeneralUI : MonoBehaviour
         
         if (section == null)
             Debug.LogError("The General UI can not be set up for a null section.", gameObject);
+
+        if (sectionTitleLocalizer == null)
+            sectionTitleLocalizer = sectionTitle.GetComponent<Localizer>();
+        if (sectionTitleLocalizer == null)
+            Debug.LogWarning("The localizer in the section title was not found.", sectionTitle);
         
         topBar.SetActive(section.topBar);
         backButton.SetActive(section.backButton);
@@ -57,7 +63,7 @@ public class GeneralUI : MonoBehaviour
         helpButton.SetActive(section.helpButton);
 
         if (section.sectionTitle)
-            sectionTitle.GetComponent<Localizer>().Localize(section.nameId);
+            sectionTitleLocalizer.Localize(section.nameId);
 
         if (playersMenuController == null)
             playersMenuController = playersMenu.GetComponent<PlayersMenu>();

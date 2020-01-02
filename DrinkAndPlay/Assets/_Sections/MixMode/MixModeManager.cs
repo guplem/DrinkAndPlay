@@ -26,7 +26,12 @@ public class MixModeManager : TurnsGameManager
     public override void NextButton()
     {
         gm.dataManager.SetTurnForNextPlayer();
-        SetupTextInCard(GetNextText(true));
+        TextInTurnsGame nextText = GetNextText(true);
+        SetupTextInCard(nextText);
+        if (section.topBar)
+            GameManager.instance.generalUi.sectionTitleLocalizer.Localize(nextText.localizationFile.ToString());
+        else
+            Debug.LogWarning("The top bar in the UI should be enabled for the 'Mix mode' section: " + section,gameObject);
     }
     
     public override void PreviousButton()

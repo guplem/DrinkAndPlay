@@ -49,7 +49,7 @@ public class LanguageButton : MonoBehaviour
 
     public void SelectLanguage()
     {
-        GameManager.instance.dataManager.language = language.id;
+        GameManager.instance.dataManager.language = language;
     }
 
     public void SetColors(LightDarkColor.ColorType colorType)

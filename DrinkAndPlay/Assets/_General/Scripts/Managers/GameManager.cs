@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("uiSection")] [SerializeField] public LocalizationFile uiLocalizationFile;
     [SerializeField] public GeneralUI generalUi;
     [SerializeField] public Section landingSection;
+    [SerializeField] public Language[] languages;
+    [SerializeField] public Language defaultLanguage;
 
     public static GameManager instance { get; private set; }
     public void Initialize()
@@ -37,6 +39,9 @@ public class GameManager : MonoBehaviour
         // SETUP
         
         dataManager = new DataManager(false, false);
+        
+        if (!defaultLanguage.isEnabled)
+            Debug.LogError("The default language (" + defaultLanguage + ") is not enabled and it should be.");
         
         localizationManager = new LocalizationManager(dataManager, 25);
 

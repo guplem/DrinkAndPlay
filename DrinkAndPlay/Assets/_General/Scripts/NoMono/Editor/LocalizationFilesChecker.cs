@@ -36,7 +36,7 @@ public class LocalizationFilesChecker : MonoBehaviour
                 }
                 
                 // Load
-                localizationManager.LoadLanguageFor(localizationFile, language.id);
+                localizationManager.LoadLanguageFor(localizationFile, language);
                 // Check
                 List<LocalizedText> lt = localizationManager.GetLocalizedTextsFrom(localizationFile);
                 localizationManager.CheckValidityOf(lt, localizationManager.resetPercentage, localizationFile, language.id);

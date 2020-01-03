@@ -37,7 +37,7 @@ public class LocalizationManager
         return LoadLanguageFor(localizationFile, dataManager.language);
     }
     
-    public bool LoadLanguageFor(LocalizationFile localizationFile, string language)
+    public bool LoadLanguageFor(LocalizationFile localizationFile, Language language)
     {
         if (localizationFile == null)
         {
@@ -45,7 +45,7 @@ public class LocalizationManager
             return false;
         }
         
-        if (string.IsNullOrEmpty(language))
+        if (language == null)
         {
             Debug.LogError("The language to be loaded for " + localizationFile + " is null or empty.");
             return false;
@@ -70,7 +70,7 @@ public class LocalizationManager
                         idCol = col;
                     if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) == 0)
                         naughtyCol = col;
-                    if (string.Compare(dataRead[row][col].ToUpper(), language.ToUpper(), StringComparison.Ordinal) == 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), language.id.ToUpper(), StringComparison.Ordinal) == 0)
                         langCol = col;
 
                     if (idCol > -1 && naughtyCol > -1 && langCol > -1)

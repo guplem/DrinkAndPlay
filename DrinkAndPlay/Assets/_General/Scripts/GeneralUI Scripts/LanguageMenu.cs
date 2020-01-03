@@ -9,11 +9,11 @@ public class LanguageMenu : MonoBehaviour
 {
     [SerializeField] private Transform contents;
     [SerializeField] private GameObject languagePrefab;
-    [SerializeField] private Language[] languages;
+    
 
     private void Start()
     {
-        List<Language> languageList = languages.ToList();
+        List<Language> languageList = GameManager.instance.languages.ToList();
         languageList.Sort();
 
         foreach (Language lang in languageList)

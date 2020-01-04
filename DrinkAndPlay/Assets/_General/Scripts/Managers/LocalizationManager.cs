@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class LocalizationManager
 {
     private readonly DataManager dataManager;
-    private Dictionary<LocalizationFile, List<LocalizedText>> localizedTexts;
+    public Dictionary<LocalizationFile, List<LocalizedText>> localizedTexts { get; private set; }
     public int resetPercentage { get; private set; }
 
     public LocalizationManager(DataManager dataManager, int resetPercentage)
@@ -24,7 +25,8 @@ public class LocalizationManager
         foreach (LocalizationFile localizedFile in localizedFiles)
         {
             localizedTexts[localizedFile] = new List<LocalizedText>();
-            LoadCurrentLanguageFor(localizedFile);
+            if (!LoadCurrentLanguageFor(localizedFile))
+                return false;
         }
 
         LocalizeAllLocalizableObjects();
@@ -37,7 +39,7 @@ public class LocalizationManager
         return LoadLanguageFor(localizationFile, dataManager.language);
     }
     
-    public bool LoadLanguageFor(LocalizationFile localizationFile, string language)
+    public bool LoadLanguageFor(LocalizationFile localizationFile, Language language)
     {
         if (localizationFile == null)
         {
@@ -45,7 +47,7 @@ public class LocalizationManager
             return false;
         }
         
-        if (string.IsNullOrEmpty(language))
+        if (language == null)
         {
             Debug.LogError("The language to be loaded for " + localizationFile + " is null or empty.");
             return false;
@@ -70,21 +72,29 @@ public class LocalizationManager
                         idCol = col;
                     if (string.Compare(dataRead[row][col].ToUpper(), "NAUGHTINESS", StringComparison.Ordinal) == 0)
                         naughtyCol = col;
-                    if (string.Compare(dataRead[row][col].ToUpper(), language.ToUpper(), StringComparison.Ordinal) == 0)
+                    if (string.Compare(dataRead[row][col].ToUpper(), language.ToString().ToUpper(), StringComparison.Ordinal) == 0)
                         langCol = col;
 
                     if (idCol > -1 && naughtyCol > -1 && langCol > -1)
                         break;
                 }
 
-                if (idCol < 0)
+                if (idCol < 0) {
                     Debug.LogError("The localizationFile '" + localizationFile + "' is missing the 'ID' column in its localization file");
-                else if (langCol < 0)
-                {
-                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + language + "' in its localization file.     ('"  + language + "' is the current language.)");
+                    return false;
                 }
+                if (naughtyCol < 0 && localizationFile.searchForNaughtyLevelColumn) {
+                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the 'NAUGHTINESS' column in its localization file");
+                    return false;
+                }
+                if (langCol < 0) {
+                    Debug.LogError("The localizationFile '" + localizationFile + "' is missing the column '" + language + "' in its localization file.     ('"  + language + "' is the current language.)");
+                    return false;
+                }
+                
+                // Clear the old localized files
+                localizedTexts[localizationFile] = new List<LocalizedText>();
             }
-
 
             //Save the localized text with the proper language
             else
@@ -92,7 +102,8 @@ public class LocalizationManager
                 int.TryParse(dataRead[row][1], out int naughtiness);
                 LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
                 if (!string.IsNullOrEmpty(localizedText.text)) //Only if the text is valid
-                    AddLocalizedTextToTextsList(localizationFile, localizedText);
+                    if (!AddLocalizedTextToTextsList(localizationFile, localizedText))
+                        return false;
             }
 
         }
@@ -112,19 +123,26 @@ public class LocalizationManager
         return localizedTexts[localizationFile];
     }
     
-    public void CheckValidityOf(List<LocalizedText> localizedTexts, int percentage, LocalizationFile localizationFile, string lang)
+    public bool CheckValidityOf(List<LocalizedText> localizedTexts, int percentage, LocalizationFile localizationFile, Language lang)
     {
         if (localizedTexts == null || localizedTexts.Count <= 0)
+        {
             Debug.LogError("Checking validity of a null or empty localizedTexts.");
+            return false;
+        }
+
         if (localizationFile == null)
+        {
             Debug.LogError("Checking validity of a null localizationFile.");
+            return false;
+        }
         
         
         for (int nl = dataManager.naughtyLevelExtremes.min; nl <= dataManager.naughtyLevelExtremes.max; nl++)
         {
             if (nl <= 0)
             {
-                Debug.LogWarning("The minimum naughty level shouldn't be below '1'.");
+                Debug.LogWarning("The minimum naughty level in the dataManager shouldn't be below '1'.");
                 nl=1;
             }
             
@@ -136,9 +154,13 @@ public class LocalizationManager
 
             int minQttOfSentences = 100 / percentage;
             if (counter < minQttOfSentences)
-                Debug.LogWarning("Only found " + counter + " texts while searching sentences of naughty level = " + nl + " in the localization file '" + localizationFile + "' with language = '" + lang + "'.\nAt least " + minQttOfSentences + " texts are needed.");
+            {
+                Debug.LogError("Only found " + counter + " texts while searching sentences of naughty level = " + nl + " in the localization file '" + localizationFile + "' with language = '" + lang + "'.\nAt least " + minQttOfSentences + " texts are needed.");
+                return false;
+            }
         }
 
+        return true;
     }
 
     public void RandomizeLocalizedTexts(LocalizationFile localizationFile)
@@ -156,26 +178,31 @@ public class LocalizationManager
         localizedTexts[localizationFile] = randomList;
     }
 
-    private void AddLocalizedTextToTextsList(LocalizationFile localizationFile, LocalizedText localizedText)
+    private bool AddLocalizedTextToTextsList(LocalizationFile localizationFile, LocalizedText localizedText)
     {
         if (localizationFile == null)
         {
             Debug.LogError("Trying to save a localized text of a 'null' localizationFile.");
-            return;
+            return false;
         }
 
         if (localizationFile == null)
         {
             Debug.LogError("Trying to save 'null' localizedText.");
-            return;
+            return false;
         }
-
-        //Debug.Log("Saving " + localizedText + " to " + localizationFile.name);
 
         if (!localizedTexts.ContainsKey(localizationFile))
             localizedTexts.Add(localizationFile, new List<LocalizedText>());
 
+        if (localizedTexts[localizationFile].Contains(localizedText))
+        {
+            Debug.LogError("Trying to set a duplicated text in the LocalizationFile '" + localizationFile + "' list: " + localizedText);
+            return false;
+        }
+        
         localizedTexts[localizationFile].Add(localizedText);
+        return true;
     }
 
     public delegate void LocalizeAllAction();

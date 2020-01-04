@@ -8,11 +8,10 @@ using Random = UnityEngine.Random;
 
 public class DataManager
 {
-    public DataManager(bool encode, bool betaTester)
+    public DataManager(bool encode)
     {
         Debug.Log("Creating DataManager.");
         SaveGame.Encode = encode;
-        this.betaTester = betaTester;
     }
 
     private static List<T> GetCloneOfList<T>(List<T> originalList)
@@ -92,7 +91,7 @@ public class DataManager
     
 
     #region language
-    public string language
+    public Language language
     {
         get
         {
@@ -103,7 +102,7 @@ public class DataManager
         }
         set
         {
-            if (string.Compare(_language, value, StringComparison.Ordinal) == 0) 
+            if (string.Compare(_language.id, value.id, StringComparison.Ordinal) == 0) 
                 return;
             
             Debug.Log("New language: " + value);
@@ -112,24 +111,41 @@ public class DataManager
             SaveGame.Save(languageSavename, value);
         }
     }
-    private string _language;
+    private Language _language;
     private const string languageSavename = "language";
 
-    private string GetSystemLanguage()
+    private Language GetSystemLanguage()
     {
+        Language lang;
         switch (Application.systemLanguage)
         {
             case SystemLanguage.Spanish:
-                return "es-es";
+                lang = GetLanguageWithId("es-es");
+                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+
             case SystemLanguage.Basque:
-                return "es-es";
+                lang = GetLanguageWithId("es-es");
+                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+            
             case SystemLanguage.Catalan:
-                return "ca";
+                lang = GetLanguageWithId("ca");
+                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+            
             case SystemLanguage.English:
-                return "en-us";
+                lang = GetLanguageWithId("en-us");
+                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+            
             default:
-                return "en-us";
+                return GetLanguageWithId(GameManager.instance.defaultLanguage.id);
         }
+    }
+
+    private Language GetLanguageWithId(string id)
+    {
+        foreach (Language language in GameManager.instance.languages)
+            if (id.Equals(language.id, StringComparison.InvariantCultureIgnoreCase))
+                return language.isEnabled ? language : null;
+        return null;
     }
     
     #endregion
@@ -544,6 +560,7 @@ public class DataManager
 
     #endregion
 
+    
     #region RandomPlayerOrder
 
     public bool randomPlayerOrder
@@ -567,6 +584,7 @@ public class DataManager
     private const string randomPlayerOrderSavename = "randomPlayerOrder";
 
     #endregion
+    
     
     #region RatePopup
     public bool ratePopupShown;
@@ -641,7 +659,7 @@ public class DataManager
             _betaTester = SaveGame.Load(betaTesterSavename, false);
             return _betaTester;
         }
-        set
+        private set
         {
             if (_betaTester == value || value == false) 
                 return;
@@ -654,11 +672,6 @@ public class DataManager
     private bool _betaTester = false;
     private const string betaTesterSavename = "betaTester";
 
-    public bool IsBetaTester()
-    {
-        return betaTester;
-    }
-    
     #endregion
     
     

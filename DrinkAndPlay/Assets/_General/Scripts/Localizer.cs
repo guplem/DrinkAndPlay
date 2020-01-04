@@ -41,7 +41,7 @@ public class Localizer : MonoBehaviour
     [SerializeField] public bool automaticallyLocalize = false;
     [SerializeField] public bool registerTimestampAtLocalize;
 
-    private string currentLanguage = "";
+    private Language currentLanguage = null;
     private bool previouslyStarted;
     private bool subscribed = false;
 

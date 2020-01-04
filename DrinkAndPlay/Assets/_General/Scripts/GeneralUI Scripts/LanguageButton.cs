@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LanguageButton : MonoBehaviour
 {
-    private Language language;
+    private Language  language;
     [SerializeField] private TextMeshProUGUI textName;
     private Button btn; 
     private bool subscribed = false;
@@ -49,7 +49,7 @@ public class LanguageButton : MonoBehaviour
 
     public void SelectLanguage()
     {
-        GameManager.instance.dataManager.language = language.id;
+        GameManager.instance.dataManager.language = language;
     }
 
     public void SetColors(LightDarkColor.ColorType colorType)

@@ -7,56 +7,59 @@ using UnityEngine;
 
 public class LocalizationFilesChecker : MonoBehaviour
 {
-    [MenuItem("Drink and Play/Localization files/Check for 25% reset")]
-    public static void CheckLocalizationFiles()
+    [MenuItem("Drink and Play/Localization files/Check localization files health")]
+    public static bool CheckLocalizationFiles()
     {
-        LocalizationManager localizationManager = new LocalizationManager(new DataManager(false, true), 25);
+        LocalizationManager localizationManager = new LocalizationManager(new DataManager(false), 25);
 
         LocalizationFile[] localizationFiles = Downloader.GetAllLocalizationFiles();
-        Language[] languages = GetAllLanguages();
+        List<Language> languages = GetAllEnabledLanguages();
 
         foreach (Language language in languages)
         {
-            Debug.Log("Starting check of language '" + language.id +"'.");
-            if (!language.isEnabled)
-            {
-                Debug.Log("Disabled language, skipping.");
-                continue;
-            }
+            Debug.Log("Starting check of language '" + language +"'.");
 
             int sentencesByLanguage = 0;
             
             foreach (LocalizationFile localizationFile in localizationFiles)
             {
                 Debug.Log("Starting check of localizationFile '" + localizationFile+"'.");
+                
+                // Load and check health of document
+                if (!localizationManager.LoadLanguageFor(localizationFile, language))
+                    return false;
+                
                 if (!localizationFile.checkForEnoughSentencesOfAllNaughtyLevels)
                 {
                     Debug.Log("Disabled localization file's check of texts' naughty level, skipping.");
                     continue;
                 }
                 
-                // Load
-                localizationManager.LoadLanguageFor(localizationFile, language.id);
-                // Check
+                // Check 25% reset
                 List<LocalizedText> lt = localizationManager.GetLocalizedTextsFrom(localizationFile);
-                localizationManager.CheckValidityOf(lt, localizationManager.resetPercentage, localizationFile, language.id);
+                localizationManager.CheckValidityOf(lt, localizationManager.resetPercentage, localizationFile, language);
                 sentencesByLanguage += lt.Count;
             }
+
+            SaveGame.Save("LocalizedTexts for " + language + " - Check Result" + ".json", localizationManager.localizedTexts);
             
             Debug.Log("Checked " + sentencesByLanguage + " in-game texts for the language " + language);
         }
 
-        Debug.Log("Localization files checking finished.");
+        Debug.Log("Localization files checking finished successfully.");
+        return true;
     }
 
-    public static Language[] GetAllLanguages()
+    public static List<Language> GetAllEnabledLanguages()
     {
         string[] guids = AssetDatabase.FindAssets("t:" + typeof(Language).Name);
-        Language[] languages = new Language[guids.Length];
-        for (int i = 0; i < guids.Length; i++)
+        List<Language> languages = new List<Language>();
+        foreach (string assetLang in guids)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            languages[i] = AssetDatabase.LoadAssetAtPath<Language>(path);
+            string path = AssetDatabase.GUIDToAssetPath(assetLang);
+            Language lang = AssetDatabase.LoadAssetAtPath<Language>(path);
+            if (lang.isEnabled)
+                languages.Add(lang);
         }
 
         return languages;

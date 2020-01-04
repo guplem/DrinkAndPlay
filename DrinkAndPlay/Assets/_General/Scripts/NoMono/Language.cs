@@ -17,5 +17,9 @@ public class Language : ScriptableObject, IComparable<Language>
         if (ReferenceEquals(null, other)) return 1;
         return string.Compare(titleName, other.titleName, StringComparison.OrdinalIgnoreCase);
     }
-    
+
+    public override string ToString()
+    {
+        return id;
+    }
 }

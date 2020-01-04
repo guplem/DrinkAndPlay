@@ -33,7 +33,6 @@ Games,Juegos,Games,Jocs
 Help,Ayuda,Help,Ajuda
 Us,Nosotros,About Us,Nosaltres
 PlayerName,Nombre de jugador,Player name,Nom de jugador
-RandomChallenges,Retos aleatorios,Random challenges,Reptes aleatoris
 RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.,Activa o desactiva proves que apareixeran aleatòriament durant els jocs.
 RC,Prueba Aleatoria,Random Challenge,Prova Aleatòria
 Cancel,Cancelar,Cancel,Cancel·lar
@@ -46,7 +45,7 @@ No,No,No,No
 NoCool,Nahhh...,Nahhh...,Nahhh...
 YesCool,¡Sí!,Yasss,Sí!
 RateText,¿Nos valoras?,Would you rate us?,Ens valores?
-ShareText,¡Mira qué me he encontrado jugando a Drink and Play!,Look what I found playing Drink and Play!,Mira què m'he trobat jugant a Drink and Play!
+ShareText,¡Mira qué me he encontrado jugando a Drink & Play!,Look what I found playing Drink & Play!,Mira què m'he trobat jugant a Drink & Play!
 PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:,<Color = # cd293c>Atenció!</ Color> Jugadors requerits:
 MMN,Menu Principal,Main Menu,Menú Principal
 MMD,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ...","En el menú principal tens accés als diferents jocs disponibles, receptes de begudes, ..."

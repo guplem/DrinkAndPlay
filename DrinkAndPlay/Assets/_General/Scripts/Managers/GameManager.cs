@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         // SETUP
         
-        dataManager = new DataManager(false, false);
+        dataManager = new DataManager(false);
         
         if (!defaultLanguage.isEnabled)
             Debug.LogError("The default language (" + defaultLanguage + ") is not enabled and it should be.");

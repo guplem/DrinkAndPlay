@@ -9,6 +9,13 @@ public class LocalizationFile : ScriptableObject
     [TextArea]
     public string localizationUrl;
     public bool checkForEnoughSentencesOfAllNaughtyLevels = true;
+    public bool searchForNaughtyLevelColumn {
+        get { return checkForEnoughSentencesOfAllNaughtyLevels || _searchForNaughtyLevelColumn; }
+        private set { _searchForNaughtyLevelColumn = value;  }
+    }
+    [SerializeField] private bool _searchForNaughtyLevelColumn = true;
+
+    
 
     public int quantityOfSentences
     {

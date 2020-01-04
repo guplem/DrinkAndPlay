@@ -8,11 +8,10 @@ using Random = UnityEngine.Random;
 
 public class DataManager
 {
-    public DataManager(bool encode, bool betaTester)
+    public DataManager(bool encode)
     {
         Debug.Log("Creating DataManager.");
         SaveGame.Encode = encode;
-        this.betaTester = betaTester;
     }
 
     private static List<T> GetCloneOfList<T>(List<T> originalList)
@@ -561,6 +560,7 @@ public class DataManager
 
     #endregion
 
+    
     #region RandomPlayerOrder
 
     public bool randomPlayerOrder
@@ -584,6 +584,7 @@ public class DataManager
     private const string randomPlayerOrderSavename = "randomPlayerOrder";
 
     #endregion
+    
     
     #region RatePopup
     public bool ratePopupShown;
@@ -658,7 +659,7 @@ public class DataManager
             _betaTester = SaveGame.Load(betaTesterSavename, false);
             return _betaTester;
         }
-        set
+        private set
         {
             if (_betaTester == value || value == false) 
                 return;
@@ -671,11 +672,6 @@ public class DataManager
     private bool _betaTester = false;
     private const string betaTesterSavename = "betaTester";
 
-    public bool IsBetaTester()
-    {
-        return betaTester;
-    }
-    
     #endregion
     
     

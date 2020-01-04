@@ -53,13 +53,14 @@ class Downloader
         }
     }
 
-    private static void DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
+    private static bool DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
     {
-
+        Debug.Log("Downloading " + localizationFile + " as csv.");
+        
         if (localizationFile == null)
         {
             Debug.LogError("Trying to download the localization file of a 'null' localizationFile");
-            return;
+            return false;
         }
 
         /*
@@ -79,31 +80,52 @@ class Downloader
         wc.Headers.Add("Cache-Control", "no-cache");
         wc.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
 
-        if(string.IsNullOrEmpty(localizationFile.localizationUrl))
+        if (string.IsNullOrEmpty(localizationFile.localizationUrl))
+        {
             Debug.LogError("The localization file for the localizationFile " + localizationFile  + " can not be downloaded because the 'LocalizationURL' is not valid.");
+            return false;
+        }
         
         byte[] dt = wc.DownloadData(localizationFile.localizationUrl);
+
+        if (dt.Length <= 0)
+        {
+            Debug.LogError("The downloaded data for the localizationFile " + localizationFile  + " is empty.");
+            return false;
+        }
+
         File.WriteAllBytes("Assets/_General/Resources/" + localizationFile + ".csv", dt);
 
-        //to convert it to string
+        //To convert it to string...
         //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-        Debug.Log(localizationFile + " localization file has been downloaded.");
+        Debug.Log(localizationFile + " localization file has been downloaded successfully.");
+        
+        return true;
     }
 
     [MenuItem("Drink and Play/Localization files/Download all")]
-    public static void DownloadAllLocalizationFileAsCsv()
+    public static bool DownloadAllLocalizationFilesAsCsv()
     {
         //Search all sections (including UI)
         LocalizationFile[] localizationFiles = GetAllLocalizationFiles();
 
         //Download every localizationFile (including UI)
         foreach (LocalizationFile localizationFile in localizationFiles)
-            DownloadLocalizationFileAsCsv(localizationFile);
+            if (!DownloadLocalizationFileAsCsv(localizationFile))
+                return false;
         
         AssetDatabase.Refresh();
 
-        Debug.Log("All Localization files have been downloaded.");
+        Debug.Log("All Localization files have been downloaded successfully.");
+        return true;
+    }
+    
+    [MenuItem("Drink and Play/Localization files/Download and check all")]
+    public static void DownloadAllLocalizationFilesAsCsvAndCheck()
+    {
+        if (DownloadAllLocalizationFilesAsCsv())
+            LocalizationFilesChecker.CheckLocalizationFiles();
     }
     
     [MenuItem("Drink and Play/Localization files/Delete all")]

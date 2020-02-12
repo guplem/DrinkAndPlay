@@ -17,9 +17,10 @@ RandomSentences,Pruebas Aleatorias,Random Activities,Proves Aleatòries
 Text,Texto,Text,Text
 WriteHere,Escribe aquí...,Write here...,Escriu aquí...
 Author,Autor,Author,Autor
-Name,Nick,Nick,Nick
+Name,Nick,Nickname,Nick
+EmailComment,"Si quieres que se te notifique acerca de tu aportación, escribe tu e-mail junto al nick.","If you want to be notified about your contribution, write your email next to the nickname.","Si vols que se't notifiqui sobre la teva aportació, escriu el teu e-mail al costat del nick."
 Send,Enviar,Send,Enviar
-FeedbackExplanation,Tras enviarnos el texto vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,After sending the text we will read it and consider your contribution to improve the application.<br><br>Thank you very much!,Després enviar-nos el text el llegirem considerarem la teva aportació per millorar l'aplicació.<br><br>Moltes gràcies!
+FeedbackExplanation,Vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,We will read and consider your contribution to improve the application.<br><br>Thank you very much!,Llegirem considerarem la teva aportació per millorar l'aplicació.<br><br>Moltes gràcies!
 Players,Jugadores,Players,Jugadors
 Play,Jugar,Play,Jugar
 ComingSoon,Próximamente,Coming son,Pròximament
@@ -70,7 +71,7 @@ MN,Mímica,Mime,Mímica
 MD,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink.","Un jugador haurà de llegir la paraula que es mostrarà i els altres jugadors intentaran aconseguir endevinar de quina paraula es tracta després d'una actuació mímica de el jugador que l'ha llegit.<br><br>Si no aconsegueixen endevinar, els toca beure."
 MIXN,Mix,Mix,Mix
 MIXD,¡Disfruta de más de 1.000 frases y que nada pare la fiesta!<br><br>Mix de todas las frases de juegos de Drink & Play.,"Enjoy more than 1,000 phrases and nothing stops the party!<br><br>Mix all phrases Drink & Play games.",Gaudeix de més de 1.000 frases i que res pari la festa!<br><br>Mix de totes les frases de jocs de Drink & Play.
-ChoosePlayer,¡Elegid a un jugador!,Choose a player!,Escolliu a un jugador!
+ChoosePlayer,"""¡Elegid un jugador!""","""Choose a player!""","""Escolliu un jugador!"""
 RandomOrder,Orden aleatorio,Random order,Ordre aleatori
 ErrorMenu,Informar de un Error,Report an Error,Informar d'un error
 IssueType,Tipo de error,Error type,Tipus d'error
@@ -81,6 +82,8 @@ Other,Otro,Other,Un altre
 ErrorDescriptionText,¡Muchas gracias por ayudarnos a mejorar la app!,Thank you very much for helping us improve the app!,Moltes gràcies per ajudar-nos a millorar l'app!
 GamesSelector,Selector de Juegos,Games Selector,Selector de Jocs
 FilesList,Juegos,Games,Jocs
+Purchase,Comprar,Purchase,Comprar
+Refund,Revocar acceso Premium,Revoke Premium access,Revocar l'accés Premium
 WeKnowEachOther,¿Nos Conocemos?,We know each other?,Ens Coneixem?
 UI,Interfaz,Interface,Interfície
 TruthOrDare-Truth,Preguntas,Questions,Preguntes

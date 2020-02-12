@@ -134,7 +134,7 @@ public class FeedbackMenu : MonoBehaviour
         }
 
         //StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
-        ForceSendForm(theme, message, GameManager.instance.dataManager.author);
+        ForceSendForm(theme + " (" + GameManager.instance.dataManager.language + ")", message, GameManager.instance.dataManager.author);
         
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";

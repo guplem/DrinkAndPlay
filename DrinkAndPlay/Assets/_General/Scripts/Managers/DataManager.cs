@@ -120,27 +120,27 @@ public class DataManager
         switch (Application.systemLanguage)
         {
             case SystemLanguage.Spanish:
-                lang = GetLanguageWithId("es-es");
-                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+                lang = GetEnabledLanguageWithId("es-es");
+                return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
 
             case SystemLanguage.Basque:
-                lang = GetLanguageWithId("es-es");
-                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+                lang = GetEnabledLanguageWithId("es-es");
+                return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
             
             case SystemLanguage.Catalan:
-                lang = GetLanguageWithId("ca");
-                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+                lang = GetEnabledLanguageWithId("ca");
+                return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
             
             case SystemLanguage.English:
-                lang = GetLanguageWithId("en-us");
-                return lang != null ? lang : GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+                lang = GetEnabledLanguageWithId("en-us");
+                return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
             
             default:
-                return GetLanguageWithId(GameManager.instance.defaultLanguage.id);
+                return GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
         }
     }
 
-    private Language GetLanguageWithId(string id)
+    private Language GetEnabledLanguageWithId(string id)
     {
         foreach (Language language in GameManager.instance.languages)
             if (id.Equals(language.id, StringComparison.InvariantCultureIgnoreCase))

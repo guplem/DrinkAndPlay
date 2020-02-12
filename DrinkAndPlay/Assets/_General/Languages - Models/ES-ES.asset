@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9985e634962abd044955023eb5ff1410, type: 3}
   m_Name: ES-ES
   m_EditorClassIdentifier: 
-  languageId: es-es
-  languageName: "Espa\xF1ol"
+  id: es-es
+  titleName: "Espa\xF1ol"
+  isEnabled: 1

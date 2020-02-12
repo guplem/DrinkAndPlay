@@ -122,7 +122,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.5.6
+  bundleVersion: 1.6.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -169,7 +169,7 @@ PlayerSettings:
     Android: com.TriunityStudios.DrinkAndPlay
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 63
+  AndroidBundleVersionCode: 64
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -262,8 +262,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Drive/Videogames/TriunityStudios/ProjectTS18 - Drink and
-    Play/Protected Stuff/user.keystore
+  AndroidKeystoreName: C:/Drive/Own Projects/Videogames/TriunityStudios/ProjectTS18
+    - Drink and Play/Protected Stuff/user.keystore
   AndroidKeyaliasName: triunitystudios
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

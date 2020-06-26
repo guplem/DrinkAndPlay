@@ -1,29 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player
 {
-    private string player;
-    private PlayersMenu playersMenu;
-    [SerializeField] private TextMeshProUGUI playerText;
-    [SerializeField] private Button removeButton;
+    public string name;
+    public bool enabled;
 
-    public void Setup(string player, PlayersMenu playersMenu, bool allowRemoval)
+    public Player(string name, bool enabled = true)
     {
-        this.player = player;
-        this.playersMenu = playersMenu;
-        playerText.text = player;
-        removeButton.interactable = allowRemoval;
+        this.name = name;
+        this.enabled = enabled;
     }
 
-    public void RemovePlayer()
+    protected bool Equals(Player other)
     {
-        GameManager.instance.dataManager.RemovePlayer(player);
-        playersMenu.BuildPlayerList();
-        playersMenu.SetDoneButtonAvailability();
+        return string.Equals(name, other.name, StringComparison.OrdinalIgnoreCase);
     }
 
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != this.GetType()) return false;
+        return Equals((Player) obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return (name != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(name) : 0);
+    }
+
+    public static bool operator ==(Player left, Player right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Player left, Player right)
+    {
+        return !Equals(left, right);
+    }
+
+    public override string ToString()
+    {
+        return $"Player '{name}'. Enabled: {enabled}.";
+    }
 }

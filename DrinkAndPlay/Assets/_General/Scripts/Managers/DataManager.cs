@@ -152,46 +152,55 @@ public class DataManager
 
 
     #region players
-    private List<string> players
+    private List<Player> players
     {
         get
         {
             if (_players == null)
-                _players = SaveGame.Load<List<string>>(playersSavename, new List<string>());
+            {
+                _players = SaveGame.Load<List<Player>>(playersSavename, new List<Player>());
+                DebugPro.LogEnumerable(_players, " - ", "Loaded Players: ");
+            }
 
             return _players;
         }
         set
         {
-            if (_players.SequenceEqual(value)) 
-                return;
+            //if (_players.SequenceEqual(value)) 
+            //    return;
              
             _players = value;
             SaveGame.Save(playersSavename, value);
+            DebugPro.LogEnumerable(_players, " - ", "Saved Players: ");
             GenerateNewRandomRoundOrder();
         }
     }
-    private List<string> _players;
+    private List<Player> _players;
     private const string playersSavename = "players";
 
-    public string GetPlayer(int playerNumber)
+    public Player GetPlayer(int playerNumber)
     {
         if (GetPlayersQuantity() <= 0)
-            return GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile,
-                "ChoosePlayer", false).text;
-        
-        if (playerNumber > GetPlayersQuantity()-1 || playerNumber < 0)
-            return "PLAYER '" + playerNumber + "' NOT EXISTENT";
+        {
+            string fakeName = GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, "ChoosePlayer", false).text;
+            return new Player(fakeName);
+        }
+
+        if (playerNumber > GetPlayersQuantity() - 1 || playerNumber < 0)
+        {
+            string fakeName = "PLAYER '" + playerNumber + "' NOT EXISTENT";
+            return new Player(fakeName);
+        }
         
         return players[playerNumber];
     }    
-    public List<string> GetPlayers()
+    public List<Player> GetPlayers()
     {
         return GetCloneOfList(players);
     }
-    public int GetPlayerNumber(string player)
+    public int GetPlayerNumber(Player player)
     {
-        if (!string.IsNullOrEmpty(player)) 
+        if (player != null) 
             return players.IndexOf(player);
         
         Debug.LogWarning("Searching the index of a null or empty player");
@@ -201,27 +210,37 @@ public class DataManager
     {
         return players.Count;
     }
-    public bool CanAddPlayer(string player)
+    public bool CanAddPlayer(Player player)
     {
-        return !(players.Contains(player) || string.IsNullOrEmpty(player) || string.IsNullOrWhiteSpace(player));
+        return !(players.Contains(player) || player==null || string.IsNullOrEmpty(player.name) || string.IsNullOrWhiteSpace(player.name));
     }
-    public void AddPlayer(string player)
+    public void AddPlayer(Player player)
     {
-        List<string> clonePlayers = GetCloneOfList(players);
-        clonePlayers.Add(player);
-        players = clonePlayers;
+        List<Player> clonedPlayers = GetCloneOfList(players);
+        clonedPlayers.Add(player);
+        players = clonedPlayers;
     }
     public void RemovePlayer(int playerIndex)
     {
-        List<string> clonePlayers = GetCloneOfList(players);
-        clonePlayers.RemoveAt(playerIndex);
-        players = clonePlayers;
+        List<Player> clonedPlayers = GetCloneOfList(players);
+        clonedPlayers.RemoveAt(playerIndex);
+        players = clonedPlayers;
     }
-    public void RemovePlayer(string player)
+    public void RemovePlayer(Player player)
     {
-        List<string> clonePlayers = GetCloneOfList(players);
-        clonePlayers.Remove(player);
-        players = clonePlayers;
+        List<Player> clonedPlayers = GetCloneOfList(players);
+        clonedPlayers.Remove(player);
+        players = clonedPlayers;
+    }
+
+    public void SetPlayerEnabled(Player player, bool state)
+    {
+        List<Player> clonedPlayers = GetCloneOfList(players);
+        foreach (Player p in clonedPlayers)
+            if (p == player)
+                p.enabled = state;
+        
+        players = clonedPlayers;
     }
 
     private int playerTurn = 0;
@@ -259,20 +278,20 @@ public class DataManager
             playerTurn = GetPlayersQuantity() - 1;
     }
 
-    public string GetCurrentPlayer()
+    public Player GetCurrentPlayer()
     {
         if (!randomPlayerOrder)
             return GetPlayer(playerTurn);
         else
-            return GetPlayer(GetCurrentRandomPlayer());
+            return GetPlayer(GetCurrentRandomPlayerNumber());
     }
 
-    public string GetRandomPlayer()
+    public Player GetRandomPlayer()
     {
         return GetPlayer(Random.Range(0, GetPlayersQuantity()));
     }
 
-    private int GetCurrentRandomPlayer()
+    private int GetCurrentRandomPlayerNumber()
     {
         if (roundOrder == null || roundOrder.Length <= 0)
         {
@@ -284,14 +303,14 @@ public class DataManager
         return roundOrder[playerTurn];
     }
 
-    public string GetRandomPlayer(List<string> exclusions)
+    public Player GetRandomPlayer(List<Player> exclusions)
     {
         if (exclusions.Count <= 0)
             return GetRandomPlayer();
         
-        List<string> clonedPlayers = players.CloneToList();
+        List<Player> clonedPlayers = GetCloneOfList(players);
 
-        foreach (string excluded in exclusions)
+        foreach (Player excluded in exclusions)
             clonedPlayers.Remove(excluded);
 
         if (players.Count > 0)
@@ -701,5 +720,6 @@ public class DataManager
     private const string authorSavename = "author";
 
     #endregion
-    
+
+
 }

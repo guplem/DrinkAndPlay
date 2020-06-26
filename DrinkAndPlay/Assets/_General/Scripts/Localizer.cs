@@ -227,15 +227,15 @@ public class Localizer : MonoBehaviour
 
     private static string ApplyPlayersTo(string text)
     {
-        HashSet<string> alreadyIncludedPlayers = new HashSet<string>();
+        HashSet<Player> alreadyIncludedPlayers = new HashSet<Player>();
 
         if (text.IndexOf("<p>", StringComparison.OrdinalIgnoreCase) >= 0)
         {
             Regex rgx = new Regex("<p>", RegexOptions.IgnoreCase); 
             do
             {
-                string currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
-                text = rgx.Replace(text, currentPlayer, 1);
+                Player currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
+                text = rgx.Replace(text, currentPlayer.name, 1);
                 alreadyIncludedPlayers.Add(currentPlayer);
             } while (text.IndexOf("<p>", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -245,8 +245,8 @@ public class Localizer : MonoBehaviour
             Regex rgx = new Regex("<pr>", RegexOptions.IgnoreCase); 
             do
             {
-                string randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers.ToList());
-                text = rgx.Replace(text, randPlayer, 1);
+                Player randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers.ToList());
+                text = rgx.Replace(text, randPlayer.name, 1);
                 alreadyIncludedPlayers.Add(randPlayer);
             } while (text.IndexOf("<pr>", StringComparison.OrdinalIgnoreCase) >= 0);
         }

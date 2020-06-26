@@ -37,8 +37,10 @@ public class PlayersMenu : MonoBehaviour
             GameManager.instance.dataManager.randomPlayerOrder = state;
     }
 
-    public void AddPlayer(string newPlayer)
+    public void AddPlayer(string newPlayerName)
     {
+        Player newPlayer = new Player(newPlayerName);
+        
         if (!GameManager.instance.dataManager.CanAddPlayer(newPlayer))
             return;
 
@@ -58,7 +60,8 @@ public class PlayersMenu : MonoBehaviour
 
     public void SetDoneButtonAvailability()
     {
-        doneButton.interactable = GameManager.instance.dataManager.CanAddPlayer(currentPlayerWriting);
+        Player writtenPlayer = new Player(currentPlayerWriting);
+        doneButton.interactable = GameManager.instance.dataManager.CanAddPlayer(writtenPlayer);
     }
 
     public void BuildPlayerList()
@@ -67,17 +70,17 @@ public class PlayersMenu : MonoBehaviour
 
         bool allowRemoval = true;
         if (SectionManager.instance.section.minNumberOfPlayers > 0)
-            allowRemoval = CanAPlayerBeRemoved();
+            allowRemoval = CanAPlayerBeDisabledOrRemoved();
         
         for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)
         {
-            string player = GameManager.instance.dataManager.GetPlayer(p);
+            Player player = GameManager.instance.dataManager.GetPlayer(p);
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
             playerGo.transform.SetSiblingIndex(p+5);
             
 
 
-            playerGo.GetComponent<Player>().Setup(player, this, allowRemoval);
+            playerGo.GetComponent<PlayerUI>().Setup(player, this, allowRemoval);
         }
 
         if (GameManager.instance.dataManager.lastSelectedSection != null)
@@ -92,9 +95,17 @@ public class PlayersMenu : MonoBehaviour
             
     }
 
-    private bool CanAPlayerBeRemoved()
+    private bool CanAPlayerBeDisabledOrRemoved()
     {
-        return SectionManager.instance.section.minNumberOfPlayers < GameManager.instance.dataManager.GetPlayersQuantity();
+        bool canBe = SectionManager.instance.section.minNumberOfPlayers < GameManager.instance.dataManager.GetPlayersQuantity();
+        
+        if (canBe)
+        {
+            int enabledQtty = GameManager.instance.dataManager.GetPlayers().Count(p => p.enabled);
+            canBe = SectionManager.instance.section.minNumberOfPlayers < enabledQtty;
+        }
+        
+        return canBe;
     }
 
     public void HidePlayersAdditionalElements()

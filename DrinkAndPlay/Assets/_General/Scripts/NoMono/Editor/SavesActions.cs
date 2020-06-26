@@ -14,6 +14,7 @@ public class SavesActions : MonoBehaviour
         Debug.Log("Data erased");
     }
 
+    // I do not know why it does not work
     [MenuItem("Drink and Play/Saves/Open folder")]
     public static void OpenFolder()
     {
@@ -26,5 +27,17 @@ public class SavesActions : MonoBehaviour
         }
         if (directories.Length == 0)
             Debug.Log("No directories found.");
+    }
+    
+    [MenuItem("Drink and Play/Saves/Print 'Application persistent data path'")]
+    public static void PrintAppDataPath()
+    {
+        Debug.Log(Application.persistentDataPath);
+    }
+    
+    [MenuItem("Drink and Play/Saves/Open 'Application persistent data path'")]
+    public static void OpenAppDataPath()
+    {
+        System.Diagnostics.Process.Start(Application.persistentDataPath);
     }
 }

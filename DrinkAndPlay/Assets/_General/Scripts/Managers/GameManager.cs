@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
         
-        if (!dataManager.HaveEnoughPlayersFor(section))
+        if (!dataManager.HaveEnougheNABLEDPlayersFor(section))
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
             generalUi.OpenPlayersMenu(section);

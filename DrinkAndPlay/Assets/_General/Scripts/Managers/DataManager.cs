@@ -198,17 +198,13 @@ public class DataManager
     {
         return GetCloneOfList(players);
     }
-    public int GetPlayerNumber(Player player)
-    {
-        if (player != null) 
-            return players.IndexOf(player);
-        
-        Debug.LogWarning("Searching the index of a null or empty player");
-        return -1;
-    }
     public int GetPlayersQuantity()
     {
         return players.Count;
+    }
+    public int GetEnabledPlayersQuantity()
+    {
+        return GetPlayers().Count(p => p.enabled);
     }
     public bool CanAddPlayer(Player player)
     {
@@ -218,12 +214,6 @@ public class DataManager
     {
         List<Player> clonedPlayers = GetCloneOfList(players);
         clonedPlayers.Add(player);
-        players = clonedPlayers;
-    }
-    public void RemovePlayer(int playerIndex)
-    {
-        List<Player> clonedPlayers = GetCloneOfList(players);
-        clonedPlayers.RemoveAt(playerIndex);
         players = clonedPlayers;
     }
     public void RemovePlayer(Player player)
@@ -248,35 +238,44 @@ public class DataManager
     public void SetTurnForNextPlayer()
     {
         playerTurn ++;
-        if (playerTurn > GetPlayersQuantity() - 1)
+        if (playerTurn >= GetPlayersQuantity())
         {
             playerTurn = 0;
             GenerateNewRandomRoundOrder();
         }
+
+        if (!GetCurrentPlayer().enabled)
+            SetTurnForNextPlayer();
     }
-
-    private int[] roundOrder;
-    private void GenerateNewRandomRoundOrder()
-    {
-        roundOrder = new int[GetPlayersQuantity()];
-        
-        List<int> numbersToOrder = new List<int>();
-        for (int i = 0; i < GetPlayersQuantity(); i++)
-            numbersToOrder.Add(i);
-
-        for (int r = 0; r < roundOrder.Length; r++)
-        {
-            roundOrder[r] = numbersToOrder[Random.Range(0, numbersToOrder.Count)];
-            numbersToOrder.Remove(roundOrder[r]);
-        }
-    }
-
+    
     public void PreviousPlayerTurn()
     {
         playerTurn --;
         if (playerTurn < 0)
-            playerTurn = GetPlayersQuantity() - 1;
+            playerTurn = GetPlayersQuantity()-1;
+        
+        if (!GetCurrentPlayer().enabled)
+            PreviousPlayerTurn();
     }
+
+    private int[] randomRoundOrder;
+    private void GenerateNewRandomRoundOrder()
+    {
+        randomRoundOrder = new int[GetPlayersQuantity()];
+        
+        List<int> numbersToOrder = new List<int>();
+        for (int i = 0; i < GetPlayersQuantity(); i++)
+            //if (GetPlayer(i).enabled)
+                numbersToOrder.Add(i);
+
+        for (int r = 0; r < randomRoundOrder.Length; r++)
+        {
+            randomRoundOrder[r] = numbersToOrder[Random.Range(0, numbersToOrder.Count)];
+            numbersToOrder.Remove(randomRoundOrder[r]);
+        }
+    }
+
+
 
     public Player GetCurrentPlayer()
     {
@@ -293,38 +292,53 @@ public class DataManager
 
     private int GetCurrentRandomPlayerNumber()
     {
-        if (roundOrder == null || roundOrder.Length <= 0)
+        if (randomRoundOrder == null || randomRoundOrder.Length <= 0)
         {
             GenerateNewRandomRoundOrder();
-            if (roundOrder == null || roundOrder.Length <= 0)
-                Debug.LogError("Error generating the new random round order of the players.");
+            if (randomRoundOrder == null)
+                Debug.LogError("The random round order of the players has not been generated.");
+
+            if (randomRoundOrder.Length <= 0 || randomRoundOrder.Length > GetPlayersQuantity())
+                Debug.LogError($"Error generating the new random round order of the players. Length: {randomRoundOrder.Length}");
         }
-            
-        return roundOrder[playerTurn];
+
+        Debug.Log($"Number of player's turn is {playerTurn} with randomOrderLength being {randomRoundOrder.Length}");
+        return randomRoundOrder[playerTurn];
     }
 
     public Player GetRandomPlayer(List<Player> exclusions)
     {
+        Player player = null;
         if (exclusions.Count <= 0)
-            return GetRandomPlayer();
-        
-        List<Player> clonedPlayers = GetCloneOfList(players);
-
-        foreach (Player excluded in exclusions)
-            clonedPlayers.Remove(excluded);
-
-        if (players.Count > 0)
-        {
-            return clonedPlayers[Random.Range(0, clonedPlayers.Count)];
-        }
+            player = GetRandomPlayer();
         else
-            return GetRandomPlayer();
+        {
+            List<Player> clonedPlayers = GetCloneOfList(players);
+
+            foreach (Player excluded in exclusions)
+                clonedPlayers.Remove(excluded);
+
+            if (players.Count > 0)
+            {
+                player = clonedPlayers[Random.Range(0, clonedPlayers.Count)];
+            }
+            else
+                player = GetRandomPlayer();
+        }
+
+        if (!player.enabled)
+        {
+            exclusions.Add(player);
+            return GetRandomPlayer(exclusions);
+        }
+        
+        return player;
     }
     
-    public bool HaveEnoughPlayersFor(Section section)
+    public bool HaveEnougheNABLEDPlayersFor(Section section)
     {
         if (section != null)
-            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > GetPlayersQuantity());
+            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > GetEnabledPlayersQuantity());
 
         Debug.LogWarning("Checking if there are enough players to play a NULL section.");
         return true;

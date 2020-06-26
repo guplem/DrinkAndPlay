@@ -85,7 +85,7 @@ public class PlayersMenu : MonoBehaviour
 
         if (GameManager.instance.dataManager.lastSelectedSection != null)
         {
-            playButton.interactable = GameManager.instance.dataManager.HaveEnoughPlayersFor(GameManager.instance.dataManager.lastSelectedSection);
+            playButton.interactable = GameManager.instance.dataManager.HaveEnougheNABLEDPlayersFor(GameManager.instance.dataManager.lastSelectedSection);
             ShowPlayersDescription(GameManager.instance.dataManager.lastSelectedSection.minNumberOfPlayers);
         }
         else
@@ -97,15 +97,7 @@ public class PlayersMenu : MonoBehaviour
 
     private bool CanAPlayerBeDisabledOrRemoved()
     {
-        bool canBe = SectionManager.instance.section.minNumberOfPlayers < GameManager.instance.dataManager.GetPlayersQuantity();
-        
-        if (canBe)
-        {
-            int enabledQtty = GameManager.instance.dataManager.GetPlayers().Count(p => p.enabled);
-            canBe = SectionManager.instance.section.minNumberOfPlayers < enabledQtty;
-        }
-        
-        return canBe;
+        return SectionManager.instance.section.minNumberOfPlayers < GameManager.instance.dataManager.GetEnabledPlayersQuantity();
     }
 
     public void HidePlayersAdditionalElements()

@@ -302,7 +302,6 @@ public class DataManager
                 Debug.LogError($"Error generating the new random round order of the players. Length: {randomRoundOrder.Length}");
         }
 
-        Debug.Log($"Number of player's turn is {playerTurn} with randomOrderLength being {randomRoundOrder.Length}");
         return randomRoundOrder[playerTurn];
     }
 

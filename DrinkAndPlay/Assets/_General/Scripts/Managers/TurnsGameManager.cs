@@ -111,6 +111,7 @@ public abstract class TurnsGameManager : SectionManager
 
     private void RegisterNewTextInHistory(LocalizedText localizedText, LocalizationFile localizationFile)
     {
+        
         history.Add(new TextInTurnsGame(localizedText, localizationFile));
         
         if (historyIndex == history.Count)
@@ -148,7 +149,10 @@ public abstract class TurnsGameManager : SectionManager
     protected TextInTurnsGame GetPreviousText()
     {
         if (history.Count <= 0)
+        {
+            Debug.LogWarning($"Trying to retrieve a previous text from an empty history. The history count is {history.Count}");
             return null;
+        }
         
         historyIndex--;
         

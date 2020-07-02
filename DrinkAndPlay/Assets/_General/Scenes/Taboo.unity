@@ -131,7 +131,6 @@ GameObject:
   m_Component:
   - component: {fileID: 22189401}
   - component: {fileID: 22189402}
-  - component: {fileID: 22189403}
   - component: {fileID: 22189404}
   m_Layer: 5
   m_Name: SectionCanvas - SectionManager
@@ -171,31 +170,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22189400}
   m_CullTransparentMesh: 0
---- !u!114 &22189403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22189400}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491679875ee125d48ba63fa5ebaa5b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManagerPrefab: {fileID: 6904223532832502549, guid: 64fa286c71ae77f4a9b1b1b25b4abac5,
-    type: 3}
-  section: {fileID: 11400000, guid: fdae7de2a986a9e45a0b7744e9a4d589, type: 2}
-  sentenceText: {fileID: 2035587334}
-  likeButton: {fileID: 1601509331}
-  backButton: {fileID: 589882085}
-  chooseStepElements:
-  - {fileID: 1600294431}
-  - {fileID: 2046332747}
-  truthOrDareElements:
-  - {fileID: 273426151}
-  - {fileID: 252939594}
-  chooseText: {fileID: 1506106510}
 --- !u!114 &22189404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +229,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 22189403}
+      objectReference: {fileID: 22189404}
     - target: {fileID: 4100582924375389827, guid: a9fc59502e418034abb60c8fa9f988c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -400,7 +374,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 22189403}
+      objectReference: {fileID: 22189404}
     - target: {fileID: 4972376637470174843, guid: a9fc59502e418034abb60c8fa9f988c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -939,7 +913,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 22189403}
+      objectReference: {fileID: 0}
     - target: {fileID: 9002138784432772442, guid: f4205a8c79c8e664996802b0cdd1fcd3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1077,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 8481135271296722155, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}
       propertyPath: id
-      value: Choose
+      value: NextPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 8481135271296722155, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}

@@ -15,18 +15,17 @@ MonoBehaviour:
   nameId: TN
   descriptionId: TD
   image: {fileID: 21300000, guid: 913ef9b4171573744a80f68bf6995d90, type: 3}
-  newness: 0
-  comingSoon: 1
+  comingSoon: 0
   premium: 0
-  localizationFiles: []
+  localizationFiles:
+  - {fileID: 11400000, guid: 54e9478a126448547966b1dae911ec6f, type: 2}
   minNumberOfPlayers: -1
-  sceneName: 
+  sceneName: Taboo
   topBar: 1
   backButton: 1
   sectionTitle: 1
   appTitle: 0
   configButton: 1
+  playersButton: 1
   helpButton: 1
-  forceShowNaughtyLevelConfigurator: 0
-  forceShowPlayersConfigurator: 0
-  forceShowLanguageConfigurator: 0
+  showLocalizationFilesSelectorBeforeLoading: 0

@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     
     [SerializeField] private Button restartButton;
     [SerializeField] private Image playPauseImage;
+    [SerializeField] private Button playPauseButton;
     [SerializeField] private TMP_Text remainingTimeText;
     [SerializeField] private Sprite playSprite;
     [SerializeField] private Sprite pauseSprite;
@@ -23,7 +24,8 @@ public class Timer : MonoBehaviour
             _remainingTime = value;
             remainingTimeText.text = remainingTime.ToString();
 
-            restartButton.interactable = (remainingTime != originalTime);
+            restartButton.interactable = remainingTime != originalTime;
+            playPauseButton.interactable = remainingTime > 0;
         }
     }
     private int _remainingTime;

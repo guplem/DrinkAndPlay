@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Taboo : TurnsGameManager
 {
-    
+    [SerializeField] private int challengeDuration = 30;
     [SerializeField] private Localizer turnText;
     [SerializeField] private GameObject[] playerTurnElements;
     [SerializeField] private GameObject[] tabooGameElements;
+    [SerializeField] private Timer timer;
     
     public override void NextButton()
     {
@@ -23,6 +24,7 @@ public class Taboo : TurnsGameManager
         else
         {
             SetupTextInCard(GetNextText(false));
+            SetTimer();
         }
     }
 
@@ -30,8 +32,14 @@ public class Taboo : TurnsGameManager
     {
         gm.dataManager.PreviousPlayerTurn();
         SetupTextInCard(GetPreviousText());
+        SetTimer();
     }
-    
+
+    private void SetTimer()
+    {
+        timer.SetTimerReadyFor(challengeDuration);
+    }
+
     private void SetActiveTabooGameElements(bool state)
     {
         foreach (GameObject go in tabooGameElements)
@@ -50,5 +58,6 @@ public class Taboo : TurnsGameManager
         SetActiveTabooGameElements(true);
         
         SetupTextInCard(GetNextText(false));
+        SetTimer();
     }
 }

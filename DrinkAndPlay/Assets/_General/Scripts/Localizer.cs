@@ -245,7 +245,7 @@ public class Localizer : MonoBehaviour
             Regex rgx = new Regex("<pr>", RegexOptions.IgnoreCase); 
             do
             {
-                Player randPlayer = GameManager.instance.dataManager.GetRandomPlayer(alreadyIncludedPlayers.ToList());
+                Player randPlayer = GameManager.instance.dataManager.GetRandomEnabledPlayer(alreadyIncludedPlayers.ToList());
                 text = rgx.Replace(text, randPlayer.name, 1);
                 alreadyIncludedPlayers.Add(randPlayer);
             } while (text.IndexOf("<pr>", StringComparison.OrdinalIgnoreCase) >= 0);

@@ -13,7 +13,7 @@ public class NeverHaveIEverManager : TurnsGameManager
 
     public override void NextButton()
     {
-        gm.dataManager.SetTurnForNextPlayer();
+        gm.dataManager.SetTurnForNextEnabledPlayer();
         SetupTextInCard(GetNextText(false));
     }
 
@@ -21,7 +21,7 @@ public class NeverHaveIEverManager : TurnsGameManager
 
     public override void PreviousButton()
     {
-        gm.dataManager.PreviousPlayerTurn();
+        gm.dataManager.PreviousEnabledPlayerTurn();
         SetupTextInCard(GetPreviousText());
     }
     

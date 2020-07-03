@@ -74,7 +74,8 @@ public class PlayersMenu : MonoBehaviour
         
         for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)
         {
-            Player player = GameManager.instance.dataManager.GetPlayer(p);
+            List<Player> players = GameManager.instance.dataManager.GetPlayers();
+            Player player = players[p];
             GameObject playerGo = Instantiate(playerPrefab, contentsObject);
             playerGo.transform.SetSiblingIndex(p+5);
             
@@ -85,7 +86,7 @@ public class PlayersMenu : MonoBehaviour
 
         if (GameManager.instance.dataManager.lastSelectedSection != null)
         {
-            playButton.interactable = GameManager.instance.dataManager.HaveEnougheNABLEDPlayersFor(GameManager.instance.dataManager.lastSelectedSection);
+            playButton.interactable = GameManager.instance.dataManager.HaveEnoughEnabledPlayersFor(GameManager.instance.dataManager.lastSelectedSection);
             ShowPlayersDescription(GameManager.instance.dataManager.lastSelectedSection.minNumberOfPlayers);
         }
         else

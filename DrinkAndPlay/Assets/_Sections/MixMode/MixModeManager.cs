@@ -25,7 +25,7 @@ public class MixModeManager : TurnsGameManager
     
     public override void NextButton()
     {
-        gm.dataManager.SetTurnForNextPlayer();
+        gm.dataManager.SetTurnForNextEnabledPlayer();
         TextInTurnsGame nextText = GetNextText(true);
         SetupTextInCard(nextText);
         if (section.topBar)
@@ -36,7 +36,7 @@ public class MixModeManager : TurnsGameManager
     
     public override void PreviousButton()
     {
-        gm.dataManager.PreviousPlayerTurn();
+        gm.dataManager.PreviousEnabledPlayerTurn();
         SetupTextInCard(GetPreviousText());
     }
 

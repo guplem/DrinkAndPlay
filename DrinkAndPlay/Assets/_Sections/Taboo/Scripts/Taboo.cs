@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,17 +10,30 @@ public class Taboo : TurnsGameManager
     [SerializeField] private GameObject[] playerTurnElements;
     [SerializeField] private GameObject[] tabooGameElements;
     [SerializeField] private Timer timer;
-    
+
+    private void Start()
+    {
+        NextButton();
+    }
+
     public override void NextButton()
     {
-        gm.dataManager.SetTurnForNextPlayer();
+        if (PlayingWithPlayers())
+            gm.dataManager.SetTurnForNextEnabledPlayer();
         
         if (AreWeOnTopHistory())
         {
-            turnText.Localize(); //Update player
+            if (PlayingWithPlayers()) 
+            {
+                turnText.Localize(); //Update player
 
-            SetActiveTurnElements(true);
-            SetActiveTabooGameElements(false);
+                SetActiveTurnElements(true);
+                SetActiveTabooGameElements(false);
+            }
+            else
+            {
+                PlayerAccepted();
+            }
         }
         else
         {
@@ -28,9 +42,14 @@ public class Taboo : TurnsGameManager
         }
     }
 
+    private bool PlayingWithPlayers()
+    {
+        return (GameManager.instance.dataManager.GetEnabledPlayersQuantity() >= 2);
+    }
+
     public override void PreviousButton()
     {
-        gm.dataManager.PreviousPlayerTurn();
+        gm.dataManager.PreviousEnabledPlayerTurn();
         SetupTextInCard(GetPreviousText());
         SetTimer();
     }

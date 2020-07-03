@@ -177,23 +177,11 @@ public class DataManager
     }
     private List<Player> _players;
     private const string playersSavename = "players";
-
-    public Player GetPlayer(int playerNumber)
+    
+    public Player GetFakePlayer()
     {
-        if (GetPlayersQuantity() <= 0)
-        {
-            string fakeName = GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, "ChoosePlayer", false).text;
-            return new Player(fakeName);
-        }
-
-        if (playerNumber > GetPlayersQuantity() - 1 || playerNumber < 0)
-        {
-            string fakeName = "PLAYER '" + playerNumber + "' NOT EXISTENT";
-            return new Player(fakeName);
-        }
-        
-        return players[playerNumber];
-    }    
+        return new Player(GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, "ChoosePlayer", false).text);
+    }
     public List<Player> GetPlayers()
     {
         return GetCloneOfList(players);
@@ -201,6 +189,10 @@ public class DataManager
     public int GetPlayersQuantity()
     {
         return players.Count;
+    }
+    public List<Player> GetEnabledPlayers()
+    {
+        return players.Where(player => player.enabled).ToList();
     }
     public int GetEnabledPlayersQuantity()
     {
@@ -235,7 +227,7 @@ public class DataManager
 
     private int playerTurn = 0;
 
-    public void SetTurnForNextPlayer()
+    public void SetTurnForNextEnabledPlayer()
     {
         playerTurn ++;
         if (playerTurn >= GetPlayersQuantity())
@@ -245,17 +237,17 @@ public class DataManager
         }
 
         if (!GetCurrentPlayer().enabled)
-            SetTurnForNextPlayer();
+            SetTurnForNextEnabledPlayer();
     }
     
-    public void PreviousPlayerTurn()
+    public void PreviousEnabledPlayerTurn()
     {
         playerTurn --;
         if (playerTurn < 0)
             playerTurn = GetPlayersQuantity()-1;
         
         if (!GetCurrentPlayer().enabled)
-            PreviousPlayerTurn();
+            PreviousEnabledPlayerTurn();
     }
 
     private int[] randomRoundOrder;
@@ -274,20 +266,22 @@ public class DataManager
             numbersToOrder.Remove(randomRoundOrder[r]);
         }
     }
-
-
-
+    
     public Player GetCurrentPlayer()
     {
         if (!randomPlayerOrder)
-            return GetPlayer(playerTurn);
+            return players[playerTurn];
         else
-            return GetPlayer(GetCurrentRandomPlayerNumber());
+            return players[GetCurrentRandomPlayerNumber()];
     }
 
-    public Player GetRandomPlayer()
+    public Player GetRandomEnabledPlayer()
     {
-        return GetPlayer(Random.Range(0, GetPlayersQuantity()));
+        List<Player> enabled = GetEnabledPlayers();
+        if (enabled.Count <= 0) 
+            return GetFakePlayer();
+        return enabled[Random.Range(0, enabled.Count)];
+        //return GetPlayer(Random.Range(0, GetPlayersQuantity()));
     }
 
     private int GetCurrentRandomPlayerNumber()
@@ -305,36 +299,36 @@ public class DataManager
         return randomRoundOrder[playerTurn];
     }
 
-    public Player GetRandomPlayer(List<Player> exclusions)
+    public Player GetRandomEnabledPlayer(List<Player> exclusions)
     {
         Player player = null;
         if (exclusions.Count <= 0)
-            player = GetRandomPlayer();
+            player = GetRandomEnabledPlayer();
         else
         {
-            List<Player> clonedPlayers = GetCloneOfList(players);
+            List<Player> enabledPlayers = GetEnabledPlayers();
 
             foreach (Player excluded in exclusions)
-                clonedPlayers.Remove(excluded);
+                enabledPlayers.Remove(excluded);
 
-            if (players.Count > 0)
+            if (enabledPlayers.Count > 0)
             {
-                player = clonedPlayers[Random.Range(0, clonedPlayers.Count)];
+                player = enabledPlayers[Random.Range(0, enabledPlayers.Count)];
             }
             else
-                player = GetRandomPlayer();
+                player = GetRandomEnabledPlayer();
         }
 
         if (!player.enabled)
         {
             exclusions.Add(player);
-            return GetRandomPlayer(exclusions);
+            return GetRandomEnabledPlayer(exclusions);
         }
         
         return player;
     }
     
-    public bool HaveEnougheNABLEDPlayersFor(Section section)
+    public bool HaveEnoughEnabledPlayersFor(Section section)
     {
         if (section != null)
             return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > GetEnabledPlayersQuantity());

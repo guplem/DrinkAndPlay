@@ -923,6 +923,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Accept Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2710074179483918627, guid: f4205a8c79c8e664996802b0cdd1fcd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2710074181298915299, guid: f4205a8c79c8e664996802b0cdd1fcd3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -956,6 +961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card Without Elements
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495938720462074920, guid: 2d1873f3f12f3c545af0e16f1685fed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5495938720462074923, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}

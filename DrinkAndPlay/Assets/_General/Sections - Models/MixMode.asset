@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fce930ca640450c438dba0437dd6e654, type: 2}
   - {fileID: 11400000, guid: f933590d7d8589b42bb224d6574cdefa, type: 2}
   - {fileID: 11400000, guid: 0dc93a492f8884948acd1363f27a1206, type: 2}
+  - {fileID: 11400000, guid: 54e9478a126448547966b1dae911ec6f, type: 2}
   minNumberOfPlayers: 2
   sceneName: MixMode
   topBar: 1

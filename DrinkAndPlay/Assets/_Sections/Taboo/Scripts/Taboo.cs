@@ -56,7 +56,9 @@ public class Taboo : TurnsGameManager
 
     private void SetTimer()
     {
-        timer.SetTimerReadyFor(challengeDuration);
+        // Handeled by the localizer/text, no need to force it
+        
+        // timer.SetTimerReadyFor(challengeDuration);
     }
 
     private void SetActiveTabooGameElements(bool state)

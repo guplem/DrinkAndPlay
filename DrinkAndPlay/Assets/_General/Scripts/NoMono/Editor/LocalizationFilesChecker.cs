@@ -5,6 +5,7 @@ using BayatGames.SaveGameFree;
 using UnityEditor;
 using UnityEngine;
 
+
 public class LocalizationFilesChecker : MonoBehaviour
 {
     [MenuItem("Drink and Play/Localization files/Check localization files health")]

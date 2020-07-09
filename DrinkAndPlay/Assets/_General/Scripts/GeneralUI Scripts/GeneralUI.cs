@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GeneralUI : MonoBehaviour
 {
+
     [Header("Top Bar")]
     [SerializeField] public GameObject topBar;
     [SerializeField] private GameObject backButton;
@@ -322,6 +323,12 @@ public class GeneralUI : MonoBehaviour
         ShowLocalizationFilesSelectorMenu();
         localizationFilesSelectorMenuController.BuildModesListFor(section);
     }
-    
+
+    public void UpdateLocalizationFiles()
+    {
+        Debug.Log("Requesting update");
+    }
 
 }
+
+

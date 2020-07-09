@@ -322,6 +322,12 @@ public class GeneralUI : MonoBehaviour
         ShowLocalizationFilesSelectorMenu();
         localizationFilesSelectorMenuController.BuildModesListFor(section);
     }
-    
+
+    public void UpdateLocalizationFiles()
+    {
+        Debug.Log("Requesting update");
+        bool success = Downloader.DownloadAllLocalizationFilesAsCsv();
+        Debug.Log($"success updating: {success}");
+    }
 
 }

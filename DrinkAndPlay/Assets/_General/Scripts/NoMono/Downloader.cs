@@ -1,11 +1,10 @@
-﻿ using System;
+﻿using System;
 using System.IO;
 using System.Net;
- using System.Net.Cache;
- using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 
-class Downloader
+public static class Downloader
 {
     private class WebClientEx : WebClient
     {

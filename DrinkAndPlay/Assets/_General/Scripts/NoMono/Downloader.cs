@@ -52,14 +52,14 @@ public static class Downloader
         }
     }
 
-    private static bool DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
+    private static void DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
     {
         Debug.Log("Downloading " + localizationFile + " as csv.");
         
         if (localizationFile == null)
         {
             Debug.LogError("Trying to download the localization file of a 'null' localizationFile");
-            return false;
+            return;
         }
 
         /*
@@ -78,29 +78,55 @@ public static class Downloader
         wc.Headers.Add("Accept-Language", "en-US,en;q=0.5");
         wc.Headers.Add("Cache-Control", "no-cache");
         wc.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
-
+        
         if (string.IsNullOrEmpty(localizationFile.localizationUrl))
         {
             Debug.LogError("The localization file for the localizationFile " + localizationFile  + " can not be downloaded because the 'LocalizationURL' is not valid.");
-            return false;
+            return;
         }
-        
-        byte[] dt = wc.DownloadData(localizationFile.localizationUrl);
 
-        if (dt.Length <= 0)
+        Uri uri = new Uri(localizationFile.localizationUrl);
+        System.Threading.AutoResetEvent waiter = new System.Threading.AutoResetEvent (false);
+
+        // Specify that the DownloadDataCallback method gets called
+        // when the download completes.
+        wc.DownloadDataCompleted += new DownloadDataCompletedEventHandler (DownloadDataCallback);
+        wc.DownloadDataAsync (uri, waiter);
+
+        // Block the main application thread. Real applications
+        // can perform other tasks while waiting for the download to complete.
+        waiter.WaitOne ();
+    }
+
+    static void DownloadDataCallback(object sender, DownloadDataCompletedEventArgs e)
+    {
+        System.Threading.AutoResetEvent waiter = (System.Threading.AutoResetEvent)e.UserState;
+        try
         {
-            Debug.LogError("The downloaded data for the localizationFile " + localizationFile  + " is empty.");
-            return false;
+            // If the request was not canceled and did not throw
+            // an exception, display the resource.
+            if (!e.Cancelled && e.Error == null)
+            {
+                byte[] dt = (byte[])e.Result;
+                if (dt.Length <= 0)
+                {
+                    Debug.LogError("The downloaded data for the localizationFile " + localizationFile  + " is empty.");
+                }
+
+                File.WriteAllBytes("Assets/_General/Resources/" + localizationFile + ".csv", dt);
+
+                //To convert it to string...
+                //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
+
+                Debug.Log(localizationFile + " localization file has been downloaded successfully.");
+                
+            }
         }
-
-        File.WriteAllBytes("Assets/_General/Resources/" + localizationFile + ".csv", dt);
-
-        //To convert it to string...
-        //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
-
-        Debug.Log(localizationFile + " localization file has been downloaded successfully.");
-        
-        return true;
+        finally
+        {
+            // Let the main application thread resume.
+            waiter.Set ();
+        }
     }
 
     [MenuItem("Drink and Play/Localization files/Download all")]
@@ -111,12 +137,11 @@ public static class Downloader
 
         //Download every localizationFile (including UI)
         foreach (LocalizationFile localizationFile in localizationFiles)
-            if (!DownloadLocalizationFileAsCsv(localizationFile))
-                return false;
+            DownloadLocalizationFileAsCsv(localizationFile);
         
         AssetDatabase.Refresh();
 
-        Debug.Log("All Localization files have been downloaded successfully.");
+        Debug.Log("All Localization files have been started downloading.");
         return true;
     }
     

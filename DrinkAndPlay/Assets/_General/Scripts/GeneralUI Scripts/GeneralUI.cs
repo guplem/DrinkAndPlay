@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GeneralUI : MonoBehaviour
 {
@@ -38,11 +40,44 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI randomChallengePopup;
     [SerializeField] private LocalizationFile randomChallengesLocalizationFile;
     [SerializeField] private Localizer randomChallengesText;
+    [SerializeField] private AnimationUI downloadingPopup;
+    [SerializeField] private Button downloadingPopupButton;
+    [SerializeField] private Localizer downloadingPopupButtonText;
+    [SerializeField] private Localizer downloadingPopupMainText;
+
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
+    
+    public bool downloading
+    {
+        get => _downloading;
+        set
+        {
+            if (_downloading == value) return;
+            
+            _downloading = value;
+            
+            // TODO: Change visuals
+            if (downloading)
+            {
+                if (!downloadingPopup.isShowing)
+                    ShowDownloadingPopup();
 
-    
-    
+                downloadingPopupMainText.Localize("DownloadingText");
+                downloadingPopupButtonText.Localize("DownloadingButton");
+                downloadingPopupButton.interactable = false;
+            }
+            else
+            {
+                downloadingPopupMainText.Localize("RebootText");
+                downloadingPopupButtonText.Localize("Accept");
+                downloadingPopupButton.interactable = true;
+            }
+        }
+    }
+    private bool _downloading = false;
+
+
     public void SetupFor(Section section)
     {
         Debug.Log("Setting up General UI for the section '" + section + "'");
@@ -329,6 +364,17 @@ public class GeneralUI : MonoBehaviour
         Debug.Log("Requesting update");
         bool success = Downloader.DownloadAllLocalizationFilesAsCsv();
         Debug.Log($"success updating: {success}");
+    }
+    
+    public void ShowDownloadingPopup()
+    {
+        Debug.Log("Displaying downloading popup");
+        downloadingPopup.Show();
+    }
+
+    public void Reboot()
+    {
+        Debug.Log("TODO: reboot");
     }
 
 }

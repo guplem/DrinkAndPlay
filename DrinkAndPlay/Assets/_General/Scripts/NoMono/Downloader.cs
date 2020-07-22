@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using UnityEditor;
@@ -6,6 +7,18 @@ using UnityEngine;
 
 public static class Downloader
 {
+    private static readonly PendingDownloads pendingDownloads = new PendingDownloads();
+    public static bool downloading
+    {
+        get => _downloading;
+        set
+        {
+            _downloading = value;
+            GameManager.instance.generalUi.downloading = downloading;
+        }
+    }
+    private static bool _downloading = false;
+
     private class WebClientEx : WebClient
     {
         public WebClientEx(CookieContainer container)
@@ -54,7 +67,7 @@ public static class Downloader
 
     private static void DownloadLocalizationFileAsCsv(LocalizationFile localizationFile)
     {
-        Debug.Log("Downloading " + localizationFile + " as csv.");
+        Debug.Log($"Starting the download process for '{localizationFile}' as csv.");
         
         if (localizationFile == null)
         {
@@ -91,16 +104,19 @@ public static class Downloader
         // Specify that the DownloadDataCallback method gets called
         // when the download completes.
         wc.DownloadDataCompleted += new DownloadDataCompletedEventHandler (DownloadDataCallback);
-        wc.DownloadDataAsync (uri, waiter);
+        // wc.DownloadDataAsync (uri, waiter);
+        pendingDownloads.Add(localizationFile);
+        wc.DownloadDataAsync (uri, localizationFile);
 
         // Block the main application thread. Real applications
         // can perform other tasks while waiting for the download to complete.
-        waiter.WaitOne ();
+        // waiter.WaitOne ();
     }
 
     static void DownloadDataCallback(object sender, DownloadDataCompletedEventArgs e)
     {
-        System.Threading.AutoResetEvent waiter = (System.Threading.AutoResetEvent)e.UserState;
+        //System.Threading.AutoResetEvent waiter = (System.Threading.AutoResetEvent)e.UserState;
+        LocalizationFile localizationFile = (LocalizationFile) e.UserState;
         try
         {
             // If the request was not canceled and did not throw
@@ -118,14 +134,14 @@ public static class Downloader
                 //To convert it to string...
                 //var outputCSVdata = System.Text.Encoding.UTF8.GetString(dt ?? new byte[] { });
 
-                Debug.Log(localizationFile + " localization file has been downloaded successfully.");
-                
+                pendingDownloads.Remove(localizationFile);
+                Debug.Log($"'{localizationFile}' localization file has been downloaded successfully. Pending downloads: {pendingDownloads.Count}");
             }
         }
         finally
         {
             // Let the main application thread resume.
-            waiter.Set ();
+            // waiter.Set ();
         }
     }
 

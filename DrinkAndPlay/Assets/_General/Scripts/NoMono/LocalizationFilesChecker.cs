@@ -8,7 +8,9 @@ using UnityEngine;
 
 public class LocalizationFilesChecker : MonoBehaviour
 {
+    #if UNITY_EDITOR
     [MenuItem("Drink and Play/Localization files/Check localization files health")]
+    #endif
     public static bool CheckLocalizationFiles()
     {
         LocalizationManager localizationManager = new LocalizationManager(new DataManager(false), 25);
@@ -53,17 +55,16 @@ public class LocalizationFilesChecker : MonoBehaviour
 
     public static List<Language> GetAllEnabledLanguages()
     {
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(Language).Name);
-        List<Language> languages = new List<Language>();
-        foreach (string assetLang in guids)
+        Language[] languages = (Language[]) Resources.LoadAll("Languages - Models",typeof(Language));
+        
+        List<Language> enabledLanguages = new List<Language>();
+        foreach (Language language in languages)
         {
-            string path = AssetDatabase.GUIDToAssetPath(assetLang);
-            Language lang = AssetDatabase.LoadAssetAtPath<Language>(path);
-            if (lang.isEnabled)
-                languages.Add(lang);
+            if (language.isEnabled)
+                enabledLanguages.Add(language);
         }
 
-        return languages;
+        return enabledLanguages;
     }
     
 

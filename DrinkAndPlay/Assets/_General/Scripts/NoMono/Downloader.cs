@@ -145,7 +145,9 @@ public static class Downloader
         }
     }
 
+    #if UNITY_EDITOR
     [MenuItem("Drink and Play/Localization files/Download all")]
+    #endif
     public static bool DownloadAllLocalizationFilesAsCsv()
     {
         //Search all sections (including UI)
@@ -155,19 +157,25 @@ public static class Downloader
         foreach (LocalizationFile localizationFile in localizationFiles)
             DownloadLocalizationFileAsCsv(localizationFile);
         
+        #if UNITY_EDITOR
         AssetDatabase.Refresh();
+        #endif
+        
 
         Debug.Log("All Localization files have been started downloading.");
         return true;
     }
     
+    #if UNITY_EDITOR
     [MenuItem("Drink and Play/Localization files/Download and check all")]
+    #endif
     public static void DownloadAllLocalizationFilesAsCsvAndCheck()
     {
         if (DownloadAllLocalizationFilesAsCsv())
             LocalizationFilesChecker.CheckLocalizationFiles();
     }
     
+    #if UNITY_EDITOR
     [MenuItem("Drink and Play/Localization files/Delete all")]
     public static void DeleteAllLocalizationFileAsCsv()
     {
@@ -188,17 +196,12 @@ public static class Downloader
 
         Debug.Log("All Localization files have been deleted.");
     }
+    #endif
     
     public static LocalizationFile[] GetAllLocalizationFiles()
     {
-        string[] guids = AssetDatabase.FindAssets("t:" + typeof(LocalizationFile).Name);
-        LocalizationFile[] localizationFiles = new LocalizationFile[guids.Length];
-        for (int i = 0; i < guids.Length; i++)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-            localizationFiles[i] = AssetDatabase.LoadAssetAtPath<LocalizationFile>(path);
-        }
-
+        LocalizationFile[] localizationFiles = (LocalizationFile[]) Resources.LoadAll("LocalizationFiles - Models",typeof(LocalizationFile));
+        
         return localizationFiles;
     }
     

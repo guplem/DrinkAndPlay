@@ -55,7 +55,7 @@ public class LocalizationFilesChecker : MonoBehaviour
 
     public static List<Language> GetAllEnabledLanguages()
     {
-        Language[] languages = (Language[]) Resources.LoadAll("Languages - Models",typeof(Language));
+        Language[] languages = Resources.LoadAll<Language>("Languages - Models");
         
         List<Language> enabledLanguages = new List<Language>();
         foreach (Language language in languages)

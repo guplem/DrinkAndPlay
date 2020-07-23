@@ -200,7 +200,7 @@ public static class Downloader
     
     public static LocalizationFile[] GetAllLocalizationFiles()
     {
-        LocalizationFile[] localizationFiles = (LocalizationFile[]) Resources.LoadAll("LocalizationFiles - Models",typeof(LocalizationFile));
+        LocalizationFile[] localizationFiles = Resources.LoadAll<LocalizationFile>("LocalizationFiles - Models");
         
         return localizationFiles;
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Taboo : TurnsGameManager
 {
-    [SerializeField] private int challengeDuration = 30;
     [SerializeField] private Localizer turnText;
     [SerializeField] private GameObject[] playerTurnElements;
     [SerializeField] private GameObject[] tabooGameElements;

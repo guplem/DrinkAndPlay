@@ -1,6 +1,8 @@
 ###
 # Unity folders and files
 ###
+
+## Frequent
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
 [Bb]uilds/
@@ -9,6 +11,14 @@
 [Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+Assets/_Project/Preferences/Editor/Credentials/**
+Assets/_Project/Preferences/Editor/Credentials.meta
+Assets/Temp/**
+Assets/Temp.meta
+Data/**
+
 # file on crash reports
 sysinfo.txt
 # Unity3D generated meta files
@@ -46,3 +56,18 @@ Thumbs.db
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+
+#ProBuilder
+**/com.unity.probuilder/Settings.json
+**/com.unity.probuilder/Settings.json~0ec915244e33b2d6f2b6630bd5af0193930197d3
+
+#ParrelSync
+/*_clone_[0-9]*/
+
+#FMOD
+/FMOD_Project/.*
+
+FMODStudioCache.asset
+FMODStudioCache.asset.meta
+fmod.log
+fmod_editor.log

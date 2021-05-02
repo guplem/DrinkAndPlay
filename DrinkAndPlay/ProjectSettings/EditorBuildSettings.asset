@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_General/Scenes/MainMenu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_General/Scenes/NeverHaveIEver.unity
+    guid: 2fcef199e43099b40bcd3ea568047839
+  - enabled: 1
+    path: Assets/_General/Scenes/GuessWho.unity
+    guid: a9b6d72c03a3d07458fe458f4dccce06
+  - enabled: 1
+    path: Assets/_General/Scenes/WeKnowEachOther.unity
+    guid: 4822be11abf8f8b45ad55a7a28779d92
+  - enabled: 1
+    path: Assets/_General/Scenes/TruthOrDare.unity
+    guid: bc0d47ed37f07714b8d339e7171475d2
+  - enabled: 1
+    path: Assets/_General/Scenes/MixMode.unity
+    guid: d53a40814af11544f905b3caddf8806e
+  - enabled: 1
+    path: Assets/_General/Scenes/Taboo.unity
+    guid: 0ae8fa3b8f45dcd4aa05616924dc2958
+  m_configObjects: {}

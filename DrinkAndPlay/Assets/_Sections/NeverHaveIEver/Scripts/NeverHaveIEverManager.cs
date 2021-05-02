@@ -11,17 +11,15 @@ public class NeverHaveIEverManager : TurnsGameManager
         NextButton();
     }
 
-    public override void NextButton()
+    public override void NextButton() // No players in NeverHaveIEver
     {
-        gm.dataManager.SetTurnForNextEnabledPlayer();
+        //gm.dataManager.SetTurnForNextEnabledPlayer();
         SetupTextInCard(GetNextText(false));
     }
-
-
-
+    
     public override void PreviousButton()
     {
-        gm.dataManager.PreviousEnabledPlayerTurn();
+        //gm.dataManager.PreviousEnabledPlayerTurn(); // No players in NeverHaveIEver
         SetupTextInCard(GetPreviousText());
     }
     

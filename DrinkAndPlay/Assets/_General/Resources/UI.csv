@@ -1,4 +1,5 @@
 Id,es-es,en-us,ca
+Update,Actualizar <i>(22/07)</i>,Update <i>(22/07)</i>,Actualitzar <i>(22/07)</i>
 Configuration,Ajustes,Settings,Configuració
 Credits,Créditos y Agradecimientos,Credits and Acknowledgments,Crèdits i Agraïments
 CreditsText,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.,Aquest joc ha estat creat per Guillem Poy amb la col·laboració dels seus amics.
@@ -46,6 +47,9 @@ No,No,No,No
 NoCool,Nahhh...,Nahhh...,Nahhh...
 YesCool,¡Sí!,Yasss,Sí!
 RateText,¿Nos valoras?,Would you rate us?,Ens valores?
+RebootText,Las actualizaciones se han descargado.<br>Reinicia la aplicación para disfrutarlas.,The updates have been downloaded.<br>Please restart the application to enjoy them.,Les actualitzacions s'han descarregat.<br>Reinicia l'aplicació per gaudir-les.
+DownloadingText,¡Descargando nuevas pruebas y más diversión!,Downloading new challenges and more fun!,Descarregant noves proves i més diversió!
+DownloadingButton,"Por favor, espere...","Please, wait...","Si us plau, esperi..."
 ShareText,¡Mira qué me he encontrado jugando a Drink & Play!,Look what I found playing Drink & Play!,Mira què m'he trobat jugant a Drink & Play!
 PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:,<color=#cd293c>Atenció!</color> Jugadors requerits:
 MMN,Menu Principal,Main Menu,Menú Principal

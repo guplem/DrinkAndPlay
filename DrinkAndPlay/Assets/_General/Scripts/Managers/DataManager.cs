@@ -269,10 +269,19 @@ public class DataManager
     
     public Player GetCurrentPlayer()
     {
+        if (players == null || players.Count <= 0)
+            Debug.LogError("Trying to get current player from a list of empty players.");
+        
         if (!randomPlayerOrder)
+        {
             return players[playerTurn];
+        }
         else
-            return players[GetCurrentRandomPlayerNumber()];
+        {
+            int playerNumber = GetCurrentRandomPlayerNumber();
+            Debug.Log("Player Number = ");
+            return players[playerNumber];
+        }
     }
 
     public Player GetRandomEnabledPlayer()
@@ -296,6 +305,8 @@ public class DataManager
                 Debug.LogError($"Error generating the new random round order of the players. Length: {randomRoundOrder.Length}");
         }
 
+        ;
+        
         return randomRoundOrder[playerTurn];
     }
 

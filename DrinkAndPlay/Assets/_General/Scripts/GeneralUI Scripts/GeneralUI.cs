@@ -37,6 +37,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI randomChallengePopup;
     [SerializeField] private LocalizationFile randomChallengesLocalizationFile;
     [SerializeField] private Localizer randomChallengesText;
+    [SerializeField] private AnimationUI disclaimerPopup;
 
     private Stack<AnimationUI> openUI = new Stack<AnimationUI>();
 
@@ -321,6 +322,15 @@ public class GeneralUI : MonoBehaviour
     {
         ShowLocalizationFilesSelectorMenu();
         localizationFilesSelectorMenuController.BuildModesListFor(section);
+    }
+    
+    public void ShowDisclaimerPopup()
+    {
+        Debug.Log("Displaying disclaimer popup", disclaimerPopup);
+        disclaimerPopup.Show();
+        GameManager.instance.dataManager.disclaimerPopupShown = true;
+        
+        // It is hidden on press of the 'Accept' button, calling the Hide method of the animator
     }
     
 

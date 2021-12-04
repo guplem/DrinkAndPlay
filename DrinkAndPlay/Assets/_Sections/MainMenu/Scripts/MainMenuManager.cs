@@ -37,13 +37,19 @@ public class MainMenuManager : SectionManager
     private void Start()
     {
         //All localization (UI and MainMenu) already loaded
-
+        
         GenerateMenu();
+        StartCoroutine(nameof(ShowDisclaimer));
         
         //Debug.Log("Started MainMenu' SectionManager.");
     }
 
-
+    private IEnumerator ShowDisclaimer()
+    {
+        yield return new WaitForSeconds(0.2f); 
+        if (!gm.dataManager.disclaimerPopupShown)
+            gm.generalUi.ShowDisclaimerPopup();
+    }
 
     public void GenerateMenu()
     {

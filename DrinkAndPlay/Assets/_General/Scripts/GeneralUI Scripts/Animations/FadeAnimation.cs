@@ -22,7 +22,7 @@ public class FadeAnimation : AnimationUI
 
     private void Start()
     {
-        InstantHide();
+        InstantHide(); // Must be done here... May cause issues but they should be solved by waiting some frames or seconds to play an animation
     }
 
     public override void Show()

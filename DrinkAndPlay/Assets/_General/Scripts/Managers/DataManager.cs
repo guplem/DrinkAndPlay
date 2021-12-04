@@ -739,5 +739,10 @@ public class DataManager
 
     #endregion
 
+    #region DisclaimerPopup
+
+    public bool disclaimerPopupShown; // It is not stored, so it is shown once per session
+
+    #endregion
 
 }

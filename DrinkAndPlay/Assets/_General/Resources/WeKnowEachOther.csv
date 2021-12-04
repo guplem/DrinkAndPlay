@@ -1,6 +1,6 @@
 Id,Naughtiness,es-es,en-us,ca
 1,3,¿<p> se acostaría con <pr>?,Would <p> sleep with <pr>?,El/la <P> es ficaria al llit amb el/la <pr>?
-2,1,¿<p> haría puenting por 1000€?,Would <p> do bumpee jumping for 1000 €?,El/la <P> faria puenting per 1000 €?
+2,1,¿<p> haría puenting por 1000€?,Would <p> do bungee jumping for 1000$?,El/la <P> faria puenting per 1000 €?
 3,5,¿<p> probaría a comer corrida?,Would <p> try to drink cum?,El/la <P> provaria a menjar correguda?
 4,3,¿<p> se acostaría con alguno de sus profesores?,Would <p> sleep with one of his/her teachers?,El/la <P> es ficaria al llit amb algun dels seus professors?
 5,3,¿<p> se liaría con <pr>?,Would <p> make out with <pr>?,El/la <P> es s'enrollaria amb el/la <pr>?
@@ -14,7 +14,7 @@ Id,Naughtiness,es-es,en-us,ca
 13,2,¿<p> besaría la bandera española a cambio de una bolsa de pistachos?,Would <p> kiss the Spanish flag in exchange for a bag of pistachios?,El/la <P> besaria la bandera espanyola a canvi d'una bossa de festuc?
 14,5,¿<p> preguntaría en una sex-shop si le dejan probar distintos tamaños de consolador?,Would <p> ask if they would let him try different sizes of dildos in a sex shop?,El/la <P> preguntaria en una sex-shop si li deixen provar diferents mides de consolador?
 15,3,¿<p> se haría pasar por mercenario para tener sexo?,Would <p> impersonate a mercenary to get laid?,El/la <P> es faria passar per mercenari per fer sexe?
-16,5,¿<p> tiene el pene de tamaño asiático?,Does <p> have an asian-size penis?,El/la <P> té el penis de mida asiàtica?
+16,5,¿<p> tiene el pene pequeño?,Does <p> have a small penis?,El/la <P> té el penis petit?
 17,2,¿<p> mentiría sobre su riqueza para tener sexo?,Would <p> lie about their wealth to get laid?,El/la <P> mentiria sonbre la seva riquesa per tenir sexe?
 18,2,¿<p> mentiría sobre su edad para tener sexo?,Would <p> lie about their age to have sex?,El/la <P> mentiria sobre la seva edat per tenir sexe?
 19,2,¿<p> mentiría sobre su orientación sexual para conseguir algo?,Would <p> lie about their sexual orientation to get something?,El/la <P> mentiria sobre la seva orientació sexual per aconseguir alguna cosa?
@@ -51,9 +51,9 @@ Id,Naughtiness,es-es,en-us,ca
 50,3,¿<p> se enamoraría de alguien 10 años mayor?,Would <p> fall in love with someone 10 years older?,El/la <P> s'enamoraria d'algú 10 anys més gran?
 51,1,¿<p> bebe cerveza a morro?,Does <p> drink beer from the bottle?,El/la <P> beu cervesa a morro?
 52,1,¿<p> comería comida que ha estado más de 3 segundos en el suelo?,Would <p> eat food that has been on the floor for more than 3 seconds?,El/la <P> menjaria menjar que ha estat més de 3 segons a terra?
-53,4,¿<p> aliviaría el dolor de una ruptura con alchol?,Would <p> ease his/her the pain of a break up through alcohol?,El/la <P> alleujaria el dolor d'una ruptura amb alchol?
+53,4,¿<p> aliviaría el dolor de una ruptura con alcohol?,Would <p> ease his/her the pain of a break up through alcohol?,El/la <P> alleujaria el dolor d'una ruptura amb alcohol?
 54,5,¿A <p> le gusta el BDSM?,Does <p> like BDSM?,A en/la <P> li agrada el sadomasoquisme?
-55,1,¿<p> piensa que Merelyn Monroe es atractiva?,Does <p> think that Merelyn Monroe is attractive?,El/la <P> pensa que Merelyn Monroe és atractiva?
+55,1,¿<p> piensa que Marilyn Monroe es atractiva?>a>pelirroja<a<,Does <p> think that Marilyn Monroe is attractive?>a>pelirroja<a<,El/la <P> pensa que Marilyn Monroe és atractiva?>a>pelirroja<a<
 56,1,¿<p> piensa que Kim Kardashian está sobrevalorada?,Does <p> think that Kim Kardashian is overrated?,El/la <P> pensa que Kim Kardashian està sobrevalorada?
 57,2,¿<p> se cree que baila bien?,Does <p> think that he/she is a good dancer?,El/la <P> es creu que balla bé?
 58,2,¿<p> piensa que <pr> es atractivo/a?,Does <p> think that <pr> is attractive?,El/la <P> pensa que el/la <pr> és atractiu/iva?
@@ -73,7 +73,7 @@ Id,Naughtiness,es-es,en-us,ca
 72,2,¿<p> tiene más de 30 matches en Tinder?,Does <p> have more than 30 matches in Tinder?,El/la <P> té més de 30 matches a tinder?
 73,1,¿<p> considera que sabe cocinar?,Does <p> think that he/she is a good cook?,El/la <P> considera que sap cuinar?
 74,1,¿<p> tiene una boina en casa?,Does <p> have a beret home?,El/la <P> té una boina a casa?
-75,1,"¿<p> jugaba a ""Buscando a Wally"" de pequeño?","Did <p> play ""Where's Wally?"" when he/she was a kid?","El/la <P> jugava a ""Buscant a Wally"" de petit?"
+75,1,"¿<p> jugaba a ""Buscando a Wally"" de pequeño?","Did <p> play ""Where's Wally/Waldo?"" as a kid?","El/la <P> jugava a ""Buscant a Wally"" de petit?"
 76,1,"¿<p> miraba la serie de ""Loss Pitufos"" de pequeño/a?","Did <p> watch ""the Smurfs"" when he/she was a kid?","El/la <P> mirava la sèrie ""Els Barrufets"" de petit/a?"
 77,3,¿<p> ha soñado con acostarse con <pr>?,Has <p> dreamed about having sex with <p>?,El/la <P> ha somiat amb anar a dormir amb el/la <pr>?
 78,2,¿<p> se siente atraído/a por asiáticos/as?,Does <p> feel attracted by Asians?,El/la <P> se sent atret/a per gent asiàtica?
@@ -122,8 +122,8 @@ Id,Naughtiness,es-es,en-us,ca
 121,3,¿A <p> le gusta el dirty talk?,Does <p> like dirty talking?,A en/la <P> li agrada el dirty talk?
 122,3,¿<p> tiene sexo en silencio?,Does <p> have sex in silence?,El/la <P> té sexe en silenci?
 123,5,¿<p> puede tener un orgasmo con los pezones?,Can <p> have an orgasm just with his/her nipples?,El/la <P> pot tenir un orgasme amb els mugrons?
-124,3,¿<p> puede correrse en menos de 4 minutos?,Can <p> cum in less than 4 minutes?,El/la <P> pot córrer en menys de 4 minuts?
-125,3,¿<p> puede aguantar más de 30 minutos sin correrse?,Can <p> last over 30 minutes without cumming?,El/la <P> pot aguantar més de 30 minuts sense córrer?
+124,3,¿<p> se corre en menos de 5 minutos?,Does <p> usually cum in less than 5 minutes?,El/la <P> normalment acaba en menys de 5 minuts?
+125,3,¿<p> puede aguantar más de 30 minutos sin correrse?,Can <p> last over 30 minutes without cumming?,El/la <P> pot aguantar més de 30 minuts sense acabar?
 126,3,¿<p> prefiere sexo oral a la penetración?,Does <p> prefer oral sex over penetration?,El/la <P> prefereix sexe oral a la penetració?
 127,3,¿<p> ha follado en la ducha?,Has <p> ever had sex in the shower?,El/la <P> ha follat ​​a la dutxa?
 128,5,¿<p> ha follado en un lugar público?,Has <p> ever had sex in a public place?,El/la <P> ha follat ​​en un lloc públic?
@@ -145,3 +145,4 @@ Id,Naughtiness,es-es,en-us,ca
 144,4,¿<p> ha vendido hierba?,Has <p> ever sold weed?,El/la <P> ha venut herba?
 145,1,¿<p> ha pedido una canción en la radio?>a>Buri<a<,Has <p> ever asked for a song in the radio?> A> Buri <a <,El/la <P> ha demanat una cançó a la ràdio?> A> Buri <a <
 146,2,¿<p> ha pedido un DNI para poder entrar en algún local?,Has <p> ever asked for someone's ID to enter a club?,El/la <P> ha demanat un DNI per a poder entrar en algun local?
+,,¿<p> tiene los pezones más grandes que <pr>?>a>Pepe<a<,,

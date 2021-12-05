@@ -3,23 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class NaughtyLevelMenu : MonoBehaviour
 {
 
-    [Header("MIN")]
-    [SerializeField] private TextMeshProUGUI minSliderValueIndicator;
-    [SerializeField] private Slider minSlider;
+    [FormerlySerializedAs("minSliderValueIndicator")]
+    [SerializeField] private TextMeshProUGUI sliderValueIndicator;
+    [FormerlySerializedAs("minSlider")] [SerializeField] private Slider naughtinessSlider;
 
-    [Header("MAX")]
-    [SerializeField] private TextMeshProUGUI maxSliderValueIndicator;
-    [SerializeField] private Slider maxSlider;
+    //[Header("MAX")]
+    //[SerializeField] private TextMeshProUGUI maxSliderValueIndicator;
+    //[SerializeField] private Slider maxSlider;
 
     private void Start()
     {
-        SetupSlider(minSlider, minSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMin());
-        SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMax());
+        SetupSlider(naughtinessSlider, sliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.x, GameManager.instance.dataManager.naughtyLevelExtremes.y, GameManager.instance.dataManager.naughtyLevel);
+        //SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMax());
     }
 
     private void SetupSlider(Slider slider, TextMeshProUGUI textIndicator, int minValue, int maxValue, float currentValue)
@@ -42,20 +43,20 @@ public class NaughtyLevelMenu : MonoBehaviour
         textIndicator.text = newValueInt.ToString();
     }
 
-    public void NewMinValue(float newVal)
+    public void NewValue(float newVal)
     {
-        if (newVal > GameManager.instance.dataManager.GetNaughtyLevelMax())
+        if (newVal > GameManager.instance.dataManager.naughtyLevelExtremes.y)
         {
-            SetValueSlider(minSlider, minSliderValueIndicator, GameManager.instance.dataManager.GetNaughtyLevelMax());
+            SetValueSlider(naughtinessSlider, sliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.y);
         }
         else
         {
-            SetTextIndicator(minSliderValueIndicator, newVal);
-            GameManager.instance.dataManager.SetNaughtyLevelMin(Mathf.RoundToInt(newVal));
+            SetTextIndicator(sliderValueIndicator, newVal);
+            GameManager.instance.dataManager.SetNaughtyLevel(newVal);
         }
     }
 
-    public void NewMaxValue(float newVal)
+    /*public void NewMaxValue(float newVal)
     {
         if (newVal < GameManager.instance.dataManager.GetNaughtyLevelMin())
         {
@@ -66,5 +67,5 @@ public class NaughtyLevelMenu : MonoBehaviour
             SetTextIndicator(maxSliderValueIndicator, newVal);
             GameManager.instance.dataManager.SetNaughtyLevelMax(Mathf.RoundToInt(newVal));
         }
-    }
+    }*/
 }

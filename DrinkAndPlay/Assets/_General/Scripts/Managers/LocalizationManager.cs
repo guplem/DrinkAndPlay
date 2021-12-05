@@ -138,7 +138,7 @@ public class LocalizationManager
         }
         
         
-        for (int nl = dataManager.naughtyLevelExtremes.min; nl <= dataManager.naughtyLevelExtremes.max; nl++)
+        for (int nl = dataManager.naughtyLevelExtremes.x; nl <= dataManager.naughtyLevelExtremes.y; nl++)
         {
             if (nl <= 0)
             {

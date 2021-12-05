@@ -351,7 +351,7 @@ public class DataManager
 
 
     #region naughtyLevel
-    public class NaughtyLevel
+    /*public class NaughtyLevel
     {
         public readonly int min;
         public readonly int max;
@@ -381,60 +381,58 @@ public class DataManager
         {
             return "(" + min + "," + max + ")";
         }
-    }
-    public NaughtyLevel naughtyLevelExtremes { get { return _naughtyLevelExtremes; } private set { /*Intended not possible set*/ } }
-    private readonly NaughtyLevel _naughtyLevelExtremes = new NaughtyLevel(1, 5);
-    public NaughtyLevel naughtyLevel // naughtyLevel.x = min, naughtyLevel.y = max
+    }*/
+    // ReSharper disable once ValueParameterNotUsed
+    public Vector2Int naughtyLevelExtremes { get; } = new Vector2Int(1, 5); // Makes it readonly, with no set
+    // ReSharper disable once InconsistentNaming
+    private const float defaultNaughtyLevel = 2f;
+    public float naughtyLevel
     {
         get
         {
-            if (_naughtyLevel == null)
-            {
-                _naughtyLevel = SaveGame.Load<NaughtyLevel>(naughtyLevelSavename, naughtyLevelExtremes);
-
-                if (naughtyLevel.max > naughtyLevelExtremes.max) naughtyLevel = new NaughtyLevel(naughtyLevel.min, naughtyLevelExtremes.max);
-                if (naughtyLevel.min < naughtyLevelExtremes.min) naughtyLevel = new NaughtyLevel(naughtyLevelExtremes.min, naughtyLevel.max);
-            }
-
+            if (_naughtyLevel != 0f) return _naughtyLevel;
+            _naughtyLevel = SaveGame.Load<float>(naughtyLevelSavename, defaultNaughtyLevel);
+            _naughtyLevel = Mathf.Clamp(_naughtyLevel, naughtyLevelExtremes.x, naughtyLevelExtremes.y);
             return _naughtyLevel;
         }
         private set
         {
-            if (!_naughtyLevel.Equals(value))
-            {
-                _naughtyLevel = value;
-                SaveGame.Save<NaughtyLevel>(naughtyLevelSavename, value);
-            }
+            if (_naughtyLevel.Equals(value)) return;
+            _naughtyLevel = value;
+            SaveGame.Save<float>(naughtyLevelSavename, value);
         }
     }
-    private NaughtyLevel _naughtyLevel;
+    // ReSharper disable once InconsistentNaming
+    private float _naughtyLevel = 0f;
 
     private const string naughtyLevelSavename = "naughtyLevel";
 
-    public void SetNaughtyLevelMin(int value)
+    public void SetNaughtyLevel(float value)
     {
-        naughtyLevel = new NaughtyLevel(value, naughtyLevel.max);
+        naughtyLevel = value;
     }
-    public void SetNaughtyLevelMax(int value)
+    
+    public bool IsValueOfNaughtyLevelCorrect(float valueToCheck)
     {
-        naughtyLevel = new NaughtyLevel(naughtyLevel.min, value);
-    }
-    public int GetNaughtyLevelMin()
-    {
-        return naughtyLevel.min;
-    }
-    public int GetNaughtyLevelMax()
-    {
-        return naughtyLevel.max;
-    }
-    public int GetRandomNaughtyLevel()
-    {
-        return Random.Range(GetNaughtyLevelMin(), GetNaughtyLevelMax() + 1);
+        
+        float probability = GetProbabilityOfNaughtinessUsingGaussianFunction(valueToCheck);
+        bool result = Random.value <= probability;
+        Debug.Log($"VALUE_TO_CHECK: {valueToCheck:0}, PROBABILITY: {probability:0.0}, RESULT: {result}");
+        return result;
     }
 
-    public bool IsValueOfNaughtyLevelCorrect(int valueToCheck)
+    private float GetProbabilityOfNaughtinessUsingGaussianFunction(float naughtinessValue)
     {
-        return (naughtyLevel.min <= valueToCheck) && (valueToCheck <= naughtyLevel.max);
+        float x = naughtinessValue;
+        float valueWithMaxProbability = naughtyLevel;
+        const float standardDeviation = 0.8f;
+        float euler = Mathf.Exp(1);
+        
+        // f(x) = (e^ -(((x - valueWithMaxProbability)^2) / (2 * (standardDeviation^ 2))))
+        // f(x) = (e^ -(((x - valueWithMaxProbability)*(x - valueWithMaxProbability)) / (2 * (standardDeviation*standardDeviation))))
+        float probability = Mathf.Pow(euler, -(((x - valueWithMaxProbability)*(x - valueWithMaxProbability)) / (2 * (standardDeviation*standardDeviation))));
+
+        return probability;
     }
     #endregion
     

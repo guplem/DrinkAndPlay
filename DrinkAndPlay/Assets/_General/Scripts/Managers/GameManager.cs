@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
             if (dataManager.automaticNaughtyLevel)
                 dataManager.SetNaughtyLevel(DataManager.defaultNaughtyLevel);
         }
+        else
+        {
+            dataManager.disclaimerPopupShown = true;
+        }
         dataManager.RegisterSession();
         
         /*

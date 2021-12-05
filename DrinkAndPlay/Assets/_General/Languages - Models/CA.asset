@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CA
   m_EditorClassIdentifier: 
   id: ca
-  titleName: "Catal\xE0 (beta)"
+  titleName: "Catal\xE0 (alpha)"
   isEnabled: 1

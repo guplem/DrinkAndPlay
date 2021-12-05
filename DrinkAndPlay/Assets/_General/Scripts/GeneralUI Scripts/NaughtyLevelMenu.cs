@@ -12,6 +12,8 @@ public class NaughtyLevelMenu : MonoBehaviour
     [FormerlySerializedAs("minSliderValueIndicator")]
     [SerializeField] private TextMeshProUGUI sliderValueIndicator;
     [FormerlySerializedAs("minSlider")] [SerializeField] private Slider naughtinessSlider;
+    [SerializeField] private Toggle automaticNaughtinessUpdatesToggle;
+    private bool setUpDone = false; 
 
     //[Header("MAX")]
     //[SerializeField] private TextMeshProUGUI maxSliderValueIndicator;
@@ -21,6 +23,8 @@ public class NaughtyLevelMenu : MonoBehaviour
     {
         SetupSlider(naughtinessSlider, sliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.x, GameManager.instance.dataManager.naughtyLevelExtremes.y, GameManager.instance.dataManager.naughtyLevel);
         //SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMax());
+        automaticNaughtinessUpdatesToggle.isOn = GameManager.instance.dataManager.automaticNaughtyLevel;
+        setUpDone = true;
     }
 
     private void SetupSlider(Slider slider, TextMeshProUGUI textIndicator, int minValue, int maxValue, float currentValue)
@@ -68,4 +72,10 @@ public class NaughtyLevelMenu : MonoBehaviour
             GameManager.instance.dataManager.SetNaughtyLevelMax(Mathf.RoundToInt(newVal));
         }
     }*/
+    
+    public void SetAutomaticNaughtinessUpdatesTo(bool state)
+    {
+        if (setUpDone)
+            GameManager.instance.dataManager.automaticNaughtyLevel = state;
+    }
 }

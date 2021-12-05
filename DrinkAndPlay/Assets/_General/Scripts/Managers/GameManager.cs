@@ -48,7 +48,13 @@ public class GameManager : MonoBehaviour
             Debug.LogError("UI Section not set up in the GameManager.");
         //localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
 
+        if (IsNewSession())
         {
+            dataManager.forcePlayersDisplay = true;
+            if (dataManager.automaticNaughtyLevel)
+                dataManager.SetNaughtyLevel(DataManager.defaultNaughtyLevel);
+        }
+        dataManager.RegisterSession();
         
         /*
         #if UNITY_EDITOR
@@ -56,6 +62,11 @@ public class GameManager : MonoBehaviour
             Screen.fullScreen = false;
         #endif
         */
+    }
+    
+    private bool IsNewSession()
+    {
+        return Mathf.Abs((float)DateTime.Now.Subtract(dataManager.lastSessionDateTime).TotalHours) > 10; // If the time difference is greater than 10h it is considered a new session
     }
     
 
@@ -68,13 +79,13 @@ public class GameManager : MonoBehaviour
             return false;
         }
         
-        if (SceneManager.GetActiveScene().name.CompareTo(section.sceneName) == 0)
+        if (string.Compare(SceneManager.GetActiveScene().name, section.sceneName, StringComparison.OrdinalIgnoreCase) == 0)
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because it is the active one.");
             return false;
         }
         
-        if (!dataManager.HaveEnoughEnabledPlayersFor(section))
+        if ((section.hasMinimumNumberOfPlayers && dataManager.forcePlayersDisplay) || !dataManager.HaveEnoughEnabledPlayersFor(section))
         {
             Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
             generalUi.OpenPlayersMenu(section);

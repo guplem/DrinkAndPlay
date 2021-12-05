@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("UI Section not set up in the GameManager.");
         //localizationManager.LoadCurrentLanguageFor(uiLocalizationFile);
 
+        {
         
         /*
         #if UNITY_EDITOR

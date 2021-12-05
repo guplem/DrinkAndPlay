@@ -155,7 +155,7 @@ public class GeneralUI : MonoBehaviour
     public void OpenPlayersMenu()
     {
         ShowPlayersMenu();
-        if (SectionManager.instance.section.minNumberOfPlayers > 0)
+        if (SectionManager.instance.section.hasMinimumNumberOfPlayers)
             playersMenuController.ShowPlayersAdditionalElements(SectionManager.instance.section.minNumberOfPlayers, null);
         else
             playersMenuController.HidePlayersAdditionalElements();
@@ -175,6 +175,7 @@ public class GeneralUI : MonoBehaviour
     {
         Debug.Log("Opening PlayersMenu");
         Show(playersMenu);
+        GameManager.instance.dataManager.forcePlayersDisplay = false;
     }
 
     private void ShowLocalizationFilesSelectorMenu()

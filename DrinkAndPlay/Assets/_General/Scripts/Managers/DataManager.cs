@@ -342,11 +342,34 @@ public class DataManager
     public bool HaveEnoughEnabledPlayersFor(Section section)
     {
         if (section != null)
-            return ! (section.minNumberOfPlayers > 0 && section.minNumberOfPlayers > GetEnabledPlayersQuantity());
+            return ! (section.hasMinimumNumberOfPlayers && section.minNumberOfPlayers > GetEnabledPlayersQuantity());
 
         Debug.LogWarning("Checking if there are enough players to play a NULL section.");
         return true;
     }
+    
+    public bool forcePlayersDisplay
+    {
+        get
+        {
+            //if (_forcePlayersDisplay == true)
+            _forcePlayersDisplay = SaveGame.Load(forcePlayersDisplaySavename, true);
+
+            return _forcePlayersDisplay;
+        }
+        set
+        {
+            if (_forcePlayersDisplay == value) 
+                return;
+            
+            Debug.Log("New forcePlayersDisplay state: " + value);
+            _forcePlayersDisplay = value;
+            SaveGame.Save(forcePlayersDisplaySavename, value);
+        }
+    }
+    private bool _forcePlayersDisplay;
+    private const string forcePlayersDisplaySavename = "forcePlayersDisplay";
+    
     #endregion
 
 
@@ -385,7 +408,7 @@ public class DataManager
     // ReSharper disable once ValueParameterNotUsed
     public Vector2Int naughtyLevelExtremes { get; } = new Vector2Int(1, 5); // Makes it readonly, with no set
     // ReSharper disable once InconsistentNaming
-    private const float defaultNaughtyLevel = 2f;
+    public const float defaultNaughtyLevel = 2f;
     public float naughtyLevel
     {
         get
@@ -434,6 +457,30 @@ public class DataManager
 
         return probability;
     }
+    
+    public bool automaticNaughtyLevel
+    {
+        get
+        {
+            //if (_automaticNaughtyLevel == true)
+            _automaticNaughtyLevel = SaveGame.Load(automaticNaughtyLevelSavename, true);
+
+            return _automaticNaughtyLevel;
+        }
+        set
+        {
+            if (_automaticNaughtyLevel == value) 
+                return;
+            
+            Debug.Log("New automaticNaughtyLevel state: " + value);
+            _automaticNaughtyLevel = value;
+            SaveGame.Save(automaticNaughtyLevelSavename, value);
+        }
+    }
+    // ReSharper disable once InconsistentNaming
+    private bool _automaticNaughtyLevel;
+    private const string automaticNaughtyLevelSavename = "automaticNaughtyLevel";
+    
     #endregion
     
 
@@ -590,6 +637,7 @@ public class DataManager
             SaveGame.Save(randomChallengesSavename, value);
         }
     }
+    // ReSharper disable once InconsistentNaming
     private bool _randomChallenges;
     private const string randomChallengesSavename = "randomChallenges";
 
@@ -742,5 +790,38 @@ public class DataManager
     public bool disclaimerPopupShown; // It is not stored, so it is shown once per session
 
     #endregion
+
+    #region Session
+
+    public DateTime lastSessionDateTime
+    {
+        get
+        {
+            //if (_ratedApp == true)
+            _lastSessionDateTime = SaveGame.Load(lastSessionDateTimeSavename, DateTime.MinValue);
+
+            return _lastSessionDateTime;
+        }
+        set
+        {
+            if (_lastSessionDateTime == value) 
+                return;
+            
+            Debug.Log("New session date time: " + value);
+            _lastSessionDateTime = value;
+            SaveGame.Save(lastSessionDateTimeSavename, value);
+        }
+    }
+    // ReSharper disable once InconsistentNaming
+    private DateTime _lastSessionDateTime;
+    private string lastSessionDateTimeSavename = "lastSessionDateTime";
+
+    public void RegisterSession()
+    {
+        lastSessionDateTime = DateTime.Now;
+    }
+
+    #endregion
+
 
 }

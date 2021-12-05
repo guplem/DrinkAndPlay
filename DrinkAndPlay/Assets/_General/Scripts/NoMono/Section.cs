@@ -30,7 +30,9 @@ public class Section : ScriptableObject
 
     [FormerlySerializedAs("forceShowSectionSelector")] [Header("Start configuration")]
     public bool showLocalizationFilesSelectorBeforeLoading;
-    
+
+    public bool hasMinimumNumberOfPlayers => minNumberOfPlayers > 0;
+
     public Section()
     {
         minNumberOfPlayers = -1;

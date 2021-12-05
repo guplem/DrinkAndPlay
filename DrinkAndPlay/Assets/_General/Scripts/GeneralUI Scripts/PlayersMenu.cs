@@ -69,7 +69,7 @@ public class PlayersMenu : MonoBehaviour
         UtilsUI.DestroyContentsOf(contentsObject, elementsNotInPlayerList.ToList());
 
         bool allowRemoval = true;
-        if (SectionManager.instance.section.minNumberOfPlayers > 0)
+        if (SectionManager.instance.section.hasMinimumNumberOfPlayers)
             allowRemoval = CanAPlayerBeDisabledOrRemoved();
         
         for (int p = 0; p < GameManager.instance.dataManager.GetPlayers().Count; p++)

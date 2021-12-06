@@ -99,7 +99,8 @@ public class LocalizationManager
             //Save the localized text with the proper language
             else
             {
-                int.TryParse(dataRead[row][1], out int naughtiness);
+                int.TryParse(dataRead[row][(naughtyCol>0?naughtyCol:1)], out int naughtiness);
+                
                 LocalizedText localizedText = new LocalizedText(dataRead[row][0], naughtiness, dataRead[row][langCol]);
                 if (!string.IsNullOrEmpty(localizedText.text)) //Only if the text is valid
                     if (!AddLocalizedTextToTextsList(localizationFile, localizedText))

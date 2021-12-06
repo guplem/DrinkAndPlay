@@ -23,9 +23,9 @@ public class TextInTurnsGame
 
 public abstract class TurnsGameManager : SectionManager
 {
+
+    [SerializeField] protected GameCard gameCard;
     
-    [SerializeField] private Localizer sentenceText;
-    [SerializeField] protected ImageSwitcher likeButton;
     [SerializeField] private Button backButton;
     
     
@@ -200,12 +200,14 @@ public abstract class TurnsGameManager : SectionManager
         
         Debug.Log("Setting text in card: " + textInCard.localizedText +  ".\nFrom the localization file: '" + textInCard.localizationFile + "' after a search for a text with NaughtyLevel = " + GameManager.instance.dataManager.naughtyLevel);
         
-        sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
+        gameCard.sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
 
-        likeButton.SetToInitialState();
+        //authorText.text = textInCard.localizedText.author;
+        
+        gameCard.likeButton.SetToInitialState();
         
         if (IsCurrentTextLiked())
-            likeButton.Switch();
+            gameCard.likeButton.Switch();
 
         currentTextInCard = textInCard;
 
@@ -227,7 +229,7 @@ public abstract class TurnsGameManager : SectionManager
     public void Like()
     {
         history[historyIndex].liked = !history[historyIndex].liked;
-        likeButton.Switch();
+        gameCard.likeButton.Switch();
 
         // Check if the rate popup should be shown
         

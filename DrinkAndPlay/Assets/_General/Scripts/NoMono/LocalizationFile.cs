@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "New Localization File", menuName = "Localization File")]
 public class LocalizationFile : ScriptableObject
@@ -9,11 +10,9 @@ public class LocalizationFile : ScriptableObject
     [TextArea]
     public string localizationUrl;
     public bool checkForEnoughSentencesOfAllNaughtyLevels = true;
-    public bool searchForNaughtyLevelColumn {
-        get { return checkForEnoughSentencesOfAllNaughtyLevels || _searchForNaughtyLevelColumn; }
-        private set { _searchForNaughtyLevelColumn = value;  }
-    }
-    [SerializeField] private bool _searchForNaughtyLevelColumn = true;
+    public bool gameSentencesFile => checkForEnoughSentencesOfAllNaughtyLevels || _gameSentencesFile;
+    [Tooltip("Does the LocalizationFile this references contain sentences for games (with author, naughty level, ...)?")]
+    [FormerlySerializedAs("_searchForNaughtyLevelColumn")] [SerializeField] private bool _gameSentencesFile = true;
 
     
 

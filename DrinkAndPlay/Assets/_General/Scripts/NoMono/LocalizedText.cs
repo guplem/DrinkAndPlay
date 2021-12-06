@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class LocalizedText
 {
-    public string id { get; private set; }
-    public int naughtiness { get; private set; }
-    public string text { get; private set; }
+    public string id { get; }
+    public int naughtiness { get; }
+    public string text { get; }
+    
+    public string author { get; }
 
-    public LocalizedText(string id, int naughtiness, string text)
+    public string specialOptions { get; }
+
+    public LocalizedText(string id, int naughtiness, string text, string author, string specialOptions)
     {
         this.id = id;
         this.naughtiness = naughtiness;
         this.text = text;
+        this.author = author;
+        this.specialOptions = specialOptions;
     }
     public override int GetHashCode()
     {
@@ -26,7 +32,7 @@ public class LocalizedText
 
     public override string ToString()
     {
-        return "Id: '" + id + "', Naughtiness: '" + naughtiness + "', Text: '" + text + "'";
+        return $"Id: '{id}', Naughtiness: '{naughtiness}', Text: '{text}', Author: '{author}', SpecialOptions: '{specialOptions}'";
     }
 
 }

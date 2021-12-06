@@ -1,105 +1,105 @@
-Id,es-es,en-us,ca
-Update,Actualizar <i>(22/07)</i>,Update <i>(22/07)</i>,Actualitzar <i>(22/07)</i>
-Configuration,Ajustes,Settings,Configuració
-Credits,Créditos y Agradecimientos,Credits and Acknowledgments,Crèdits i Agraïments
-CreditsText,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.,Aquest joc ha estat creat per Guillem Poy amb la col·laboració dels seus amics.
-Language,Idioma,Language,Llengua
-Visuals,Apariencia,Appearance,Aparença
-DarkMode,Modo oscuro,Dark theme,Mode fosc
-DarkModeExplanation,El modo oscuro puede reducir el consumo de batería y la fatiga visual especialmente durante la noche.,Dark mode can reduce battery consumption and eyestrain especially at night.,El mode fosc pot reduir el consum de bateria i la fatiga visual especialment durant la nit.
-NaughtyLevel,Nivel de Picante,Naughtiness Level,Nivell de Picant
-Donations,Donaciones,Donations,Donacions
-Instagram,Instagram,Instagram,Instagram
-Feedback,Comentarios,Feedback,Comentaris
-SendGameContent,Enviar Frase,Send Sentence,Enviar Frase
-SendDrink,Enviar Bebida,Send Drink,Enviar Beguda
-SendGame,Enviar un Juego,Send a Game,Enviar un Joc
-RandomSentences,Pruebas Aleatorias,Random Activities,Proves Aleatòries
-Text,Texto,Text,Text
-WriteHere,Escribe aquí...,Write here...,Escriu aquí...
-Author,Autor,Author,Autor
-Name,Nick,Nickname,Nick
-EmailComment,"Si quieres que se te notifique acerca de tu aportación, escribe tu e-mail junto al nick.","If you want to be notified about your contribution, write your email next to the nickname.","Si vols que se't notifiqui sobre la teva aportació, escriu el teu e-mail al costat del nick."
-Send,Enviar,Send,Enviar
-FeedbackExplanation,Vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,We will read and consider your contribution to improve the application.<br><br>Thank you very much!,Llegirem considerarem la teva aportació per millorar l'aplicació.<br><br>Moltes gràcies!
-Players,Jugadores,Players,Jugadors
-Play,Jugar,Play,Jugar
-ComingSoon,Próximamente,Coming son,Pròximament
-PlayerList,Lista de jugadores,Player list,Llista de jugadors
-Min,Mínimo,Minimum,Mínim
-Max,Máximo,Maximum,Màxim
-NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.,Selecciona el nivell de picant que vols que tinguin els jocs.
-automaticNaughtinessUpdatesDescriptions,<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto.,<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels.,<color=#cd293c>Atenció: </color>No es recomana canviar el nivell per defecte.
-General,General,General,General
-Games,Juegos,Games,Jocs
-Help,Ayuda,Help,Ajuda
-Us,Nosotros,About Us,Nosaltres
-PlayerName,Nombre de jugador,Player name,Nom de jugador
-RandomChallengesExplanation,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.,Activa o desactiva proves que apareixeran aleatòriament durant els jocs.
-RC,Prueba Aleatoria,Random Challenge,Prova Aleatòria
-Cancel,Cancelar,Cancel,Cancel·lar
-Accept,Aceptar,Accept,Acceptar
-Rate,Valorar,Rate,Valorar
-Done,Hecho,Done,Fet
-Next,Siguiente,Next,Següent
-Yes,Sí,Yes,Sí
-No,No,No,No
-NoCool,Nahhh...,Nahhh...,Nahhh...
-YesCool,¡Sí!,Yasss,Sí!
-RateText,¿Nos valoras?,Would you rate us?,Ens valores?
-RebootText,Las actualizaciones se han descargado.<br>Reinicia la aplicación para disfrutarlas.,The updates have been downloaded.<br>Please restart the application to enjoy them.,Les actualitzacions s'han descarregat.<br>Reinicia l'aplicació per gaudir-les.
-DownloadingText,¡Descargando nuevas pruebas y más diversión!,Downloading new challenges and more fun!,Descarregant noves proves i més diversió!
-DownloadingButton,"Por favor, espere...","Please, wait...","Si us plau, esperi..."
-ShareText,¡Mira qué me he encontrado jugando a Drink & Play!,Look what I found playing Drink & Play!,Mira què m'he trobat jugant a Drink & Play!
-PlayersNum,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:,<color=#cd293c>Atenció!</color> Jugadors requerits:
-MMN,Menu Principal,Main Menu,Menú Principal
-MMD,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ...","En el menú principal tens accés als diferents jocs disponibles, receptes de begudes, ..."
-UIN,Interfaz,Interface,Interfície
-UID,La interfaz ayuda a mantener coherencia estética y funcional en toda la app.,The interface helps maintain aesthetic and functional coherence throughout the app.,La interfície ajuda a mantenir coherència estètica i funcional en tota l'app.
-YNN,Yo Nunca,Never Have I Ever,Jo Mai Mai
-YND,"Se mostrarán frases empezadas por ""Yo nunca..."".<br><br>Las personas que sí hayan hecho lo afirmado en la frase, deben beber un trago.<br><br>Norma extra: si solo bebe una persona, está obligada a contar la historia.","Phrases started with ""Never have I ever ..."" will be displayed.<br><br>People who have done what is said in the sentence should take a gulp.<br><br>Extra rule: if only one person drinks, they should tell the story.","Es mostraran frases començades per ""Jo mai ..."".<br><br>Les persones que sí que hagin fet allò afirmat en la frase, han de beure un glop.<br><br>Norma extra: si només beu una persona, està obligada a explicar la història."
-GWN,Adivina Quién,Guess Who,Endevina Qui
-GWD,Se mostrarán frases con preguntas que harán que los jugadores decidan entre uno de ellos.<br><br>La persona más votada tendrá que beber.,Phrases will be displayed with questions that will make players decide between them.<br><br>The most voted person will have to drink.,Es mostraran frases amb preguntes que faran que els jugadors decideixin entre un d'ells.<br><br>La persona més votada haurà de beure.
-WKEON,¿Nos Conocemos?,We Know Each Other?,Ens Coneixem?
-WKEOD,"Se harán preguntas sobre un jugador y los demás jugadores tendrán que decir si creen que es verdad o mentira.<br><br>Una vez todos hayan dado su opinión, el jugador sobre el que iba la pregunta revelará si era cierto o no y los que se hayan equivocado beben un trago.","Questions will be asked about a player and all the other players will have to say if they affirm or deny it.<br><br>Once everyone has chosen, the player on whom the question was asked says whether it was true or false and those who were wrong drink a gulp.","Es faran preguntes sobre un jugador i els altres jugadors hauran de dir si creuen que és veritat o mentida.<br><br>Un cop tots hagin donat la seva opinió, el jugador sobre el qual anava la pregunta revelarà si era cert o no i els que s'hagin equivocat beuen un glop."
-TODN,Verdad o Atrevimiento,Truth or Dare,Veritat o Atreviment
-TODD,"Los jugadores tendrán que elegir entre responder con sinceridad una pregunta o cumplir un desafío.<br><br>Si no responden la pregunta o no hacen el reto les tocará beber.<br><br>Norma extra: si 3 jugadores seguidos han elegido decir verdades, el siguiente jugador está obligado a hacer un reto.","Players will have to choose between honestly answering a question or facing a challenge. <br> <br> If they don't answer the question or don't meet the challenge, they must drink. <br> <br>Extra rule: after 3 players answering questions the next player is required to choose dare.","Els jugadors hauran de triar entre respondre amb sinceritat una pregunta o complir un desafiament.<br><br>Si no responen la pregunta o no fan el repte els tocarà beure.<br><br>Norma extra: si 3 jugadors seguits han elegit dir veritats, el següent jugador està obligat a fer un repte."
-Choose,<p> elige:,<p> you choose:,<P> escull:
-Truth,Verdad,Truth,Veritat
-Dare,Atrevimiento,Dare,Atreviment
-WAIN,¿Qué soy?,What am I?,Què sóc?
-WAID,"Se mostrará una palabra que un jugador tendrá que adivinar. Todos los jugadores, excepto el de ese turno, deberán leerla.<br><br>Los demás jugadores tendrán que conseguir que el jugador que no lo ha leído adivine de qué palabra se trata sin poder usarla.<br><br>Si no lo consigue, le toca beber. ","A word will be shown which, by turns, players will have to guess. So all players except the one of the current turn should read it.<br><br>They will have to get the player who has not read it to guess what word it is without being able to use it.<br><br>If they do not achieve it, the turn's player drinks.","Es mostrarà una paraula que un jugador haurà d'endevinar. Tots els jugadors, excepte el d'aquest torn, han de llegir-la.<br><br>Els altres jugadors hauran d'aconseguir que el jugador que no l'ha llegit endevini de quina paraula es tracta sense poder usar-la.<br><br>Si no ho aconsegueix, li toca beure."
-NextPlayer,Siguiente jugador: <p>,Next player: <p>,Següent jugador: <p>
-TN,Tabú,Taboo,Tabú
-TD,"Aparecerá una palabra a adivinar junto a palabras consideradas tabú. Ninguna de ellas (ni sus sinónimos, derivados, ...) podrá ser leída por el jugador de ese turno.<br><br>Los demás jugadores tendrán que conseguir adivinar la palabra sin que el jugador del turno pueda usar ninguna de las prohibidas.<br><br>Si los demás jugadores no consiguen adivinar la palabra, beben. Si la adivinan, bebe el jugador protagonista.","A word to guess will appear next to words considered taboo. None of them (nor their synonyms, derivatives, ...) can be read by the player of that turn.<br><br>The other players will have to guess the word without the player of the turn being able to use any of the banned.<br><br>If the other players can't guess the word, they drink. If they guess it, the protagonist player drinks.","Apareixerà una paraula a endevinar al costat de paraules considerades tabú. Cap d'elles (ni els seus sinònims, derivats...) podrà ser llegida pel jugador del torn.<br><br>Els altres jugadors hauran d'aconseguir endevinar la paraula sense que el jugador del torn pugui fer servir cap de les prohibides.<br><br>Si els altres jugadors no aconsegueixen endevinar la paraula, beuen. Si l'endevinen, beu el jugador protagonista."
-MN,Mímica,Mime,Mímica
-MD,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink.","Un jugador haurà de llegir la paraula que es mostrarà i els altres jugadors intentaran aconseguir endevinar de quina paraula es tracta després d'una actuació mímica de el jugador que l'ha llegit.<br><br>Si no aconsegueixen endevinar, els toca beure."
-MIXN,Mix,Mix,Mix
-MIXD,¡Disfruta de más de 1.000 frases y retos y no dejes que nada pare la fiesta!<br><br>Mix de todo el contenido de los juegos de Drink & Play.,"Enjoy more than 1,000 phrases and challenges and let nothing stop the party!<br><br>Mix all the content from all Drink & Play games.",Gaudeix de més de 1.000 frases i reptes i no deixis que res pari la festa!<br><br>Mix de tot el contingut de tots els jocs de Drink & Play.
-ChoosePlayer,"""¡Elegid un jugador!""","""Choose a player!""","""Escolliu un jugador!"""
-RandomOrder,Orden aleatorio,Random order,Ordre aleatori
-ErrorMenu,Informar de un Error,Report an Error,Informar d'un error
-IssueType,Tipo de error,Error type,Tipus d'error
-Typo,Ortográfico,Typo,Ortogràfic
-Offensive,Frase ofensiva,Offensive sentence,Frase ofensiva
-NonInclusive,Frase no inclusiva,Non Inclusive sentence,Frase no inclusiva
-Other,Otro,Other,Un altre
-ErrorDescriptionText,¡Muchas gracias por ayudarnos a mejorar la app!,Thank you very much for helping us improve the app!,Moltes gràcies per ajudar-nos a millorar l'app!
-GamesSelector,Selector de Juegos,Games Selector,Selector de Jocs
-FilesList,Juegos,Games,Jocs
-Purchase,Comprar,Purchase,Comprar
-Refund,Revocar acceso Premium,Revoke Premium access,Revocar l'accés Premium
-WeKnowEachOther,¿Nos Conocemos?,We know each other?,Ens Coneixem?
-UI,Interfaz,Interface,Interfície
-TruthOrDare-Truth,Preguntas,Questions,Preguntes
-TruthOrDare-Dare,Retos,Challenges,Reptes
-RandomChallenges,Retos Aleatorios,Random challenges,Reptes aleatoris
-NeverHaveIEver,Yo Nunca,I never,Jo Mai Mai
-MainMenu,Menu Principal,Main menu,Menú Principal
-GuessWho,Adivina Quién,Guess who,Endevina Qui
-Taboo,Tabú,Taboo,Tabú
-disclaimer,disclaimer ESP,disclaimer ENG,disclaimer CAT
-automaticNaughtinessUpdates,Actualización automática del nivel de picante,Automatic naughtiness update,Actualització automàtica del nivell de picant
-allNaughtyLevels,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not
-AuthorIsInstagramToggle,Enviar con el usuario de instagram,Share with instragram's nickname,Enviar con el usuario de instagram
-AuthorIsInstagramDescription,AuthorIsInstagramDescription,AuthorIsInstagramDescription,AuthorIsInstagramDescription
+Id,SpecialOptions,es-es,en-us,ca
+Update,,Actualizar <i>(22/07)</i>,Update <i>(22/07)</i>,Actualitzar <i>(22/07)</i>
+Configuration,,Ajustes,Settings,Configuració
+Credits,,Créditos y Agradecimientos,Credits and Acknowledgments,Crèdits i Agraïments
+CreditsText,,Este juego ha sido creado por Guillem Poy con la colaboración de sus amigos.,This game has been created by Guillem Poy with the collaboration of his friends.,Aquest joc ha estat creat per Guillem Poy amb la col·laboració dels seus amics.
+Language,,Idioma,Language,Llengua
+Visuals,,Apariencia,Appearance,Aparença
+DarkMode,,Modo oscuro,Dark theme,Mode fosc
+DarkModeExplanation,,El modo oscuro puede reducir el consumo de batería y la fatiga visual especialmente durante la noche.,Dark mode can reduce battery consumption and eyestrain especially at night.,El mode fosc pot reduir el consum de bateria i la fatiga visual especialment durant la nit.
+NaughtyLevel,,Nivel de Picante,Naughtiness Level,Nivell de Picant
+Donations,,Donaciones,Donations,Donacions
+Instagram,,Instagram,Instagram,Instagram
+Feedback,,Comentarios,Feedback,Comentaris
+SendGameContent,,Enviar Frase,Send Sentence,Enviar Frase
+SendDrink,,Enviar Bebida,Send Drink,Enviar Beguda
+SendGame,,Enviar un Juego,Send a Game,Enviar un Joc
+RandomSentences,,Pruebas Aleatorias,Random Activities,Proves Aleatòries
+Text,,Texto,Text,Text
+WriteHere,,Escribe aquí...,Write here...,Escriu aquí...
+Author,,Autor,Author,Autor
+Name,,Nick,Nickname,Nick
+EmailComment,,"Si quieres que se te notifique acerca de tu aportación, escribe tu e-mail junto al nick.","If you want to be notified about your contribution, write your email next to the nickname.","Si vols que se't notifiqui sobre la teva aportació, escriu el teu e-mail al costat del nick."
+Send,,Enviar,Send,Enviar
+FeedbackExplanation,,Vamos a leerlo y consideraremos tu aportación para mejorar la aplicación.<br><br>¡Muchas gracias!,We will read and consider your contribution to improve the application.<br><br>Thank you very much!,Llegirem considerarem la teva aportació per millorar l'aplicació.<br><br>Moltes gràcies!
+Players,,Jugadores,Players,Jugadors
+Play,,Jugar,Play,Jugar
+ComingSoon,,Próximamente,Coming son,Pròximament
+PlayerList,,Lista de jugadores,Player list,Llista de jugadors
+Min,,Mínimo,Minimum,Mínim
+Max,,Máximo,Maximum,Màxim
+NaughtyLevelExplanation,,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.,Selecciona el nivell de picant que vols que tinguin els jocs.
+automaticNaughtinessUpdatesDescriptions,,<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto.,<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels.,<color=#cd293c>Atenció: </color>No es recomana canviar el nivell per defecte.
+General,,General,General,General
+Games,,Juegos,Games,Jocs
+Help,,Ayuda,Help,Ajuda
+Us,,Nosotros,About Us,Nosaltres
+PlayerName,,Nombre de jugador,Player name,Nom de jugador
+RandomChallengesExplanation,,Activa o desactiva pruebas que aparecerán aleatoriamente durante los juegos.,Enable or disable challenges that will appear randomly during games.,Activa o desactiva proves que apareixeran aleatòriament durant els jocs.
+RC,,Prueba Aleatoria,Random Challenge,Prova Aleatòria
+Cancel,,Cancelar,Cancel,Cancel·lar
+Accept,,Aceptar,Accept,Acceptar
+Rate,,Valorar,Rate,Valorar
+Done,,Hecho,Done,Fet
+Next,,Siguiente,Next,Següent
+Yes,,Sí,Yes,Sí
+No,,No,No,No
+NoCool,,Nahhh...,Nahhh...,Nahhh...
+YesCool,,¡Sí!,Yasss,Sí!
+RateText,,¿Nos valoras?,Would you rate us?,Ens valores?
+RebootText,,Las actualizaciones se han descargado.<br>Reinicia la aplicación para disfrutarlas.,The updates have been downloaded.<br>Please restart the application to enjoy them.,Les actualitzacions s'han descarregat.<br>Reinicia l'aplicació per gaudir-les.
+DownloadingText,,¡Descargando nuevas pruebas y más diversión!,Downloading new challenges and more fun!,Descarregant noves proves i més diversió!
+DownloadingButton,,"Por favor, espere...","Please, wait...","Si us plau, esperi..."
+ShareText,,¡Mira qué me he encontrado jugando a Drink & Play!,Look what I found playing Drink & Play!,Mira què m'he trobat jugant a Drink & Play!
+PlayersNum,,<color=#cd293c>Atención!</color> Jugadores requeridos:,<color=#cd293c>Attention!</color> Required players:,<color=#cd293c>Atenció!</color> Jugadors requerits:
+MMN,,Menu Principal,Main Menu,Menú Principal
+MMD,,"En el menú principal tienes acceso a los distintos juegos disponibles, recetas de bebidas, ...","In the main menu you have access to the different games available, drink recipes, ...","En el menú principal tens accés als diferents jocs disponibles, receptes de begudes, ..."
+UIN,,Interfaz,Interface,Interfície
+UID,,La interfaz ayuda a mantener coherencia estética y funcional en toda la app.,The interface helps maintain aesthetic and functional coherence throughout the app.,La interfície ajuda a mantenir coherència estètica i funcional en tota l'app.
+YNN,,Yo Nunca,Never Have I Ever,Jo Mai Mai
+YND,,"Se mostrarán frases empezadas por ""Yo nunca..."".<br><br>Las personas que sí hayan hecho lo afirmado en la frase, deben beber un trago.<br><br>Norma extra: si solo bebe una persona, está obligada a contar la historia.","Phrases started with ""Never have I ever ..."" will be displayed.<br><br>People who have done what is said in the sentence should take a gulp.<br><br>Extra rule: if only one person drinks, they should tell the story.","Es mostraran frases començades per ""Jo mai ..."".<br><br>Les persones que sí que hagin fet allò afirmat en la frase, han de beure un glop.<br><br>Norma extra: si només beu una persona, està obligada a explicar la història."
+GWN,,Adivina Quién,Guess Who,Endevina Qui
+GWD,,Se mostrarán frases con preguntas que harán que los jugadores decidan entre uno de ellos.<br><br>La persona más votada tendrá que beber.,Phrases will be displayed with questions that will make players decide between them.<br><br>The most voted person will have to drink.,Es mostraran frases amb preguntes que faran que els jugadors decideixin entre un d'ells.<br><br>La persona més votada haurà de beure.
+WKEON,,¿Nos Conocemos?,We Know Each Other?,Ens Coneixem?
+WKEOD,,"Se harán preguntas sobre un jugador y los demás jugadores tendrán que decir si creen que es verdad o mentira.<br><br>Una vez todos hayan dado su opinión, el jugador sobre el que iba la pregunta revelará si era cierto o no y los que se hayan equivocado beben un trago.","Questions will be asked about a player and all the other players will have to say if they affirm or deny it.<br><br>Once everyone has chosen, the player on whom the question was asked says whether it was true or false and those who were wrong drink a gulp.","Es faran preguntes sobre un jugador i els altres jugadors hauran de dir si creuen que és veritat o mentida.<br><br>Un cop tots hagin donat la seva opinió, el jugador sobre el qual anava la pregunta revelarà si era cert o no i els que s'hagin equivocat beuen un glop."
+TODN,,Verdad o Atrevimiento,Truth or Dare,Veritat o Atreviment
+TODD,,"Los jugadores tendrán que elegir entre responder con sinceridad una pregunta o cumplir un desafío.<br><br>Si no responden la pregunta o no hacen el reto les tocará beber.<br><br>Norma extra: si 3 jugadores seguidos han elegido decir verdades, el siguiente jugador está obligado a hacer un reto.","Players will have to choose between honestly answering a question or facing a challenge. <br> <br> If they don't answer the question or don't meet the challenge, they must drink. <br> <br>Extra rule: after 3 players answering questions the next player is required to choose dare.","Els jugadors hauran de triar entre respondre amb sinceritat una pregunta o complir un desafiament.<br><br>Si no responen la pregunta o no fan el repte els tocarà beure.<br><br>Norma extra: si 3 jugadors seguits han elegit dir veritats, el següent jugador està obligat a fer un repte."
+Choose,,<p> elige:,<p> you choose:,<P> escull:
+Truth,,Verdad,Truth,Veritat
+Dare,,Atrevimiento,Dare,Atreviment
+WAIN,,¿Qué soy?,What am I?,Què sóc?
+WAID,,"Se mostrará una palabra que un jugador tendrá que adivinar. Todos los jugadores, excepto el de ese turno, deberán leerla.<br><br>Los demás jugadores tendrán que conseguir que el jugador que no lo ha leído adivine de qué palabra se trata sin poder usarla.<br><br>Si no lo consigue, le toca beber. ","A word will be shown which, by turns, players will have to guess. So all players except the one of the current turn should read it.<br><br>They will have to get the player who has not read it to guess what word it is without being able to use it.<br><br>If they do not achieve it, the turn's player drinks.","Es mostrarà una paraula que un jugador haurà d'endevinar. Tots els jugadors, excepte el d'aquest torn, han de llegir-la.<br><br>Els altres jugadors hauran d'aconseguir que el jugador que no l'ha llegit endevini de quina paraula es tracta sense poder usar-la.<br><br>Si no ho aconsegueix, li toca beure."
+NextPlayer,,Siguiente jugador: <p>,Next player: <p>,Següent jugador: <p>
+TN,,Tabú,Taboo,Tabú
+TD,,"Aparecerá una palabra a adivinar junto a palabras consideradas tabú. Ninguna de ellas (ni sus sinónimos, derivados, ...) podrá ser leída por el jugador de ese turno.<br><br>Los demás jugadores tendrán que conseguir adivinar la palabra sin que el jugador del turno pueda usar ninguna de las prohibidas.<br><br>Si los demás jugadores no consiguen adivinar la palabra, beben. Si la adivinan, bebe el jugador protagonista.","A word to guess will appear next to words considered taboo. None of them (nor their synonyms, derivatives, ...) can be read by the player of that turn.<br><br>The other players will have to guess the word without the player of the turn being able to use any of the banned.<br><br>If the other players can't guess the word, they drink. If they guess it, the protagonist player drinks.","Apareixerà una paraula a endevinar al costat de paraules considerades tabú. Cap d'elles (ni els seus sinònims, derivats...) podrà ser llegida pel jugador del torn.<br><br>Els altres jugadors hauran d'aconseguir endevinar la paraula sense que el jugador del torn pugui fer servir cap de les prohibides.<br><br>Si els altres jugadors no aconsegueixen endevinar la paraula, beuen. Si l'endevinen, beu el jugador protagonista."
+MN,,Mímica,Mime,Mímica
+MD,,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink.","Un jugador haurà de llegir la paraula que es mostrarà i els altres jugadors intentaran aconseguir endevinar de quina paraula es tracta després d'una actuació mímica de el jugador que l'ha llegit.<br><br>Si no aconsegueixen endevinar, els toca beure."
+MIXN,,Mix,Mix,Mix
+MIXD,,¡Disfruta de más de 1.000 frases y retos y no dejes que nada pare la fiesta!<br><br>Mix de todo el contenido de los juegos de Drink & Play.,"Enjoy more than 1,000 phrases and challenges and let nothing stop the party!<br><br>Mix all the content from all Drink & Play games.",Gaudeix de més de 1.000 frases i reptes i no deixis que res pari la festa!<br><br>Mix de tot el contingut de tots els jocs de Drink & Play.
+ChoosePlayer,,"""¡Elegid un jugador!""","""Choose a player!""","""Escolliu un jugador!"""
+RandomOrder,,Orden aleatorio,Random order,Ordre aleatori
+ErrorMenu,,Informar de un Error,Report an Error,Informar d'un error
+IssueType,,Tipo de error,Error type,Tipus d'error
+Typo,,Ortográfico,Typo,Ortogràfic
+Offensive,,Frase ofensiva,Offensive sentence,Frase ofensiva
+NonInclusive,,Frase no inclusiva,Non Inclusive sentence,Frase no inclusiva
+Other,,Otro,Other,Un altre
+ErrorDescriptionText,,¡Muchas gracias por ayudarnos a mejorar la app!,Thank you very much for helping us improve the app!,Moltes gràcies per ajudar-nos a millorar l'app!
+GamesSelector,,Selector de Juegos,Games Selector,Selector de Jocs
+FilesList,,Juegos,Games,Jocs
+Purchase,,Comprar,Purchase,Comprar
+Refund,,Revocar acceso Premium,Revoke Premium access,Revocar l'accés Premium
+WeKnowEachOther,,¿Nos Conocemos?,We know each other?,Ens Coneixem?
+UI,,Interfaz,Interface,Interfície
+TruthOrDare-Truth,,Preguntas,Questions,Preguntes
+TruthOrDare-Dare,,Retos,Challenges,Reptes
+RandomChallenges,,Retos Aleatorios,Random challenges,Reptes aleatoris
+NeverHaveIEver,,Yo Nunca,I never,Jo Mai Mai
+MainMenu,,Menu Principal,Main menu,Menú Principal
+GuessWho,,Adivina Quién,Guess who,Endevina Qui
+Taboo,,Tabú,Taboo,Tabú
+disclaimer,,disclaimer ESP,disclaimer ENG,disclaimer CAT
+automaticNaughtinessUpdates,,Actualización automática del nivel de picante,Automatic naughtiness update,Actualització automàtica del nivell de picant
+allNaughtyLevels,,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not
+AuthorIsInstagramToggle,,Enviar con el usuario de instagram,Share with instragram's nickname,Enviar con el usuario de instagram
+AuthorIsInstagramDescription,,AuthorIsInstagramDescription,AuthorIsInstagramDescription,AuthorIsInstagramDescription

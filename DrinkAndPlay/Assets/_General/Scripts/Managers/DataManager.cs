@@ -818,7 +818,7 @@ public class DataManager
         get
         {
             //if (_authorIsInstagram == true)
-            _authorIsInstagram = SaveGame.Load(authorIsInstagramSavename, true);
+            _authorIsInstagram = SaveGame.Load(authorIsInstagramSavename, false);
 
             return _authorIsInstagram;
         }

@@ -29,7 +29,6 @@ PlayerList,,Lista de jugadores,Player list,Llista de jugadors
 Min,,Mínimo,Minimum,Mínim
 Max,,Máximo,Maximum,Màxim
 NaughtyLevelExplanation,,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.,Selecciona el nivell de picant que vols que tinguin els jocs.
-automaticNaughtinessUpdatesDescriptions,,<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto.,<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels.,<color=#cd293c>Atenció: </color>No es recomana canviar el nivell per defecte.
 General,,General,General,General
 Games,,Juegos,Games,Jocs
 Help,,Ayuda,Help,Ajuda
@@ -100,6 +99,7 @@ GuessWho,,Adivina Quién,Guess who,Endevina Qui
 Taboo,,Tabú,Taboo,Tabú
 disclaimer,,Esta aplicación tiene como única finalidad entretener y hacer pasar un buen rato.<br><br>Si encuentras cualquier frase que resulte ofensiva te pedimos disculpas y que no dudes en reportarlo.<br><br>¡Muchas gracias y Drink&Play!,The sole purpose of this application is to entertain and have a good time.<br><br>If you find any phrase that is offensive we apologize and do not hesitate to report it.<br><br>Thank you very much and Drink&Play!,"Aquesta aplicació té com únic objectiu entretenir i fer passar una bona estona.<br><br>Si trobes qualsevol frase que resulti ofensiva, et demanem disculpes i que no dubtis en reportar-ho.<br><br>Moltes gràcies i Drink&Play!"
 automaticNaughtinessUpdates,,Actualización automática del nivel de picante,Automatic naughtiness update,Actualització automàtica del nivell de picant
-allNaughtyLevels,,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not
-AuthorIsInstagramToggle,,Enviar con el usuario de instagram,Share with instragram's nickname,Enviar con el usuario de instagram
-AuthorIsInstagramDescription,,AuthorIsInstagramDescription,AuthorIsInstagramDescription,AuthorIsInstagramDescription
+allNaughtyLevels,," 😅 ¡Culpable!<br><br> 😳 Ups, me han pillado<br><br> 😏 La cosa está picante...<br><br> 🚨 ¡Eso es ilegal!<br><br> 🔥 ¡Llamad a los bomberos!"," 😅 Guilty!<br><br> 😳 Oops, I'm busted!<br><br> 😏 That's spicy...<br><br> 🚨 That's illegal!<br><br> 🔥 Call the fire department!"," 😅 Culpable!<br><br> 😳 Ups, m'han enxampat<br><br> 😏 La cosa està picant...<br><br> 🚨 Això és il·legal!<br><br> 🔥 Truqueu als bombers!"
+AuthorIsInstagramToggle,,Enviar como usuario de Instagram,Share with Instragram's nickname,Enviar com usuari d'Instagram
+AuthorIsInstagramDescription,,Marca esta casilla si quieres que la gente pueda saber cuál es tu usuario de Instagram al ver tu frase.,Check this box if you want people to be able to tell what your Instagram user is when they see your caption.,Marca aquesta casella si vols que la gent pugui saber quin és el teu usuari d'Instagram en veure la teva frase.
+automaticNaughtinessUpdateDescription,,Marca esta casilla si quieres que el juego se encargue de aumentar el nivel de picante a medida que vayas jugando.,Check this box if you want the game to increase the level of spiciness as you play.,Marca aquesta casella si vols que el joc s'encarregui d'augmentar el nivell de picant a mesura que vagis jugant.

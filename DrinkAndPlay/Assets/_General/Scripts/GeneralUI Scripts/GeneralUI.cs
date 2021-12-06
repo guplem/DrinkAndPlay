@@ -33,6 +33,7 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] public AnimationUI localizationFilesSelectorMenu;
     private LocalizationFilesSelectorMenu localizationFilesSelectorMenuController;
     private ErrorsMenu errorsMenuController;
+    [SerializeField] private AnimationUI sendSentenceMenu;
     
     [Header("Popups")]
     [SerializeField] private AnimationUI ratePopup;
@@ -76,9 +77,6 @@ public class GeneralUI : MonoBehaviour
         
         if (errorsMenuController == null)
             errorsMenuController = errorsMenu.GetComponent<ErrorsMenu>();
-        
-        if (naughtyLevelMenuController == null)
-            naughtyLevelMenuController = naughtyLevelMenuAnimation.GetComponent<NaughtyLevelMenu>();
     }
 
     public void CloseLastOpenUiElement()
@@ -190,6 +188,8 @@ public class GeneralUI : MonoBehaviour
     }
     public void OpenNaughtyLevelMenu()
     {
+        if (naughtyLevelMenuController == null)
+            naughtyLevelMenuController = naughtyLevelMenuAnimation.GetComponentRequired<NaughtyLevelMenu>();
         naughtyLevelMenuController.UpdateValues();
         Debug.Log("Opening NaughtyLevelMenu");
         Show(naughtyLevelMenuAnimation);
@@ -225,11 +225,11 @@ public class GeneralUI : MonoBehaviour
         feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Drink);
     }
     
-    public void OpenFeedbackMenuCurrentSection()
+    public void OpenFeedbackMenuCurrentSection() // Send game content, a sentence for the current section/game
     {
-        Debug.Log("Opening FeedbackMenu - Current Section");
-        Show(feedbackMenu);
-        feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Section);
+        Debug.Log("Opening SendSentenceMenu");
+        Show(sendSentenceMenu);
+        sendSentenceMenu.GetComponent<SendSentenceMenu>().Setup();
     }
     
     public void OpenRandomChallengesMenu()

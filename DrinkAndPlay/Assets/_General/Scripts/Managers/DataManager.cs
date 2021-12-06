@@ -810,6 +810,33 @@ public class DataManager
     private const string authorSavename = "author";
 
     #endregion
+    
+    #region AuthorIsInstagram
+
+    public bool authorIsInstagram
+    {
+        get
+        {
+            //if (_authorIsInstagram == true)
+            _authorIsInstagram = SaveGame.Load(authorIsInstagramSavename, true);
+
+            return _authorIsInstagram;
+        }
+        set
+        {
+            if (_authorIsInstagram == value) 
+                return;
+            
+            Debug.Log("New authorIsInstagram state: " + value);
+            _authorIsInstagram = value;
+            SaveGame.Save(authorIsInstagramSavename, value);
+        }
+    }
+    // ReSharper disable once InconsistentNaming
+    private bool _authorIsInstagram;
+    private const string authorIsInstagramSavename = "authorIsInstagram";
+
+    #endregion
 
     #region DisclaimerPopup
 

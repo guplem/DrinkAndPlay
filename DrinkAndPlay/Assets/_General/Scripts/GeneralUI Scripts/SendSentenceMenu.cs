@@ -7,28 +7,21 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class FeedbackMenu : MonoBehaviour
+public class SendSentenceMenu : MonoBehaviour
 {
     private string theme;
     private string message;
     //private string author;
 
-    [SerializeField] private Localizer topBarText;
+    //[SerializeField] private Localizer topBarText;
     [SerializeField] private TMP_InputField messageInputField;
     [SerializeField] private TMP_InputField authorInputField;
-    
+    [SerializeField] private Toggle instagramUsernameToggle;
     
     [SerializeField] private TextMeshProUGUI sendTextButton;
     [SerializeField] private Image sendIconButton;
     [SerializeField] private Button sendButton;
 
-    public enum FeedbackType
-    {
-        General,
-        Game,
-        Drink
-    }
-    
     private bool subscribed = false;
     private void OnEnable()
     {
@@ -59,27 +52,14 @@ public class FeedbackMenu : MonoBehaviour
     }
 
 
-    public void Setup(FeedbackType feedbackType)
+    public void Setup()
     {
         OnEnable();
         
-        switch (feedbackType)
-        {
-            case FeedbackType.General:
-                this.theme = "General";
-                topBarText.Localize("Feedback");
-                break;
-            case FeedbackType.Game:
-                topBarText.Localize("SendGame");
-                this.theme = "Game";
-                break;
-            case FeedbackType.Drink:
-                topBarText.Localize("SendDrink");
-                this.theme = "Drink";
-                break;
-        }
-
+        this.theme = SectionManager.instance.section.ToString();
+        
         authorInputField.text = GameManager.instance.dataManager.author;
+        instagramUsernameToggle.isOn = GameManager.instance.dataManager.authorIsInstagram;
         
         UpdateVisuals();
     }
@@ -93,6 +73,12 @@ public class FeedbackMenu : MonoBehaviour
     public void UpdateAuthor(string newAuthor)
     {
         GameManager.instance.dataManager.author = newAuthor;
+        UpdateVisuals();
+    }
+    
+    public void UpdateIsInstagramAuthor(bool isInstagramAuthor)
+    {
+        GameManager.instance.dataManager.authorIsInstagram = isInstagramAuthor;
         UpdateVisuals();
     }
 
@@ -125,12 +111,12 @@ public class FeedbackMenu : MonoBehaviour
     {
         if (!AreContentsCorrect())
         {
-            Debug.LogWarning("Feedback sending aborted. A field is not correct.");
+            Debug.LogWarning("Sentence form sending aborted. A field is not correct.");
             return;
         }
-
+        
         //StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
-        ForceSendForm(theme + " (" + GameManager.instance.dataManager.language + ")", message, GameManager.instance.dataManager.author);
+        ForceSendForm(theme + " (" + GameManager.instance.dataManager.language + ")", message, GameManager.instance.dataManager.author + (instagramUsernameToggle.isOn? " (instagram)" : "" ));
         
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
@@ -142,7 +128,7 @@ public class FeedbackMenu : MonoBehaviour
     }
     
     [SuppressMessage("ReSharper", "ParameterHidesMember")]
-    public void ForceSendForm(string theme, string message, string author)
+    private void ForceSendForm(string theme, string message, string author)
     {
         StartCoroutine(Post(theme, message, author));
     }

@@ -51,13 +51,13 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 50,2,,,<p> elije a dos personas para que se azoten el culo el uno al otro.,<P> choose 2 people to slap each other's ass,<P> tria a dues persones perquè es fuetegin el cul l'un a l'altre.
 51,3,,,"<p> cierra los ojos y deja que varias personas del grupo te besen, luego elige quien besa mejor.","<P> close your eyes and 3 people in the group kiss you, then choose who is the best kisser","<P> tanca els ulls i deixa que diverses persones de el grup et facin petons, després tria qui besa millor."
 52,3,,,<p> dale un beso a todas las personas del sexo opueso.,<P> kiss every player of your opposite gender,<P> dóna-li un petó a totes les persones de l'sexe opueso.
-53,3,,,<p> dale un beso a todas las personas de tu mismo sexo.>a>Adrian<a<,<P> kiss every player of your own gender.>a>Adrian<a<,<P> dóna-li un petó a totes les persones del teu mateix sexe.>a>Adrian<a<
+53,3,Adrian,,<p> dale un beso a todas las personas de tu mismo sexo.,<P> kiss every player of your own gender.,<P> dóna-li un petó a totes les persones del teu mateix sexe.
 54,3,,,<p> date un pico con dos personas que elijas al mismo tiempo.,<P> kiss two people of your choice at the same time,<P> dónali un petó a dues persones que escullis a el mateix temps.
-55,3,,,<p> besa a <pr> en una parte de su cuerpo que empiece por la letra inicial de tu nombre.>a>Aina<a<,<P> kiss a part of <pr>'s body that starts with same letter as his/her name.> A> Aina <a <,<P> fa un petó a <pr> en una part del seu cos que comenci per la lletra inicial del teu nom.> A> Aina <a <
-56,3,,,<p> besa a <pr> en una parte de su cuerpo que empiece por la letra inicial de tu apellido.>a>Aina<a<,<P> kiss a part of <pr>'s body that begins with the first letter of your last name.> A> Aina <a <,<P> fa un petó a <pr> en una part del seu cos que comenci per la lletra inicial del teu cognom.> A> Aina <a <
+55,3,Aina,,<p> besa a <pr> en una parte de su cuerpo que empiece por la letra inicial de tu nombre.,<P> kiss a part of <pr>'s body that starts with same letter as his/her name.> A> Aina <a <,<P> fa un petó a <pr> en una part del seu cos que comenci per la lletra inicial del teu nom.> A> Aina <a <
+56,3,Aina,,<p> besa a <pr> en una parte de su cuerpo que empiece por la letra inicial de tu apellido.,<P> kiss a part of <pr>'s body that begins with the first letter of your last name.> A> Aina <a <,<P> fa un petó a <pr> en una part del seu cos que comenci per la lletra inicial del teu cognom.> A> Aina <a <
 57,3,,,<p> besa a la persona que te parece más atractiva de tu mismo sexo.,<P> kiss the most attractive player of your own gender,<P> fa un petó a la persona que et sembla més atractiva del teu mateix sexe.
 58,3,,,<p> besa a la persona que te parece más atractiva del sexo opuesto.,<P> kiss the most attractive player of your opposite gender,<P> fa un petó a la persona que et sembla més atractiva de el sexe oposat.
-59,2,,,<p> imita a Michael Jackson.>a>Los Niños<a<,<P> imitate Michael Jackson.> A> The children <a <,<P> imita Michael Jackson.> A> Els Nens <a <
+59,2,Los Niños,,<p> imita a Michael Jackson.,<P> imitate Michael Jackson.> A> The children <a <,<P> imita Michael Jackson.> A> Els Nens <a <
 60,3,,,<p> deja que <pr> te toque las partes.,<P> let <pr> touch your private parts,<P> deixa que <pr> et toqui les parts.
 61,3,,,<p> muérdele la oreja a <pr>.,<P> gently bite <pr>'s ear,<P> muérdele l'orella a <pr>.
 62,3,,,<p> intenta juntar los codos durante 15s.,<P> try to connect your elbows during 15 seconds,<P> intenta ajuntar els colzes durant 15s.
@@ -74,7 +74,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 73,4,,,<p> bebe una cerveza haciendo una turbolata.,<P> drinking a beer making a hole in it,<P> beu una cervesa fent una turbolata.
 74,5,,,<p> cuenta un sueño erótico que hayas tenido.,<P> explain an erotic dream you've had,<P> compte un somni eròtic que hagis tingut.
 75,5,,,<p> posa como si estuvieras disfrutando de tu postura sexual favorita.,<P> pose like you're enjoying your favorite sexual position.,<P> posa com si estiguessis gaudint de la teva postura sexual preferida.
-76,5,,,<p> besa al anfitrión/a en la boca.>a>Crespo<a<,<p> kiss the host/hostess on the mouth.>a>Crespo<a<,<p> fes-li un petó al anfitrió/na a la boca.>a>Crespo<a<
+76,5,Crespo,,<p> besa al anfitrión/a en la boca.,<p> kiss the host/hostess on the mouth.,<p> fes-li un petó al anfitrió/na a la boca.
 77,5,,,El grupo decide un reto y <p> tira una moneda. Si sale cara él deberá cumplirlo.,"The group decides a challenge and <p> flips a coin. If its heads, it will have to be done.",El grup decideix un repte i <p> llença una moneda. Si surt cara ell l'ha de complir.
 78,2,,,<p> ponte los zapatos de <pr> en la nariz durante 30 segundos.,<Pr> deeply smell <pr>'s shoes for 30 seconds.,<Pr> posa't les sabates de <pr> al nas durant 30 segons.
 ,,,,<p> imita a una girafa.,,

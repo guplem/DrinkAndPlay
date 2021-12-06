@@ -27,8 +27,8 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 26,3,,,¿Quién es más probable que no use condon?,Who is more likely to not use condoms?,Qui és més probable que no faci servir condó?
 27,1,,,¿Quién es más probable que sea fan de My Little Pony?,Who is more likely to be a fan of My Little Pony?,Qui és més probable que sigui fan de My Little Pony?
 28,2,,,¿Quién es más probable que coma comida de perros?,Who is more likely to eat dog food?,Qui és més probable que mengi menjar de gossos?
-29,1,,,¿Quién es más probable que se rape al cero?>a>Myc<a<,Who is more likely to shave his/her head?>a>Myc<a<,Qui és més probable que es rapi al zero?>a>Myc<a<
-30,2,,,¿Quién es más probable que lo echen de la discoteca?,Who is more likely to be kicked out of the disco?,Qui és més probable que el facin fora de la discoteca?
+29,1,,,¿Quién es más probable que se rape al cero?,Who is more likely to shave his/her head?,Qui és més probable que es rapi al zero?
+30,2,,Myc,¿Quién es más probable que lo echen de la discoteca?,Who is more likely to be kicked out of the disco?,Qui és més probable que el facin fora de la discoteca?
 31,4,,,¿Quién es más probable que muera por sobredosis de cocaína?,Who is more likely to die due  to a cocaine overdose?,Qui és més probable que mori per sobredosi de cocaïna?
 32,1,,,¿Quién es más probable que sobreviva en una isla desierta?,Who is more likely to survive on a desert island?,Qui és més probable que sobrevisqui en una illa deserta?
 33,4,,,¿Quién es más probable que se fume más porros?,Who is more likely to smoke more dope?,Qui és més probable que es fumi més porros?
@@ -127,9 +127,9 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 126,1,,,¿Quién es más probable que muera el último en un apocalipsis zombie?,Who is more likely to last longer in a zombie apocalypse?,Qui és més probable que mori l'últim a un apocalipsi zombie?
 127,1,,,¿Quién es más probable que le pida una canción al DJ?,Who is more likely to ask for a song to the DJ tonight?,Qui és més probable que li demani una cançó a l'DJ?
 128,4,,,¿Quién es más probable que sea peor de aguantar borracho/a?,Who is more likely to be the worst at dealing with the drunkenness?,Qui és més probable que sigui pitjor d'aguantar borratxo/a?
-129,5,,,¿Quién es más probable que use juguetes sexuales regularmente?>a>Carla<a<,Who is more likely to use sex toys regularly?>a>Carla<a<,Qui és més probable que faci servir joguines sexuals més sovint?>a>Carla<a<
-130,5,,,¿Quién es más probable que se haya gastado más dinero en juguetes sexuales?>a>Carla<a<,Who is more likely to spend more money on sex toys?>a>Carla<a<,Qui és més probable que es gasti més diners en joguines sexuals?>a>Carla<a<
-131,5,,,¿Quién es más probable que se haya acostado con más gente de distintas nacionalidades?>a>Giss<a<,Who is most likely to have slept with the most people of different nationalities?>a>Giss<a<,Qui és més probable que hagi follat amb més gent de diferent nacionalitats?>a>Giss<a<
+129,5,,Carla,¿Quién es más probable que use juguetes sexuales regularmente?,Who is more likely to use sex toys regularly?,Qui és més probable que faci servir joguines sexuals més sovint?
+130,5,,Carla,¿Quién es más probable que se haya gastado más dinero en juguetes sexuales?,Who is more likely to spend more money on sex toys?,Qui és més probable que es gasti més diners en joguines sexuals?
+131,5,,Giss,¿Quién es más probable que se haya acostado con más gente de distintas nacionalidades?,Who is most likely to have slept with the most people of different nationalities?,Qui és més probable que hagi follat amb més gent de diferent nacionalitats?
 132,1,,,¿Quién parece salido de un Anime?,Who looks like something out of an Anime?,Qui és més probable que hagi sortit d'un Anime?
 133,2,,,¿Quién es más probable que se quede calvo?,Who is most likely to go bald?,Qui és més probable que es quedi calb?
 ,,,,¿Quién tiene más paciencia?,,

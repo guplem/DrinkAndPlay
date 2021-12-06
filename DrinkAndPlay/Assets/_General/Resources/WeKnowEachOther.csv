@@ -53,7 +53,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 52,1,,,¿<p> comería comida que ha estado más de 3 segundos en el suelo?,Would <p> eat food that has been on the floor for more than 3 seconds?,El/la <P> menjaria menjar que ha estat més de 3 segons a terra?
 53,4,,,¿<p> aliviaría el dolor de una ruptura con alcohol?,Would <p> ease his/her the pain of a break up through alcohol?,El/la <P> alleujaria el dolor d'una ruptura amb alcohol?
 54,5,,,¿A <p> le gusta el BDSM?,Does <p> like BDSM?,A en/la <P> li agrada el sadomasoquisme?
-55,1,,,¿<p> piensa que Marilyn Monroe es atractiva?>a>pelirroja<a<,Does <p> think that Marilyn Monroe is attractive?>a>pelirroja<a<,El/la <P> pensa que Marilyn Monroe és atractiva?>a>pelirroja<a<
+55,1,pelirroja,,¿<p> piensa que Marilyn Monroe es atractiva?,Does <p> think that Marilyn Monroe is attractive?,El/la <P> pensa que Marilyn Monroe és atractiva?
 56,1,,,¿<p> piensa que Kim Kardashian está sobrevalorada?,Does <p> think that Kim Kardashian is overrated?,El/la <P> pensa que Kim Kardashian està sobrevalorada?
 57,2,,,¿<p> se cree que baila bien?,Does <p> think that he/she is a good dancer?,El/la <P> es creu que balla bé?
 58,2,,,¿<p> piensa que <pr> es atractivo/a?,Does <p> think that <pr> is attractive?,El/la <P> pensa que el/la <pr> és atractiu/iva?
@@ -143,7 +143,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 142,5,,,¿<p> se ha tocado viéndose a si mismo/a?,Has <p> ever masturbated looking at him/herself?,El/la <P> s'ha tocat veient-se a si mateix/a?
 143,3,,,¿<p> ha necesitado condones y no ha tenido?,Has <p> ever needed condoms when he/she didn't have any?,El/la <P> ha necessitat condons i no ha tingut?
 144,4,,,¿<p> ha vendido hierba?,Has <p> ever sold weed?,El/la <P> ha venut herba?
-145,1,,,¿<p> ha pedido una canción en la radio?>a>Buri<a<,Has <p> ever asked for a song in the radio?> A> Buri <a <,El/la <P> ha demanat una cançó a la ràdio?> A> Buri <a <
+145,1,Buri,,¿<p> ha pedido una canción en la radio?,Has <p> ever asked for a song in the radio?> A> Buri <a <,El/la <P> ha demanat una cançó a la ràdio?> A> Buri <a <
 146,2,,,¿<p> ha pedido un DNI para poder entrar en algún local?,Has <p> ever asked for someone's ID to enter a club?,El/la <P> ha demanat un DNI per a poder entrar en algun local?
-,,,,¿<p> tiene los pezones más grandes que <pr>?>a>Pepe<a<,,
+,,Pepe,,¿<p> tiene los pezones más grandes que <pr>?,,
 ,,,,¿<p> habla 3 o más idiomas?,,

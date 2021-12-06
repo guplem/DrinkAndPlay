@@ -1339,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentenceText: {fileID: 4967981588915645114}
   likeButton: {fileID: 5672261355161649264}
+  author: {fileID: 5485269062855260334}
 --- !u!1 &9009350255603807403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,11 +1497,6 @@ MonoBehaviour:
   textsToLocalize:
   - stringTag: 
     tmProGui: {fileID: 9009350255603807397}
-    methodToCallAfter:
-      m_PersistentCalls:
-        m_Calls: []
-  - stringTag: a
-    tmProGui: {fileID: 5485269062855260334}
     methodToCallAfter:
       m_PersistentCalls:
         m_Calls: []

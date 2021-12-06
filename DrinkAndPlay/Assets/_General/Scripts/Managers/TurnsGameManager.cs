@@ -200,7 +200,8 @@ public abstract class TurnsGameManager : SectionManager
         
         Debug.Log("Setting text in card: " + textInCard.localizedText +  ".\nFrom the localization file: '" + textInCard.localizationFile + "' after a search for a text with NaughtyLevel = " + GameManager.instance.dataManager.naughtyLevel);
         
-        gameCard.sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
+        //gameCard.sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
+        gameCard.Display(textInCard);
 
         //authorText.text = textInCard.localizedText.author;
         

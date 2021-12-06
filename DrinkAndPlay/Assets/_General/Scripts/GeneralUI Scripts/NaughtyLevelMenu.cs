@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class NaughtyLevelMenu : MonoBehaviour
 {
-
-    [FormerlySerializedAs("minSliderValueIndicator")]
-    [SerializeField] private TextMeshProUGUI sliderValueIndicator;
+    
+    [SerializeField] private Image sliderImageIndicator;
     [FormerlySerializedAs("minSlider")] [SerializeField] private Slider naughtinessSlider;
     [SerializeField] private Toggle automaticNaughtinessUpdatesToggle;
-    private bool setUpDone = false; 
+    private bool setUpDone = false;
+    [SerializeField] private List<Sprite> sliderSprites;
 
     //[Header("MAX")]
     //[SerializeField] private TextMeshProUGUI maxSliderValueIndicator;
@@ -21,41 +21,41 @@ public class NaughtyLevelMenu : MonoBehaviour
 
     private void Start()
     {
-        SetupSlider(naughtinessSlider, sliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.x, GameManager.instance.dataManager.naughtyLevelExtremes.y, GameManager.instance.dataManager.naughtyLevel);
+        SetupSlider(naughtinessSlider, sliderImageIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.x, GameManager.instance.dataManager.naughtyLevelExtremes.y, GameManager.instance.dataManager.naughtyLevel);
         //SetupSlider(maxSlider, maxSliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.min, GameManager.instance.dataManager.naughtyLevelExtremes.max, GameManager.instance.dataManager.GetNaughtyLevelMax());
         automaticNaughtinessUpdatesToggle.isOn = GameManager.instance.dataManager.automaticNaughtyLevel;
         setUpDone = true;
     }
 
-    private void SetupSlider(Slider slider, TextMeshProUGUI textIndicator, int minValue, int maxValue, float currentValue)
+    private void SetupSlider(Slider slider, Image imageIndicator, int minValue, int maxValue, float currentValue)
     {
 
         slider.minValue = minValue;
         slider.maxValue = maxValue;
-        SetValueSlider(slider, textIndicator, currentValue);
+        SetValueSlider(slider, imageIndicator, currentValue);
     }
 
-    private void SetValueSlider(Slider slider, TextMeshProUGUI textIndicator, float value)
+    private void SetValueSlider(Slider slider, Image imageIndicator, float value)
     {
         slider.value = value;
-        SetTextIndicator(textIndicator, value);
+        SetSpriteIndicator(imageIndicator, value);
     }
 
-    private void SetTextIndicator(TextMeshProUGUI textIndicator, float value)
+    private void SetSpriteIndicator(Image imageIndicator, float value)
     {
         int newValueInt = Mathf.RoundToInt(value);
-        textIndicator.text = newValueInt.ToString();
+        imageIndicator.sprite = sliderSprites[(int)(Mathf.RoundToInt(value) - 1)];
     }
 
     public void NewValue(float newVal)
     {
         if (newVal > GameManager.instance.dataManager.naughtyLevelExtremes.y)
         {
-            SetValueSlider(naughtinessSlider, sliderValueIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.y);
+            SetValueSlider(naughtinessSlider, sliderImageIndicator, GameManager.instance.dataManager.naughtyLevelExtremes.y);
         }
         else
         {
-            SetTextIndicator(sliderValueIndicator, newVal);
+            SetSpriteIndicator(sliderImageIndicator, newVal);
             GameManager.instance.dataManager.SetNaughtyLevel(newVal);
         }
     }
@@ -68,7 +68,7 @@ public class NaughtyLevelMenu : MonoBehaviour
         }
         else
         {
-            SetTextIndicator(maxSliderValueIndicator, newVal);
+            SetSpriteIndicator(maxSliderValueIndicator, newVal);
             GameManager.instance.dataManager.SetNaughtyLevelMax(Mathf.RoundToInt(newVal));
         }
     }*/

@@ -489,7 +489,7 @@ public class DataManager
 
     private DateTime lastNaughtinessUpdate = DateTime.Now;
     private float totalNaughtinessPlannedIncrease => naughtyLevelExtremes.y - defaultNaughtyLevel;
-    private TimeSpan totalPlannedTimeToIncreaseToMaximumNaughtiness => TimeSpan.FromMinutes(70); // Trime from the default value to the maximum value possible
+    private TimeSpan totalPlannedTimeToIncreaseToMaximumNaughtiness => TimeSpan.FromMinutes(60); // Trime from the default value to the maximum value possible
 
     public void CheckAndUpdateNaughtyLevel()
     {

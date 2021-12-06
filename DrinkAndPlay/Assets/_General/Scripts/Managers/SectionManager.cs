@@ -31,6 +31,8 @@ public abstract class SectionManager : MonoBehaviour
         
         GetComponent<RectTransform>().SetTop(gm.generalUi.topBar.GetComponent<RectTransform>().GetHeightAnchors());
 
+        gm.dataManager.ResetTimeSinceLastNaughtinessUpdate();
+        
         Debug.Log(" ========= Finished section setup - SectionManager (Awake) ========= ");
         
     }
@@ -45,6 +47,7 @@ public abstract class SectionManager : MonoBehaviour
 
         gm = GameManager.instance;
     }
+    
     private void SetupSectionUi()
     {
         Debug.Log("Setting up section UI");

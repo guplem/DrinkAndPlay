@@ -499,8 +499,13 @@ public class DataManager
         TimeSpan timeSinceLastUpdate = DateTime.Now-lastNaughtinessUpdate;
         double naughtinessIncrease = timeSinceLastUpdate.TotalMinutes*totalNaughtinessPlannedIncrease/totalPlannedTimeToIncreaseToMaximumNaughtiness.TotalMinutes;
         naughtyLevel += (float)naughtinessIncrease;
-        lastNaughtinessUpdate = DateTime.Now;
+        ResetTimeSinceLastNaughtinessUpdate();
         Debug.Log($"Naughtiness increased by {naughtinessIncrease:0.00}, new tha value is {naughtyLevel:0.00}. Time since last update: {timeSinceLastUpdate.TotalSeconds:0.0}s");
+    }
+    
+    public void ResetTimeSinceLastNaughtinessUpdate()
+    {
+        lastNaughtinessUpdate = DateTime.Now;
     }
     
     #endregion
@@ -843,6 +848,5 @@ public class DataManager
     }
 
     #endregion
-
 
 }

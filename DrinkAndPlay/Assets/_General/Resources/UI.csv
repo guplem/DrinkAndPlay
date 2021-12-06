@@ -29,7 +29,7 @@ PlayerList,Lista de jugadores,Player list,Llista de jugadors
 Min,Mínimo,Minimum,Mínim
 Max,Máximo,Maximum,Màxim
 NaughtyLevelExplanation,Selecciona el nivel de picante que quieres que tengan los juegos.,Select the naughtiness level you want the games to have.,Selecciona el nivell de picant que vols que tinguin els jocs.
-NaughtyLevelsDescriptions,😅😳😏🚨🔥<br><color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto.,😅😳😏🚨🔥<br><color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels.,😅😳😏🚨🔥<br><color=#cd293c>Atenció: </color>No es recomana canviar el nivell per defecte.
+automaticNaughtinessUpdatesDescriptions,<color=#cd293c>Atención:</color> No se recomienda cambiar el nivel por defecto.,<color=#cd293c>Attention: </color>It is not reccomended to alter the defaul levels.,<color=#cd293c>Atenció: </color>No es recomana canviar el nivell per defecte.
 General,General,General,General
 Games,Juegos,Games,Jocs
 Help,Ayuda,Help,Ajuda
@@ -99,5 +99,5 @@ MainMenu,Menu Principal,Main menu,Menú Principal
 GuessWho,Adivina Quién,Guess who,Endevina Qui
 Taboo,Tabú,Taboo,Tabú
 disclaimer,disclaimer ESP,disclaimer ENG,disclaimer CAT
-automaticNaughtinessUpdates,automaticNaughtinessUpdates,automaticNaughtinessUpdates,automaticNaughtinessUpdates
-allNaughtyLevels,,,
+automaticNaughtinessUpdates,Actualización automática del nivel de picante,Automatic naughtiness update,Actualització automàtica del nivell de picant
+allNaughtyLevels,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not,😅This is😳😏 in the 🚨🔥same line<br>This is not

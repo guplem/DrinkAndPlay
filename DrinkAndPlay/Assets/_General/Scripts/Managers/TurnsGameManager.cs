@@ -62,6 +62,7 @@ public abstract class TurnsGameManager : SectionManager
     
     protected TextInTurnsGame GetNextText(LocalizationFile localizationFile)
     {
+        gm.dataManager.CheckAndUpdateNaughtyLevel();
         //CounterDebug(localizationFile);
 
         if (localizationFile == null)

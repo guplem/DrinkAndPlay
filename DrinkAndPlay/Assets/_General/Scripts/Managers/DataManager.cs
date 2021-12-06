@@ -440,7 +440,7 @@ public class DataManager
         
         float probability = GetProbabilityOfNaughtinessUsingGaussianFunction(valueToCheck);
         bool result = Random.value <= probability;
-        Debug.Log($"VALUE_TO_CHECK: {valueToCheck:0}, PROBABILITY: {probability:0.0}, RESULT: {result}");
+        //Debug.Log($"VALUE_TO_CHECK: {valueToCheck:0}, PROBABILITY: {probability:0.0}, RESULT: {result}");
         return result;
     }
 
@@ -458,6 +458,12 @@ public class DataManager
         return probability;
     }
     
+
+    
+    #endregion
+
+    #region AutomaticNaughtyLevel
+
     public bool automaticNaughtyLevel
     {
         get
@@ -480,9 +486,24 @@ public class DataManager
     // ReSharper disable once InconsistentNaming
     private bool _automaticNaughtyLevel;
     private const string automaticNaughtyLevelSavename = "automaticNaughtyLevel";
+
+    private DateTime lastNaughtinessUpdate = DateTime.Now;
+    private float totalNaughtinessPlannedIncrease => naughtyLevelExtremes.y - defaultNaughtyLevel;
+    private TimeSpan totalPlannedTimeToIncreaseToMaximumNaughtiness => TimeSpan.FromMinutes(70); // Trime from the default value to the maximum value possible
+
+    public void CheckAndUpdateNaughtyLevel()
+    {
+        if (!automaticNaughtyLevel)
+            return;
+        
+        TimeSpan timeSinceLastUpdate = DateTime.Now-lastNaughtinessUpdate;
+        double naughtinessIncrease = timeSinceLastUpdate.TotalMinutes*totalNaughtinessPlannedIncrease/totalPlannedTimeToIncreaseToMaximumNaughtiness.TotalMinutes;
+        naughtyLevel += (float)naughtinessIncrease;
+        lastNaughtinessUpdate = DateTime.Now;
+        Debug.Log($"Naughtiness increased by {naughtinessIncrease:0.00}, new tha value is {naughtyLevel:0.00}. Time since last update: {timeSinceLastUpdate.TotalSeconds:0.0}s");
+    }
     
     #endregion
-    
 
     #region textsRegistered
     private Dictionary<string, List<string>> textsRegistered
@@ -802,7 +823,7 @@ public class DataManager
 
             return _lastSessionDateTime;
         }
-        set
+        private set
         {
             if (_lastSessionDateTime == value) 
                 return;

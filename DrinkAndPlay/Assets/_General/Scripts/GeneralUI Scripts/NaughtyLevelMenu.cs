@@ -78,4 +78,9 @@ public class NaughtyLevelMenu : MonoBehaviour
         if (setUpDone)
             GameManager.instance.dataManager.automaticNaughtyLevel = state;
     }
+
+    public void UpdateValues()
+    {
+        Start();
+    }
 }

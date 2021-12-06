@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GeneralUI : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class GeneralUI : MonoBehaviour
     [SerializeField] private AnimationUI visualsMenu;
     [SerializeField] private AnimationUI playersMenu;
     private PlayersMenu playersMenuController;
-    [SerializeField] private AnimationUI naughtyLevelMenu;
+    [FormerlySerializedAs("naughtyLevelMenu")] [SerializeField] private AnimationUI naughtyLevelMenuAnimation;
+    private NaughtyLevelMenu naughtyLevelMenuController;
     [SerializeField] private AnimationUI feedbackMenu;
     [SerializeField] private AnimationUI randomChallengesMenu;
     [SerializeField] private AnimationUI helpMenu;
@@ -74,6 +76,9 @@ public class GeneralUI : MonoBehaviour
         
         if (errorsMenuController == null)
             errorsMenuController = errorsMenu.GetComponent<ErrorsMenu>();
+        
+        if (naughtyLevelMenuController == null)
+            naughtyLevelMenuController = naughtyLevelMenuAnimation.GetComponent<NaughtyLevelMenu>();
     }
 
     public void CloseLastOpenUiElement()
@@ -185,8 +190,9 @@ public class GeneralUI : MonoBehaviour
     }
     public void OpenNaughtyLevelMenu()
     {
+        naughtyLevelMenuController.UpdateValues();
         Debug.Log("Opening NaughtyLevelMenu");
-        Show(naughtyLevelMenu);
+        Show(naughtyLevelMenuAnimation);
     }
     public void OpenDonations()
     {

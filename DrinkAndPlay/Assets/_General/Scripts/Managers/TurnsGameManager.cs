@@ -34,8 +34,8 @@ public abstract class TurnsGameManager : SectionManager
     private List<TextInTurnsGame> history = new List<TextInTurnsGame>();
     private int historyIndex = -1;
 
-    private int minDelayForRandomChallenge = 8;
-    private int maxDelayForRandomChallenge = 16;
+    private int minDelayForRandomChallenge = 6;
+    private int maxDelayForRandomChallenge = 15;
     private int currentDelayForRandomChallenge = 0;
     
     
@@ -125,7 +125,7 @@ public abstract class TurnsGameManager : SectionManager
         
         currentDelayForRandomChallenge++;
         if (currentDelayForRandomChallenge < minDelayForRandomChallenge) return;
-        float probability = (currentDelayForRandomChallenge - minDelayForRandomChallenge) / (maxDelayForRandomChallenge - minDelayForRandomChallenge) * 100;
+        float probability = (currentDelayForRandomChallenge - minDelayForRandomChallenge) / (maxDelayForRandomChallenge - minDelayForRandomChallenge) * 100f;
         if (probability >= Random.Range(0.0f, 100.0f))
         {
             GameManager.instance.generalUi.ShowRandomChallenge();

@@ -180,7 +180,16 @@ public class DataManager
     
     public Player GetFakePlayer()
     {
-        return new Player(GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, "ChoosePlayer", false).text);
+        var random = new EasyRandom();
+        int randomInt = random.GetRandomInt(2);
+        string textId = "";
+        switch (randomInt)
+        {
+            case 0: textId = "ChoosePlayer_1"; break;
+            case 1: textId = "ChoosePlayer_2"; break;
+        }
+        
+        return new Player(GameManager.instance.localizationManager.SearchLocalizedText(GameManager.instance.uiLocalizationFile, textId, false).text);
     }
     public List<Player> GetPlayers()
     {

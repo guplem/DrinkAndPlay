@@ -181,7 +181,7 @@ public class Localizer : MonoBehaviour
                 int pFrom = text.IndexOf(">"+txt.stringTag+">", StringComparison.OrdinalIgnoreCase) + tagLength;
                 int pTo = text.LastIndexOf("<"+txt.stringTag+"<", StringComparison.OrdinalIgnoreCase);
             
-                if (pFrom >= pTo || pFrom < 0 || pTo < 0) //Error handeling
+                if (pFrom >= pTo || pFrom < 0 || pTo < 0) //Error handling
                 {
                     ApplyText(txt.tmProGui, "");
                     if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();

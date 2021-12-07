@@ -75,7 +75,8 @@ MN,,Mímica,Mime,Mímica
 MD,,"Un jugador tendrá que leer la palabra que se mostrará y los demás jugadores intentarán conseguir adivinar de qué palabra se trata tras una actuación mímica del jugador que la ha leído.<br><br>Si no consiguen adivinarla, les toca beber. ","By turns, players will have to read the word that will be displayed.<br><br>The other players will try to guess what word it is after a mimicry of the player who has read it.<br><br>If they do not get to guess it, it's their turn to drink.","Un jugador haurà de llegir la paraula que es mostrarà i els altres jugadors intentaran aconseguir endevinar de quina paraula es tracta després d'una actuació mímica de el jugador que l'ha llegit.<br><br>Si no aconsegueixen endevinar, els toca beure."
 MIXN,,Mix,Mix,Mix
 MIXD,,¡Disfruta de más de 1.000 frases y retos y no dejes que nada pare la fiesta!<br><br>Mix de todo el contenido de los juegos de Drink & Play.,"Enjoy more than 1,000 phrases and challenges and let nothing stop the party!<br><br>Mix all the content from all Drink & Play games.",Gaudeix de més de 1.000 frases i reptes i no deixis que res pari la festa!<br><br>Mix de tot el contingut de tots els jocs de Drink & Play.
-ChoosePlayer,,"""¡Elegid un jugador!""","""Choose a player!""","""Escolliu un jugador!"""
+ChoosePlayer_1,,Quien tenga la copa más llena,Whoever has the fullest cup,Qui tingui la copa més plena
+ChoosePlayer_2,,Quien tenga la copa más vacía,Whoever has the emptiest cup,Qui tingui la copa més buida
 RandomOrder,,Orden aleatorio,Random order,Ordre aleatori
 ErrorMenu,,Informar de un Error,Report an Error,Informar d'un error
 IssueType,,Tipo de error,Error type,Tipus d'error

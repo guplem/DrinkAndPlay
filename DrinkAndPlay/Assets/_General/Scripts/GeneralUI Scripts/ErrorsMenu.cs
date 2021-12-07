@@ -68,7 +68,8 @@ public class ErrorsMenu : MonoBehaviour
         if (nonInclusive) message += "NON-INCLUSIVE, "; else
         if (other) message += "OTHER, "; else
             message += "UNDEFINED, ";
-        if (currentTextOfError != null) message += "Language: " + GameManager.instance.dataManager.language + ", Localized Text: " + currentTextOfError.localizedText + ", Localization File: " + currentTextOfError.localizationFile.ToString() + ".";
+        if (currentTextOfError != null) 
+            message += $"Language: {GameManager.instance.dataManager.language}, Localized Text: {currentTextOfError.localizedText}, Localization File: {currentTextOfError.localizationFile}.";
 
         return message;
     }

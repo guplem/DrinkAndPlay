@@ -129,8 +129,21 @@ public class FeedbackMenu : MonoBehaviour
             return;
         }
 
+        
+        string sentenceId = "";
+        try
+        {
+            TurnsGameManager turnsGameManager = (TurnsGameManager) SectionManager.instance;
+            sentenceId= turnsGameManager.gameCard.textInCard.localizedText.id;
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
+
+        string themeSent = $"{this.theme} ({GameManager.instance.dataManager.language}, id: {sentenceId})";
         //StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
-        ForceSendForm(theme + " (" + GameManager.instance.dataManager.language + ")", message, GameManager.instance.dataManager.author);
+        ForceSendForm(themeSent, message, GameManager.instance.dataManager.author);
         
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";

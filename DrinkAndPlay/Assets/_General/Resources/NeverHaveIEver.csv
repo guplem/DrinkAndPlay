@@ -27,7 +27,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 26,5,Steve,,Yo nunca me he acostado con alguien con más de 10 años de diferencia.,Never have I ever slept with someone with who I had a 10 years difference (or more),Jo mai m'he ficat al llit amb algú amb més de 10 anys de diferència.> A> Steve <a <
 27,3,Steve,,Yo nunca me he liado con alguien con más de 10 años de diferencia conmigo.,Never have I ever made out with someone with who I had a 10 or more years difference,Jo mai m'he embolicat amb algú amb més de 10 anys de diferència amb mi.> A> Steve <a <
 28,4,,,Yo nunca he probado la cocaína.,Never have I ever tried cocaine,Jo mai he provat la cocaïna.
-29,5,nick,,Yo nunca he hecho un trio.,Never have I ever had a threesome.,Jo mai he fet un trio.
+29,5,Anónimo,,Yo nunca he hecho un trio.,Never have I ever had a threesome.,Jo mai he fet un trio.
 30,1,,,Yo nunca he acampado en la montaña.,Never have I ever camped in the mountains.,Jo mai he acampat a la muntanya.
 31,1,,,Yo nunca he dormido en la playa.,Never have I ever slept on the beach.,Jo mai he dormit a la platja.
 32,2,,,Yo nunca he tenido sexo con alguien famoso,Never have I ever have sex with someone famous,Jo mai he tingut sexe amb algú famós.
@@ -71,7 +71,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 70,2,,,Yo nunca he tenido la regla cuando no tocaba.,Never have I ever had my period out of schedule,Jo mai he tingut la regla quan no tocava.
 71,2,,,Yo nunca he tenido un susto de embarazo.,Never have I ever had a pregnancy scare.,Jo mai he tingut un ensurt d'embaràs.
 72,2,,,Yo nunca me he meado encima.,Never have I ever peed myself,Jo mai m'he pixat a sobre.
-73,2,nick,,Yo nunca he meado en un lugar público.,Never have I ever peed in a public place.,Jo mai he pixat en un lloc públic.
+73,2,Anónimo,,Yo nunca he meado en un lugar público.,Never have I ever peed in a public place.,Jo mai he pixat en un lloc públic.
 74,2,,,Yo nunca he intentado cantar una canción que no sabía.,Never have I ever tried to sing a song I didn't know.,Jo mai he intentat cantar una cançó que no sabia.
 75,1,,,Yo nunca he cantado el himno nacional de un país que no sea el mío.,Never have I ever sung the national anthem of a country other than mine.,Jo mai he cantat l'himne nacional d'un país que no sigui el meu.
 76,1,,,Yo nunca he visto una luna roja.,Never have I ever seen a red moon.,Jo mai he vist una lluna vermella.
@@ -293,7 +293,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 292,5,,,Yo nunca me he hecho una prueba de embarazo.,Never have I ever done a pregnancy test.,Jo mai m'he fet una prova d'embaràs.
 293,2,,,Yo nunca he pensado que alguien besa fatal.,Never have I ever thought someone was a terrible kisser,Jo mai he pensat que algú fa un petó fatal.
 294,2,,,Yo nunca he mandado fotos de mi mierda.,Never have I ever sent pictures of a shit I had just taken.,Jo mai he manat fotos de la meva merda.
-295,3,uwu,,Yo nunca he pensado que la persona que mejor me ha besado está entre los presentes.,Never have I ever thought the best kisser I have ever meet is here right now,Jo mai he pensat que la persona que millor m'ha besat està entre els presents> a> uwu <a <.
+295,3,uwu,,Yo nunca he pensado que la persona que mejor me ha besado está entre los presentes.,Never have I ever thought the best kisser I have ever meet is here right now,Jo mai he pensat que la persona que millor m'ha besat està entre els presents.
 296,5,,,Yo nunca he tenido una relación abierta.,Never have I ever had an open relationship.,Jo mai he tingut una relació oberta.
 297,5,,,Yo nunca me he arrepentido de tener una relación abierta.,Never have I ever regretted having an open relationship.,Jo mai m'he penedit de tenir una relació oberta.
 298,3,,,Yo nunca me he acostado con alguien en la primera cita.,Never have I ever slept with someone on the first date.,Jo mai m'he ficat al llit amb algú a la primera cita.
@@ -304,7 +304,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 303,3,,,Yo nunca he practicado sexo en una terraza.,Never have I ever had sex on a terrace.,Jo mai he practicat sexe en una terrassa.
 304,3,,,Yo nunca he perdido la virginidad en un sitio que no sea una cama.,Never have I ever lost my virginity in a place other than a bed.,Jo mai he perdut la virginitat en un lloc que no sigui un llit.
 305,5,,,Yo nunca me he equivocado de nombre durante el sexo.,Never have I ever said the wrong name during sex.,Jo mai m'he equivocat de nom durant el sexe.
-306,5,uwu,,"Yo nunca he tenido ganas de hacer ""cosas"" con alguien aqui presente.","Never have I ever felt like doing ""things"" with anyone here> a> uwu <a <.","Jo mai he tingut ganes de fer ""coses"" amb algú aqui present> a> uwu <a <."
+306,5,uwu,,"Yo nunca he tenido ganas de hacer ""cosas"" con alguien aqui presente.","Never have I ever felt like doing ""things"" with anyone here.","Jo mai he tingut ganes de fer ""coses"" amb algú aqui present."
 307,5,,,Yo nunca he experimentado con mi orientación sexual.,Never have I ever experienced with my sexual orientation.,Jo mai he experimentat amb la meva orientació sexual.
 308,2,,,Yo nunca he hecho un sinpa.,Never have I ever run away without paying,Jo mai he fet un sinpa.
 309,5,,,Yo nunca he sido infiel.,Never have I ever been unfaithful.,Jo mai he estat infidel.
@@ -321,7 +321,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 320,3,,,Yo nunca he sido atado/a durante el sexo.,Never have I ever been tied during sex.,Jo mai he estat lligat/ada durant el sexe.
 321,5,,,Yo nunca me he excitado pensando en alguno de los presentes.,Never have I ever gotten horny thinking of someone present here,Jo mai m'he excitat pensant en algun dels presents.
 322,2,,,Yo nunca me he empalmado en la playa.,Never have I ever gotten hard in the beach.,Jo mai m'he empalmat a la platja.
-323,5,El Cid,,Yo nunca he mojado la espada de sangre.,Never have I ever gotten my sword wet in blood> a> El Cid <a <.,Jo mai he mullat l'espasa de sang> a> El Cid <a <.
+323,5,El Cid,,Yo nunca he mojado la espada de sangre.,Never have I ever gotten my sword wet in blood,Jo mai he mullat l'espasa de sang.
 324,3,,,Yo nunca me he masturbado en el coche.,Never have I ever masturbated in the car.,Jo mai m'he masturbat al cotxe.
 325,2,,,Yo nunca me he liado con alguien que tenia pareja.,Never have I ever hooked up with someone who had a boyfriend / girlfriend,Jo mai m'he embolicat amb algú que tenia parella.
 326,2,,,Yo nunca he mentido sobre si era virgen.,Never have I ever lied about being a virgin.,Jo mai he mentit sobre si era verge.
@@ -329,7 +329,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 328,5,,,Yo nunca he recibido una paja/dedos mientras conducía.,Never have I ever been masturbated while driving.,Jo mai he rebut una palla/dits mentre conduïa.
 329,2,,,Yo nunca he mordido el culo a alguien.,Never have I ever bitten anyone's ass.,Jo mai he mossegat el cul a algú.
 330,3,,,Yo nunca he hecho un 69.,Never have I ever done a 69.,Jo mai he fet un 69.
-331,3,Tu me la comes y yo te debo una,,Yo nunca he hecho un 68.,Never have I ever done a 68> a> You eat me up and I owe you one<a <.,Jo mai he fet un 68> a>Me la menges i jo et dec una<a <.
+331,3,Tu me la comes y yo te debo una,,Yo nunca he hecho un 68.,Never have I ever done a 68,Jo mai he fet un 68
 332,3,,,Yo nunca lo he hecho en la ducha.,Never have I ever done it in the shower.,Jo mai ho he fet a la dutxa.
 333,3,,,Yo nunca lo he hecho en la postura de misionero.,Never have I ever done it missionary style,Jo mai ho he fet en la postura de missioner.
 334,3,,,Yo nunca lo he hecho en la postura del perrito.,Never have I ever done it doggy style,Jo mai ho he fet en la postura de l'gosset.
@@ -375,7 +375,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 374,2,,,Yo nunca he usado un tampax durante mas de 12h.,Never have I ever used a tampon for more than 12h.,Jo mai he fet servir un tampax durant més de 12h.
 375,1,,,Yo nunca me he sentido atraido/a por la pareja de un amigo/a.,Never have I ever felt attracted to a friend's partner,Jo mai m'he sentit atret/a per la parella d'un amic o amiga.
 376,2,,,Yo nunca he usado una compresa durante mas de un dia.,Never have I ever used a sanity pad for more than one day.,Jo mai he fet servir una compresa durant més d'un dia.
-377,1,Una paja y a dormir,,Yo nunca me he hecho un Vladimir.,"Never have I ever done a Vladimir> a> have a wank, then get some sleep <a <.",Jo mai m'he fet un Vladimir> a> Una palla i a dormir <a <.
+377,1,Una paja y a dormir,,Yo nunca me he hecho un Vladimir.,Never have I ever done a Vladimir.,Jo mai m'he fet un Vladimir.
 378,5,,,Yo nunca me he masturbado con una fruta u hortaliza.,Never have I ever masturbated with a fruit or vegetable.,Jo mai m'he masturbat amb una fruita o hortalissa.
 379,5,,,Yo nunca he tenido más de un folla-amigo/a a la vez.,Never have I ever had more than one fuck-friend at a time.,Jo mai he tingut més d'un folla-amic o folla-amiga a la vegada.
 380,2,,,Yo nunca he hecho un chupetón.,Never have I ever done a hickey.,Jo mai he fet una xuclada.
@@ -390,19 +390,19 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 389,1,,,Yo nunca he hecho topless.,Never have I ever done topless.,Jo mai he fet topless.
 390,3,,,Yo nunca he practicado sexo delante de un espejo.,Never have I ever had sex in front of a mirror.,Jo mai he practicat sexe davant d'un mirall.
 391,3,,,Yo nunca he tenido sexo en un barco.,Never have I ever had sex on a boat.,Jo mai he tingut sexe en un vaixell.
-392,2,Harambe,,Yo nunca me he masturbado en un avión.,Never have I ever masturbated in an airplane.,Jo mai m'he masturbat en un avió> a> Harambe <a <.
+392,2,Harambe,,Yo nunca me he masturbado en un avión.,Never have I ever masturbated in an airplane.,Jo mai m'he masturbat en un avió.
 393,4,,,Yo nunca he probado las setas.,Never have I ever done mushrooms.,Jo mai he provat de consumir bolets al·lucinògens.
 394,3,,,Yo nunca he tenido sexo en el suelo.,Never have I ever had sex on the floor.,Jo mai he tingut sexe a terra.
 395,3,,,Yo nunca he follado en la piscina.,Never have I ever fucked in the pool.,Jo mai he follat ​​a la piscina.
 396,3,,,Yo nunca he follado en el cuarto de mi hermano/a.,Never have I ever fucked in my brother's / sister's room.,Jo mai he follat ​​a la cambra del meu germà/ana.
-397,1,A mi nunca se me ha caído el móvil en el retrete,,A mi nunca se me ha caído el móvil en el retrete.,Never have I ever accidentally dropped the phone in the toilet.,A mi mai se m'ha caigut el mòbil al lavabo.
+397,1,,,A mi nunca se me ha caído el móvil en el retrete.,Never have I ever accidentally dropped the phone in the toilet.,A mi mai se m'ha caigut el mòbil al lavabo.
 398,2,,,Yo nunca he guardado un video porno en favoritos.,"Never have I ever saved a porn video in my ""favorites""",Jo mai he guardat un vídeo porno en favorits.
-399,4,420,,Yo nunca he celebrado el 20 de Abril.,Never have I ever celebrated the 20th of April> a> 420 <a <.,Jo mai he celebrat el 20 d'abril> a> 420 <a <.
+399,4,420,,Yo nunca he celebrado el 20 de Abril.,Never have I ever celebrated the 20th of April.,Jo mai he celebrat el 20 d'abril.
 400,2,,,Yo nunca he sido rechazado/a en público.,Never have I ever been rejected in public.,Jo mai he estat rebutjat/ada en públic.
 401,5,Poy,,Yo nunca he pagado por el premium de una página porno.,Never have I ever paid for premium in a porn site.> A> Poy <a <,Jo mai he pagat pel premium d'una pàgina porno.> A> Poy <a <
 402,5,,,Yo nunca he pagado por porno.,Never have I ever paid for porn.,Jo mai he pagat per porno.
-403,2,Paquito,,Yo nunca he celebrado el 20 de noviembre.,Never have I ever celebrated the 20th of November> a> Paquito <a <.,Jo mai he celebrat el 20 de novembre> a> Paquito <a <.
-404,2,Buri,,Yo nunca me he llevado algo de casa de alguien para tener una excusa para volver.,Never have I ever taken something from someone's home to have an excuse to go back there> a> Buri <a <.,Jo mai m'he endut alguna cosa de casa d'algú per a tenir una excusa per a tornar> a> Buri <a <.
+403,2,Paquito,,Yo nunca he celebrado el 20 de noviembre.,Never have I ever celebrated the 20th of November.,Jo mai he celebrat el 20 de novembre.
+404,2,Buri,,Yo nunca me he llevado algo de casa de alguien para tener una excusa para volver.,Never have I ever taken something from someone's home to have an excuse to go back there.,Jo mai m'he endut alguna cosa de casa d'algú per a tenir una excusa per a tornar.
 405,3,Buri,,Yo nunca me he comido una polla con condón.,Never have I ever sucked a dick with a condom on it.> A> Buri <a <,Jo mai m'he menjat una polla amb condó.> A> Buri <a <
 406,4,,,Yo nunca he terminado en el hospital tras salir de fiesta.,Never have I ever ended up in a hospital after partying.,Jo mai he acabat a l'hospital després de sortir de festa.
 407,1,Buri,,Yo nunca he llevado calcetines diferentes en cada pié.,Never have I ever worn unmatching socks.> A> Buri <a <,Jo mai he portat mitjons diferents en cada peu.> A> Buri <a <
@@ -435,7 +435,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 434,2,,,Yo nunca he robado un bolo (bowling),Never have I ever stolen a bowling pin,Jo mai he robat una bitlla
 435,2,,,Yo nunca he elegido un libro por su escaso número de páginas.,Never have I ever chosen a book for its poor number of pages.,Jo mai he triat un llibre pel seu escàs nombre de pàgines.
 436,1,,,Yo nunca he escuchado una canción de K-pop.,Never have I ever heard a K-pop song,Jo mai he escoltat una cançó de K-pop.
-437,1,Obroni,,Yo nunca he viajado a Africa,Never have I ever traveled to Africa> a> obroni <a <,Jo mai he viatjat a Àfrica> a> Obroni <a <
+437,1,Obroni,,Yo nunca he viajado a Africa,Never have I ever traveled to Africa,Jo mai he viatjat a Àfrica
 438,1,Ahora es un buen momento,,Yo nunca he valorado con 5 estrellas una App.,Never have I ever rated an app with 5 stars> A> Now is a good time <a <,Jo mai he valorat amb 5 estrelles una App.> A> Ara és un bon moment <a <
 439,2,,,Yo nunca he pensado en como follan los erizos.,Never have I ever thought about how hedgehogs fuck.,Jo mai he pensat en com follen els eriçons.
 440,2,,,Yo nunca he dibujado un pene en un coche sucio.,Never have I ever drawn a penis in a dirty car.,Jo mai he dibuixat un penis en un cotxe brut.
@@ -462,19 +462,19 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 461,1,,,Yo nunca he pedido una canción al DJ.,Never have I ever asked for a song to the DJ.,Jo mai he demanat una cançó a l'DJ.
 462,1,Buri,,Yo nunca he jugado a juegos de rol.,Never have I ever played rol games.> A> Buri <a <,Jo mai he jugat a jocs de rol.> A> Buri <a <
 463,2,Buri,,Yo nunca me he meado de la risa.,Never have I ever peed because I laughed too much.> A> Buri <a <,Jo mai m'he pixat del riure.> A> Buri <a <
-464,2,Buri,,Yo nunca he rallado un coche ajeno,Never have I ever scratched someone else's car> a> Buri <a <,Jo mai he ratllat un cotxe aliè> a> Buri <a <
+464,2,Buri,,Yo nunca he rallado un coche ajeno,Never have I ever scratched someone else's car,Jo mai he ratllat un cotxe aliè
 465,2,,,Yo nunca me he meado conduciendo.,Never have I ever peed while driving.,Jo mai m'he pixat conduint.
 466,2,,,Yo nunca he meado en el lateral de una carretera.,Never have I ever peed on the side of a road.,Jo mai he pixat al lateral d'una carretera.
 467,3,judit esquerdats,,A mi nunca me lo han comido después de que hayan comido picante.,Never have I ever received an oral after that person ate spicy food.> A>Judit Esquerdats<a <,A mi mai me l'han menjat després que hagin menjat picant.> A> judit esquerdats <a <
 468,1,,,Yo nunca he tenido problemas al cagar tras comer demasiado picante.,Never have I ever had trouble taking a shit after eating spicy food,Jo mai he tingut problemes a l'cagar després de menjar massa picant.
 469,3,Núria,,Yo nunca he recordado una polla distinta a lo que realmente era.,Never have I ever thought a dick was different than what I remembered.> A> Núria <a <,Jo mai he recordat una polla diferent al que realment era.> A> Núria <a <
-470,3,Núria,,Yo nunca me he olvidado de las partes de alguien quien me he tirado,Never have I ever forgotten how the intimate parts of someone I've fucked looked like> a> Núria <a <,Jo mai m'he oblidat de les parts d'algú qui m'he tirat> a> Núria <a <
-471,3,Núria,,Yo nunca he tomado anticonceptivos para evitar la regla,Never have I ever taken contraceptive pills to avoid my period> a> Núria <a <,Jo mai he pres anticonceptius per evitar la regla> a> Núria <a <
+470,3,Núria,,Yo nunca me he olvidado de las partes de alguien quien me he tirado,Never have I ever forgotten how the intimate parts of someone I've fucked looked like,Jo mai m'he oblidat de les parts d'algú qui m'he tirat
+471,3,Núria,,Yo nunca he tomado anticonceptivos para evitar la regla,Never have I ever taken contraceptive pills to avoid my period,Jo mai he pres anticonceptius per evitar la regla
 472,6,,,Yo nunca me he masturbado mirando fotos del insta de alguien que conozco.,Never have I ever masturbated looking at Instagram pics of someone I know,Jo mai m'he masturbat mirant fotos de l'insta d'algú que conec.
-473,6,A mí nunca me ha venido a buscar mi pareja en casa de la persona con la que le había puesto los Buri,,A mí nunca me ha venido a buscar mi pareja en casa de la persona con la que le había puesto los cuernos.,Never have I ever been picked up by my partner at the house of with who I had cheated on him/her,A mi mai m'ha vingut a buscar la meva parella a casa de la persona amb la qual li havia posat les banyes.> A> Buri <a <
+473,6,,,A mí nunca me ha venido a buscar mi pareja en casa de la persona con la que le había puesto los cuernos.,Never have I ever been picked up by my partner at the house of with who I had cheated on him/her,A mi mai m'ha vingut a buscar la meva parella a casa de la persona amb la qual li havia posat les banyes.> A> Buri <a <
 474,2,Buri,,Yo nunca he cagado dentro del agua.,Never have I ever pooped inside the water.> A> Buri <a <,Jo mai he cagat dins l'aigua.> A> Buri <a <
-475,2,Buri,,Yo nunca he hecho putadas a alguien que estaba durmiendo,Never have I ever played a prank on someone who was sleeping> a> Buri <a <,Jo mai he fet putades a algú que estava dormint> a> Buri <a <
-476,2,Buri,,A mi nunca me han hecho putadas mientras dormía,Never have I ever been pranked while I was sleeping.> a> Buri <a <,A mi mai m'han fet putades mentre dormia> a> Buri <a <
+475,2,Buri,,Yo nunca he hecho putadas a alguien que estaba durmiendo,Never have I ever played a prank on someone who was sleeping,Jo mai he fet putades a algú que estava dormint
+476,2,Buri,,A mi nunca me han hecho putadas mientras dormía,Never have I ever been pranked while I was sleeping.,A mi mai m'han fet putades mentre dormia
 477,1,,,Yo nunca he hecho snow.,Never have I ever practiced snowboarding.,Jo mai he fet snow.
 478,1,,,Yo nunca he esquiado.,Never have I ever skied.,Jo mai he esquiat.
 479,5,Venteo,,Yo nunca he follado en una grúa.,Never have I ever fucked on a crane.,Jo mai he follat ​​en una grua.
@@ -495,13 +495,13 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 494,4,,,Yo nunca he fumado marihuana vendida por un policía.,Never have I ever smoked pot sold by a policeman.,Jo mai he fumat maria venuda per un policia.
 495,5,Juks,,Yo nunca me he masturbado durante una videollamada.,Never have I ever masturbated during a video call.,Jo mai m'he masturbat durant una videotrucada.
 496,2,,,Yo nunca me he grabado mientras cagaba.,Never have I ever recorded myself while pooping.,Jo mai m'he gravat mentre cagava.
-497,5,nick.,,Yo nunca lo he hecho en un sitio público.,Never have I ever had sex in a public place.,Jo mai ho he fet en un lloc públic.
-498,5,nick.,,Yo nunca lo he hecho en unos probadores.,Never have I ever had sex in a fitting room.,Jo mai ho he fet en uns emprovadors d'una botiga.
-499,5,nick.,,Yo nunca lo he hecho en un coche.,Never have I ever had sex in a car.,Jo mai ho he fet en un cotxe.
-500,2,nick.,,Yo nunca he sido pillado/a llegando borracho/a a casa.,Never have I ever been caught coming home drunk.,Jo mai he estat pillat arribant begut a casa.
-501,2,nick.,,Yo nunca he sido detenido/a.,Never have I ever been detained.,Jo mai he estat detingut/da.
-502,1,nick.,,Yo nunca me he tropezado por mirar el móvil.,Never have I ever stumbled because of looking at my cell phone.,Jo mai m'he xocat amb alguna cosa per mirar el mòbil.
-503,1,nick.,,Yo nunca he llorado viendo una película.,Never have I ever cried while watching a movie.,Jo mai he plorat al veure una película.
+497,5,Anónimo,,Yo nunca lo he hecho en un sitio público.,Never have I ever had sex in a public place.,Jo mai ho he fet en un lloc públic.
+498,5,Anónimo,,Yo nunca lo he hecho en unos probadores.,Never have I ever had sex in a fitting room.,Jo mai ho he fet en uns emprovadors d'una botiga.
+499,5,Anónimo,,Yo nunca lo he hecho en un coche.,Never have I ever had sex in a car.,Jo mai ho he fet en un cotxe.
+500,2,Anónimo,,Yo nunca he sido pillado/a llegando borracho/a a casa.,Never have I ever been caught coming home drunk.,Jo mai he estat pillat arribant begut a casa.
+501,2,Anónimo,,Yo nunca he sido detenido/a.,Never have I ever been detained.,Jo mai he estat detingut/da.
+502,1,Anónimo,,Yo nunca me he tropezado por mirar el móvil.,Never have I ever stumbled because of looking at my cell phone.,Jo mai m'he xocat amb alguna cosa per mirar el mòbil.
+503,1,Anónimo,,Yo nunca he llorado viendo una película.,Never have I ever cried while watching a movie.,Jo mai he plorat al veure una película.
 504,4,Carla,,Yo nunca me he gastado más de 50€ para intentar tener sexo.,Never have I ever spent more than 50$ trying yo get laid.,Jo mai m'he gastat més de 50€ per intentar tenir sexe.
 505,3,,,Yo nunca he tenido problemas para encontrar el clítoris.,Never have I ever had troubles finding the clitoris.,Jo mai he tingut problemes per a trobar el clítoris.
 506,2,Gisu,,Yo nunca he ido a clase bebido.,Never have I ever assisted a class drunk.,Jo mai he anat a classe begut.

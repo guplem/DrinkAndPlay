@@ -225,7 +225,7 @@ public class GeneralUI : MonoBehaviour
         feedbackMenu.GetComponent<FeedbackMenu>().Setup(FeedbackMenu.FeedbackType.Drink);
     }
     
-    public void OpenFeedbackMenuCurrentSection() // Send game content, a sentence for the current section/game
+    public void OpenSendSentenceMenu() // Send game content, a sentence for the current section/game
     {
         Debug.Log("Opening SendSentenceMenu");
         Show(sendSentenceMenu);

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -23,8 +24,9 @@ public class TextInTurnsGame
 
 public abstract class TurnsGameManager : SectionManager
 {
+    public GameCard gameCard => _gameCard;
 
-    [SerializeField] protected GameCard gameCard;
+    [FormerlySerializedAs("gameCard")] [SerializeField] private GameCard _gameCard;
     
     [SerializeField] private Button backButton;
     
@@ -200,15 +202,15 @@ public abstract class TurnsGameManager : SectionManager
         
         Debug.Log("Setting text in card: " + textInCard.localizedText +  ".\nFrom the localization file: '" + textInCard.localizationFile + "' after a search for a text with NaughtyLevel = " + GameManager.instance.dataManager.naughtyLevel);
         
-        //gameCard.sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
-        gameCard.Display(textInCard);
+        //_gameCard.sentenceText.Localize(textInCard.localizedText.id, textInCard.localizationFile);
+        _gameCard.Display(textInCard);
 
         //authorText.text = textInCard.localizedText.author;
         
-        gameCard.likeButton.SetToInitialState();
+        _gameCard.likeButton.SetToInitialState();
         
         if (IsCurrentTextLiked())
-            gameCard.likeButton.Switch();
+            _gameCard.likeButton.Switch();
 
         currentTextInCard = textInCard;
 
@@ -230,7 +232,7 @@ public abstract class TurnsGameManager : SectionManager
     public void Like()
     {
         history[historyIndex].liked = !history[historyIndex].liked;
-        gameCard.likeButton.Switch();
+        _gameCard.likeButton.Switch();
 
         // Check if the rate popup should be shown
         
@@ -262,7 +264,7 @@ public abstract class TurnsGameManager : SectionManager
 
     public void AddSentence()
     {
-        GameManager.instance.generalUi.OpenFeedbackMenuCurrentSection();
+        GameManager.instance.generalUi.OpenSendSentenceMenu();
     }
 
     public void Share()

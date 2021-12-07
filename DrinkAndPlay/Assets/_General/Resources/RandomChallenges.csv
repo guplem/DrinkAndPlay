@@ -31,7 +31,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 30,2,,,<pr> convence a tus amigos de que entiendes la teoría de la relatividad en 1 minuto o bebes 3 tragos.,<pr> convince your friends that you understand the theory of relativity.,<pr> convenç als teus amics que entens la teoria de la relativitat.
 31,2,,,<pr> dale un beso en la nariz a <pr>.,<pr> lick <pr>'s nose,<pr> chúpale el nas a <pr>.
 32,2,,,"<pr> canta y baila ""La Macarena"". Si alguien se te une, reparte 3 tragos.","<pr>, sing and dance ""Saturday Night"". If anybody joins you, distribute 3 sips.","<pr> canta i balla ""La Macarena"". Si algú se t'uneix, reparteix 3 glops."
-33,3,,,Quien se haya liado con más gente esta noche que beba 5 tragos.,Whoever has made out with more people tonight has to finish his/her drink,Qui s'hagi embolicat amb més gent aquesta nit que s'acabi la copa.
+33,3,,,Quien se haya liado con más gente esta noche que beba 3 tragos.,Whoever has made out with more people tonight has to finish his/her drink,Qui s'hagi embolicat amb més gent aquesta nit que s'acabi la copa.
 34,1,,,Cada jugador bebe un trago por cada tatuaje que tenga.,Each player takes a sip per each tattoo he/she has,Cada jugador beu un glop per cada tatuatge que tingui.
 35,2,,,<pr> cuenta un chiste. Si nadie se ríe bebe 3 tragos.,"<pr>, tell a joke. You will take a sip for each person who doesn't laugh at it",<pr> explica un acudit. Per cada persona que no es rigui beus un glop.
 36,2,,,Beben un trago todos los jugadores que estén repitiendo la misma ropa interior que ayer.,Every player wearing the same underwear as yesterday take a sip,Beuen un glop tots els jugadors que estiguin repetint la mateixa roba interior que ahir.
@@ -57,12 +57,12 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 56,1,,,<pr> nombra un pokémon de tipo agua o bebe 3 tragos.,,
 57,1,,,<pr> nombra 3 de los enanitos de blancanieves o bebe 3 tragos.,,
 58,1,,,"<pr> si no te acuerdas de quién ha sido el último en ir a mear, bebes.",,
-59,1,,,<pr> nombra a 3 boxeadores famosos o bebe 3 tragos.,,
+59,1,,,<pr> nombra a 3 boxeadores famosos o bebe 2 tragos.,,
 60,2,,,La primera persona que pise a <pr> reparte 3 tragos.,,
 61,1,,,"<pr>, ¿qué país ganó el último mundial de fútbol? Si te equivocas bebes 3 tragos.",,
 62,1,,,La persona que hable más idiomas bebe tantos tragos como idiomas hable.,,
 63,2,,,<pr> elige a una persona. Esa persona tiene derecho a darte un bofetón en algún momento de la noche.,,
-64,5,,,<pr> cuenta un fetiche tuyo o bebe 5 tragos.,<pr> explain a fetish of yours or drink 5 drinks.,<pr> explica un fetitxe teu o beu 5 glops.
+64,5,,,<pr> cuenta un fetiche tuyo o bebe 3 tragos.,<pr> explain a fetish of yours or drink 5 drinks.,<pr> explica un fetitxe teu o beu 5 glops.
 65,2,,,La primera persona que diga una frase para ligar reparte 3 tragos.,,
 66,2,,,"Si hay alguien con los labios pintados, debe dejárselos marcados a otro jugador. Si no, beben 3 tragos.",,
 67,1,,,La primera persona que diga el nombre completo de <pr> reparte 3 tragos.,,
@@ -79,8 +79,8 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 78,1,,,Quién diga la palabra más larga reparte 3 tragos.,,
 79,1,,,Los que hagan años este mes reparten 2 tragos cada uno.,,
 80,1,,,La próxima persona que cumpla años reparte 3 tragos.,,
-81,1,,,El/la último en  haber cumplido años reparte 3 tragos.,,
-82,1,,,Quién que sacase más nota en selectividad reparte 2 tragos.,,
+81,1,,,El/la último en haber cumplido años reparte 3 tragos.,,
+82,1,,,Quien sacase más nota en selectividad reparte 2 tragos.,,
 83,2,,,Quién se acabe la copa antes decide una norma permanente. Quien la incumpla deberá beber.,,
 84,2,,,"Quien está leyendo reparte 5 tragos, gracias por ser la voz de Drink & Play.",,
 85,2,,,(Cantando) ¿Quién es? ... ¿Qué vienes a buscar? ... <br>Quien siga la canción reparte 3 tragos.,,

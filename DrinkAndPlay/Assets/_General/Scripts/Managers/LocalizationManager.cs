@@ -49,7 +49,7 @@ public class LocalizationManager
         
         if (language == null)
         {
-            Debug.LogError($"The language to be loaded for {localizationFile} is null or empty.");
+            Debug.LogError($"The language to be loaded of {localizationFile} is null or empty.");
             return false;
         }
         
@@ -182,7 +182,7 @@ public class LocalizationManager
         return true;
     }
 
-    public void RandomizeLocalizedTexts(LocalizationFile localizationFile)
+    private void RandomizeLocalizedTexts(LocalizationFile localizationFile)
     {
         List<LocalizedText> duplicatedLocalizedTexts = new List<LocalizedText>(localizedTexts[localizationFile]);
         List<LocalizedText> randomList = new List<LocalizedText>();

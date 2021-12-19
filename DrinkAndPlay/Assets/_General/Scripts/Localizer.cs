@@ -223,9 +223,12 @@ public class Localizer : MonoBehaviour
     private static void ApplyText(TextMeshProUGUI tmProGui, string text, bool forcePunctuation)
     {
         text = ApplyPlayersTo(text);
-        text = text.Trim();
+
         if (forcePunctuation)
+        {
+            text = text.Trim();
             text = ApplyPunctuation(text);
+        }
         
         tmProGui.richText = true;
         tmProGui.text = text;

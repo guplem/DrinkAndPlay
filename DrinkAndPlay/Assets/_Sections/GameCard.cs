@@ -8,6 +8,7 @@ public class GameCard : MonoBehaviour
 {
     [SerializeField] private Localizer sentenceText;
     [SerializeField] public ImageSwitcher likeButton;
+    [SerializeField] public ImageSwitcher errorButton;
     [SerializeField] private TextMeshProUGUI author;
     public TextInTurnsGame textInCard { get; private set; }
 

@@ -44,4 +44,10 @@ public class ImageSwitcher : MonoBehaviour
         if (!initialState)
             Switch();
     }
+    
+    public void SetToFinalState()
+    {
+        if (initialState)
+            Switch();
+    }
 }

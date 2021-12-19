@@ -208,6 +208,7 @@ public abstract class TurnsGameManager : SectionManager
         //authorText.text = textInCard.localizedText.author;
         
         _gameCard.likeButton.SetToInitialState();
+        _gameCard.errorButton.SetToInitialState();
         
         if (IsCurrentTextLiked())
             _gameCard.likeButton.Switch();
@@ -279,5 +280,6 @@ public abstract class TurnsGameManager : SectionManager
     public void ErrorButton()
     {
         gm.generalUi.OpenErrorMenu(currentTextInCard);
+        _gameCard.errorButton.SetToFinalState();
     }
 }

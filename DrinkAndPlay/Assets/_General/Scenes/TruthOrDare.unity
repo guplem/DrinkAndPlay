@@ -188,7 +188,7 @@ MonoBehaviour:
   gameManagerPrefab: {fileID: 6904223532832502549, guid: 64fa286c71ae77f4a9b1b1b25b4abac5,
     type: 3}
   section: {fileID: 11400000, guid: fdae7de2a986a9e45a0b7744e9a4d589, type: 2}
-  gameCard: {fileID: 2035587334}
+  _gameCard: {fileID: 2035587334}
   backButton: {fileID: 589882085}
   chooseStepElements:
   - {fileID: 1600294431}
@@ -785,6 +785,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 22189401}
     m_Modifications:
+    - target: {fileID: 2306989768766294104, guid: 2d1873f3f12f3c545af0e16f1685fed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527299346512244321, guid: 2d1873f3f12f3c545af0e16f1685fed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5495938720462074920, guid: 2d1873f3f12f3c545af0e16f1685fed2,
         type: 3}
       propertyPath: m_Name

@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         
         if ((section.hasMinimumNumberOfPlayers && dataManager.forcePlayersDisplay) || !dataManager.HaveEnoughEnabledPlayersFor(section))
         {
-            Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it.");
+            Debug.Log(" Not loading scene '" + section.sceneName + "' because there are not enough players to play it or the display of the players section has been forced.");
             generalUi.OpenPlayersMenu(section);
             return false;
         }

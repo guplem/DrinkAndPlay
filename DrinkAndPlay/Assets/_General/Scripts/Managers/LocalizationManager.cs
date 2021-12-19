@@ -267,7 +267,7 @@ public class LocalizationManager
     }
 
 
-    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, bool useProperNaughtyLevel, bool register, bool checkNotRegistered, bool trySecondSearchAfterResetRegister)
+    public LocalizedText SearchLocalizedText(LocalizationFile localizationFile, bool searchAroundDefinedNaughtyLevel, bool register, bool checkNotRegistered, bool trySecondSearchAfterResetRegister)
     {
         if (localizationFile == null)
         {
@@ -277,10 +277,10 @@ public class LocalizationManager
         
         CheckAndLoad(localizationFile);
         
-        // Search for it
+        // Search for it in the localized text
         foreach (LocalizedText localizedText in localizedTexts[localizationFile])
         {
-            if (useProperNaughtyLevel && dataManager.IsValueOfNaughtyLevelCorrect(localizedText.naughtiness) || !useProperNaughtyLevel)
+            if (searchAroundDefinedNaughtyLevel && dataManager.IsValueOfNaughtyLevelCorrect(localizedText.naughtiness) || !searchAroundDefinedNaughtyLevel)
             {
                 if (checkNotRegistered && !GameManager.instance.dataManager.IsTextRegistered(localizationFile, localizedText.id) || !checkNotRegistered)
                 {
@@ -290,24 +290,21 @@ public class LocalizationManager
                     return localizedText;
                 }
             }
-            //else Debug.LogWarning("NL of sentence = " + localizedText.naughtiness + ". Expected " + dataManager.naughtyLevel );
         }
-        
         
         //If it is not found probably is because it is because it is looking for a not registered text
         if (checkNotRegistered && trySecondSearchAfterResetRegister)
         {
-            Debug.Log($"Going to reset registered sentences looking for a text from {localizationFile}. Using ProperNaughtyLevel? {useProperNaughtyLevel} NL = {dataManager.naughtyLevel}");
-            if (ResetRegisteredSentences(localizationFile, useProperNaughtyLevel, resetPercentage))
+            Debug.Log($"Going to reset registered sentences looking for a text from {localizationFile}. Using ProperNaughtyLevel? {searchAroundDefinedNaughtyLevel} NL = {dataManager.naughtyLevel}");
+            if (ResetRegisteredSentences(localizationFile, searchAroundDefinedNaughtyLevel, resetPercentage))
             {
                 Debug.Log("Going to do the second search.");
                 
-                return SearchLocalizedText(localizationFile, useProperNaughtyLevel, register, checkNotRegistered, false);
+                return SearchLocalizedText(localizationFile, searchAroundDefinedNaughtyLevel, register, checkNotRegistered, false);
             }
-                
         }
         
-        Debug.LogError($"Localized text not found in the file '{localizationFile}'. Search filter: Register={register}, checkNotRegistered={checkNotRegistered}. Using ProperNaughtyLevel? {useProperNaughtyLevel}. NL = {dataManager.naughtyLevel}");
+        Debug.LogError($"Localized text not found in the file '{localizationFile}'. Search filter: Register={register}, checkNotRegistered={checkNotRegistered}. Using ProperNaughtyLevel? {searchAroundDefinedNaughtyLevel}. NL = {dataManager.naughtyLevel}");
         Debug.Break();
         return null;
     }
@@ -315,7 +312,14 @@ public class LocalizationManager
     private bool ResetRegisteredSentences(LocalizationFile localizationFile, bool useProperNaughtyLevel, int percentage)
     {
         int minQttToApplyUnregistering = 100 / percentage;
-        if (GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile, useProperNaughtyLevel) >= minQttToApplyUnregistering) // To know if there are enough to remove the register of the 50%
+        int foundRegisteredTexts = 0;
+        for (int t = 0; t < 20; t++) // Search up to ttt times to ensure that if an error is given, there are really not enough sentences to reset
+        {
+            foundRegisteredTexts = GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile, useProperNaughtyLevel);
+            if (foundRegisteredTexts >= minQttToApplyUnregistering)
+                break;
+        }
+        if (foundRegisteredTexts >= minQttToApplyUnregistering) // To know if there are enough to remove the register of the 50%
         {
             GameManager.instance.dataManager.RemoveOldestPercentageOfTextsRegistered(localizationFile, percentage, useProperNaughtyLevel);
             Debug.Log("Reset the top 25% of the registered sentences in the localization file '" + localizationFile + "'");
@@ -324,7 +328,7 @@ public class LocalizationManager
         }
         else
         {
-            Debug.LogError($"There are not enough registered texts from the localization file '{localizationFile}'. Found only {GameManager.instance.dataManager.GetTextRegisteredQuantity(localizationFile, useProperNaughtyLevel)} and needed at least {minQttToApplyUnregistering}.\nUsing ProperNaughtyLevel? {useProperNaughtyLevel} NL = {dataManager.naughtyLevel}");
+            Debug.LogError($"There are not enough registered texts from the localization file '{localizationFile}' to reset. Found only {foundRegisteredTexts} and needed at least {minQttToApplyUnregistering}.\nUsing ProperNaughtyLevel? {useProperNaughtyLevel} NL = {dataManager.naughtyLevel}");
             return false;
         }
     }

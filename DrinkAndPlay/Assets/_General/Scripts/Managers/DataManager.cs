@@ -429,8 +429,9 @@ public class DataManager
         }
         private set
         {
-            if (_naughtyLevel.Equals(value)) return;
-            _naughtyLevel = value;
+            float newNaughtyLevel = Mathf.Clamp(value, naughtyLevelExtremes.x, naughtyLevelExtremes.y);
+            if (_naughtyLevel.Equals(newNaughtyLevel)) return;
+            _naughtyLevel = newNaughtyLevel;
             SaveGame.Save<float>(naughtyLevelSavename, value);
         }
     }
@@ -446,23 +447,23 @@ public class DataManager
     
     public bool IsValueOfNaughtyLevelCorrect(float valueToCheck)
     {
-        
         float probability = GetProbabilityOfNaughtinessUsingGaussianFunction(valueToCheck);
         bool result = Random.value <= probability;
         //Debug.Log($"VALUE_TO_CHECK: {valueToCheck:0}, PROBABILITY: {probability:0.0}, RESULT: {result}");
         return result;
     }
 
-    private float GetProbabilityOfNaughtinessUsingGaussianFunction(float naughtinessValue)
+    private float GetProbabilityOfNaughtinessUsingGaussianFunction(float sentenceNaughtinessValue)
     {
-        float x = naughtinessValue;
-        float valueWithMaxProbability = naughtyLevel;
-        const float standardDeviation = 0.8f;
+        float x = sentenceNaughtinessValue;
+        float valueWithMaxProbability = naughtyLevel; // Current naughty level of the app/determined by the user
+        Vector2 standardDeviation = new Vector2(0.6f, 2.4f); // Between this values understood as (min, max)
+        float currentStandardDeviation = standardDeviation.x + ((standardDeviation.y) / (naughtyLevelExtremes.y) * (valueWithMaxProbability - 1f));
         float euler = Mathf.Exp(1);
         
         // f(x) = (e^ -(((x - valueWithMaxProbability)^2) / (2 * (standardDeviation^ 2))))
         // f(x) = (e^ -(((x - valueWithMaxProbability)*(x - valueWithMaxProbability)) / (2 * (standardDeviation*standardDeviation))))
-        float probability = Mathf.Pow(euler, -(((x - valueWithMaxProbability)*(x - valueWithMaxProbability)) / (2 * (standardDeviation*standardDeviation))));
+        float probability = Mathf.Pow(euler, -(((x - valueWithMaxProbability)*(x - valueWithMaxProbability)) / (2 * (currentStandardDeviation*currentStandardDeviation))));
 
         return probability;
     }
@@ -609,17 +610,17 @@ public class DataManager
         textsRegistered = clonedCs;
     }
 
-    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage,  bool properNaughtyLevel)
+    public void RemoveOldestPercentageOfTextsRegistered(LocalizationFile localizationFile, float percentage,  bool aroundNaughtyLevel)
     {
         List<string> regTexts = new List<string>();
         
         // List all the registered texts in the localizationFile with the selected Naughty Level
-        regTexts = GetRegisteredTexts(localizationFile, properNaughtyLevel);
+        regTexts = GetRegisteredTexts(localizationFile, aroundNaughtyLevel);
         regTexts.DebugLog(" >>> Sentences found to reset: ");
         
         // Remove the desired quantity of the registered texts
         int quantityToRemove = (int) (percentage * regTexts.Count / 100);
-        regTexts.RemoveRange(0, quantityToRemove);
+        regTexts.RemoveRange(0, Mathf.Min(quantityToRemove,regTexts.Count) );
 
         // Apply the changes to a clone
         Dictionary<string, List<string>> clonedCs = GetCloneOfDictionary(textsRegistered);
@@ -628,9 +629,10 @@ public class DataManager
         textsRegistered = clonedCs;
     }
 
-    private List<string> GetRegisteredTexts(LocalizationFile localizationFile, bool properNaughtyLevel)
+    private List<string> GetRegisteredTexts(LocalizationFile localizationFile, bool aroundNaughtyLevel)
     {
-        if (!properNaughtyLevel) return textsRegistered[localizationFile.ToString()];
+        if (!aroundNaughtyLevel) 
+            return textsRegistered[localizationFile.ToString()];
         
         List<string> regTextsWithProperNl = new List<string>();
         foreach (string textId in textsRegistered[localizationFile.ToString()])

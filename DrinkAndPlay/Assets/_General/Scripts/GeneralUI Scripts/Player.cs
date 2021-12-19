@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Player
 {
-    public string name;
+    public string name; // kept public instead of replaced by nameTrimmed to ensure compatibility with the data stored in the user's devices
+    
     public bool enabled;
+    public string nameTrimmed => name.IsNullOrEmpty()? "" : name.Trim();
 
     public Player(string name, bool enabled = true)
     {
@@ -16,7 +18,7 @@ public class Player
 
     protected bool Equals(Player other)
     {
-        return string.Equals(name, other.name, StringComparison.OrdinalIgnoreCase);
+        return string.Equals(nameTrimmed, other.nameTrimmed, StringComparison.OrdinalIgnoreCase);
     }
 
     public override bool Equals(object obj)
@@ -29,7 +31,7 @@ public class Player
 
     public override int GetHashCode()
     {
-        return (name != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(name) : 0);
+        return (nameTrimmed != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(nameTrimmed) : 0);
     }
 
     public static bool operator ==(Player left, Player right)
@@ -44,6 +46,6 @@ public class Player
 
     public override string ToString()
     {
-        return $"Player '{name}'. Enabled: {enabled}.";
+        return $"Player '{nameTrimmed}'. Enabled: {nameTrimmed}.";
     }
 }

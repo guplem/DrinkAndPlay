@@ -18,7 +18,7 @@ public class PlayerUI : MonoBehaviour
         this.player = player;
         this.playersMenu = playersMenu;
         
-        playerText.text = player.name;
+        playerText.text = player.nameTrimmed;
         enabledToggle.isOn = player.enabled;
         
         removeButton.interactable = allowRemoval || !player.enabled;

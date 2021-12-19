@@ -12,14 +12,18 @@ using UnityEngine.UI;
 [Serializable]
 public struct TextsToLocalize {
     public string stringTag;
+    [Tooltip("Should the text be punctuated at the end if it is not?")]
+    public bool forcePunctuation;
     public TextMeshProUGUI tmProGui;
     public UnityEvent methodToCallAfter;
 
-    public TextsToLocalize(string stringTag, TextMeshProUGUI tmProGui, UnityEvent methodToCallAfter)
+
+    public TextsToLocalize(string stringTag, TextMeshProUGUI tmProGui, UnityEvent methodToCallAfter, bool forcePunctuation)
     {
         this.stringTag = stringTag;
         this.tmProGui = tmProGui;
         this.methodToCallAfter = methodToCallAfter;
+        this.forcePunctuation = forcePunctuation;
     }
 
     public TextsToLocalize(TextMeshProUGUI tmProGui) : this()
@@ -46,7 +50,6 @@ public class Localizer : MonoBehaviour
     private bool subscribed = false;
 
     public TextsToLocalize[] textsToLocalize;
-
 
 
     private void OnEnable()
@@ -183,13 +186,13 @@ public class Localizer : MonoBehaviour
             
                 if (pFrom >= pTo || pFrom < 0 || pTo < 0) //Error handling
                 {
-                    ApplyText(txt.tmProGui, "");
+                    ApplyText(txt.tmProGui, "", false);
                     if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
                 }
                 else
                 {
                     int searchedTextLength = pTo - pFrom;
-                    ApplyText(txt.tmProGui, text.Substring(pFrom, searchedTextLength));
+                    ApplyText(txt.tmProGui, text.Substring(pFrom, searchedTextLength), txt.forcePunctuation);
                     text = text.Remove(pFrom - tagLength,  searchedTextLength + tagLength*2);
                     if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
                 }
@@ -201,7 +204,7 @@ public class Localizer : MonoBehaviour
         
         foreach (TextsToLocalize txt in savedForLater)
         {
-            ApplyText(txt.tmProGui, text);
+            ApplyText(txt.tmProGui, text, txt.forcePunctuation);
             if (txt.methodToCallAfter != null) txt.methodToCallAfter.Invoke();
         }
     }
@@ -217,12 +220,22 @@ public class Localizer : MonoBehaviour
         return text;
     }
 
-    private static void ApplyText(TextMeshProUGUI tmProGui, string text)
+    private static void ApplyText(TextMeshProUGUI tmProGui, string text, bool forcePunctuation)
     {
         text = ApplyPlayersTo(text);
+        text = text.Trim();
+        if (forcePunctuation)
+            text = ApplyPunctuation(text);
         
         tmProGui.richText = true;
         tmProGui.text = text;
+    }
+
+    private static string ApplyPunctuation(string text)
+    {
+        if (!char.IsPunctuation(text.Last()))
+            text += ".";
+        return text;
     }
 
     private static string ApplyPlayersTo(string text)
@@ -235,7 +248,7 @@ public class Localizer : MonoBehaviour
             do
             {
                 Player currentPlayer = GameManager.instance.dataManager.GetCurrentPlayer();
-                text = rgx.Replace(text, currentPlayer.name, 1);
+                text = rgx.Replace(text, currentPlayer.nameTrimmed, 1);
                 alreadyIncludedPlayers.Add(currentPlayer);
             } while (text.IndexOf("<p>", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -246,7 +259,7 @@ public class Localizer : MonoBehaviour
             do
             {
                 Player randPlayer = GameManager.instance.dataManager.GetRandomEnabledPlayer(alreadyIncludedPlayers.ToList());
-                text = rgx.Replace(text, randPlayer.name, 1);
+                text = rgx.Replace(text, randPlayer.nameTrimmed, 1);
                 alreadyIncludedPlayers.Add(randPlayer);
             } while (text.IndexOf("<pr>", StringComparison.OrdinalIgnoreCase) >= 0);
         }

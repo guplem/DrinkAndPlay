@@ -183,7 +183,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
+  m_fontSize: 18
   m_fontSizeBase: 63
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
+  m_fontSize: 30.8
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1496,11 +1496,13 @@ MonoBehaviour:
   registerTimestampAtLocalize: 0
   textsToLocalize:
   - stringTag: 
+    forcePunctuation: 1
     tmProGui: {fileID: 9009350255603807397}
     methodToCallAfter:
       m_PersistentCalls:
         m_Calls: []
   - stringTag: s
+    forcePunctuation: 0
     tmProGui: {fileID: 1330613755287454318}
     methodToCallAfter:
       m_PersistentCalls:
@@ -1540,7 +1542,7 @@ PrefabInstance:
     - target: {fileID: 555758233389839586, guid: 24cd4cf9c45dfa34fa53fcbac0801e84,
         type: 3}
       propertyPath: m_fontSize
-      value: 55
+      value: 33.2
       objectReference: {fileID: 0}
     - target: {fileID: 6951618315727472504, guid: 24cd4cf9c45dfa34fa53fcbac0801e84,
         type: 3}

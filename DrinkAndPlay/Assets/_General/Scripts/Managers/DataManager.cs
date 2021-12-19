@@ -209,7 +209,7 @@ public class DataManager
     }
     public bool CanAddPlayer(Player player)
     {
-        return !(players.Contains(player) || player==null || string.IsNullOrEmpty(player.name) || string.IsNullOrWhiteSpace(player.name));
+        return !(players.Contains(player) || player==null || string.IsNullOrEmpty(player.nameTrimmed) || string.IsNullOrWhiteSpace(player.nameTrimmed));
     }
     public void AddPlayer(Player player)
     {

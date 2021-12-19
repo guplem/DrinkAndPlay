@@ -339,6 +339,16 @@ public class GeneralUI : MonoBehaviour
         
         // It is hidden on press of the 'Accept' button, calling the Hide method of the animator
     }
-    
 
+
+    public void CheckAndShowRateAppPopup()
+    {
+        if (Time.realtimeSinceStartup < 3600 * 2)
+            return;
+        
+        if (GameManager.instance.dataManager.ratePopupShown || GameManager.instance.dataManager.ratedApp)
+            return;
+        
+        ShowRatePopup();
+    }
 }

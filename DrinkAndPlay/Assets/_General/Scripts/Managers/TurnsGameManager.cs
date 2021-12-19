@@ -189,6 +189,8 @@ public abstract class TurnsGameManager : SectionManager
     
     protected void SetupTextInCard(TextInTurnsGame textInCard)
     {
+        GameManager.instance.generalUi.CheckAndShowRateAppPopup();
+        
         if (textInCard == null)
         {
             Debug.LogError("The obtained text for the card is null.", gameObject);    

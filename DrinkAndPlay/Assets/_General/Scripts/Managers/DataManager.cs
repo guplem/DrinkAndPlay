@@ -128,7 +128,8 @@ public class DataManager
                 return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
             
             case SystemLanguage.Catalan:
-                lang = GetEnabledLanguageWithId("ca");
+                //lang = GetEnabledLanguageWithId("ca");
+                lang = GetEnabledLanguageWithId("es-es");
                 return lang != null ? lang : GetEnabledLanguageWithId(GameManager.instance.defaultLanguage.id);
             
             case SystemLanguage.English:

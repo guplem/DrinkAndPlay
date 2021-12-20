@@ -10,7 +10,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 9,2,,,"<p>, ¿has creído que alguien quería algo contigo cuando no era así?","<p>, have you ever thought that someone wanted to get with you when it wasn't true?","<p>, has cregut que algú volia alguna cosa amb tu quan no era així?"
 10,2,,,"<p>, ¿quién crees que es la persona que mejor besa?","<p>, who do you think is the best kisser?","<p>, qui creus que és la persona que millor fa un petó?"
 11,1,,,"<p>, ¿te has pegado alguna vez con alguien?","<p>, have you ever physically fought someone?","<p>, t'has enganxat alguna vegada amb algú?"
-12,1,,,"<p>, nombra el país que creas que tiene las mujeres más bellas.","<p>, name the country that you think has the most beautiful women.","<p>, nomena el país que creguis que té les dones més belles."
+12,1,,,"<p>, nombra el país que creas que tiene la gente más atractiva.","<p>, name the country that you think has the most beautiful people.","<p>, nomena el país que creguis que té les persones més belles."
 13,1,,,"<p>, ¿te gusta alguien de este grupo?","<p>, do you like someone from this group?","<p>, t'agrada algú d'aquest gurp?"
 14,2,,,"<p>, ¿qué tipo de música te gustaría escuchar la próxima vez que tengas sexo?",<p> what kind of music would you like to listen to the next time you have sex?,"<p>, quin tipus de música t'agradaria escoltar la propera vegada que tinguis sexe?"
 15,2,,,"<p>, ¿qué tipo de música odias más pero la aguantas por presión social?",<p> what kind of music do you hate most but you put up for social pressure?,"<p>, quin tipus de música odies més però la aguantes per pressió social?"
@@ -78,7 +78,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 77,3,,,"<p>, ¿cuál crees que es la parte mas sexy de tu cuerpo?","<p>, what part of your body you think is the sexiest?","<p>, quin creus que és la part més sexy del teu cos?"
 78,3,,,"<p>, ¿cuanto dinero tendrían que pagarte para que le hicieras un oral a tu jefe/profesor?","<p>, for how much money would you give your boss / teacher an oral?","<p>, ¿quants diners haurien de pagar-te perquè li fessis un oral al teu cap/professor?"
 79,3,,,"<p>, ¿cuanto dinero tendrian que pagarte para que le hicieras un oral a <pr>?","<p>, for how much money would you give <pr> an oral?","<p>, ¿quants diners haurien de pagar-te perquè li fessis 1 oral a <pr>?"
-80,5,,,"<p>, ¿cuál es la historia sexual más divertida que has tenido?",<p> what is the weirdest sexual experience you've ever had?,"<p>, quina és la història sexual més rara que has tingut?"
+80,5,,,"<p>, ¿cuál es la historia sexual más divertida que has tenido?",<p> what is the funniest sexual experience you've ever had?,"<p>, quina és la història sexual més divertida que has tingut?"
 81,5,,,"<p>, ¿cuál ha sido la cita más rara que has tenido?","<p>, what is the weirdest date you've ever had?","<p>, quina ha estat la cita més rara que has tingut?"
 82,2,,,"<p>, ¿quien es tu ultimo crush?","<p>, who is your latest crush?","<p>, ¿qui és el teu últim crush?"
 83,3,,,"<p>, ¿con que personaje de ficción te acostarias?","<p>, what fictional character would you sleep with?","<p>, amb quin personatge de ficció et acostarias?"
@@ -114,7 +114,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 113,3,Aliona,,"<p>, ¿te gusta que te lancen indirectas para ligar contigo?","<p>, do you like to receive insinuations from someone trying to flirt with you?","<p>, t'agrada que et llancin indirectes per a lligar amb tu?"
 114,3,Flora,,"<p>, ¿te han tocado el ano alguna vez?","<p>, did anybody ever touched your anus?","<p>, t'han tocat l'anus algun cop?"
 115,2,pepe,,"<p>, ¿crees que <pr> tiene los pezones más grandes que <pr>?","<p>, do you think that <pr> has the nipples bigger than <pr>?","<p>, creus que <pr> té els mugrons més grans que <pr>?"
-116,3,,,"<p>, ¿preferirías vivir en la calle 5 días o hacerle sexo oral a quien tengas en frente?",,
-117,2,,,"<p>, ¿Qué prefieres? ¿Luchar a muerte contra un gorila anualmente pero tienes una espada o luchar a muerte contra una gallina cada vez que subes al coche?",,
-118,3,,,"<p>, ¿Qué prefieres? ¿Culo o tetas?",,
-119,1,,,<p>. ¿Prefieres ser inmortal o morir a los 50?,,
+116,3,,,"<p>, ¿preferirías vivir en la calle 5 días o hacerle sexo oral a quien tengas en frente?","<p>, would you rather live on the street for 5 days or give oral sex to whoever you have in front of you?","<p>, preferiries viure al carrer 5 dies o fer sexe oral a qui tinguis al davant?"
+117,2,,,"<p>, ¿qué prefieres? ¿Luchar a muerte contra un gorila anualmente pero tienes una espada o luchar a muerte contra una gallina cada vez que subes al coche?","<p>, what do you prefer: to fight to the death against a gorilla every year but you have a sword, or to fight to the death against a chicken every time you get in the car?","<p>, què prefereixes? Lluitar a mort contra un goril·la anualment però tens una espasa o lluitar a mort contra una gallina cada cop que puges al cotxe?"
+118,3,,,"<p>, ¿qué prefieres? ¿Culo o tetas?","<p>, which do you prefer, ass or tits?","<p>, què prefereixes? Cul o pits?"
+119,1,,,"<p>, ¿prefieres ser inmortal o morir a los 50?","<p>, would you rather be immortal or die at the age of 50?","<p>, prefereixes ser immortal o morir als 50?"

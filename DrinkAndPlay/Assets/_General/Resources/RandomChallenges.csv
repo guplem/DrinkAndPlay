@@ -1,94 +1,95 @@
 Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 1,2,,,A la de tres cada jugador señala al jugador que le parece más atractivo.,"At the count of three, each player points at who looks more attractive.",A la de tres cada jugador assenyala a el jugador que li sembla més atractiu.
 2,3,,,<pr> besa al jugador de tu derecha en el cuello.,<pr> kiss the player to your right in the neck.,<pr> fes un petó al jugador de la teva dreta al coll.
-3,5,,,<pr> tienes 1 minuto para convencer a <pr> de que se quite una prenda de ropa.,<pr> choose what player will have to remove a piece of clothing,<pr> escull un jugador perquè es tregui una peça de roba.
+3,5,,,<pr> tienes 1 minuto para convencer a <pr> de que se quite una prenda de ropa.,<pr> you have 1 minute to convince <pr> to remove an item of clothing.,<pr> tens 1 minut per a convèncer a <pr> de que es tregui una peça de roba.
 4,1,,,Todos los que tengan el móvil en la mano se terminan la copa.,Everyone with a phone in their hands have to finish their drink now,Tots els que tinguin el mòbil a la mà s'acaben la copa.
-5,2,,,La primera persona en eructar reparte 3 tragos.,<pr> has ten seconds to burp,<pr> tens deu segons per rotar
-6,2,,,<pr> señala a alguien que creas que está to' buen@,<pr> confesses who you think is the most attractive in this group,<pr> confessa qui és la persona que et resulta més atraciva de el grup.
+5,2,,,La primera persona en eructar reparte 3 tragos.,The first person to burp gives out 3 sips.,La primera persona a eructar reparteix 3 glops.
+6,2,,,<pr> señala a alguien que creas que está to' bueno/a,<pr> point out someone who you think is really hot,"<pr> assenyala a algú que creguis que està to' ""buenorro/a"""
 7,3,,,"Cada jugador señala a una persona que cree que va a follar hoy. Los señalados, beben.",Each player points at someone they think is going to get laid today. The ones pointed at have to take a sip,"Cada jugador assenyala a una persona que creu que va a follar avui. Els assenyalats, beuen."
 8,1,,,La persona más joven reparte 2 tragos.,The youngest person selects two people. Those two take a sip,La persona més jove reparteix 2 glops.
 9,1,,,"A la de tres, la primera persona que parpadee tiene que beberse 2 tragos.","At the count of three, the first person who blinks has to take two sips","A la de tres, el primer que parpellegi ha de beure 2 glops."
 10,2,,,La primera persona en besar a alguien reparte 3 tragos.,The first person to kiss someone selects 3 players. Those 3 have to take a sip,La primera persona a besar a algú reparteix 3 glops.
-11,4,,,"Todos los que estéis fumando en este momento, tiene que pasarle el humo en la boca a otra persona fumadora",Choose two people who smoke to pass smoke from mouth to mouth,Trieu dues persones que fumin per passar-se el fum boca a boca.
+11,4,,,"Todos los que estéis fumando en este momento, tenéis que pasarle el humo en la boca a otra persona fumadora","All of you who are smoking at the moment, you have to pass the smoke in your mouth to another smoker.","Tots els que estigueu fumant en aquest moment, heu de passar-li el fum a la boca a una altra persona fumadora"
 12,2,,,"<pr> di el nombre (no apodo) de todos los presentes, si te equivocas tomas 3 tragos.",<pr> say the name (not the nickname) of all players. If you mess up you drink 3 sips.,"<pr> digues el nom (no sobrenom) de tots els presents, si t'equivoques beus 3 glops."
 13,2,,,<pr> bebe un trago por cada persona presente con la que tendrias relaciones sexuales.,<pr> have a drink for each person present with who you would have sex.,<pr> beu un glop per cada persona present amb la qual hauries relacions sexuals.
 14,2,,,La primera persona que haga la gamba en el suelo reparte 5 tragos.,The first player who tries to do breakdance distributes 5 sips ,La primera persona que faci la gamba a terra reparteix 5 glops.
 15,2,,,La primera persona que haga el baile del cangrejo reparte 5 tragos.,The first person to perform the crabb-dance distributes 5 sips,La primera persona que faci el ball de l'cranc reparteix 5 glops.
-16,5,,,Las dos primeras personas en liarse reparten 3 tragos.,The first two players to make out distribute 6 sips,Les dues primeres persones a embolicar-se reparteixen 6 glops.
-17,1,,,"<pr> aguanta las cosquillas de <pr> durante 30s. Si no lo haces, bebes 3 tragos.","<pr> resist <pr>'s tickles for 30s. If you fail, finish your cup",<pr> aguanta les pessigolles de <pr> durant 30s. Si no ho fas et acabes la copa.
-18,2,,,La última persona en poner su dedo en la nariz de quien tenga a su izquierda bebe 1 trago.,The last player to touch the nose of whoever is at his/her left has to kiss that other player,L'última persona a posar el seu dit al nas de qui tingui a la seva esquerra s'ha de treure una peça.
-19,2,,,La primera persona en sacar un mechero reparte 2 tragos.,,
+16,5,,,Las dos primeras personas en liarse que no sean pareja reparten 3 tragos.,The first two people to make out who are not a couple distribute 3 sips.,Les dues primeres persones a besar-se que no siguin parella reparteixen 3 glops.
+17,1,,,"<pr> Hold the tickle of <pr> for 30s. If you don't, you drink 3 sips.","<pr> resist <pr>'s tickles for 30s. If you fail, finish your cup","<pr> aguanta les pessigolles de <pr> durant 30s. Si no ho fas, beus 3 glops."
+18,2,,,La última persona en poner su dedo en la nariz de quien tenga a su izquierda bebe 1 trago.,The last person to put their finger on the nose of the person on their left takes 1 sip.,L'última persona a posar el dit al nas de qui tingui a la seva esquerra beu 1 glop.
+19,2,,,La primera persona en sacar un mechero reparte 2 tragos.,First person to pull out a lighter hands out 2 sips.,La primera persona a treure un encenedor reparteix 2 glops.
 20,2,,,"<pr> grita ""Visca Catalunya independent"" o te terminas la copa","<pr> scream ""Communism is the only solution!"" or finish your drink.","El primer que cridi ""¡Arriba España!"" reparteix 3 glops"
-21,2,,,<pr> haz un calvo o bebe 3 tragos.,<pr> show us your nice ass.,<pr> fes un calb.
-22,2,,,<pr> enseña tu ropa interior.,"<pr>, you have to show your underwear to <pr>.",<pr> has de ensenyar la teva roba interior a <pr>.
-23,4,,,<pr> rellénate la copa o terminatela.,<pr> refill your cup,<pr> rellénate la copa.
-24,4,,,<pr> lía uno de esos,<pr> roll one of those.,<pr> lia un dels bons.
-25,2,,,<pr> dale un mordisquito en la oreja a quién tu quieras.,<pr> sensually suck the toes of the player you choose,<pr> chúpale un peu sensualment a qui tu vulguis.
+21,2,,,<pr> haz un calvo o bebe 3 tragos.,<pr> show us your nice ass or drink 3 sips.,<pr> fes un calb o beu 3 glops.
+22,2,,,<pr> enseña tu ropa interior.,<pr> show off your underwear.,<pr> ensenya la teva roba interior.
+23,4,,,<pr> rellénate la copa o termínatela.,<pr> refill your cup or finish it.,<pr> o t'acabes la copa o te l'emplenes.
+24,4,,,"<pr> lía algo en 1 minuto, si la gente del grupo no aprueba el resultado, bebes 3 tragos.","<pr> make something in 1 minute, if the people in the group don't approve of the result, you drink 3 sips.","<pr> lia alguna cosa en 1 minut, si la gent del grup no aprova el resultat, beus 3 glops."
+25,2,,,<pr> dale un mordisquito en la oreja a quién tu quieras.,<pr> give a little nibble on the ear to whomever you want.,<pr> dóna-li una mossegadeta a l'orella a qui tu vulguis.
 26,2,,,<pr> intenta ponerle la piel de gallina a <pr>.,<pr> try to make <pr> have goosebumps,<pr> intenta posar-li la pell de gallina a <pr>.
 27,1,,,<pr> haz un solo de guitarra invisible.,<pr> perform an invisible guitar solo,<pr> hazun sol de guitarra invisible.
 28,2,,,"<pr> deja que un jugador te arranque un pelo. Si eres calvo, tu arrancas un pelo a cada jugador.","<pr> let one player rip out one hair of yours. If you are bald, you rip out one hair of each player","<pr> deixa que un jugador t'arrenqui un pèl. Si ets calb, tu arrenques un pèl a cada jugador."
-29,2,,,<pr> di la tabla del 7 entera. Si te equivocas bebes 3 tragos.,<pr> recite the multiplication table of number 7. If get one number wrong you finish your cup,<pr> vaig donar la taula de el 7 sencera. Si t'equivoques et acabes la copa.
-30,2,,,<pr> convence a tus amigos de que entiendes la teoría de la relatividad en 1 minuto o bebes 3 tragos.,<pr> convince your friends that you understand the theory of relativity.,<pr> convenç als teus amics que entens la teoria de la relativitat.
-31,2,,,<pr> dale un beso en la nariz a <pr>.,<pr> lick <pr>'s nose,<pr> chúpale el nas a <pr>.
+29,2,,,<pr> di la tabla del 7 entera. Si te equivocas bebes 3 tragos.,<pr> say the whole table of 7. If you get it wrong you drink 3 sips.,<pr> digues la taula del 7 sencera. Si t'equivoques beus 3 glops.
+30,2,,,<pr> convence a tus amigos de que entiendes la teoría de la relatividad en 1 minuto o bebes 3 tragos.,<pr> convence a tus amigos de que entiendes la teoría de la relatividad en 1 minuto o bebes 3 tragos.,<pr> convenç els teus amics que entens la teoria de la relativitat en 1 minut o beus 3 glops.
+31,2,,, ,<pr> give <pr> a kiss on the nose.,<pr> fes-li un petó al nas a <pr>.
 32,2,,,"<pr> canta y baila ""La Macarena"". Si alguien se te une, reparte 3 tragos.","<pr>, sing and dance ""Saturday Night"". If anybody joins you, distribute 3 sips.","<pr> canta i balla ""La Macarena"". Si algú se t'uneix, reparteix 3 glops."
-33,3,,,Quien se haya liado con más gente esta noche que beba 3 tragos.,Whoever has made out with more people tonight has to finish his/her drink,Qui s'hagi embolicat amb més gent aquesta nit que s'acabi la copa.
+33,3,,,Quien se haya liado con más gente esta noche que beba 3 tragos.,Whoever has made out with the most people tonight must have 3 sips.,Qui s'hagi embolicat amb més gent aquesta nit que begui 3 glops.
 34,1,,,Cada jugador bebe un trago por cada tatuaje que tenga.,Each player takes a sip per each tattoo he/she has,Cada jugador beu un glop per cada tatuatge que tingui.
-35,2,,,<pr> cuenta un chiste. Si nadie se ríe bebe 3 tragos.,"<pr>, tell a joke. You will take a sip for each person who doesn't laugh at it",<pr> explica un acudit. Per cada persona que no es rigui beus un glop.
+35,2,,,<pr> cuenta un chiste. Si nadie se ríe bebe 3 tragos.,<pr> tell a joke. If no one laughs drink 3 sips.,<pr> explica un acudit. Si ningú riu beu 3 glops.
 36,2,,,Beben un trago todos los jugadores que estén repitiendo la misma ropa interior que ayer.,Every player wearing the same underwear as yesterday take a sip,Beuen un glop tots els jugadors que estiguin repetint la mateixa roba interior que ahir.
 37,2,,,Beben todos los jugadores que lleven tanga.,Those who are wearing a thong take a sip,Beuen tots els jugadors que portin tanga.
-38,3,,,"<pr> imita a un animal, quien lo adivine reparte 3 tragos. Si nadie lo adivina, bebes 3 tragos.",The group decides the animal that <pr> will imitate.,El grup decideix un animal que <pr> haurà de imitar.
+38,3,,,"<pr> imita a un animal, quien lo adivine reparte 3 tragos. Si nadie lo adivina o todo el mundo lo adivina, bebes 3 tragos.","<pr> imitate an animal, whoever guesses it gives out 3 sips. If no one guesses or everyone guesses, you drink 3 sips.","<pr> imita un animal, qui l'endevini reparteix 3 glops. Si ningú ho endevina o tothom ho endevina, beus 3 glops."
 39,4,,,<pr>: haz ver que te metes una buena raya.,"<pr>, you have to play mimics. Pretend to snort a line",<pr> et toca fer mímica: fes veure que et fiques un bon ratlla.
 40,4,,,<pr> bebe un chupito.,<pr> it's time for you to drink a shot.,<pr> et toca beure't un xarrup.
-41,2,,,<pr> da 5 vueltas sobre ti mismo y luego bebe 2 tragos.,"<pr>, you have to spin around three times and then take 3 sips",<pr> et toca donar 3 voltes sobre tu mateix i després fes 3 glops.
+41,2,,,<pr> da 5 vueltas sobre ti mismo y luego bebe 2 tragos.,"<pr>, you have to spin around five times and then take 2 sips",<pr> dóna 5 voltes sobre tu mateix i després beu 2 glops.
 42,1,,,"<pr> tócate la nariz con la lengua. Si no puedes, bebe 2 tragos.","<pr> touch your nose with your tongue. If you can not, drink 2 sips","<pr> toca't el nas amb la llengua. Si no pots, beu 2 glops."
-43,1,,,<pr> deja que alguien te dibuje algo en la frente o bebe 3 tragos.,"<pr>, let someone draw something on your forehead.",<pr> deixa que algú et dibuixi alguna cosa al front.
+43,1,,,<pr> deja que alguien te dibuje algo en la frente o bebe 3 tragos.,<pr> let someone draw something on your forehead or have 3 sips.,<pr> deixa que algú et dibuixi alguna cosa al front o beu 3 glops.
 44,1,,,"Si hay patatas, buscad la más tostada. La primera persona que la encuentre reparte 3 tragos.","If you have chips, look for burned one. The first one to find one distributes 3 sips","Si hi ha patates, busqueu la més torrada. El primer que la trobi reparteix 3 glops."
-45,3,,,La primera persona en sacar un preservativo reparte 3 tragos.,,
-46,2,,,"<pr> tararea una canción, si nadie la adivina bebes 3 tragos.",,
-47,1,,,Tira una bola de papel a un vaso ajeno. Si no aciertas bebes 3 tragos.,,
-48,3,,,<pr> invéntate un nombre porno para <pr>.,,
-49,5,,,<pr> elige quién preferirías que se acostase con tu padre o madre.,,
-50,3,,,"<pr> escoge a un jugador al que matarías, uno que te follarías y uno con el que te casarías.",,
-51,1,,,La primera persona en decir en qué fecha estamos reparte 3 tragos.,,
-52,1,,,La primera persona en nombrar una canción de Imagine Dragons reparte 3 tragos.,,
-53,1,,,La primera persona en nombrar una canción de los Beatles reparte 3 tragos.,,
-54,1,,,La primera persona en tararear una obra de Mozart reparte 5 tragos.,,
-55,1,,,<pr> nombra a 7 superhéroes o bebe 3 tragos.,,
-56,1,,,<pr> nombra un pokémon de tipo agua o bebe 3 tragos.,,
-57,1,,,<pr> nombra 3 de los enanitos de blancanieves o bebe 3 tragos.,,
-58,1,,,"<pr> si no te acuerdas de quién ha sido el último en ir a mear, bebes.",,
-59,1,,,<pr> nombra a 3 boxeadores famosos o bebe 2 tragos.,,
-60,2,,,La primera persona que pise a <pr> reparte 3 tragos.,,
-61,1,,,"<pr>, ¿qué país ganó el último mundial de fútbol? Si te equivocas bebes 3 tragos.",,
-62,1,,,La persona que hable más idiomas bebe tantos tragos como idiomas hable.,,
-63,2,,,<pr> elige a una persona. Esa persona tiene derecho a darte un bofetón en algún momento de la noche.,,
-64,5,,,<pr> cuenta un fetiche tuyo o bebe 3 tragos.,<pr> explain a fetish of yours or drink 5 drinks.,<pr> explica un fetitxe teu o beu 5 glops.
-65,2,,,La primera persona que diga una frase para ligar reparte 3 tragos.,,
-66,2,,,"Si hay alguien con los labios pintados, debe dejárselos marcados a otro jugador. Si no, beben 3 tragos.",,
-67,1,,,La primera persona que diga el nombre completo de <pr> reparte 3 tragos.,,
-68,1,,,"La primera persona que responda, reparte 3 tragos: ¿Capital de Estados Unidos?",,
-69,1,,,"La primera persona que responda, reparte 3 tragos: ¿Capital de Canadá?",,
-70,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el presidente actual?",,
-71,1,,,"La primera persona que responda, reparte 3 tragos: ¿Qué mide más una milla o un kilómetro?",,
-72,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el río más largo del mundo?",,
-73,1,,,"La primera persona que responda, reparte 2 tragos: ¿Qué país tiene forma de bota?",,
-74,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuándo terminó la Segunda Guerra Mundial?",,
-75,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el nombre del primer ser vivo en el espacio?",,
-76,1,,,Quien sepa decir más decimales del número Pi reparte tantos tragos como decimales.,,
-77,1,,,"La primera persona que responda, reparte 3 tragos: ¿En qué año se descubrió América?",,
-78,1,,,Quién diga la palabra más larga reparte 3 tragos.,,
-79,1,,,Los que hagan años este mes reparten 2 tragos cada uno.,,
-80,1,,,La próxima persona que cumpla años reparte 3 tragos.,,
-81,1,,,El/la último en haber cumplido años reparte 3 tragos.,,
-82,1,,,Quien sacase más nota en selectividad reparte 2 tragos.,,
-83,2,,,Quién se acabe la copa antes decide una norma permanente. Quien la incumpla deberá beber.,,
-84,2,,,"Quien está leyendo reparte 5 tragos, gracias por ser la voz de Drink & Play.",,
-85,2,,,(Cantando) ¿Quién es? ... ¿Qué vienes a buscar? ... <br>Quien siga la canción reparte 3 tragos.,,
-86,1,,,La primera persona/a que diga la diferencia entre camello y dromedario correctamente reparte 1 trago.,,
+45,3,,,La primera persona en sacar un preservativo reparte 3 tragos.,First person to pull out a condom hands out 3 drinks.,La primera persona a treure un preservatiu reparteix 3 glops.
+46,2,,,"<pr> tararea una canción, si nadie la adivina bebes 3 tragos.","<pr> hum a song, if no one guesses you drink 3 drinks.","<pr> taral·leja una cançó, si ningú l'endevina beus 3 glops."
+47,1,,,Tira una bola de papel a un vaso ajeno. Si no aciertas bebes 3 tragos.,Throw a paper ball into someone else's glass. If you don't get it right you drink 3 drinks.,Tira una bola de paper a un got aliè. Si no encertes beus 3 glops.
+48,3,,,<pr> invéntate un nombre porno para <pr>.,<pr> make up a porn name for <pr>.,<pr> inventa't un nom porno per a <pr>.
+49,5,,,<pr> elige quién preferirías que se acostase con tu padre o madre.,<pr> choose who you would prefer to have sex with your father or mother.,<pr> tria qui preferiries que s'acostis amb el teu pare o mare.
+50,3,,,"<pr> escoge a un jugador al que matarías, uno que te follarías y uno con el que te casarías.","<pr> pick a player you would kill, one you would fuck and one you would marry.","<pr> escull un jugador que mataries, un que et follaries i un amb qui et casaries."
+51,1,,,La primera persona en decir en qué fecha estamos reparte 3 tragos.,The first person to say what date it is deals 3 drinks.,La primera persona a dir en quina data estem reparteix 3 glops.
+52,1,,,La primera persona en nombrar una canción de Imagine Dragons reparte 3 tragos.,The first person to name an Imagine Dragons song gives out 3 drinks.,La primera persona a nomenar una cançó d'Imagine Dragons reparteix 3 tragos.
+53,1,,,La primera persona en nombrar una canción de los Beatles reparte 3 tragos.,The first person to name a Beatles song gives out 3 drinks.,La primera persona a nomenar una cançó dels Beatles reparteix 3 tragos.
+54,1,,,La primera persona en tararear una obra de Mozart reparte 5 tragos.,First person to hum a Mozart piece deals 5 drinks.,La primera persona a taral·lejar una obra de Mozart reparteix 5 glops.
+55,1,,,<pr> nombra a 7 superhéroes o bebe 3 tragos.,<pr> name 7 superheroes or drink 3 drinks.,<pr> nomena 7 superherois o beu 3 glops.
+56,1,,,<pr> nombra un pokémon de tipo agua o bebe 3 tragos.,<pr> name a water-type pokémon or drink 3 drinks.,<pr> anomena un pokémon de tipus aigua o beu 3 glops.
+57,1,,,<pr> nombra 3 de los enanitos de blancanieves o bebe 3 tragos.,<pr> name 3 of the snow white dwarfs or drink 3 drinks.,<pr> nomena 3 dels nans de blancaneus o beu 3 glops.
+58,1,,,"<pr> si no te acuerdas de quién ha sido el último en ir a mear, bebes.","<pr> if you can't remember who peed last, you drink.","<pr> si no te'n recordes de qui ha estat l'últim a anar a pixar, beus."
+59,1,,,<pr> nombra a 3 boxeadores famosos o bebe 2 tragos.,<pr> name 3 famous boxers or drink 2 drinks.,<pr> nomena 3 boxejadors famosos o beu 2 glops.
+60,2,,,La primera persona que pise a <pr> reparte 3 tragos.,The first person to step on <pr> hands out 3 drinks.,La primera persona que trepitgi a <pr> reparteix 3 glops.
+61,1,,,"<pr>, ¿qué país ganó el último mundial de fútbol? Si te equivocas bebes 3 tragos.","<pr>, which country won the last world cup? If you're wrong you drink 3 drinks.","<pr>, quin país va guanyar el darrer mundial de futbol? Si t'equivoques beus 3 glops."
+62,1,,,La persona que hable más idiomas bebe tantos tragos como idiomas hable.,The person who speaks the most languages drinks as many drinks as languages spoken.,La persona que parli més idiomes beu tants glops com idiomes parli.
+63,2,,,<pr> elige a una persona. Esa persona tiene derecho a darte un bofetón en algún momento de la noche.,<pr> choose a person. That person has the right to slap you at some point in the night.,<pr> tria una persona. Aquesta persona té dret a donar-te una bufetada en algun moment de la nit.
+64,5,,,<pr> cuenta un fetiche tuyo o bebe 3 tragos.,<pr> tell a fetish of yours or drink 3 drinks.,<pr> explica un fetitxe teu o beu 5 glops.
+65,2,,,La primera persona que diga una frase para ligar reparte 3 tragos.,The first person to say a pickup line gives out 3 drinks.,La primera persona que digui una frase per lligar reparteix 3 glops.
+66,2,,,"Si hay alguien con los labios pintados, debe dejárselos marcados a otro jugador. Si no, beben 3 tragos.","If there is someone with lipstick, they must leave it on the lips of another player. If not, they drink 3 drinks.","Si hi ha algú amb els llavis pintats, cal deixar-los marcats a un altre jugador. Si no, beuen 3 glops."
+67,1,,,La primera persona que diga el nombre completo de <pr> reparte 3 tragos.,The first person to say <pr>'s full name deals 3 drinks.,La primera persona que digui el nom complet de <pr> reparteix 3 glops.
+68,1,,,"La primera persona que responda, reparte 3 tragos: ¿Capital de Estados Unidos?","The first person to answer, deals 3 drinks: U.S. capital?","La primera persona que respongui, reparteix 3 glops: Capital dels Estats Units?"
+69,1,,,"La primera persona que responda, reparte 3 tragos: ¿Capital de Canadá?","The first person to answer, deals 3 drinks: Capital of Canada?","La primera persona que respongui, reparteix 3 glops: Capital de Canadà?"
+70,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el presidente actual?","The first person to respond, hand out 3 drinks: What is the current president?","La primera persona que respongui, reparteix 3 glops: Quin és el president actual?"
+71,1,,,"La primera persona que responda, reparte 3 tragos: ¿Qué mide más una milla o un kilómetro?","The first person to answer, hand out 3 drinks: Which is longer than a mile or a kilometer?","La primera persona que respongui, reparteix 3 glops: Què fa més una milla o un quilòmetre?"
+72,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el río más largo del mundo?","The first person to respond, hand out 3 drinks: What is the longest river in the world?","La primera persona que respongui, reparteix 3 glops: Quin és el riu més llarg del món?"
+73,1,,,"La primera persona que responda, reparte 2 tragos: ¿Qué país tiene forma de bota?","The first person to answer, deals 2 drinks: Which country is shaped like a boot?","La primera persona que respongui, reparteix 2 glops: Quin país té forma de bota?"
+74,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuándo terminó la Segunda Guerra Mundial?",The first person to respond hands out 3 drinks: When did World War II end?,"La primera persona que respongui, reparteix 3 glops: Quan va acabar la Segona Guerra Mundial?"
+75,1,,,"La primera persona que responda, reparte 3 tragos: ¿Cuál es el nombre del primer ser vivo en el espacio?","The first person to answer, give out 3 drinks: What is the name of the first living thing in space?","La primera persona que respongui, reparteix 3 glops: Quin és el nom del primer ésser viu a l'espai?"
+76,1,,,Quien sepa decir más decimales del número Pi reparte tantos tragos como decimales.,Whoever can say the most decimals of the number Pi gives out as many drinks as decimals.,Qui sàpiga dir més decimals del número Pi reparteix tants glops com decimals.
+77,1,,,"La primera persona que responda, reparte 3 tragos: ¿En qué año se descubrió América?",The first person to answer gives 3 drinks: In what year was America discovered?,"La primera persona que respongui, reparteix 3 glops: Quin any es va descobrir Amèrica?"
+78,1,,,Quién diga la palabra más larga reparte 3 tragos.,Whoever says the longest word gets 3 drinks.,Qui digui la paraula més llarga reparteix 3 glops.
+79,1,,,Los que hagan años este mes reparten 2 tragos cada uno.,Those who have a birthday this month give out 2 drinks each.,Els que facin anys aquest mes reparteixen 2 glops cadascun.
+80,1,,,La próxima persona que cumpla años reparte 3 tragos.,The next person to have a birthday gives out 3 drinks.,La propera persona que faci anys reparteix 3 glops.
+81,1,,,El/la último en haber cumplido años reparte 3 tragos.,The last person to have a birthday gives out 3 drinks.,L'últim en haver complert anys reparteix 3 glops.
+82,1,,,Quien sacase más nota en selectividad reparte 2 tragos.,Whoever gets the highest grade in the university entrance exams gives out 2 drinks.,Qui en tregui més nota en selectivitat reparteix 2 glops.
+83,2,,,Quién se acabe la copa antes decide una norma permanente. Quien la incumpla deberá beber.,Whoever finishes the drink first decides on a standing rule. Whoever breaks it must drink.,Qui s'acabi la copa abans decideix una norma permanent. Qui la incompleixi haurà de beure.
+84,2,,,"Quien está leyendo reparte 5 tragos, gracias por ser la voz de Drink & Play.","Whoever is reading this gets 5 drinks, thank you for being the voice of Drink & Play.","Qui està llegint reparteix 5 glops, gràcies per ser la veu de Drink & Play."
+85,2,,,(Cantando) ¿Quién es? ... ¿Qué vienes a buscar? ... <br>Quien siga la canción reparte 3 tragos.,(Singing) Who is it? ... What are you here for? ... <br>Whoever follows the song gives out 3 drinks.,(Cantant) Qui és? ... Què véns a cercar? ... <br>Qui segueixi la cançó reparteix 3 glops.
+86,1,,,La primera persona/a que diga la diferencia entre camello y dromedario correctamente reparte 1 trago.,The first person to correctly tell the difference between camel and dromedary distributes 1 drink.,La primera persona que digui la diferència entre camell i dromedari correctament reparteix 1 glop.
 87,5,,,La primera persona en nombrar un club swinger reparte 3 tragos.,The first person to name a swinger club hands out 3 drinks.,La primera persona a nomenar un club swinger reparteix 3 glops.
 88,5,,,Las dos primeras personas en recrear la postura del perrito reparten 3 tragos.,The first two people to recreate the doggie pose hand out 3 drinks.,Les dues primeres persones a recrear la postura del gosset reparteixen 3 glops.
 89,2,,,<pr> bebe tantos tragos como chats tengas sin responder,<pr> drink as many drinks as you have unanswered chats,<pr> beu tants glops com xats tinguis sense respondre
 90,2,,,"<pr> grita ""¡Voy a tener un hijo con mi hermano/a!"" o te terminas la copa","<pr> scream, ""I'm gonna have a kid with my sister/brother!"" or you finish your drink.","<pr> crida ""Tindré un fill amb el meu germà/na!"" o t'acabes la copa."
-91,4,,,Quien tenga la copa más vacía se la tiene que acabar,,
-92,4,,,<pr> lánzale un mechero a alguien por el escote. Si se lo quitas con la boca repartes 3 tragos.,,
-93,3,,,AAahhhy! zphhoooL! hkhhGO! Todos bebéis 2 tragos.,,
+91,4,,,Quien tenga la copa más vacía se la tiene que acabar,Whoever has the emptiest cup has to finish it.,Qui tingui la copa més buida se l'ha d'acabar
+92,4,,,<pr> lánzale un mechero a alguien por el escote. Si se lo quitas con la boca repartes 3 tragos.,<pr> throw a lighter down one' If you take it away with your mouth you distribute 3 drinks.,<pr> llança-li un encenedor a algú per l'escot. Si li treus amb la boca reparteixes 3 glops.
+93,3,,,AAahhhy! zphhoooL! hkhhGO! Todos bebéis 2 tragos.,AAahhhy! zphhoooL! hkhhGO! All of you drink 2 shots.,AAahhhy! zphhoooL! hkhhGO! Tots bebeu dos glops.
+94,4,,,"<pr> grita ""¡Me cago encima!"" y sal corriendo o bebe 3 tragos.","<pr> yell ""I shit myself!"" and run away or take 3 drinks.","<pr> crida ""Em cago a sobre!"" i surt corrent o beu 3 glops."

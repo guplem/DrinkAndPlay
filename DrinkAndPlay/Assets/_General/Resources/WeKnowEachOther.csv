@@ -14,7 +14,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 13,2,,,¿<p> besaría la bandera española a cambio de una bolsa de pistachos?,Would <p> kiss the Spanish flag in exchange for a bag of pistachios?,El/la <p> besaria la bandera espanyola a canvi d'una bossa de festuc?
 14,5,,,¿<p> preguntaría en una sex-shop si le dejan probar distintos tamaños de consolador?,Would <p> ask if they would let him try different sizes of dildos in a sex shop?,El/la <p> preguntaria en una sex-shop si li deixen provar diferents mides de consolador?
 15,3,,,¿<p> se haría pasar por mercenario para tener sexo?,Would <p> impersonate a mercenary to get laid?,El/la <p> es faria passar per mercenari per fer sexe?
-16,5,,,¿<p> tiene el pene pequeño o el coño apretado?,Does <p> have a small penis?,El/la <p> té el penis petit?
+16,5,,,¿<p> tiene el pene pequeño o el coño apretado?,Doees <p> have a small penis or a tight pussy?,El/la <p> té el penis petit o el cony apretat?
 17,2,,,¿<p> mentiría sobre su riqueza para tener sexo?,Would <p> lie about their wealth to get laid?,El/la <p> mentiria sonbre la seva riquesa per tenir sexe?
 18,2,,,¿<p> mentiría sobre su edad para tener sexo?,Would <p> lie about their age to have sex?,El/la <p> mentiria sobre la seva edat per tenir sexe?
 19,2,,,¿<p> mentiría sobre su orientación sexual para conseguir algo?,Would <p> lie about their sexual orientation to get something?,El/la <p> mentiria sobre la seva orientació sexual per aconseguir alguna cosa?
@@ -48,7 +48,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 47,4,,,¿<p> se atrevería a probar las setas en un espacio público?,Would <p> dare to try mushrooms in a public space?,El/la <p> s'atreviria a provar els bolets en un espai públic?
 48,4,,,¿<p> probaría LSD?,Would <p> try LSD?,El/la <p> provaria LSD?
 49,3,,,¿<p> se enamoraría de alguien menor de edad?,Would <p> fall in love with someone underage?,El/la <p> s'enamoraria d'algú menor d'edat?
-50,3,,,¿<p> se enamoraría de alguien 10 años mayor?,Would <p> fall in love with someone 10 years older?,El/la <p> s'enamoraria d'algú 10 anys més gran?
+50,3,,,¿<p> tendría algo con alguien 10 años mayor?,Would <p> have something with someone 10 years older?,El/la <p> tindria alguna cosa amb algú 10 anys més gran?
 51,1,,,¿<p> bebe cerveza a morro?,Does <p> drink beer from the bottle?,El/la <p> beu cervesa a morro?
 52,1,,,¿<p> comería comida que ha estado más de 3 segundos en el suelo?,Would <p> eat food that has been on the floor for more than 3 seconds?,El/la <p> menjaria menjar que ha estat més de 3 segons a terra?
 53,4,,,¿<p> aliviaría el dolor de una ruptura con alcohol?,Would <p> ease his/her the pain of a break up through alcohol?,El/la <p> alleujaria el dolor d'una ruptura amb alcohol?
@@ -130,7 +130,7 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 129,1,,,¿<p> prefiere dulce a salado?,Does <p> prefer sweet over salty?,El/la <p> prefereix dolç a salat?
 130,2,,,¿<p> sigue el lema de bros before hoes?,"Does <p> respect the motto ""bros before hoes""?","El/la <p> segueix el lema de ""bros before hoes""?"
 131,2,,,¿<p> tiene pene tamaño XXL?,Does <p> have an XXL-sized penis?,El/la <p> té penis mida XXL?
-132,3,,,¿A <p> se le ha quedado pequeño un condón?,Has a condom ever been too small for <p>?,El/la <p> ha follat amb un confó massa petit?
+132,3,,,¿<p> no ha podido follar porque no había condones de la talla adecuada?,<p> couldn't have sex because there were no condoms in the right size?,El/la <p> no ha pogut cardar perquè no hi havia condons de la talla adequada?
 133,3,,,¿<p> ha roto un condón?,Has <p> ever broken a condom?,A en/la <p> se li ha trencat un condó?
 134,2,,,¿<p> ha comprado condones en la gasolinera?,Has <p> ever bought condoms at a petrol station?,El/la <p> ha comprat condons a la gasolinera?
 135,3,,,¿<p> ha probado la corrida?,Has <p> ever tasted cum?,El/la <p> ha provat la correguda?
@@ -145,5 +145,5 @@ Id,Naughtiness,Author,SpecialOptions,es-es,en-us,ca
 144,4,,,¿<p> ha vendido hierba?,Has <p> ever sold weed?,El/la <p> ha venut herba?
 145,1,Buri,,¿<p> ha pedido una canción en la radio?,Has <p> ever asked for a song in the radio?> A> Buri <a <,El/la <p> ha demanat una cançó a la ràdio?> A> Buri <a <
 146,2,,,¿<p> ha pedido un DNI para poder entrar en algún local?,Has <p> ever asked for someone's ID to enter a club?,El/la <p> ha demanat un DNI per a poder entrar en algun local?
-147,3,Pepe,,¿<p> tiene los pezones más grandes que <pr>?,,
-148,1,,,¿<p> habla 3 o más idiomas?,,
+147,3,Pepe,,¿<p> tiene los pezones más grandes que <pr>?,Does <p> have bigger nipples than <pr>?,<p> té els mugrons més grans que <pr>?
+148,1,,,¿<p> habla 3 o más idiomas?,Does <p> speak 3 or more languages?,¿<p> habla 4 o más idiomas?

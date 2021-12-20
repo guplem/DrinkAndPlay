@@ -52,7 +52,7 @@ public class ErrorsMenu : MonoBehaviour
 
     public void SendForm()
     {
-        ForceSendForm("ERROR", GetMessage(), SectionManager.instance.section.ToString());
+        ForceSendForm("ERROR", GetMessage(), GameManager.instance.dataManager.author);
         
         ClearToggles();
         
@@ -61,15 +61,17 @@ public class ErrorsMenu : MonoBehaviour
 
     private string GetMessage()
     {
-        string message = "";
+        string message = "Error type: ";
 
-        if (typo) message += "TYPO, "; else
-        if (offensive) message += "OFFENSIVE, "; else
-        if (nonInclusive) message += "NON-INCLUSIVE, "; else
-        if (other) message += "OTHER, "; else
-            message += "UNDEFINED, ";
+        if (typo) message += "TYPO"; else
+        if (offensive) message += "OFFENSIVE"; else
+        if (nonInclusive) message += "NON-INCLUSIVE"; else
+        if (other) message += "OTHER"; else
+            message += "NOT_SELECTED";
+        message += "\n";
+        
         if (currentTextOfError != null) 
-            message += $"Language: {GameManager.instance.dataManager.language}, Localized Text: {currentTextOfError.localizedText}, Localization File: {currentTextOfError.localizationFile}.";
+            message += $"Language: {GameManager.instance.dataManager.language}\nLocalization File: {currentTextOfError.localizationFile}\nLocalized Text: {currentTextOfError.localizedText}\nSection: {SectionManager.instance.section.ToString()}";
 
         return message;
     }

@@ -66,16 +66,16 @@ public class FeedbackMenu : MonoBehaviour
         switch (feedbackType)
         {
             case FeedbackType.General:
-                this.theme = "General";
+                this.theme = "General_FeedbackForm";
                 topBarText.Localize("Feedback");
                 break;
             case FeedbackType.Game:
                 topBarText.Localize("SendGame");
-                this.theme = "Game";
+                this.theme = "New_Game";
                 break;
             case FeedbackType.Drink:
                 topBarText.Localize("SendDrink");
-                this.theme = "Drink";
+                this.theme = "New_Drink";
                 break;
         }
 
@@ -131,19 +131,24 @@ public class FeedbackMenu : MonoBehaviour
 
         
         string sentenceId = "";
+        string senteceLocFile = "";
+        string infoAboutDisplayedSentence = "";
         try
         {
             TurnsGameManager turnsGameManager = (TurnsGameManager) SectionManager.instance;
             sentenceId= turnsGameManager.gameCard.textInCard.localizedText.id;
+            senteceLocFile = turnsGameManager.gameCard.textInCard.localizationFile.ToString();
+            infoAboutDisplayedSentence += $"\n\n\nDisplayed sentence: '{turnsGameManager.gameCard.textInCard.localizedText.text}'";
         }
         catch (Exception)
         {
             // ignored
         }
 
-        string themeSent = $"{this.theme} ({GameManager.instance.dataManager.language}, id: {sentenceId})";
+        string themeSent = $"{this.theme} ({GameManager.instance.dataManager.language}, id: {sentenceId}, Localization File: {senteceLocFile})";
+        string messageSent = message + infoAboutDisplayedSentence;
         //StartCoroutine(Post(theme, message, GameManager.instance.dataManager.author));
-        ForceSendForm(themeSent, message, GameManager.instance.dataManager.author);
+        ForceSendForm(themeSent, messageSent, GameManager.instance.dataManager.author);
         
         //messageInputField.onEndEdit.Invoke(messageInputField.text);
         messageInputField.text = "";
